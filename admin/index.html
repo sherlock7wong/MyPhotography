@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SherlockWonG 后台管理</title>
+    <link rel="stylesheet" href="/admin/admin.css?v=20260516-supabase" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script src="/src/supabase-config.js?v=20260516-supabase" defer></script>
+    <script src="/src/content-api.js?v=20260516-supabase" defer></script>
+    <script src="/admin/admin.js?v=20260516-supabase" defer></script>
+  </head>
+  <body>
+    <main class="admin-shell">
+      <section class="login-panel" data-login-view>
+        <p class="eyebrow">SherlockWonG 后台</p>
+        <h1>内容管理中心</h1>
+        <form class="login-form" data-login-form>
+          <label>
+            用户名
+            <input name="username" autocomplete="username" required />
+          </label>
+          <label>
+            密码
+            <input name="password" type="password" autocomplete="current-password" required />
+          </label>
+          <button type="submit">登录</button>
+          <p class="status" data-login-status></p>
+        </form>
+      </section>
+
+      <section class="editor-panel is-hidden" data-editor-view>
+        <header class="editor-header">
+          <div>
+            <p class="eyebrow">已登录</p>
+            <h1>网站内容编辑</h1>
+          </div>
+          <div class="header-actions">
+            <a href="/" target="_blank" rel="noreferrer">查看网站</a>
+            <button type="button" data-save>保存全部</button>
+            <button type="button" data-logout>退出登录</button>
+          </div>
+        </header>
+
+        <div class="page-tabs" data-page-tabs aria-label="Editable pages"></div>
+        <div class="editor-grid" data-editor-grid></div>
+        <p class="status" data-editor-status></p>
+      </section>
+    </main>
+  </body>
+</html>

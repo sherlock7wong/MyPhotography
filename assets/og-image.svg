@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">SherlockWonG Open Graph image</title>
+  <desc id="desc">Open Graph placeholder for SherlockWonG photography portfolio.</desc>
+  <rect width="1200" height="630" fill="#f7f4ef"/>
+  <rect x="62" y="62" width="1076" height="506" fill="#171717"/>
+  <rect x="710" y="118" width="346" height="394" fill="#2f4d43"/>
+  <circle cx="884" cy="315" r="92" fill="#9a5f36"/>
+  <text x="118" y="278" fill="#f7f4ef" font-family="Arial, sans-serif" font-size="72" font-weight="700">SherlockWonG</text>
+  <text x="124" y="360" fill="#d9d1c5" font-family="Arial, sans-serif" font-size="34">Photographer in China</text>
+  <path d="M124 420h362" stroke="#f7f4ef" stroke-width="4"/>
+</svg>

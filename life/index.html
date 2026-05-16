@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Life - SherlockWonG</title>
+    <meta name="description" content="Life photography portfolio by SherlockWonG." />
+    <meta property="og:title" content="Life - SherlockWonG" />
+    <meta property="og:description" content="Life photography portfolio by SherlockWonG." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/assets/og-image.svg" />
+    <link rel="icon" href="/assets/og-image.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/src/styles.css?v=20260516-supabase" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script src="/src/supabase-config.js?v=20260516-supabase" defer></script>
+    <script src="/src/content-api.js?v=20260516-supabase" defer></script>
+    <script src="/src/main.js?v=20260516-supabase" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" data-header>
+      <a class="brand" href="/" aria-label="SherlockWonG home"><span data-edit-key="brand">SherlockWonG</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+        <span class="sr-only">Open navigation</span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+        <a href="/portrait/" data-edit-key="navPortrait">Portrait</a>
+        <a href="/landscape/" data-edit-key="navLandscape">Landscape</a>
+        <a href="/life/" data-edit-key="navLife">Life</a>
+        <a href="/cityscape/" data-edit-key="navCityscape">CityScape</a>
+        <a class="nav-feature" href="/#about" data-edit-key="navAbout">About</a>
+      </nav>
+    </header>
+    <main class="category-main" id="main">
+      <section class="section-shell category-hero" aria-labelledby="category-title">
+        <div class="category-title">
+          <p class="eyebrow" data-page-edit-key="eyebrow">Life</p>
+          <h1 id="category-title">
+            <span data-page-edit-key="titleLine1">Daily scenes</span>
+            <span data-page-edit-key="titleLine2">with lasting weight.</span>
+          </h1>
+        </div>
+        <aside class="category-summary" aria-label="Life summary">
+          <p data-page-edit-key="summary">生活作品记录日常片段、旅途中偶遇、室内细节和私人视觉档案，让普通时刻保留安静的重量。</p>
+        </aside>
+      </section>
+      <section class="section-shell collection-section" aria-label="Life collections">
+        <div class="collection-grid" data-collection-grid>
+          <article class="collection-card" data-window-id="life-01"><span>Life 01</span><strong>Morning table</strong></article>
+          <article class="collection-card" data-window-id="life-02"><span>Life 02</span><strong>Passing room</strong></article>
+          <article class="collection-card" data-window-id="life-03"><span>Life 03</span><strong>Slow street</strong></article>
+          <article class="collection-card" data-window-id="life-04"><span>Life 04</span><strong>Small weather</strong></article>
+          <article class="collection-card" data-window-id="life-05"><span>Life 05</span><strong>Warm corner</strong></article>
+          <article class="collection-card" data-window-id="life-06"><span>Life 06</span><strong>Evening trace</strong></article>
+          <article class="collection-card" data-window-id="life-07"><span>Life 07</span><strong>Private note</strong></article>
+          <article class="collection-card" data-window-id="life-08"><span>Life 08</span><strong>Paper light</strong></article>
+          <article class="collection-card" data-window-id="life-09"><span>Life 09</span><strong>Quiet habit</strong></article>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="footer-info">
+        <p>&copy; <span data-year></span> <span data-edit-key="footerCopyright">SherlockWonG. Photography portfolio.</span></p>
+        <a href="mailto:Sherlock7.wong@gmail.com" data-edit-key="footerEmail" data-edit-mail-key="footerEmail">Sherlock7.wong@gmail.com</a>
+      </div>
+      <a class="footer-top" href="/" data-edit-key="footerHomeLabel">Home</a>
+    </footer>
+  </body>
+</html>

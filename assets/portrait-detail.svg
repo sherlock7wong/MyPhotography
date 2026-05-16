@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1080" role="img" aria-labelledby="title desc">
+  <title id="title">Profile detail placeholder</title>
+  <desc id="desc">Abstract profile detail image placeholder.</desc>
+  <rect width="1000" height="1080" fill="#171717"/>
+  <rect x="82" y="82" width="836" height="916" fill="#f7f4ef" opacity="0.08"/>
+  <circle cx="510" cy="386" r="178" fill="#d9d1c5"/>
+  <rect x="292" y="562" width="436" height="330" rx="218" fill="#2f4d43"/>
+  <path d="M162 156h230M162 208h142M670 912h166" stroke="#f7f4ef" stroke-width="8" opacity="0.34"/>
+  <text x="92" y="990" fill="#f7f4ef" font-family="Arial, sans-serif" font-size="30" font-weight="700">PROFILE IMAGE PLACEHOLDER</text>
+</svg>

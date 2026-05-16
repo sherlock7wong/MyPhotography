@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Portrait placeholder</title>
+  <desc id="desc">Abstract portrait photography placeholder.</desc>
+  <rect width="1200" height="900" fill="#d9d1c5"/>
+  <rect x="0" y="0" width="420" height="900" fill="#2f4d43"/>
+  <circle cx="520" cy="332" r="132" fill="#171717" opacity="0.78"/>
+  <rect x="382" y="472" width="286" height="326" rx="142" fill="#9a5f36" opacity="0.84"/>
+  <rect x="756" y="110" width="276" height="620" fill="#f7f4ef" opacity="0.5"/>
+  <path d="M158 176h220M158 226h160M790 786h250" stroke="#171717" stroke-width="8" opacity="0.28"/>
+  <text x="64" y="816" fill="#f7f4ef" font-family="Arial, sans-serif" font-size="32" font-weight="700">PORTRAIT PLACEHOLDER</text>
+</svg>

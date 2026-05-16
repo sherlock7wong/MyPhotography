@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SherlockWonG - Photographer in China</title>
+    <meta
+      name="description"
+      content="SherlockWonG is a photographer based in China, creating restrained, narrative photography for portraits, city stories, and brand images."
+    />
+    <meta name="author" content="SherlockWonG" />
+    <meta property="og:title" content="SherlockWonG - Photographer in China" />
+    <meta
+      property="og:description"
+      content="Original photography portfolio for portraits, city stories, and personal visual archives."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/og-image.svg" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SherlockWonG - Photographer in China" />
+    <meta name="twitter:description" content="A focused personal homepage for SherlockWonG, photographer based in China." />
+    <meta name="twitter:image" content="assets/og-image.svg" />
+    <link rel="icon" href="assets/og-image.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/src/styles.css?v=20260516-supabase" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script src="/src/supabase-config.js?v=20260516-supabase" defer></script>
+    <script src="/src/content-api.js?v=20260516-supabase" defer></script>
+    <script src="/src/main.js?v=20260516-supabase" defer></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "SherlockWonG",
+        "jobTitle": "Photographer",
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "CN"
+        },
+        "description": "Photography portfolio by SherlockWonG, a photographer based in China."
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" data-header>
+      <a class="brand" href="/" aria-label="SherlockWonG home">
+        <span data-edit-key="brand">SherlockWonG</span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+        <span class="sr-only">Open navigation</span>
+      </button>
+
+      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+        <a href="/portrait/" data-edit-key="navPortrait">Portrait</a>
+        <a href="/landscape/" data-edit-key="navLandscape">Landscape</a>
+        <a href="/life/" data-edit-key="navLife">Life</a>
+        <a href="/cityscape/" data-edit-key="navCityscape">CityScape</a>
+        <a class="nav-feature" href="#about" data-edit-key="navAbout">About</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero section-shell" id="top" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <h1 id="hero-title">
+            <span data-edit-key="heroLine1">SherlockWonG</span>
+            <span data-edit-key="heroLine2">photographs quiet</span>
+            <span data-edit-key="heroLine3">human moments.</span>
+          </h1>
+          <p class="lead" data-edit-key="heroLead">
+            Photography for portraits, urban stories, personal archives, and selective brand visuals. The work focuses on
+            composition, atmosphere, and images that stay useful after the first impression.
+          </p>
+          <div class="hero-actions" aria-label="Primary actions">
+            <a class="button button-primary" href="/portrait/" data-edit-key="primaryButtonText" data-edit-href-key="primaryButtonHref">View selected work</a>
+            <a class="button button-secondary" href="mailto:Sherlock7.wong@gmail.com" data-edit-key="secondaryButtonText" data-edit-href-key="secondaryButtonHref">Start a shoot brief</a>
+          </div>
+        </div>
+
+        <figure class="hero-visual">
+          <img src="assets/hero-placeholder.svg" alt="Placeholder for SherlockWonG signature hero photograph" data-edit-src-key="heroImage" data-edit-alt-key="heroImageAlt" />
+        </figure>
+      </section>
+
+      <section class="section-shell intro-strip" aria-label="Portfolio summary">
+        <p data-edit-key="quote">You don't take a photograph, you make it. - Ansel Adams</p>
+      </section>
+
+      <section class="section-shell work-section" id="portfolio" aria-labelledby="work-title">
+        <div class="section-heading">
+          <p class="eyebrow" data-edit-key="workEyebrow">Selected work</p>
+          <h2 id="work-title" data-edit-key="workTitle">Portfolio exhibition windows.</h2>
+        </div>
+
+        <div class="filter-bar" aria-label="Filter portfolio items">
+          <button class="filter-button is-active" type="button" data-filter="all" data-edit-key="filterAll">All</button>
+          <a class="filter-button" href="/portrait/" data-filter="portrait" data-edit-key="filterPortrait">Portrait</a>
+          <a class="filter-button" href="/cityscape/" data-filter="city" data-edit-key="filterCity">City</a>
+          <a class="filter-button" href="/landscape/" data-filter="landscape" data-edit-key="filterLandscape">Landscape</a>
+        </div>
+
+        <div class="work-grid" aria-label="Portfolio exhibition windows" data-home-portfolio>
+          <article class="work-card" id="portrait" data-window-id="home-01" data-category="portrait" aria-label="Portrait portfolio window"></article>
+          <article class="work-card" id="landscape" data-window-id="home-02" data-category="landscape" aria-label="Landscape portfolio window"></article>
+          <article class="work-card" id="cityscape" data-window-id="home-03" data-category="city" aria-label="CityScape portfolio window"></article>
+          <article class="work-card" id="life" data-window-id="home-04" data-category="portrait" aria-label="Life portfolio window"></article>
+          <article class="work-card" data-window-id="home-05" data-category="city" aria-label="Portfolio window"></article>
+          <article class="work-card" data-window-id="home-06" data-category="landscape" aria-label="Portfolio window"></article>
+          <article class="work-card" data-window-id="home-07" data-category="portrait" aria-label="Portfolio window"></article>
+          <article class="work-card" data-window-id="home-08" data-category="landscape" aria-label="Portfolio window"></article>
+          <article class="work-card" data-window-id="home-09" data-category="city" aria-label="Portfolio window"></article>
+          <article class="work-card" data-window-id="home-10" data-category="portrait" aria-label="Portfolio window"></article>
+          <article class="work-card" data-window-id="home-11" data-category="city" aria-label="Portfolio window"></article>
+          <article class="work-card" data-window-id="home-12" data-category="landscape" aria-label="Portfolio window"></article>
+          <article class="work-card" data-window-id="home-13" data-category="portrait" aria-label="Portfolio window"></article>
+          <article class="work-card" data-window-id="home-14" data-category="landscape" aria-label="Portfolio window"></article>
+          <article class="work-card" data-window-id="home-15" data-category="city" aria-label="Portfolio window"></article>
+          <article class="work-card" data-window-id="home-16" data-category="portrait" aria-label="Portfolio window"></article>
+          <article class="work-card" data-window-id="home-17" data-category="city" aria-label="Portfolio window"></article>
+          <article class="work-card" data-window-id="home-18" data-category="landscape" aria-label="Portfolio window"></article>
+        </div>
+      </section>
+
+      <section class="section-shell about-section" id="about" aria-labelledby="about-title">
+        <div class="about-image">
+          <img src="assets/portrait-detail.svg" alt="Placeholder detail image for SherlockWonG profile" loading="lazy" data-edit-src-key="aboutImage" data-edit-alt-key="aboutImageAlt" />
+        </div>
+        <div class="about-copy">
+          <p class="eyebrow" data-edit-key="aboutEyebrow">About SherlockWonG</p>
+          <h2 id="about-title" data-edit-key="aboutTitle">PhotoGraphy as a disciplined way to notice.</h2>
+          <p data-edit-key="aboutBody1">
+            I am a photographer based in China. This homepage is built around a simple promise: fewer distractions,
+            stronger frames, and a clear way for viewers or collaborators to understand the work quickly.
+          </p>
+          <p data-edit-key="aboutBody2">
+            The current copy is intentionally concise. When real portfolio details are ready, this area should mention
+            your strongest subjects, service regions, collaboration style, and any public exhibitions or clients.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-info">
+        <p>&copy; <span data-year></span> <span data-edit-key="footerCopyright">SherlockWonG. Photography portfolio.</span></p>
+        <a href="mailto:Sherlock7.wong@gmail.com" data-edit-key="footerEmail" data-edit-mail-key="footerEmail">Sherlock7.wong@gmail.com</a>
+      </div>
+      <a class="footer-top" href="#top" data-edit-key="footerBackLabel">Back to top</a>
+    </footer>
+  </body>
+</html>

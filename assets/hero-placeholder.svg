@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" role="img" aria-labelledby="title desc">
+  <title id="title">Hero photograph placeholder</title>
+  <desc id="desc">A calm abstract placeholder for a signature photography image.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#e8e1d5"/>
+      <stop offset="0.42" stop-color="#aeb9b6"/>
+      <stop offset="1" stop-color="#1c2424"/>
+    </linearGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 0.14"/>
+      </feComponentTransfer>
+    </filter>
+  </defs>
+  <rect width="1200" height="1500" fill="url(#sky)"/>
+  <rect y="930" width="1200" height="570" fill="#151716" opacity="0.86"/>
+  <rect x="96" y="120" width="380" height="560" fill="#f7f4ef" opacity="0.16"/>
+  <rect x="752" y="222" width="260" height="780" fill="#9a5f36" opacity="0.42"/>
+  <path d="M0 838c210-70 386-98 528-83 165 17 264 93 420 106 93 8 177-9 252-34v673H0z" fill="#2f4d43" opacity="0.66"/>
+  <circle cx="278" cy="396" r="74" fill="#f7f4ef" opacity="0.88"/>
+  <rect x="74" y="74" width="1052" height="1352" fill="none" stroke="#f7f4ef" stroke-width="2" opacity="0.48"/>
+  <text x="96" y="1358" fill="#f7f4ef" font-family="Arial, sans-serif" font-size="34" font-weight="700">REPLACE WITH SIGNATURE PHOTO</text>
+  <rect width="1200" height="1500" filter="url(#grain)" opacity="0.38"/>
+</svg>

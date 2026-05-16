@@ -1,0 +1,406 @@
+{
+  "site": {
+    "brand": "SherlockWonG",
+    "navPortrait": "Portrait",
+    "navLandscape": "Landscape",
+    "navLife": "Life",
+    "navCityscape": "CityScape",
+    "navAbout": "About",
+    "heroLine1": "SherlockWonG",
+    "heroLine2": "photographs quiet",
+    "heroLine3": "human moments.",
+    "heroLead": "Photography for portraits, urban stories, personal archives, and selective brand visuals. The work focuses on composition, atmosphere, and images that stay useful after the first impression.",
+    "primaryButtonText": "View selected work",
+    "primaryButtonHref": "/portrait/",
+    "secondaryButtonText": "Start a shoot brief",
+    "secondaryButtonHref": "mailto:Sherlock7.wong@gmail.com",
+    "heroImage": "/uploads/1778604247764-9221b8552986b5f1.png",
+    "heroImageAlt": "Placeholder for SherlockWonG signature hero photograph",
+    "quote": "You don't take a photograph, you make it. - Ansel Adams",
+    "workEyebrow": "Selected work",
+    "workTitle": "Portfolio exhibition windows.",
+    "filterAll": "All",
+    "filterPortrait": "Portrait",
+    "filterCity": "City",
+    "filterLandscape": "Landscape",
+    "aboutImage": "/uploads/1778604259155-f5821856ce4a555c.png",
+    "aboutImageAlt": "Placeholder detail image for SherlockWonG profile",
+    "aboutEyebrow": "About SherlockWonG",
+    "aboutTitle": "PhotoGraphy as a disciplined way to notice.",
+    "aboutBody1": "I am a photographer based in China. This homepage is built around a simple promise: fewer distractions, stronger frames, and a clear way for viewers or collaborators to understand the work quickly.",
+    "aboutBody2": "The current copy is intentionally concise. When real portfolio details are ready, this area should mention your strongest subjects, service regions, collaboration style, and any public exhibitions or clients.",
+    "footerCopyright": "SherlockWonG. Photography portfolio.",
+    "footerEmail": "Sherlock7.wong@gmail.com",
+    "footerBackLabel": "Back to top",
+    "footerHomeLabel": "Home",
+    "heroCaptionNumber": "01",
+    "heroCaptionTitle": "Signature frame",
+    "heroCaptionText": "Replace with one strong horizontal or vertical image that defines your style."
+  },
+  "pageMeta": {
+    "portrait": {
+      "eyebrow": "Portrait",
+      "titleLine1": "Portrait studies",
+      "titleLine2": "with quiet tension.",
+      "summary": "Portrait work focuses on quiet character, available light, restrained direction, and human presence.",
+      "tags": []
+    },
+    "landscape": {
+      "eyebrow": "Landscape",
+      "titleLine1": "Open fields,",
+      "titleLine2": "controlled silence.",
+      "summary": "Landscape work studies terrain, distance, weather, and the quiet structure of natural light.",
+      "tags": []
+    },
+    "life": {
+      "eyebrow": "Life",
+      "titleLine1": "Daily scenes",
+      "titleLine2": "with lasting weight.",
+      "summary": "Personal works document fragments of daily life, chance encounters during travels, interior details, and a private visual archive—allowing ordinary moments to retain a quiet weight.",
+      "tags": []
+    },
+    "cityscape": {
+      "eyebrow": "CityScape",
+      "titleLine1": "Urban forms",
+      "titleLine2": "after the noise.",
+      "summary": "CityScape work captures architecture, street rhythm, night surfaces, and the geometry of urban space.",
+      "tags": []
+    }
+  },
+  "home": [
+    {
+      "id": "home-01",
+      "title": "Home window 01",
+      "category": "portrait",
+      "image": "/uploads/1778406775166-5d32df7ecb8d6033.png"
+    },
+    {
+      "id": "home-02",
+      "title": "Home window 02",
+      "category": "landscape",
+      "image": "/uploads/1778406778385-f5124ff9425e9d39.png"
+    },
+    {
+      "id": "home-03",
+      "title": "Home window 03",
+      "category": "city",
+      "image": "/uploads/1778406781026-dda76fbea13dbeb4.png"
+    },
+    {
+      "id": "home-04",
+      "title": "Home window 04",
+      "category": "portrait",
+      "image": ""
+    },
+    {
+      "id": "home-05",
+      "title": "Home window 05",
+      "category": "city",
+      "image": ""
+    },
+    {
+      "id": "home-06",
+      "title": "Home window 06",
+      "category": "landscape",
+      "image": ""
+    },
+    {
+      "id": "home-07",
+      "title": "Home window 07",
+      "category": "portrait",
+      "image": ""
+    },
+    {
+      "id": "home-08",
+      "title": "Home window 08",
+      "category": "landscape",
+      "image": ""
+    },
+    {
+      "id": "home-09",
+      "title": "Home window 09",
+      "category": "city",
+      "image": ""
+    },
+    {
+      "id": "home-10",
+      "title": "Home window 10",
+      "category": "portrait",
+      "image": ""
+    },
+    {
+      "id": "home-11",
+      "title": "Home window 11",
+      "category": "city",
+      "image": ""
+    },
+    {
+      "id": "home-12",
+      "title": "Home window 12",
+      "category": "landscape",
+      "image": ""
+    },
+    {
+      "id": "home-13",
+      "title": "Home window 13",
+      "category": "portrait",
+      "image": ""
+    },
+    {
+      "id": "home-14",
+      "title": "Home window 14",
+      "category": "landscape",
+      "image": ""
+    },
+    {
+      "id": "home-15",
+      "title": "Home window 15",
+      "category": "city",
+      "image": ""
+    },
+    {
+      "id": "home-16",
+      "title": "Home window 16",
+      "category": "portrait",
+      "image": ""
+    },
+    {
+      "id": "home-17",
+      "title": "Home window 17",
+      "category": "city",
+      "image": ""
+    },
+    {
+      "id": "home-18",
+      "title": "Home window 18",
+      "category": "landscape",
+      "image": ""
+    }
+  ],
+  "pages": {
+    "portrait": [
+      {
+        "id": "portrait-01",
+        "label": "Portrait 01",
+        "title": "Still face",
+        "image": "/uploads/1778406794322-495f449e423916fc.png"
+      },
+      {
+        "id": "portrait-02",
+        "label": "Portrait 02",
+        "title": "Close distance",
+        "image": "/uploads/1778406793872-ea4f0f8062cc8316.png"
+      },
+      {
+        "id": "portrait-03",
+        "label": "Portrait 03",
+        "title": "Soft shadow",
+        "image": "/uploads/1778406793483-b914ec0c50b69c7c.png"
+      },
+      {
+        "id": "portrait-04",
+        "label": "Portrait 04",
+        "title": "Portrait 04",
+        "image": "/uploads/1778899220616-d91dc023338effc7.png"
+      },
+      {
+        "id": "portrait-05",
+        "label": "Portrait 05",
+        "title": "Portrait 05",
+        "image": "/uploads/1778899229943-0b0aa0438de15dcd.png"
+      },
+      {
+        "id": "portrait-06",
+        "label": "Portrait 06",
+        "title": "Portrait 06",
+        "image": "/uploads/1778899239997-2c711eab065e0614.png"
+      },
+      {
+        "id": "portrait-07",
+        "label": "Portrait 07",
+        "title": "Portrait 07",
+        "image": "/uploads/1778899247205-0a6ee5d2ba819649.jpg"
+      },
+      {
+        "id": "portrait-08",
+        "label": "Portrait 08",
+        "title": "Portrait 08",
+        "image": "/uploads/1778899380121-ca200be4bdbc6b50.jpg"
+      },
+      {
+        "id": "portrait-09",
+        "label": "Portrait 09",
+        "title": "Low voice",
+        "image": ""
+      }
+    ],
+    "landscape": [
+      {
+        "id": "landscape-01",
+        "label": "Landscape 01",
+        "title": "Cold ridge",
+        "image": "/uploads/1778406805070-77144205a5f37ac4.png"
+      },
+      {
+        "id": "landscape-02",
+        "label": "Landscape 02",
+        "title": "Empty coast",
+        "image": "/uploads/1778406805525-240f05891ace4635.png"
+      },
+      {
+        "id": "landscape-03",
+        "label": "Landscape 03",
+        "title": "Low clouds",
+        "image": "/uploads/1778406805982-a4baeb0c753256a3.png"
+      },
+      {
+        "id": "landscape-04",
+        "label": "Landscape 04",
+        "title": "Landscape 04",
+        "image": "/uploads/1778899254090-1a1d148a7971e716.jpg"
+      },
+      {
+        "id": "landscape-05",
+        "label": "Landscape 05",
+        "title": "Landscape 05",
+        "image": "/uploads/1778899256840-e134bb1871cfaf07.png"
+      },
+      {
+        "id": "landscape-06",
+        "label": "Landscape 06",
+        "title": "Landscape 06",
+        "image": "/uploads/1778899407442-089be83b2aa4302e.png"
+      },
+      {
+        "id": "landscape-07",
+        "label": "Landscape 07",
+        "title": "Landscape 07",
+        "image": "/uploads/1778899410044-f5ffde3b0e21e69b.jpg"
+      },
+      {
+        "id": "landscape-08",
+        "label": "Landscape 08",
+        "title": "Mountain air",
+        "image": ""
+      },
+      {
+        "id": "landscape-09",
+        "label": "Landscape 09",
+        "title": "Blue hour",
+        "image": ""
+      }
+    ],
+    "life": [
+      {
+        "id": "life-01",
+        "label": "Life 01",
+        "title": "Life 01",
+        "image": "/uploads/1778899267782-4520f7e04f5c3431.jpg"
+      },
+      {
+        "id": "life-02",
+        "label": "Life 02",
+        "title": "Life 02",
+        "image": "/uploads/1778899271445-53986ace01bd6301.png"
+      },
+      {
+        "id": "life-03",
+        "label": "Life 03",
+        "title": "Life 03",
+        "image": "/uploads/1778899273259-b827eb68010dc277.png"
+      },
+      {
+        "id": "life-04",
+        "label": "Life 04",
+        "title": "Life 04",
+        "image": "/uploads/1778899275125-b67414f535353cf9.jpg"
+      },
+      {
+        "id": "life-05",
+        "label": "Life 05",
+        "title": "Life 05",
+        "image": "/uploads/1778899279140-7b70edafaffc24ce.png"
+      },
+      {
+        "id": "life-06",
+        "label": "Life 06",
+        "title": "Evening trace",
+        "image": ""
+      },
+      {
+        "id": "life-07",
+        "label": "Life 07",
+        "title": "Private note",
+        "image": ""
+      },
+      {
+        "id": "life-08",
+        "label": "Life 08",
+        "title": "Paper light",
+        "image": ""
+      },
+      {
+        "id": "life-09",
+        "label": "Life 09",
+        "title": "Quiet habit",
+        "image": ""
+      }
+    ],
+    "cityscape": [
+      {
+        "id": "cityscape-01",
+        "label": "City 01",
+        "title": "City 01",
+        "image": "/uploads/1778899284678-23c28687d96f4824.jpg"
+      },
+      {
+        "id": "cityscape-02",
+        "label": "City 02",
+        "title": "City 02",
+        "image": "/uploads/1778899286444-7c1c96ee225c2cee.png"
+      },
+      {
+        "id": "cityscape-03",
+        "label": "City 03",
+        "title": "City 03",
+        "image": "/uploads/1778899288311-5ecade1da47f0a7d.png"
+      },
+      {
+        "id": "cityscape-04",
+        "label": "City 04",
+        "title": "City 04",
+        "image": "/uploads/1778899290169-4b78913a8dc28cca.jpg"
+      },
+      {
+        "id": "cityscape-05",
+        "label": "City 05",
+        "title": "City 05",
+        "image": "/uploads/1778899294108-84d0601db17f53b3.png"
+      },
+      {
+        "id": "cityscape-06",
+        "label": "City 06",
+        "title": "City 06",
+        "image": "/uploads/1778899298290-2792baf4c245c223.png"
+      },
+      {
+        "id": "cityscape-07",
+        "label": "City 07",
+        "title": "City 07",
+        "image": "/uploads/1778899383209-4ae0839adab8234a.jpg"
+      },
+      {
+        "id": "cityscape-08",
+        "label": "City 08",
+        "title": "Steel dusk",
+        "image": ""
+      },
+      {
+        "id": "cityscape-09",
+        "label": "City 09",
+        "title": "Empty avenue",
+        "image": ""
+      }
+    ]
+  }
+}

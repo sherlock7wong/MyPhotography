@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
+  <title id="title">Story placeholder</title>
+  <desc id="desc">Abstract personal story photography placeholder.</desc>
+  <rect width="1400" height="900" fill="#d7d9d2"/>
+  <rect x="0" y="0" width="1400" height="260" fill="#49606c"/>
+  <path d="M0 540c160-68 284-89 372-62 118 36 166 136 304 150 148 16 235-86 390-72 132 12 206 97 334 124v220H0z" fill="#2f4d43"/>
+  <path d="M0 658c204-20 392 4 564 72 210 83 484 86 836 9v161H0z" fill="#171717"/>
+  <circle cx="1122" cy="170" r="68" fill="#f7f4ef" opacity="0.9"/>
+  <rect x="110" y="104" width="366" height="222" fill="#9a5f36" opacity="0.62"/>
+  <text x="82" y="820" fill="#f7f4ef" font-family="Arial, sans-serif" font-size="36" font-weight="700">STORY PLACEHOLDER</text>
+</svg>

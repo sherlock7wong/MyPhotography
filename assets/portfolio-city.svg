@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" role="img" aria-labelledby="title desc">
+  <title id="title">City placeholder</title>
+  <desc id="desc">Abstract city photography placeholder.</desc>
+  <rect width="1200" height="1500" fill="#171717"/>
+  <rect x="88" y="110" width="198" height="1200" fill="#49606c"/>
+  <rect x="334" y="260" width="172" height="1050" fill="#f7f4ef" opacity="0.86"/>
+  <rect x="568" y="168" width="132" height="1142" fill="#2f4d43"/>
+  <rect x="760" y="360" width="318" height="950" fill="#9a5f36"/>
+  <g opacity="0.45" fill="#f7f4ef">
+    <rect x="128" y="180" width="52" height="90"/>
+    <rect x="128" y="338" width="52" height="90"/>
+    <rect x="386" y="346" width="58" height="86"/>
+    <rect x="386" y="510" width="58" height="86"/>
+    <rect x="812" y="448" width="70" height="90"/>
+    <rect x="812" y="626" width="70" height="90"/>
+    <rect x="928" y="448" width="70" height="90"/>
+  </g>
+  <path d="M0 1240h1200v260H0z" fill="#0d0d0d"/>
+  <text x="82" y="1420" fill="#f7f4ef" font-family="Arial, sans-serif" font-size="38" font-weight="700">CITY PLACEHOLDER</text>
+</svg>

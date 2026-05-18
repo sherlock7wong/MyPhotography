@@ -8,6 +8,7 @@ const entries = [
   "admin",
   "assets",
   "cityscape",
+  "contact",
   "data",
   "landscape",
   "life",

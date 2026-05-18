@@ -22,11 +22,11 @@
     <meta name="twitter:description" content="A focused personal homepage for SherlockWonG, photographer based in China." />
     <meta name="twitter:image" content="assets/og-image.svg" />
     <link rel="icon" href="assets/og-image.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="/src/styles.css?v=20260516-supabase" />
+    <link rel="stylesheet" href="/src/styles.css?v=20260518-mobile-layout" />
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
     <script src="/src/supabase-config.js?v=20260516-supabase" defer></script>
     <script src="/src/content-api.js?v=20260516-supabase" defer></script>
-    <script src="/src/main.js?v=20260516-supabase" defer></script>
+    <script src="/src/main.js?v=20260518-upload-color" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -66,6 +66,10 @@
 
     <main id="main">
       <section class="hero section-shell" id="top" aria-labelledby="hero-title">
+        <figure class="hero-visual">
+          <img src="assets/hero-placeholder.svg" alt="Placeholder for SherlockWonG signature hero photograph" data-edit-src-key="heroImage" data-edit-alt-key="heroImageAlt" />
+        </figure>
+
         <div class="hero-copy">
           <h1 id="hero-title">
             <span data-edit-key="heroLine1">SherlockWonG</span>
@@ -78,13 +82,9 @@
           </p>
           <div class="hero-actions" aria-label="Primary actions">
             <a class="button button-primary" href="/portrait/" data-edit-key="primaryButtonText" data-edit-href-key="primaryButtonHref">View selected work</a>
-            <a class="button button-secondary" href="mailto:Sherlock7.wong@gmail.com" data-edit-key="secondaryButtonText" data-edit-href-key="secondaryButtonHref">Start a shoot brief</a>
+            <a class="button button-secondary" href="/contact/" data-edit-key="secondaryButtonText">Start a shoot brief</a>
           </div>
         </div>
-
-        <figure class="hero-visual">
-          <img src="assets/hero-placeholder.svg" alt="Placeholder for SherlockWonG signature hero photograph" data-edit-src-key="heroImage" data-edit-alt-key="heroImageAlt" />
-        </figure>
       </section>
 
       <section class="section-shell intro-strip" aria-label="Portfolio summary">
@@ -99,16 +99,17 @@
 
         <div class="filter-bar" aria-label="Filter portfolio items">
           <button class="filter-button is-active" type="button" data-filter="all" data-edit-key="filterAll">All</button>
-          <a class="filter-button" href="/portrait/" data-filter="portrait" data-edit-key="filterPortrait">Portrait</a>
-          <a class="filter-button" href="/cityscape/" data-filter="city" data-edit-key="filterCity">City</a>
-          <a class="filter-button" href="/landscape/" data-filter="landscape" data-edit-key="filterLandscape">Landscape</a>
+          <button class="filter-button" type="button" data-filter="portrait" data-edit-key="filterPortrait">Portrait</button>
+          <button class="filter-button" type="button" data-filter="city" data-edit-key="filterCity">CityScape</button>
+          <button class="filter-button" type="button" data-filter="life" data-edit-key="filterLife">Life</button>
+          <button class="filter-button" type="button" data-filter="landscape" data-edit-key="filterLandscape">Landscape</button>
         </div>
 
         <div class="work-grid" aria-label="Portfolio exhibition windows" data-home-portfolio>
           <article class="work-card" id="portrait" data-window-id="home-01" data-category="portrait" aria-label="Portrait portfolio window"></article>
           <article class="work-card" id="landscape" data-window-id="home-02" data-category="landscape" aria-label="Landscape portfolio window"></article>
           <article class="work-card" id="cityscape" data-window-id="home-03" data-category="city" aria-label="CityScape portfolio window"></article>
-          <article class="work-card" id="life" data-window-id="home-04" data-category="portrait" aria-label="Life portfolio window"></article>
+          <article class="work-card" id="life" data-window-id="home-04" data-category="life" aria-label="Life portfolio window"></article>
           <article class="work-card" data-window-id="home-05" data-category="city" aria-label="Portfolio window"></article>
           <article class="work-card" data-window-id="home-06" data-category="landscape" aria-label="Portfolio window"></article>
           <article class="work-card" data-window-id="home-07" data-category="portrait" aria-label="Portfolio window"></article>
@@ -148,8 +149,23 @@
     <footer class="site-footer">
       <div class="footer-info">
         <p>&copy; <span data-year></span> <span data-edit-key="footerCopyright">SherlockWonG. Photography portfolio.</span></p>
-        <a href="mailto:Sherlock7.wong@gmail.com" data-edit-key="footerEmail" data-edit-mail-key="footerEmail">Sherlock7.wong@gmail.com</a>
+        <a href="mailto:Sherlock7.Wong@gmail.com" data-edit-key="footerEmail" data-edit-mail-key="footerEmail">Sherlock7.Wong@gmail.com</a>
       </div>
+      <nav class="footer-social" aria-label="Social links">
+        <a href="mailto:Sherlock7.Wong@gmail.com" aria-label="Email SherlockWonG">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 6h16v12H4z" />
+            <path d="m4 7 8 6 8-6" />
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/sher1ockwong/" target="_blank" rel="noopener noreferrer" aria-label="Instagram SherlockWonG">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="5" y="5" width="14" height="14" rx="4" />
+            <circle cx="12" cy="12" r="3.2" />
+            <circle cx="16.7" cy="7.3" r="0.8" />
+          </svg>
+        </a>
+      </nav>
       <a class="footer-top" href="#top" data-edit-key="footerBackLabel">Back to top</a>
     </footer>
   </body>

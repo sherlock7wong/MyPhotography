@@ -182,9 +182,40 @@
     return { url: data.publicUrl };
   }
 
+  function storagePathFromPublicUrl(url) {
+    const value = String(url || "").trim();
+    if (!value) return "";
+    const marker = `/storage/v1/object/public/${storageBucket}/`;
+    const markerIndex = value.indexOf(marker);
+    if (markerIndex === -1) return "";
+    const pathWithQuery = value.slice(markerIndex + marker.length);
+    return decodeURIComponent(pathWithQuery.split("?")[0] || "");
+  }
+
+  async function deleteFile(url) {
+    const value = String(url || "").trim();
+    if (!value) return { ok: true, skipped: true };
+
+    const supabaseClient = getClient();
+    if (!supabaseClient) {
+      return request("/api/delete-upload", {
+        method: "POST",
+        body: JSON.stringify({ url: value })
+      });
+    }
+
+    const storagePath = storagePathFromPublicUrl(value);
+    if (!storagePath) return { ok: true, skipped: true };
+
+    const { error } = await supabaseClient.storage.from(storageBucket).remove([storagePath]);
+    throwIfError(error, "Delete failed.");
+    return { ok: true };
+  }
+
   window.SherlockContentApi = {
     getClient,
     getSession,
+    deleteFile,
     loadContent,
     login,
     logout,

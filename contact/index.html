@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact - SherlockWonG</title>
+    <meta name="description" content="Contact SherlockWonG for photography messages, email, WeChat, or Instagram." />
+    <meta property="og:title" content="Contact - SherlockWonG" />
+    <meta property="og:description" content="Leave a photography message for SherlockWonG." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/assets/og-image.svg" />
+    <link rel="icon" href="/assets/og-image.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/src/styles.css?v=20260518-mobile-layout" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script src="/src/supabase-config.js?v=20260516-supabase" defer></script>
+    <script src="/src/content-api.js?v=20260516-supabase" defer></script>
+    <script src="/src/main.js?v=20260518-upload-color" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" data-header>
+      <a class="brand" href="/" aria-label="SherlockWonG home"><span data-edit-key="brand">SherlockWonG</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+        <span class="sr-only">Open navigation</span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+        <a href="/portrait/" data-edit-key="navPortrait">Portrait</a>
+        <a href="/landscape/" data-edit-key="navLandscape">Landscape</a>
+        <a href="/life/" data-edit-key="navLife">Life</a>
+        <a href="/cityscape/" data-edit-key="navCityscape">CityScape</a>
+        <a class="nav-feature" href="/#about" data-edit-key="navAbout">About</a>
+      </nav>
+    </header>
+
+    <main class="contact-page section-shell" id="main">
+      <section class="contact-hero" aria-labelledby="contact-title">
+        <div>
+          <p class="eyebrow">Contact SherlockWonG</p>
+          <h1 id="contact-title">Leave a message.</h1>
+          <p class="contact-intro">
+            For portraits, personal work, travel records, or visual collaborations, send a short note with the contact
+            method you prefer.
+          </p>
+        </div>
+
+        <div class="contact-methods" aria-label="Contact methods">
+          <a href="mailto:Sherlock7.Wong@gmail.com">
+            <span>Email</span>
+            <strong>Sherlock7.Wong@gmail.com</strong>
+          </a>
+          <a href="https://www.instagram.com/sher1ockwong/" target="_blank" rel="noopener noreferrer">
+            <span>Instagram</span>
+            <strong>@sher1ockwong</strong>
+          </a>
+          <div>
+            <span>WeChat</span>
+            <strong>Leave your WeChat ID in the message.</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="message-panel" aria-label="Message form">
+        <form class="message-form" data-contact-form>
+          <label>
+            Name
+            <input name="name" autocomplete="name" placeholder="Your name" />
+          </label>
+          <label>
+            Preferred contact
+            <select name="method">
+              <option>Email</option>
+              <option>WeChat</option>
+              <option>Instagram</option>
+            </select>
+          </label>
+          <label>
+            Email / WeChat / Instagram
+            <input name="reply" autocomplete="email" placeholder="How should I reply?" />
+          </label>
+          <label>
+            Message
+            <textarea name="message" rows="7" placeholder="Tell me what you want to shoot or discuss."></textarea>
+          </label>
+          <button class="button button-primary" type="submit">Send by email</button>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-info">
+        <p>&copy; <span data-year></span> <span data-edit-key="footerCopyright">SherlockWonG. Photography portfolio.</span></p>
+        <a href="mailto:Sherlock7.Wong@gmail.com" data-edit-key="footerEmail" data-edit-mail-key="footerEmail">Sherlock7.Wong@gmail.com</a>
+      </div>
+      <nav class="footer-social" aria-label="Social links">
+        <a href="mailto:Sherlock7.Wong@gmail.com" aria-label="Email SherlockWonG">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 6h16v12H4z" />
+            <path d="m4 7 8 6 8-6" />
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/sher1ockwong/" target="_blank" rel="noopener noreferrer" aria-label="Instagram SherlockWonG">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="5" y="5" width="14" height="14" rx="4" />
+            <circle cx="12" cy="12" r="3.2" />
+            <circle cx="16.7" cy="7.3" r="0.8" />
+          </svg>
+        </a>
+      </nav>
+      <a class="footer-top" href="/" data-edit-key="footerHomeLabel">Home</a>
+    </footer>
+
+    <script>
+      const contactForm = document.querySelector("[data-contact-form]");
+
+      if (contactForm) {
+        contactForm.addEventListener("submit", (event) => {
+          event.preventDefault();
+          const formData = new FormData(contactForm);
+          const subject = "Photography message from website";
+          const body = [
+            `Name: ${formData.get("name") || ""}`,
+            `Preferred contact: ${formData.get("method") || ""}`,
+            `Reply contact: ${formData.get("reply") || ""}`,
+            "",
+            "Message:",
+            formData.get("message") || ""
+          ].join("\n");
+
+          window.location.href = `mailto:Sherlock7.Wong@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        });
+      }
+    </script>
+  </body>
+</html>

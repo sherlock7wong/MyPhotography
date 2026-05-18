@@ -1,7 +1,9 @@
 {
   "scripts": {
     "build": "node scripts/build-pages.js",
-    "start": "node server.js"
+    "deploy:pages": "node scripts/build-pages.js && npx --yes wrangler pages deploy dist --project-name=myphotography --branch=main --commit-dirty=true",
+    "start": "node server.js",
+    "watch:deploy": "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/watch-deploy.ps1"
   },
   "dependencies": {}
 }

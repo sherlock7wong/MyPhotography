@@ -10,6 +10,7 @@ const pageKey = currentPath.split("/").filter(Boolean)[0] || "home";
 const homeCategoryMap = {
   portrait: "portrait",
   city: "cityscape",
+  life: "life",
   landscape: "landscape"
 };
 let editableContent = null;
@@ -18,6 +19,24 @@ let activeHomeFilter = "all";
 function toCssUrl(value) {
   const safeValue = String(value).replace(/\\/g, "\\\\").replace(/"/g, '\\"');
   return `url("${safeValue}")`;
+}
+
+function colorKeyFor(fieldKey) {
+  return `${fieldKey}Color`;
+}
+
+function normalizeColor(value) {
+  const color = String(value || "").trim();
+  return /^#[0-9a-f]{6}$/i.test(color) ? color : "";
+}
+
+function applyTextColor(element, color) {
+  const value = normalizeColor(color);
+  if (value) {
+    element.style.color = value;
+    return;
+  }
+  element.style.removeProperty("color");
 }
 
 function visibleItems(items) {
@@ -38,11 +57,33 @@ function cardTitle(item, fallback) {
 
 function setWindowImage(windowCard, item) {
   windowCard.classList.toggle("has-image", Boolean(item.image));
+  windowCard.classList.remove("has-measured-ratio");
+  windowCard.style.removeProperty("--image-ratio");
+  delete windowCard.dataset.ratioSource;
+
   if (item.image) {
     windowCard.style.setProperty("--window-image", toCssUrl(item.image));
+    measureWindowImage(windowCard, item.image);
   } else {
     windowCard.style.removeProperty("--window-image");
   }
+}
+
+function measureWindowImage(windowCard, imageSrc) {
+  const image = new Image();
+  windowCard.dataset.ratioSource = imageSrc;
+
+  image.onload = () => {
+    if (windowCard.dataset.ratioSource !== imageSrc || !image.naturalWidth || !image.naturalHeight) return;
+
+    const rawRatio = image.naturalWidth / image.naturalHeight;
+    if (!Number.isFinite(rawRatio) || rawRatio <= 0) return;
+
+    windowCard.style.setProperty("--image-ratio", `${image.naturalWidth} / ${image.naturalHeight}`);
+    windowCard.classList.add("has-measured-ratio");
+  };
+
+  image.src = imageSrc;
 }
 
 function createHomeCard(item, page, index) {
@@ -68,9 +109,11 @@ function createCollectionCard(item, index) {
 
   const label = document.createElement("span");
   label.textContent = cardLabel(item, `${pageKey} ${String(index + 1).padStart(2, "0")}`);
+  applyTextColor(label, item.labelColor);
 
   const title = document.createElement("strong");
   title.textContent = cardTitle(item, "Untitled");
+  applyTextColor(title, item.titleColor);
 
   card.append(label, title);
   setWindowImage(card, item);
@@ -79,7 +122,7 @@ function createCollectionCard(item, index) {
 
 function homeItemsForFilter(content, filter) {
   if (filter === "all") {
-    const groups = ["portrait", "cityscape", "landscape"].map((key) => ({
+    const groups = ["portrait", "cityscape", "life", "landscape"].map((key) => ({
       key,
       items: getPageItems(content, key).slice(0, 5)
     }));
@@ -87,7 +130,7 @@ function homeItemsForFilter(content, filter) {
     for (let index = 0; index < 5; index += 1) {
       groups.forEach((group) => {
         const item = group.items[index];
-        if (item && mixedItems.length < 15) mixedItems.push({ item, page: group.key });
+        if (item && mixedItems.length < 20) mixedItems.push({ item, page: group.key });
       });
     }
     return mixedItems;
@@ -95,7 +138,7 @@ function homeItemsForFilter(content, filter) {
 
   const page = homeCategoryMap[filter] || filter;
   return getPageItems(content, page)
-    .slice(0, 6)
+    .slice(0, 10)
     .map((item) => ({ item, page }));
 }
 
@@ -103,7 +146,11 @@ function renderHomePortfolio(content) {
   if (!homePortfolio) return;
 
   const items = homeItemsForFilter(content, activeHomeFilter);
+  const hasAnyItems = ["portrait", "cityscape", "life", "landscape"].some((key) => getPageItems(content, key).length);
+  const section = homePortfolio.closest(".work-section");
+  if (section) section.hidden = !hasAnyItems;
   homePortfolio.innerHTML = "";
+  if (!hasAnyItems) return;
   items.forEach(({ item, page }, index) => {
     homePortfolio.append(createHomeCard(item, page, index));
   });
@@ -113,7 +160,10 @@ function renderCollectionGrid(content) {
   if (!collectionGrid || pageKey === "home") return;
 
   const items = getPageItems(content, pageKey);
+  const section = collectionGrid.closest(".collection-section");
+  if (section) section.hidden = !items.length;
   collectionGrid.innerHTML = "";
+  if (!items.length) return;
   items.forEach((item, index) => {
     collectionGrid.append(createCollectionCard(item, index));
   });
@@ -145,8 +195,10 @@ function applySiteContent(content) {
   const pageMeta = (content.pageMeta || {})[pageKey];
 
   document.querySelectorAll("[data-edit-key]").forEach((element) => {
-    const value = site[element.dataset.editKey];
+    const key = element.dataset.editKey;
+    const value = site[key];
     if (typeof value === "string") element.textContent = value;
+    applyTextColor(element, site[colorKeyFor(key)]);
   });
 
   document.querySelectorAll("[data-edit-href-key]").forEach((element) => {
@@ -171,8 +223,10 @@ function applySiteContent(content) {
 
   if (pageMeta) {
     document.querySelectorAll("[data-page-edit-key]").forEach((element) => {
-      const value = pageMeta[element.dataset.pageEditKey];
+      const key = element.dataset.pageEditKey;
+      const value = pageMeta[key];
       if (typeof value === "string") element.textContent = value;
+      applyTextColor(element, pageMeta[colorKeyFor(key)]);
     });
 
     document.querySelectorAll("[data-page-tags]").forEach((tags) => tags.remove());

@@ -193,6 +193,43 @@ async function handleApi(req, res, pathname) {
     return;
   }
 
+  if (req.method === "POST" && pathname === "/api/delete-upload") {
+    if (!isAuthed(req)) {
+      json(res, 401, { error: "未登录或登录已失效。" });
+      return;
+    }
+
+    const body = await readRequestJson(req, 1024 * 1024);
+    const rawUrl = String(body.url || "").trim();
+    const uploadPath = new URL(rawUrl || "/", "http://localhost").pathname;
+
+    if (!uploadPath.startsWith("/uploads/")) {
+      json(res, 200, { ok: true, skipped: true });
+      return;
+    }
+
+    const resolved = path.normalize(path.join(ROOT, decodeURIComponent(uploadPath)));
+    const uploadRoot = path.resolve(UPLOAD_DIR);
+    if (!resolved.startsWith(`${uploadRoot}${path.sep}`)) {
+      json(res, 403, { error: "禁止删除该文件。" });
+      return;
+    }
+
+    try {
+      const stat = await fs.stat(resolved);
+      if (!stat.isFile()) {
+        json(res, 403, { error: "只能删除图片文件。" });
+        return;
+      }
+      await fs.unlink(resolved);
+    } catch (error) {
+      if (error.code !== "ENOENT") throw error;
+    }
+
+    json(res, 200, { ok: true });
+    return;
+  }
+
   json(res, 404, { error: "接口不存在。" });
 }
 

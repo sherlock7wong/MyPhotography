@@ -1,6 +1,10 @@
 node_modules/
 dist/
+.npm-cache/
 .wrangler/
+.audit-shots/
+.chrome*/
+shot-chrome-*/
 supabase/.temp/
 .env
 .env.*

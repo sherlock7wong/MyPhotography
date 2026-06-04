@@ -3,5 +3,6 @@ window.SHERLOCK_SUPABASE = {
   key: "sb_publishable_GwZuLUhynitMcPYlL-sNRQ_D5OsUsbI",
   contentTable: "site_content",
   contentId: 1,
-  storageBucket: "portfolio-images"
+  storageBucket: "portfolio-images",
+  imageCdnBaseUrl: ""
 };

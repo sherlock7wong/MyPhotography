@@ -14,34 +14,40 @@ const defaultSite = {
   navLandscape: "Landscape",
   navLife: "Life",
   navCityscape: "CityScape",
+  navProjects: "Projects",
   navAbout: "About",
-  heroLine1: "SherlockWonG",
-  heroLine2: "photographs quiet",
-  heroLine3: "human moments.",
+  heroOverline: "Chromatic Photo Atlas",
+  heroLine1: "Color",
+  heroLine2: "Rush",
+  heroLine3: "Memories",
   heroLead:
-    "Photography for portraits, urban stories, personal archives, and selective brand visuals. The work focuses on composition, atmosphere, and images that stay useful after the first impression.",
-  primaryButtonText: "View selected work",
+    "A high-energy photography atlas for portraits, city frames, landscapes, and everyday visual notes. The layout turns the portfolio into a bold editorial map instead of a quiet gallery wall.",
+  primaryButtonText: "Enter the atlas",
   primaryButtonHref: "/portrait/",
-  secondaryButtonText: "Start a shoot brief",
-  secondaryButtonHref: "/contact/",
+  secondaryButtonText: "View projects",
+  secondaryButtonHref: "/projects/",
   heroImage: "assets/hero-placeholder.svg",
   heroImageAlt: "Placeholder for SherlockWonG signature hero photograph",
-  quote: "You don't take a photograph, you make it. - Ansel Adams",
-  workEyebrow: "Selected work",
-  workTitle: "Portfolio exhibition windows.",
-  filterAll: "All",
+  quote:
+    "A louder personal photography site: oversized type, charged color, bold image rhythm, and every page designed as a complete visual spread.",
+  workEyebrow: "Photo atlas",
+  workTitle: "Frames that move like an editorial spread.",
+  factBase: "Chromatic atlas",
+  factFocus: "Portrait / City / Life / Landscape",
+  factStyle: "SherlockWonG",
+  filterAll: "All frames",
   filterPortrait: "Portrait",
   filterCity: "CityScape",
   filterLife: "Life",
   filterLandscape: "Landscape",
   aboutImage: "assets/portrait-detail.svg",
   aboutImageAlt: "Placeholder detail image for SherlockWonG profile",
-  aboutEyebrow: "About SherlockWonG",
-  aboutTitle: "PhotoGraphy as a disciplined way to notice.",
+  aboutEyebrow: "Visual statement",
+  aboutTitle: "A personal site with more pulse, color, and scale.",
   aboutBody1:
-    "I am a photographer based in China. This homepage is built around a simple promise: fewer distractions, stronger frames, and a clear way for viewers or collaborators to understand the work quickly.",
+    "SherlockWonG works across portraits, city scenes, landscapes, and everyday records. This version presents the work with stronger rhythm: oversized type, saturated accents, hard edges, and image-led movement.",
   aboutBody2:
-    "The current copy is intentionally concise. When real portfolio details are ready, this area should mention your strongest subjects, service regions, collaboration style, and any public exhibitions or clients.",
+    "The structure is still simple: scan the atlas, open a subject, read project context, then use the contact page when the conversation needs to continue.",
   footerCopyright: "SherlockWonG. Photography portfolio.",
   footerEmail: "Sherlock7.Wong@gmail.com",
   footerBackLabel: "Back to top",
@@ -54,6 +60,8 @@ const defaultPageMeta = {
     titleLine1: "Portrait studies",
     titleLine2: "with quiet tension.",
     summary: "Portrait work focuses on quiet character, available light, restrained direction, and human presence.",
+    heroImage: "/assets/portfolio-portrait.svg",
+    heroImageAlt: "Portrait featured photograph",
     tags: ["People", "Available light", "Editorial mood"]
   },
   landscape: {
@@ -61,6 +69,8 @@ const defaultPageMeta = {
     titleLine1: "Open fields,",
     titleLine2: "controlled silence.",
     summary: "Landscape work studies terrain, distance, weather, and the quiet structure of natural light.",
+    heroImage: "/assets/portfolio-brand.svg",
+    heroImageAlt: "Landscape featured photograph",
     tags: ["Terrain", "Light", "Distance"]
   },
   life: {
@@ -68,6 +78,8 @@ const defaultPageMeta = {
     titleLine1: "Daily scenes",
     titleLine2: "with lasting weight.",
     summary: "生活作品记录日常片段、旅途中偶遇、室内细节和私人视觉档案，让普通时刻保留安静的重量。",
+    heroImage: "/assets/portfolio-story.svg",
+    heroImageAlt: "Life featured photograph",
     tags: ["Everyday", "Archive", "Memory"]
   },
   cityscape: {
@@ -75,7 +87,36 @@ const defaultPageMeta = {
     titleLine1: "Urban forms",
     titleLine2: "after the noise.",
     summary: "CityScape work captures architecture, street rhythm, night surfaces, and the geometry of urban space.",
+    heroImage: "/assets/portfolio-city.svg",
+    heroImageAlt: "CityScape featured photograph",
     tags: ["Architecture", "Street", "Night"]
+  },
+  projects: {
+    eyebrow: "Archive index / Series",
+    titleLine1: "Projects,",
+    titleLine2: "not just categories.",
+    summary:
+      "A place for finished or developing photo series. Categories show subject matter; projects give the work a sharper narrative route.",
+    heroImage: "/assets/portfolio-story.svg",
+    heroImageAlt: "Project archive visual",
+    tags: []
+  },
+  contact: {
+    roomLabel: "Viewing desk / Inquiries",
+    eyebrow: "Contact SherlockWonG",
+    titleLine1: "Arrange a viewing.",
+    summary:
+      "For portraits, personal work, publication requests, or visual collaborations, send a short note with the contact method you prefer.",
+    heroImage: "/assets/portrait-detail.svg",
+    heroImageAlt: "SherlockWonG contact visual",
+    emailLabel: "Email",
+    emailValue: "Sherlock7.Wong@gmail.com",
+    instagramLabel: "Instagram",
+    instagramValue: "@sher1ockwong",
+    instagramHref: "https://www.instagram.com/sher1ockwong/",
+    wechatLabel: "WeChat",
+    wechatValue: "Leave your WeChat ID in the message.",
+    formButtonText: "Send by email"
   }
 };
 
@@ -85,27 +126,87 @@ const sections = [
   { key: "portrait", label: "Portrait 窗口", type: "windows" },
   { key: "landscape", label: "Landscape 窗口", type: "windows" },
   { key: "life", label: "Life 窗口", type: "windows" },
-  { key: "cityscape", label: "CityScape 窗口", type: "windows" }
+  { key: "cityscape", label: "CityScape 窗口", type: "windows" },
+  { key: "projects", label: "Projects 窗口", type: "windows" }
 ];
 
 const windowPageLabels = {
   portrait: "Portrait",
   landscape: "Landscape",
   life: "Life",
-  cityscape: "CityScape"
+  cityscape: "CityScape",
+  projects: "Projects"
 };
 
 const windowLabelPrefixes = {
   portrait: "Portrait",
   landscape: "Landscape",
   life: "Life",
-  cityscape: "City"
+  cityscape: "City",
+  projects: "PRJ"
 };
 
 let content = null;
 let activeSection = "site";
 const contentApi = window.SherlockContentApi;
 const uploadFeedbackBySection = {};
+
+function resolveImageUrl(value) {
+  return contentApi?.resolveImageUrl(value) || value;
+}
+
+function cloneContent(value) {
+  return JSON.parse(JSON.stringify(value || {}));
+}
+
+function imageReferenceKey(value) {
+  const rawValue = String(value || "").trim();
+  if (!rawValue) return "";
+
+  const storageBucket = window.SHERLOCK_SUPABASE?.storageBucket || "portfolio-images";
+  try {
+    const url = new URL(rawValue, window.location.origin);
+    const pathname = decodeURIComponent(url.pathname);
+    const storageMarker = `/storage/v1/object/public/${storageBucket}/`;
+    const storageIndex = pathname.indexOf(storageMarker);
+    if (storageIndex >= 0) return `storage:${pathname.slice(storageIndex + storageMarker.length)}`;
+    if (pathname.startsWith("/uploads/")) return `local:${pathname}`;
+  } catch {
+    if (rawValue.startsWith("uploads/")) return `local:/${rawValue}`;
+  }
+
+  return `raw:${rawValue}`;
+}
+
+function isImageField(key) {
+  return key === "image" || key.endsWith("Image");
+}
+
+function countMatchingImageReferences(node, targetKey) {
+  if (!targetKey || !node || typeof node !== "object") return 0;
+
+  let count = 0;
+  Object.entries(node).forEach(([key, value]) => {
+    if (isImageField(key) && typeof value === "string" && imageReferenceKey(value) === targetKey) {
+      count += 1;
+      return;
+    }
+    count += countMatchingImageReferences(value, targetKey);
+  });
+  return count;
+}
+
+function clearMatchingImageReferences(node, targetKey) {
+  if (!targetKey || !node || typeof node !== "object") return;
+
+  Object.entries(node).forEach(([key, value]) => {
+    if (isImageField(key) && typeof value === "string" && imageReferenceKey(value) === targetKey) {
+      node[key] = "";
+      return;
+    }
+    clearMatchingImageReferences(value, targetKey);
+  });
+}
 
 function setStatus(node, text) {
   node.textContent = text || "";
@@ -136,11 +237,13 @@ function normalizeContent(rawContent) {
     portrait: { ...defaultPageMeta.portrait, ...(next.pageMeta?.portrait || {}) },
     landscape: { ...defaultPageMeta.landscape, ...(next.pageMeta?.landscape || {}) },
     life: { ...defaultPageMeta.life, ...(next.pageMeta?.life || {}) },
-    cityscape: { ...defaultPageMeta.cityscape, ...(next.pageMeta?.cityscape || {}) }
+    cityscape: { ...defaultPageMeta.cityscape, ...(next.pageMeta?.cityscape || {}) },
+    projects: { ...defaultPageMeta.projects, ...(next.pageMeta?.projects || {}) },
+    contact: { ...defaultPageMeta.contact, ...(next.pageMeta?.contact || {}) }
   };
   next.home = next.home || [];
   next.pages = next.pages || {};
-  ["portrait", "landscape", "life", "cityscape"].forEach((key) => {
+  ["portrait", "landscape", "life", "cityscape", "projects"].forEach((key) => {
     next.pages[key] = next.pages[key] || [];
   });
   return next;
@@ -153,7 +256,8 @@ function sectionItems(key) {
 
 function updatePreview(preview, image) {
   if (image) {
-    preview.style.backgroundImage = `linear-gradient(145deg, rgba(7,8,13,.08), rgba(7,8,13,.44)), url("${image}")`;
+    const imageUrl = resolveImageUrl(image);
+    preview.style.backgroundImage = `linear-gradient(145deg, rgba(7,8,13,.08), rgba(7,8,13,.44)), url("${imageUrl}")`;
     preview.style.backgroundPosition = "center";
     preview.style.backgroundRepeat = "no-repeat";
     preview.style.backgroundSize = "cover, contain";
@@ -187,9 +291,12 @@ function fillOrAppendWindowItem(key, image) {
   const reusable = items.find((item) => !String(item.image || "").trim());
   if (reusable) {
     const number = String(reusable.id || "").match(/(\d+)$/)?.[1] || formatWindowNumber(nextWindowNumber(items, key));
-    const label = `${labelPrefix} ${formatWindowNumber(Number(number))}`;
+    const label =
+      key === "projects"
+        ? `${labelPrefix}-${formatWindowNumber(Number(number))}`
+        : `${labelPrefix} ${formatWindowNumber(Number(number))}`;
     reusable.label = label;
-    reusable.title = label;
+    reusable.title = reusable.title || label;
     reusable.image = image;
     return reusable;
   }
@@ -197,10 +304,15 @@ function fillOrAppendWindowItem(key, image) {
   const number = nextWindowNumber(items, key);
   const item = {
     id: `${key}-${formatWindowNumber(number)}`,
-    label: `${labelPrefix} ${formatWindowNumber(number)}`,
-    title: `${labelPrefix} ${formatWindowNumber(number)}`,
+    label: key === "projects" ? `${labelPrefix}-${formatWindowNumber(number)}` : `${labelPrefix} ${formatWindowNumber(number)}`,
+    title: key === "projects" ? `Project ${formatWindowNumber(number)}` : `${labelPrefix} ${formatWindowNumber(number)}`,
     image
   };
+  if (key === "projects") {
+    item.text = "";
+    item.href = "/";
+    item.layout = "";
+  }
   items.push(item);
   return item;
 }
@@ -316,23 +428,37 @@ async function deleteImageAndSave({ image, remove, restore, afterRemove, afterRe
     return false;
   }
 
+  const previousContent = cloneContent(content);
+  const targetKey = imageReferenceKey(currentImage);
+  const referenceCount = countMatchingImageReferences(content, targetKey);
+
   try {
-    setStatus(editorStatus, "正在删除图片...");
+    setStatus(editorStatus, "正在删除图片并同步 Supabase 数据...");
     remove();
+    clearMatchingImageReferences(content, targetKey);
     afterRemove?.();
     await contentApi.saveContent(content);
-    await contentApi.deleteFile(currentImage);
-    setStatus(editorStatus, "图片已删除并保存。");
+
+    try {
+      await contentApi.deleteFile(currentImage);
+    } catch (error) {
+      setStatus(editorStatus, `Supabase 内容数据已同步删除；Storage 文件删除失败：${error.message}`);
+      return true;
+    }
+
+    const removedCount = Math.max(referenceCount, 1);
+    setStatus(editorStatus, `删除完成：已从 Supabase 内容数据清除 ${removedCount} 处图片引用，并删除 Storage 文件。公开页刷新后不再显示。`);
     return true;
   } catch (error) {
-    restore();
-    afterRestore?.();
+    content = previousContent;
     try {
       await contentApi.saveContent(content);
     } catch {
       // Keep the original delete error visible.
     }
-    setStatus(editorStatus, error.message);
+    restore();
+    afterRestore?.();
+    setStatus(editorStatus, `删除失败，已保留原数据：${error.message}`);
     return false;
   }
 }
@@ -422,7 +548,13 @@ function appendImageField(card, labelText, value, onChange, options = {}) {
         updatePreview(preview, imageToDelete);
       }
     });
-    if (deleted) options.afterDelete?.();
+    if (deleted) {
+      if (options.afterDelete) {
+        options.afterDelete();
+      } else {
+        renderEditor();
+      }
+    }
   });
 
   const fileRow = document.createElement("div");
@@ -457,9 +589,11 @@ function renderSiteEditor() {
   appendTextField(identity, "风景导航", site, "navLandscape");
   appendTextField(identity, "生活导航", site, "navLife");
   appendTextField(identity, "城市导航", site, "navCityscape");
+  appendTextField(identity, "项目导航", site, "navProjects");
   appendTextField(identity, "关于导航", site, "navAbout");
 
   const hero = createCard("首页首屏");
+  appendTextField(hero, "首屏标签", site, "heroOverline");
   appendTextField(hero, "标题第 1 行", site, "heroLine1");
   appendTextField(hero, "标题第 2 行", site, "heroLine2");
   appendTextField(hero, "标题第 3 行", site, "heroLine3");
@@ -470,6 +604,9 @@ function renderSiteEditor() {
   appendField(hero, "次按钮链接", site.secondaryButtonHref, (value) => (site.secondaryButtonHref = value));
   appendImageField(hero, "首屏图片地址", site.heroImage, (value) => (site.heroImage = value));
   appendField(hero, "首屏图片替代文字", site.heroImageAlt, (value) => (site.heroImageAlt = value));
+  appendTextField(hero, "信息表 Format", site, "factBase");
+  appendTextField(hero, "信息表 Sections", site, "factFocus");
+  appendTextField(hero, "信息表 Output", site, "factStyle");
 
   const portfolio = createCard("作品区");
   appendTextField(portfolio, "摄影格言", site, "quote", { textarea: true });
@@ -504,14 +641,42 @@ function renderPageMetaEditor() {
     portrait: "人像页",
     landscape: "风景页",
     life: "生活页",
-    cityscape: "城市页"
+    cityscape: "城市页",
+    projects: "项目页",
+    contact: "联系页"
   };
   Object.entries(content.pageMeta).forEach(([key, page]) => {
     const card = createCard(pageNames[key] || key);
+    if (key === "contact") {
+      appendTextField(card, "页面角标", page, "roomLabel");
+      appendTextField(card, "栏目标签", page, "eyebrow");
+      appendTextField(card, "标题", page, "titleLine1");
+      appendTextField(card, "页面说明", page, "summary", { textarea: true });
+      appendImageField(card, "联系页图片地址", page.heroImage, (value) => (page.heroImage = value));
+      appendField(card, "联系页图片替代文字", page.heroImageAlt, (value) => (page.heroImageAlt = value));
+      appendTextField(card, "邮箱标签", page, "emailLabel");
+      appendTextField(card, "邮箱", page, "emailValue");
+      appendTextField(card, "Instagram 标签", page, "instagramLabel");
+      appendTextField(card, "Instagram 显示文字", page, "instagramValue");
+      appendField(card, "Instagram 链接", page.instagramHref, (value) => (page.instagramHref = value));
+      appendTextField(card, "WeChat 标签", page, "wechatLabel");
+      appendTextField(card, "WeChat 说明", page, "wechatValue");
+      appendTextField(card, "表单按钮文字", page, "formButtonText");
+      grid.append(card);
+      return;
+    }
     appendTextField(card, "栏目标签", page, "eyebrow");
     appendTextField(card, "标题第 1 行", page, "titleLine1");
     appendTextField(card, "标题第 2 行", page, "titleLine2");
     appendTextField(card, "页面说明", page, "summary", { textarea: true });
+    if (["portrait", "landscape", "life", "cityscape"].includes(key)) {
+      appendImageField(card, "页面首图地址", page.heroImage, (value) => (page.heroImage = value));
+      appendField(card, "页面首图替代文字", page.heroImageAlt, (value) => (page.heroImageAlt = value));
+    }
+    if (key === "projects") {
+      appendImageField(card, "项目页首图地址", page.heroImage, (value) => (page.heroImage = value));
+      appendField(card, "项目页首图替代文字", page.heroImageAlt, (value) => (page.heroImageAlt = value));
+    }
     appendField(card, "标签按钮，使用英文逗号分隔", (page.tags || []).join(", "), (value) => {
       page.tags = value
         .split(",")
@@ -536,6 +701,7 @@ function renderWindowEditor() {
   grid.className = "editor-grid editor-grid-wide";
   const items = sectionItems(activeSection);
   const pageLabel = windowPageLabels[activeSection] || activeSection;
+  const isProjects = activeSection === "projects";
   let draftImage = "";
 
   const uploadCard = createCard(`新增 ${pageLabel} 图片`);
@@ -619,7 +785,16 @@ function renderWindowEditor() {
   uploadCard.append(uploadStatus);
   grid.append(uploadCard);
 
-  const visibleItems = items.filter((item) => String(item.image || "").trim());
+  const visibleItems = items.filter((item) => {
+    if (!isProjects) return String(item.image || "").trim();
+    return Boolean(
+      String(item.image || "").trim() ||
+        String(item.label || "").trim() ||
+        String(item.title || "").trim() ||
+        String(item.text || item.description || "").trim() ||
+        String(item.href || "").trim()
+    );
+  });
   if (!visibleItems.length) {
     return;
   }
@@ -654,6 +829,13 @@ function renderWindowEditor() {
     );
     appendTextField(card, "窗口标签", item, "label");
     appendTextField(card, "窗口标题", item, "title");
+    if (isProjects) {
+      appendTextField(card, "项目说明", item, "text", { textarea: true });
+      appendField(card, "项目链接", item.href, (value) => (item.href = value), { placeholder: "/portrait/" });
+      appendField(card, "卡片布局", item.layout, (value) => (item.layout = value.trim()), {
+        placeholder: "wide / tall / 留空"
+      });
+    }
 
     grid.append(card);
   });

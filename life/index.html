@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
@@ -10,11 +10,10 @@
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/assets/og-image.svg" />
     <link rel="icon" href="/assets/og-image.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="/src/styles.css?v=20260518-mobile-layout" />
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
-    <script src="/src/supabase-config.js?v=20260516-supabase" defer></script>
-    <script src="/src/content-api.js?v=20260516-supabase" defer></script>
-    <script src="/src/main.js?v=20260518-upload-color" defer></script>
+    <link rel="stylesheet" href="/src/styles.css?v=20260602-life-hero-compact" />
+    <script src="/src/supabase-config.js?v=20260527-sync-delete2" defer></script>
+    <script src="/src/content-api.js?v=20260527-sync-delete2" defer></script>
+    <script src="/src/main.js?v=20260602-category-hero-upload" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -30,24 +29,29 @@
         <a href="/landscape/" data-edit-key="navLandscape">Landscape</a>
         <a href="/life/" data-edit-key="navLife">Life</a>
         <a href="/cityscape/" data-edit-key="navCityscape">CityScape</a>
+        <a href="/projects/" data-edit-key="navProjects">Projects</a>
         <a class="nav-feature" href="/#about" data-edit-key="navAbout">About</a>
       </nav>
     </header>
-    <main class="category-main" id="main">
+    <main class="category-main category-main-life" id="main">
       <section class="section-shell category-hero" aria-labelledby="category-title">
         <div class="category-title">
+          <p class="room-label">Room 04 / Private notes</p>
           <p class="eyebrow" data-page-edit-key="eyebrow">Life</p>
           <h1 id="category-title">
-            <span data-page-edit-key="titleLine1">Daily scenes</span>
-            <span data-page-edit-key="titleLine2">with lasting weight.</span>
+            <span data-page-edit-key="titleLine1">Ordinary</span>
+            <span data-page-edit-key="titleLine2">things, kept carefully.</span>
           </h1>
         </div>
+        <figure class="category-featured" data-category-feature>
+          <img src="/assets/portfolio-story.svg" alt="Life featured photograph" data-category-feature-img data-page-src-key="heroImage" data-page-alt-key="heroImageAlt" />
+        </figure>
         <aside class="category-summary" aria-label="Life summary">
-          <p data-page-edit-key="summary">生活作品记录日常片段、旅途中偶遇、室内细节和私人视觉档案，让普通时刻保留安静的重量。</p>
+          <p data-page-edit-key="summary">A room for daily fragments, travel pauses, interior light, and private visual notes.</p>
         </aside>
       </section>
-      <section class="section-shell collection-section" aria-label="Life collections">
-        <div class="collection-grid" data-collection-grid>
+      <section class="section-shell collection-section is-balanced" aria-label="Life collections">
+        <div class="collection-grid" data-collection-grid data-balanced-grid>
           <article class="collection-card" data-window-id="life-01"><span>Life 01</span><strong>Morning table</strong></article>
           <article class="collection-card" data-window-id="life-02"><span>Life 02</span><strong>Passing room</strong></article>
           <article class="collection-card" data-window-id="life-03"><span>Life 03</span><strong>Slow street</strong></article>

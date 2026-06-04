@@ -10,6 +10,8 @@ const UPLOAD_DIR = path.join(ROOT, "uploads");
 const PORT = Number(process.env.PORT || 8080);
 const USERNAME = process.env.ADMIN_USER || "admin";
 const PASSWORD = process.env.ADMIN_PASSWORD || "";
+const MAX_UPLOAD_BYTES = 50 * 1024 * 1024;
+const MAX_UPLOAD_REQUEST_BYTES = 70 * 1024 * 1024;
 const sessions = new Set();
 
 const mimeTypes = {
@@ -32,6 +34,26 @@ function send(res, status, body, headers = {}) {
     ...headers
   });
   res.end(payload);
+}
+
+function cacheControlFor(filePath) {
+  const ext = path.extname(filePath).toLowerCase();
+  if (ext === ".html") return "no-store";
+
+  const relativePath = path.relative(ROOT, filePath).replace(/\\/g, "/");
+  if (
+    relativePath.startsWith("assets/") ||
+    relativePath.startsWith("uploads/") ||
+    relativePath.startsWith("vendor/")
+  ) {
+    return "public, max-age=31536000, immutable";
+  }
+
+  if (relativePath.startsWith("src/") || relativePath.startsWith("admin/")) {
+    return "public, max-age=3600";
+  }
+
+  return "public, max-age=86400";
 }
 
 function json(res, status, body, headers = {}) {
@@ -102,7 +124,7 @@ async function serveStatic(req, res, pathname) {
     const ext = path.extname(resolved).toLowerCase();
     res.writeHead(200, {
       "Content-Type": mimeTypes[ext] || "application/octet-stream",
-      "Cache-Control": "no-store"
+      "Cache-Control": cacheControlFor(resolved)
     });
     res.end(data);
   } catch {
@@ -173,7 +195,7 @@ async function handleApi(req, res, pathname) {
       json(res, 401, { error: "未登录或登录已失效。" });
       return;
     }
-    const body = await readRequestJson(req);
+    const body = await readRequestJson(req, MAX_UPLOAD_REQUEST_BYTES);
     const match = String(body.data || "").match(/^data:(image\/(?:png|jpeg|webp|gif));base64,([A-Za-z0-9+/=]+)$/);
     if (!match) {
       json(res, 400, { error: "只支持 PNG、JPG、WEBP 和 GIF 图片。" });
@@ -182,8 +204,8 @@ async function handleApi(req, res, pathname) {
     const mime = match[1];
     const ext = mime === "image/jpeg" ? ".jpg" : `.${mime.split("/")[1]}`;
     const buffer = Buffer.from(match[2], "base64");
-    if (buffer.length > 10 * 1024 * 1024) {
-      json(res, 400, { error: "图片大小不能超过 10MB。" });
+    if (buffer.length > MAX_UPLOAD_BYTES) {
+      json(res, 400, { error: "图片大小不能超过 50MB。" });
       return;
     }
     await fs.mkdir(UPLOAD_DIR, { recursive: true });

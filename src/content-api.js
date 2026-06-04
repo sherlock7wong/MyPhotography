@@ -3,10 +3,19 @@
   const tableName = config.contentTable || "site_content";
   const contentId = config.contentId || 1;
   const storageBucket = config.storageBucket || "portfolio-images";
+  const imageCdnBaseUrl = String(config.imageCdnBaseUrl || "").replace(/\/+$/, "");
+  const supabaseScriptUrl = config.supabaseScriptUrl || "/vendor/supabase-js.min.js";
+  const maxUploadBytes = 50 * 1024 * 1024;
+  const isAdminPage = window.location?.pathname?.startsWith("/admin/");
   let client = null;
+  let supabaseScriptPromise = null;
+
+  function hasSupabaseCredentials() {
+    return Boolean(config.url && config.key);
+  }
 
   function hasSupabaseConfig() {
-    return Boolean(config.url && config.key && window.supabase?.createClient);
+    return Boolean(hasSupabaseCredentials() && window.supabase?.createClient);
   }
 
   function getClient() {
@@ -15,6 +24,29 @@
       client = window.supabase.createClient(config.url, config.key);
     }
     return client;
+  }
+
+  async function loadSupabaseScript() {
+    if (window.supabase?.createClient || !hasSupabaseCredentials()) return;
+    if (typeof document === "undefined" || !document.createElement) return;
+
+    if (!supabaseScriptPromise) {
+      supabaseScriptPromise = new Promise((resolve, reject) => {
+        const script = document.createElement("script");
+        script.src = supabaseScriptUrl;
+        script.async = true;
+        script.onload = () => resolve();
+        script.onerror = () => reject(new Error("Failed to load Supabase client."));
+        document.head.append(script);
+      });
+    }
+
+    await supabaseScriptPromise;
+  }
+
+  async function getClientAsync() {
+    await loadSupabaseScript();
+    return getClient();
   }
 
   async function request(url, options = {}) {
@@ -51,14 +83,34 @@
   }
 
   async function loadContent() {
-    const supabaseClient = getClient();
-    if (!supabaseClient) {
+    if (hasSupabaseCredentials()) {
+      try {
+        const freshContent = await loadFreshContent();
+        if (hasContentPayload(freshContent)) return freshContent;
+      } catch {
+        // Public pages use Supabase as the source of truth when configured.
+      }
+
+      return isAdminPage ? loadStaticContentFallback() : {};
+    }
+
+    const staticContent = await loadStaticContentFallback();
+    if (hasContentPayload(staticContent)) return staticContent;
+
+    if (!hasSupabaseCredentials()) {
       try {
         return await request("/api/content");
       } catch {
-        return loadStaticContentFallback();
+        return {};
       }
     }
+
+    return {};
+  }
+
+  async function loadFreshContent() {
+    const supabaseClient = await getClientAsync();
+    if (!supabaseClient) return {};
 
     const { data, error } = await supabaseClient
       .from(tableName)
@@ -68,7 +120,7 @@
 
     throwIfError(error, "Failed to load content.");
     if (hasContentPayload(data?.content)) return data.content;
-    return loadStaticContentFallback();
+    return {};
   }
 
   async function saveContent(content) {
@@ -80,16 +132,23 @@
       });
     }
 
-    const { error } = await supabaseClient.from(tableName).upsert(
-      {
-        id: contentId,
-        content,
-        updated_at: new Date().toISOString()
-      },
-      { onConflict: "id" }
-    );
+    const { data, error } = await supabaseClient
+      .from(tableName)
+      .upsert(
+        {
+          id: contentId,
+          content,
+          updated_at: new Date().toISOString()
+        },
+        { onConflict: "id" }
+      )
+      .select("id")
+      .maybeSingle();
 
     throwIfError(error, "Failed to save content.");
+    if (!data?.id) {
+      throw new Error("Supabase did not confirm the saved content. Check update permissions.");
+    }
     return { ok: true };
   }
 
@@ -163,8 +222,8 @@
     if (!["image/png", "image/jpeg", "image/webp", "image/gif"].includes(file.type)) {
       throw new Error("Only PNG, JPG, WEBP, and GIF images are supported.");
     }
-    if (file.size > 10 * 1024 * 1024) {
-      throw new Error("Image size cannot exceed 10MB.");
+    if (file.size > maxUploadBytes) {
+      throw new Error("Image size cannot exceed 50MB.");
     }
 
     const extension = extensionFromFile(file);
@@ -192,6 +251,24 @@
     return decodeURIComponent(pathWithQuery.split("?")[0] || "");
   }
 
+  function cdnUrlForPath(path) {
+    return `${imageCdnBaseUrl}/${String(path || "").replace(/^\/+/, "")}`;
+  }
+
+  function resolveImageUrl(url) {
+    const value = String(url || "").trim();
+    if (!imageCdnBaseUrl || !value || /^(data|blob):/i.test(value)) return value;
+
+    if (value.startsWith("/uploads/") || value.startsWith("uploads/")) {
+      return cdnUrlForPath(value);
+    }
+
+    const storagePath = storagePathFromPublicUrl(value);
+    if (storagePath) return cdnUrlForPath(storagePath);
+
+    return value;
+  }
+
   async function deleteFile(url) {
     const value = String(url || "").trim();
     if (!value) return { ok: true, skipped: true };
@@ -216,9 +293,11 @@
     getClient,
     getSession,
     deleteFile,
+    loadFreshContent,
     loadContent,
     login,
     logout,
+    resolveImageUrl,
     saveContent,
     uploadFile
   };

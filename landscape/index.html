@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
@@ -10,11 +10,10 @@
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/assets/og-image.svg" />
     <link rel="icon" href="/assets/og-image.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="/src/styles.css?v=20260518-mobile-layout" />
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
-    <script src="/src/supabase-config.js?v=20260516-supabase" defer></script>
-    <script src="/src/content-api.js?v=20260516-supabase" defer></script>
-    <script src="/src/main.js?v=20260518-upload-color" defer></script>
+    <link rel="stylesheet" href="/src/styles.css?v=20260602-landscape-hero-compact" />
+    <script src="/src/supabase-config.js?v=20260527-sync-delete2" defer></script>
+    <script src="/src/content-api.js?v=20260527-sync-delete2" defer></script>
+    <script src="/src/main.js?v=20260602-category-hero-upload" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -30,24 +29,29 @@
         <a href="/landscape/" data-edit-key="navLandscape">Landscape</a>
         <a href="/life/" data-edit-key="navLife">Life</a>
         <a href="/cityscape/" data-edit-key="navCityscape">CityScape</a>
+        <a href="/projects/" data-edit-key="navProjects">Projects</a>
         <a class="nav-feature" href="/#about" data-edit-key="navAbout">About</a>
       </nav>
     </header>
-    <main class="category-main" id="main">
+    <main class="category-main category-main-landscape" id="main">
       <section class="section-shell category-hero" aria-labelledby="category-title">
         <div class="category-title">
+          <p class="room-label">Room 02 / Open distance</p>
           <p class="eyebrow" data-page-edit-key="eyebrow">Landscape</p>
           <h1 id="category-title">
-            <span data-page-edit-key="titleLine1">Open fields,</span>
-            <span data-page-edit-key="titleLine2">controlled silence.</span>
+            <span data-page-edit-key="titleLine1">Distances</span>
+            <span data-page-edit-key="titleLine2">under quiet weather.</span>
           </h1>
         </div>
+        <figure class="category-featured" data-category-feature>
+          <img src="/assets/portfolio-brand.svg" alt="Landscape featured photograph" data-category-feature-img data-page-src-key="heroImage" data-page-alt-key="heroImageAlt" />
+        </figure>
         <aside class="category-summary" aria-label="Landscape summary">
-          <p data-page-edit-key="summary">Landscape work studies terrain, distance, weather, and the quiet structure of natural light.</p>
+          <p data-page-edit-key="summary">A room for terrain, weather, horizon, and the pause between a place and the memory it leaves.</p>
         </aside>
       </section>
-      <section class="section-shell collection-section" aria-label="Landscape collections">
-        <div class="collection-grid" data-collection-grid>
+      <section class="section-shell collection-section is-balanced" aria-label="Landscape collections">
+        <div class="collection-grid" data-collection-grid data-balanced-grid>
           <article class="collection-card" data-window-id="landscape-01"><span>Landscape 01</span><strong>Cold ridge</strong></article>
           <article class="collection-card" data-window-id="landscape-02"><span>Landscape 02</span><strong>Empty coast</strong></article>
           <article class="collection-card" data-window-id="landscape-03"><span>Landscape 03</span><strong>Low clouds</strong></article>

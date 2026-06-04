@@ -13,8 +13,10 @@ const entries = [
   "landscape",
   "life",
   "portrait",
+  "projects",
   "src",
   "uploads",
+  "vendor",
   "index.html"
 ];
 
@@ -45,3 +47,33 @@ for (const entry of entries) {
 }
 
 fs.writeFileSync(path.join(outDir, ".nojekyll"), "", "utf8");
+fs.writeFileSync(
+  path.join(outDir, "_headers"),
+  [
+    "/*",
+    "  X-Content-Type-Options: nosniff",
+    "",
+    "/",
+    "  Cache-Control: no-store",
+    "",
+    "/*.html",
+    "  Cache-Control: no-store",
+    "",
+    "/vendor/*",
+    "  Cache-Control: public, max-age=31536000, immutable",
+    "",
+    "/assets/*",
+    "  Cache-Control: public, max-age=31536000, immutable",
+    "",
+    "/uploads/*",
+    "  Cache-Control: public, max-age=31536000, immutable",
+    "",
+    "/src/*",
+    "  Cache-Control: public, max-age=3600",
+    "",
+    "/admin/*",
+    "  Cache-Control: public, max-age=3600",
+    ""
+  ].join("\n"),
+  "utf8"
+);

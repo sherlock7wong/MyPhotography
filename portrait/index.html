@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
@@ -10,11 +10,10 @@
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/assets/og-image.svg" />
     <link rel="icon" href="/assets/og-image.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="/src/styles.css?v=20260518-mobile-layout" />
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
-    <script src="/src/supabase-config.js?v=20260516-supabase" defer></script>
-    <script src="/src/content-api.js?v=20260516-supabase" defer></script>
-    <script src="/src/main.js?v=20260518-upload-color" defer></script>
+    <link rel="stylesheet" href="/src/styles.css?v=20260602-portrait-hero-compact" />
+    <script src="/src/supabase-config.js?v=20260527-sync-delete2" defer></script>
+    <script src="/src/content-api.js?v=20260527-sync-delete2" defer></script>
+    <script src="/src/main.js?v=20260602-category-hero-upload" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -30,24 +29,29 @@
         <a href="/landscape/" data-edit-key="navLandscape">Landscape</a>
         <a href="/life/" data-edit-key="navLife">Life</a>
         <a href="/cityscape/" data-edit-key="navCityscape">CityScape</a>
+        <a href="/projects/" data-edit-key="navProjects">Projects</a>
         <a class="nav-feature" href="/#about" data-edit-key="navAbout">About</a>
       </nav>
     </header>
-    <main class="category-main" id="main">
+    <main class="category-main category-main-portrait" id="main">
       <section class="section-shell category-hero" aria-labelledby="category-title">
         <div class="category-title">
+          <p class="room-label">Room 01 / Human presence</p>
           <p class="eyebrow" data-page-edit-key="eyebrow">Portrait</p>
           <h1 id="category-title">
-            <span data-page-edit-key="titleLine1">Portrait studies</span>
-            <span data-page-edit-key="titleLine2">with quiet tension.</span>
+            <span data-page-edit-key="titleLine1">Presence,</span>
+            <span data-page-edit-key="titleLine2">held in light.</span>
           </h1>
         </div>
+        <figure class="category-featured" data-category-feature>
+          <img src="/assets/portfolio-portrait.svg" alt="Portrait featured photograph" data-category-feature-img data-page-src-key="heroImage" data-page-alt-key="heroImageAlt" />
+        </figure>
         <aside class="category-summary" aria-label="Portrait summary">
-          <p data-page-edit-key="summary">Portrait work focuses on quiet character, available light, restrained direction, and human presence.</p>
+          <p data-page-edit-key="summary">A room for faces, distance, posture, and the small decisions that make a portrait stay with the viewer.</p>
         </aside>
       </section>
-      <section class="section-shell collection-section" aria-label="Portrait collections">
-        <div class="collection-grid" data-collection-grid>
+      <section class="section-shell collection-section is-balanced" aria-label="Portrait collections">
+        <div class="collection-grid" data-collection-grid data-balanced-grid>
           <article class="collection-card" data-window-id="portrait-01"><span>Portrait 01</span><strong>Still face</strong></article>
           <article class="collection-card" data-window-id="portrait-02"><span>Portrait 02</span><strong>Close distance</strong></article>
           <article class="collection-card" data-window-id="portrait-03"><span>Portrait 03</span><strong>Soft shadow</strong></article>

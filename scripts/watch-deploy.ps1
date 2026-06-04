@@ -1,13 +1,40 @@
 param(
   [int]$IntervalSeconds = 2,
   [int]$DebounceSeconds = 5,
-  [switch]$SkipInitialDeploy
+  [switch]$SkipInitialDeploy,
+  [switch]$Once
 )
 
 $ErrorActionPreference = "Stop"
 
 $Root = Resolve-Path (Join-Path $PSScriptRoot "..")
 Set-Location $Root
+
+function Initialize-DeployEnvironment {
+  $npmCache = Join-Path $Root ".npm-cache"
+  $wranglerLogPath = Join-Path $Root ".wrangler\logs"
+
+  New-Item -ItemType Directory -Force -Path $npmCache, $wranglerLogPath | Out-Null
+
+  $env:npm_config_cache = $npmCache
+  $env:WRANGLER_LOG_PATH = $wranglerLogPath
+
+  if (-not $env:CLOUDFLARE_ACCOUNT_ID) {
+    $pagesCachePath = Join-Path $Root ".wrangler\cache\pages.json"
+    if (Test-Path -LiteralPath $pagesCachePath) {
+      try {
+        $pagesCache = Get-Content -LiteralPath $pagesCachePath -Raw | ConvertFrom-Json
+        if ($pagesCache.account_id) {
+          $env:CLOUDFLARE_ACCOUNT_ID = [string]$pagesCache.account_id
+        }
+      } catch {
+        Write-Host "Could not read Cloudflare account id from .wrangler cache: $($_.Exception.Message)"
+      }
+    }
+  }
+}
+
+Initialize-DeployEnvironment
 
 $WatchEntries = @(
   "index.html",
@@ -59,7 +86,7 @@ function Invoke-PagesDeploy {
     throw "Build failed with exit code $LASTEXITCODE."
   }
 
-  & npx.cmd --yes wrangler pages deploy dist --project-name=myphotography --branch=main --commit-dirty=true
+  & npx.cmd --yes --cache $env:npm_config_cache wrangler pages deploy dist --project-name=myphotography --branch=main --commit-dirty=true
   if ($LASTEXITCODE -ne 0) {
     throw "Cloudflare Pages deploy failed with exit code $LASTEXITCODE."
   }
@@ -96,7 +123,14 @@ if (-not $SkipInitialDeploy) {
     $lastSnapshot = Get-Snapshot
   } catch {
     Write-Host "Initial deploy failed: $($_.Exception.Message)"
+    if ($Once) {
+      exit 1
+    }
   }
+}
+
+if ($Once) {
+  exit 0
 }
 
 while ($true) {

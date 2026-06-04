@@ -1,20 +1,19 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Contact - SherlockWonG</title>
-    <meta name="description" content="Contact SherlockWonG for photography messages, email, WeChat, or Instagram." />
+    <meta name="description" content="Contact SherlockWonG for photography viewing requests, portraits, and visual collaborations." />
     <meta property="og:title" content="Contact - SherlockWonG" />
     <meta property="og:description" content="Leave a photography message for SherlockWonG." />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="/assets/og-image.svg" />
     <link rel="icon" href="/assets/og-image.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="/src/styles.css?v=20260518-mobile-layout" />
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
-    <script src="/src/supabase-config.js?v=20260516-supabase" defer></script>
-    <script src="/src/content-api.js?v=20260516-supabase" defer></script>
-    <script src="/src/main.js?v=20260518-upload-color" defer></script>
+    <link rel="stylesheet" href="/src/styles.css?v=20260602-hero-clearance" />
+    <script src="/src/supabase-config.js?v=20260527-sync-delete2" defer></script>
+    <script src="/src/content-api.js?v=20260527-sync-delete2" defer></script>
+    <script src="/src/main.js?v=20260602-projects-editor" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -30,6 +29,7 @@
         <a href="/landscape/" data-edit-key="navLandscape">Landscape</a>
         <a href="/life/" data-edit-key="navLife">Life</a>
         <a href="/cityscape/" data-edit-key="navCityscape">CityScape</a>
+        <a href="/projects/" data-edit-key="navProjects">Projects</a>
         <a class="nav-feature" href="/#about" data-edit-key="navAbout">About</a>
       </nav>
     </header>
@@ -37,29 +37,34 @@
     <main class="contact-page section-shell" id="main">
       <section class="contact-hero" aria-labelledby="contact-title">
         <div>
-          <p class="eyebrow">Contact SherlockWonG</p>
-          <h1 id="contact-title">Leave a message.</h1>
-          <p class="contact-intro">
-            For portraits, personal work, travel records, or visual collaborations, send a short note with the contact
-            method you prefer.
+          <p class="room-label" data-page-edit-key="roomLabel">Viewing desk / Inquiries</p>
+          <p class="eyebrow" data-page-edit-key="eyebrow">Contact SherlockWonG</p>
+          <h1 id="contact-title" data-page-edit-key="titleLine1">Arrange a viewing.</h1>
+          <p class="contact-intro" data-page-edit-key="summary">
+            For portraits, personal work, publication requests, or visual collaborations, send a short note with the
+            contact method you prefer.
           </p>
         </div>
 
         <div class="contact-methods" aria-label="Contact methods">
-          <a href="mailto:Sherlock7.Wong@gmail.com">
-            <span>Email</span>
-            <strong>Sherlock7.Wong@gmail.com</strong>
+          <a href="mailto:Sherlock7.Wong@gmail.com" data-page-mail-key="emailValue">
+            <span data-page-edit-key="emailLabel">Email</span>
+            <strong data-page-edit-key="emailValue">Sherlock7.Wong@gmail.com</strong>
           </a>
-          <a href="https://www.instagram.com/sher1ockwong/" target="_blank" rel="noopener noreferrer">
-            <span>Instagram</span>
-            <strong>@sher1ockwong</strong>
+          <a href="https://www.instagram.com/sher1ockwong/" target="_blank" rel="noopener noreferrer" data-page-href-key="instagramHref">
+            <span data-page-edit-key="instagramLabel">Instagram</span>
+            <strong data-page-edit-key="instagramValue">@sher1ockwong</strong>
           </a>
           <div>
-            <span>WeChat</span>
-            <strong>Leave your WeChat ID in the message.</strong>
+            <span data-page-edit-key="wechatLabel">WeChat</span>
+            <strong data-page-edit-key="wechatValue">Leave your WeChat ID in the message.</strong>
           </div>
         </div>
       </section>
+
+      <figure class="contact-visual">
+        <img src="/assets/portrait-detail.svg" alt="SherlockWonG contact visual" data-page-src-key="heroImage" data-page-alt-key="heroImageAlt" />
+      </figure>
 
       <section class="message-panel" aria-label="Message form">
         <form class="message-form" data-contact-form>
@@ -83,7 +88,7 @@
             Message
             <textarea name="message" rows="7" placeholder="Tell me what you want to shoot or discuss."></textarea>
           </label>
-          <button class="button button-primary" type="submit">Send by email</button>
+          <button class="button button-primary" type="submit" data-page-edit-key="formButtonText">Send by email</button>
         </form>
       </section>
     </main>
@@ -128,7 +133,10 @@
             formData.get("message") || ""
           ].join("\n");
 
-          window.location.href = `mailto:Sherlock7.Wong@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+          const recipient =
+            document.querySelector('[data-page-edit-key="emailValue"]')?.textContent.trim() ||
+            "Sherlock7.Wong@gmail.com";
+          window.location.href = `mailto:${encodeURI(recipient)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         });
       }
     </script>

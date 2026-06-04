@@ -1,0 +1,99 @@
+﻿<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Projects - SherlockWonG</title>
+    <meta name="description" content="Photography project index by SherlockWonG." />
+    <meta property="og:title" content="Projects - SherlockWonG" />
+    <meta property="og:description" content="A project-based index for selected photography series by SherlockWonG." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/assets/og-image.svg" />
+    <link rel="icon" href="/assets/og-image.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/src/styles.css?v=20260602-projects-editor" />
+    <script src="/src/supabase-config.js?v=20260527-sync-delete2" defer></script>
+    <script src="/src/content-api.js?v=20260527-sync-delete2" defer></script>
+    <script src="/src/main.js?v=20260602-projects-editor" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" data-header>
+      <a class="brand" href="/" aria-label="SherlockWonG home"><span data-edit-key="brand">SherlockWonG</span></a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-line"></span>
+        <span class="nav-toggle-line"></span>
+        <span class="sr-only">Open navigation</span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary navigation">
+        <a href="/portrait/" data-edit-key="navPortrait">Portrait</a>
+        <a href="/landscape/" data-edit-key="navLandscape">Landscape</a>
+        <a href="/life/" data-edit-key="navLife">Life</a>
+        <a href="/cityscape/" data-edit-key="navCityscape">CityScape</a>
+        <a href="/projects/" aria-current="page" data-edit-key="navProjects">Projects</a>
+        <a class="nav-feature" href="/#about" data-edit-key="navAbout">About</a>
+      </nav>
+    </header>
+
+    <main class="utility-main section-shell" id="main">
+      <section class="utility-hero" aria-labelledby="projects-title">
+        <div>
+          <p class="room-label" data-page-edit-key="eyebrow">Archive index / Series</p>
+          <h1 id="projects-title"><span data-page-edit-key="titleLine1">Projects,</span> <span data-page-edit-key="titleLine2">not just categories.</span></h1>
+          <p data-page-edit-key="summary">
+            A place for finished or developing photo series. Categories show subject matter; projects give the work a
+            sharper narrative route.
+          </p>
+        </div>
+        <figure class="utility-visual">
+          <img src="/assets/portfolio-story.svg" alt="Project archive visual" data-page-src-key="heroImage" data-page-alt-key="heroImageAlt" />
+        </figure>
+      </section>
+
+      <section class="project-board" aria-label="Project list" data-project-board>
+        <a class="project-tile is-wide" href="/portrait/">
+          <span>PRJ-01</span>
+          <strong>Human distance</strong>
+          <em>Portrait studies, interior light, quiet expression.</em>
+        </a>
+        <a class="project-tile" href="/cityscape/">
+          <span>PRJ-02</span>
+          <strong>Night geometry</strong>
+          <em>Architecture, crossings, street rhythm, hard surfaces.</em>
+        </a>
+        <a class="project-tile" href="/life/">
+          <span>PRJ-03</span>
+          <strong>Private weather</strong>
+          <em>Daily fragments, travel pauses, small objects.</em>
+        </a>
+        <a class="project-tile is-tall" href="/landscape/">
+          <span>PRJ-04</span>
+          <strong>Open distance</strong>
+          <em>Terrain, air, horizon, and long quiet scenes.</em>
+        </a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-info">
+        <p>&copy; <span data-year></span> <span data-edit-key="footerCopyright">SherlockWonG. Photography portfolio.</span></p>
+        <a href="mailto:Sherlock7.Wong@gmail.com" data-edit-key="footerEmail" data-edit-mail-key="footerEmail">Sherlock7.Wong@gmail.com</a>
+      </div>
+      <nav class="footer-social" aria-label="Social links">
+        <a href="mailto:Sherlock7.Wong@gmail.com" aria-label="Email SherlockWonG">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 6h16v12H4z" />
+            <path d="m4 7 8 6 8-6" />
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/sher1ockwong/" target="_blank" rel="noopener noreferrer" aria-label="Instagram SherlockWonG">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="5" y="5" width="14" height="14" rx="4" />
+            <circle cx="12" cy="12" r="3.2" />
+            <circle cx="16.7" cy="7.3" r="0.8" />
+          </svg>
+        </a>
+      </nav>
+      <a class="footer-top" href="/" data-edit-key="footerHomeLabel">Home</a>
+    </footer>
+  </body>
+</html>

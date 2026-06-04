@@ -44,7 +44,7 @@ values (
   'portfolio-images',
   'portfolio-images',
   true,
-  10485760,
+  52428800,
   array['image/png', 'image/jpeg', 'image/webp', 'image/gif']
 )
 on conflict (id) do update
@@ -69,3 +69,10 @@ with check (
   bucket_id = 'portfolio-images'
   and storage.extension(name) in ('png', 'jpg', 'jpeg', 'webp', 'gif')
 );
+
+drop policy if exists "Authenticated can delete portfolio images" on storage.objects;
+create policy "Authenticated can delete portfolio images"
+on storage.objects
+for delete
+to authenticated
+using (bucket_id = 'portfolio-images');

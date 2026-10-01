@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Photography archive by WonG, a visual collection of portraits, landscapes, city humanity, and personal moments."
+    />
+    <meta property="og:title" content="WonG - Photography" />
+    <meta
+      property="og:description"
+      content="A warm visual archive of moments and places, recorded in natural light."
+    />
+    <meta property="og:image" content="../Project/assets/project-edges-light.png" />
+    <title>WonG - Photography</title>
+    <link rel="icon" href="data:," />
+    <link rel="preload" as="image" href="../Project/assets/project-edges-light.png" />
+    <link rel="preload" as="image" href="../Home/assets/portrait.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../shared/effects.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header" aria-label="Primary">
+        <a class="brand" href="../Home/index.html" aria-label="WonG home">WonG</a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="../Home/index.html">Home</a>
+          <a href="../about/index.html">About</a>
+          <a href="../Project/index.html">Projects</a>
+          <a class="is-active" href="index.html" aria-current="page">Photography</a>
+          <a href="../Contact/index.html">Contact</a>
+        </nav>
+        <p class="header-kicker">Photographer / Visual Archive</p>
+      </header>
+
+      <main id="photography" class="photography-page" data-page-mode="archive">
+        <section class="photography-hero" aria-labelledby="photography-title">
+          <aside class="portrait-rail reveal-item" aria-label="Portrait collection marker">
+            <span aria-hidden="true"></span>
+            <p>Portrait Collection</p>
+            <strong>04</strong>
+            <span aria-hidden="true"></span>
+          </aside>
+
+          <div class="hero-copy reveal-item">
+            <h1 id="photography-title" data-page-title>Photography</h1>
+            <p class="page-path" data-page-path>/photography</p>
+            <p class="hero-description" data-hero-description>
+              A visual archive of moments and places.<br />
+              Images from different journeys and seasons, recorded in natural light.
+            </p>
+          </div>
+
+          <aside class="archive-meta reveal-item" aria-label="Archive metadata">
+            <span>Archive No.</span>
+            <strong data-archive-no>03</strong>
+            <span>Updated</span>
+            <b data-archive-updated>May 2025</b>
+            <span>Based in</span>
+            <b data-archive-location>Shenzhen, China</b>
+          </aside>
+
+          <aside class="archive-stamp reveal-item" aria-label="Photography archive number">
+            <span class="corner corner-top-left" aria-hidden="true"></span>
+            <span class="corner corner-top-right" aria-hidden="true"></span>
+            <span class="corner corner-bottom-left" aria-hidden="true"></span>
+            <span class="corner corner-bottom-right" aria-hidden="true"></span>
+            <p data-stamp-title>WonG Archive<br />Photography Collection</p>
+            <strong data-stamp-no>03</strong>
+          </aside>
+
+          <figure class="portrait-cover reveal-item">
+            <img
+              src="../Project/assets/project-seen-silence.png"
+              alt="Portrait collection cover in soft natural window light"
+              width="287"
+              height="218"
+              decoding="async"
+            />
+            <figcaption>
+              <span><b>Year</b> 2024</span>
+              <span><b>Light</b> Natural Light</span>
+              <span><b>Location</b> Shenzhen, China</span>
+            </figcaption>
+          </figure>
+
+          <aside class="personal-cover reveal-item" aria-label="Personal collection highlights">
+            <figure class="personal-snapshot">
+              <img src="../Home/assets/personal.png" alt="Quiet personal light by a window" width="287" height="218" decoding="async" />
+              <figcaption>
+                <span>Shenzhen</span>
+                <span>Apr 2024</span>
+              </figcaption>
+            </figure>
+            <figure class="personal-snapshot">
+              <img src="../Home/assets/landscape.png" alt="A quiet trip view through a window" width="287" height="218" decoding="async" />
+              <figcaption>
+                <span>On the way</span>
+                <span>Oct 2023</span>
+              </figcaption>
+            </figure>
+            <figure class="personal-snapshot">
+              <img src="../Home/assets/photographer.png" alt="Camera and cup on a personal desk" width="287" height="218" decoding="async" />
+              <figcaption>
+                <span>Home</span>
+                <span>Feb 2024</span>
+              </figcaption>
+            </figure>
+          </aside>
+        </section>
+
+        <section class="archive-toolbar reveal-item" aria-label="Photography filter and view controls">
+          <div class="filter-group" data-filter-group role="group" aria-label="Filter photography category">
+            <span>Filter:</span>
+            <button class="is-active" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" data-filter="featured" aria-pressed="false">Featured</button>
+            <button type="button" data-filter="portrait" aria-pressed="false">Portrait</button>
+            <button type="button" data-filter="landscape" aria-pressed="false">Landscape</button>
+            <button type="button" data-filter="city-humanity" aria-pressed="false">City Humanity</button>
+            <button type="button" data-filter="personal" aria-pressed="false">Personal</button>
+          </div>
+
+          <div class="sort-controls">
+            <label for="photo-sort">Sort by:</label>
+            <select id="photo-sort" data-sort>
+              <option value="latest">Latest</option>
+              <option value="oldest">Oldest</option>
+              <option value="title">Title</option>
+            </select>
+            <div class="view-toggle" role="group" aria-label="Toggle gallery view">
+              <button class="is-active" type="button" data-view="grid" aria-label="Grid view" aria-pressed="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" />
+                </svg>
+              </button>
+              <button type="button" data-view="list" aria-label="List view" aria-pressed="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 7h14M5 12h14M5 17h14" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="category-section reveal-section" aria-labelledby="categories-title">
+          <div class="section-label">
+            <h2 id="categories-title">Categories</h2>
+            <span aria-hidden="true">/</span>
+          </div>
+
+          <div class="category-grid">
+            <button class="category-card" type="button" data-filter-shortcut="portrait">
+              <img
+                src="../Home/assets/portrait.png"
+                alt="Portrait collection preview"
+                width="287"
+                height="218"
+                loading="lazy"
+                decoding="async"
+              />
+              <span>
+                <strong>Portrait</strong>
+                <small>128 images</small>
+              </span>
+            </button>
+
+            <button class="category-card" type="button" data-filter-shortcut="landscape">
+              <img
+                src="../Project/assets/project-edges-light.png"
+                alt="Landscape collection preview"
+                width="386"
+                height="242"
+                loading="lazy"
+                decoding="async"
+              />
+              <span>
+                <strong>Landscape</strong>
+                <small>156 images</small>
+              </span>
+            </button>
+
+            <button class="category-card" type="button" data-filter-shortcut="city-humanity">
+              <img
+                src="../Project/assets/project-city-rhythm.png"
+                alt="City humanity collection preview"
+                width="292"
+                height="213"
+                loading="lazy"
+                decoding="async"
+              />
+              <span>
+                <strong>City Humanity</strong>
+                <small>214 images</small>
+              </span>
+            </button>
+
+            <button class="category-card" type="button" data-filter-shortcut="personal">
+              <img
+                src="../Home/assets/personal.png"
+                alt="Personal collection preview"
+                width="206"
+                height="199"
+                loading="lazy"
+                decoding="async"
+              />
+              <span>
+                <strong>Personal</strong>
+                <small>92 images</small>
+              </span>
+            </button>
+          </div>
+        </section>
+
+        <section class="featured-section reveal-section" aria-labelledby="featured-title">
+          <div class="section-label">
+            <h2 id="featured-title">Featured</h2>
+            <button class="star-button" type="button" data-focus-featured aria-label="Open featured photo">
+              <span aria-hidden="true">&#9734;</span>
+            </button>
+          </div>
+
+          <div class="featured-rail" data-featured-rail aria-label="Featured photography rail"></div>
+
+          <div class="rail-controls" aria-label="Featured rail controls">
+            <button type="button" data-featured-prev aria-label="Previous featured photo">&larr;</button>
+            <button type="button" data-featured-next aria-label="Next featured photo">&rarr;</button>
+          </div>
+        </section>
+
+        <section class="gallery-section reveal-section" aria-labelledby="gallery-title">
+          <h2 id="gallery-title" class="sr-only">Photography works</h2>
+
+          <div class="gallery-layout">
+            <div class="gallery-grid" data-gallery-grid aria-live="polite"></div>
+
+            <aside class="detail-panel" data-detail-panel tabindex="-1" aria-label="Selected photo details">
+              <button class="detail-close" type="button" data-detail-close aria-label="Close photo details">&times;</button>
+              <img data-detail-image src="../Project/assets/project-edges-light.png" alt="Coastline" width="386" height="242" />
+              <div class="detail-heading">
+                <div>
+                  <h3 data-detail-title>Coastline</h3>
+                  <p data-detail-meta>
+                    <span>Landscape</span>
+                    <span>2024</span>
+                    <span>Northern California, USA</span>
+                  </p>
+                </div>
+                <button class="detail-star" type="button" data-detail-star aria-label="Mark selected photo as favorite">
+                  <span aria-hidden="true">&#9734;</span>
+                </button>
+              </div>
+              <p class="detail-description" data-detail-description>
+                Fog cleared in the afternoon. The light was soft and the air was clean. Moments like this stay with me.
+              </p>
+              <dl class="detail-specs">
+                <div>
+                  <dt data-detail-label-camera>Camera</dt>
+                  <dd data-detail-camera>FUJIFILM X100V</dd>
+                </div>
+                <div>
+                  <dt data-detail-label-lens>Lens</dt>
+                  <dd data-detail-lens>23mm f/2</dd>
+                </div>
+                <div>
+                  <dt data-detail-label-aperture>Aperture</dt>
+                  <dd data-detail-aperture>f/5.6</dd>
+                </div>
+                <div>
+                  <dt data-detail-label-shutter>Shutter</dt>
+                  <dd data-detail-shutter>1/500s</dd>
+                </div>
+                <div>
+                  <dt data-detail-label-iso>ISO</dt>
+                  <dd data-detail-iso>200</dd>
+                </div>
+                <div>
+                  <dt data-detail-label-date>Date</dt>
+                  <dd data-detail-date>Apr 18, 2024</dd>
+                </div>
+                <div class="detail-extra-spec">
+                  <dt data-detail-label-extra-one>Aperture</dt>
+                  <dd data-detail-extra-one>f/2.0</dd>
+                </div>
+                <div class="detail-extra-spec">
+                  <dt data-detail-label-extra-two>Shutter</dt>
+                  <dd data-detail-extra-two>1/125s</dd>
+                </div>
+                <div class="detail-extra-spec">
+                  <dt data-detail-label-extra-three>ISO</dt>
+                  <dd data-detail-extra-three>400</dd>
+                </div>
+              </dl>
+              <div class="detail-actions">
+                <button type="button" data-photo-prev>&larr; Prev</button>
+                <span data-detail-count>12 / 214</span>
+                <button type="button" data-photo-next>Next &rarr;</button>
+              </div>
+            </aside>
+          </div>
+
+          <p class="empty-state" data-empty-state hidden>No images found in this archive view.</p>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" role="img">
+            <path d="M16 12h16l3 5h5a4 4 0 0 1 4 4v17a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V21a4 4 0 0 1 4-4h5l3-5Z" />
+            <circle cx="24" cy="29" r="8" />
+            <path d="M34 22h4" />
+          </svg>
+        </div>
+        <div class="footer-column">
+          <span>Archive</span>
+          <p>WonG</p>
+        </div>
+        <div class="footer-column">
+          <span>Capture Life</span>
+          <p>Keep it real.</p>
+        </div>
+        <div class="footer-column">
+          <span>Photography</span>
+          <p>Stories in light.</p>
+        </div>
+        <p class="copyright">&copy; 2025 WonG. All rights reserved.</p>
+      </footer>
+    </div>
+
+    <script src="../shared/cms-data.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="../shared/effects.js" defer></script>
+  </body>
+</html>

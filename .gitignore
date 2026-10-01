@@ -15,3 +15,6 @@ Thumbs.db
 davinci_*.lua
 downloaded_assets/
 Image/Photography-personal.png
+Image/*
+!Image/contact.png
+!Image/Landscape.png

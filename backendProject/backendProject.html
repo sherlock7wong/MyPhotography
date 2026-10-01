@@ -1,0 +1,2445 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="WonG Visual Archive CMS mock page for managing photography projects."
+    />
+    <title>WonG.Visual CMS - Projects</title>
+    <style>
+      :root {
+        --paper: #f4f0e8;
+        --paper-soft: #fbf8f1;
+        --paper-card: #fffaf0;
+        --ink: #1f1b16;
+        --text: #4e473e;
+        --muted: #84796b;
+        --faint: #a99f8f;
+        --line: #d9d0c1;
+        --line-strong: #b9ad9b;
+        --olive: #5f6f52;
+        --olive-dark: #3f4a35;
+        --olive-soft: #e7eadc;
+        --sepia: #9f7544;
+        --warning: #9b7140;
+        --danger: #8f4e37;
+        --shadow: 0 18px 42px rgba(49, 39, 24, 0.09);
+        --display: Georgia, "Times New Roman", serif;
+        --sans: "Trebuchet MS", "Gill Sans", "Segoe UI", sans-serif;
+        --mono: "Courier New", ui-monospace, monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        min-width: 320px;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-width: 320px;
+        margin: 0;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 18% 8%, rgba(255, 255, 255, 0.9), transparent 30rem),
+          radial-gradient(circle at 84% 12%, rgba(214, 197, 166, 0.2), transparent 34rem),
+          linear-gradient(110deg, rgba(90, 79, 51, 0.035) 0 1px, transparent 1px 7px),
+          var(--paper);
+        font-family: var(--sans);
+        line-height: 1.5;
+      }
+
+      body::before,
+      body::after {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        content: "";
+      }
+
+      body::before {
+        background-image:
+          linear-gradient(rgba(80, 63, 38, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(80, 63, 38, 0.022) 1px, transparent 1px);
+        background-size: 34px 34px, 38px 38px;
+        opacity: 0.34;
+      }
+
+      body::after {
+        background-image:
+          radial-gradient(circle at 30% 20%, rgba(45, 35, 22, 0.04) 0 1px, transparent 1px),
+          radial-gradient(circle at 72% 58%, rgba(45, 35, 22, 0.03) 0 1px, transparent 1px);
+        background-size: 7px 7px, 11px 11px;
+        mix-blend-mode: multiply;
+        opacity: 0.28;
+      }
+
+      button,
+      input,
+      textarea,
+      select {
+        color: inherit;
+        font: inherit;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      img {
+        display: block;
+        max-width: 100%;
+      }
+
+      :focus-visible {
+        outline: 2px solid var(--olive);
+        outline-offset: 3px;
+      }
+
+      .admin-shell {
+        display: grid;
+        grid-template-columns: 280px minmax(0, 1fr);
+        min-height: 100vh;
+      }
+
+      .sidebar {
+        position: sticky;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        padding: 34px 16px 24px;
+        border-right: 1px solid rgba(185, 173, 155, 0.6);
+        background: rgba(251, 248, 241, 0.56);
+        backdrop-filter: blur(8px);
+      }
+
+      .brand {
+        display: grid;
+        grid-template-columns: 30px 1fr;
+        gap: 12px;
+        align-items: center;
+        padding: 0 14px 30px;
+        border-bottom: 1px solid rgba(185, 173, 155, 0.52);
+      }
+
+      .brand-mark {
+        width: 24px;
+        height: 38px;
+        color: var(--olive);
+      }
+
+      .brand strong {
+        display: block;
+        font-size: 1.22rem;
+        letter-spacing: 0.08em;
+        line-height: 1.05;
+        text-transform: uppercase;
+      }
+
+      .brand span {
+        display: block;
+        margin-top: 0.22rem;
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .side-nav {
+        display: grid;
+        gap: 6px;
+        margin-top: 28px;
+      }
+
+      .nav-item {
+        position: relative;
+        display: grid;
+        grid-template-columns: 24px minmax(0, 1fr) auto;
+        gap: 14px;
+        align-items: center;
+        min-height: 50px;
+        padding: 0 14px;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        color: var(--text);
+        text-decoration: none;
+        transition:
+          background-color 180ms ease,
+          border-color 180ms ease,
+          color 180ms ease,
+          transform 180ms ease;
+      }
+
+      .nav-item svg {
+        width: 22px;
+        height: 22px;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.75;
+      }
+
+      .nav-item:hover,
+      .nav-item:focus-visible {
+        background: rgba(255, 250, 239, 0.64);
+        border-color: rgba(185, 173, 155, 0.45);
+        color: var(--olive-dark);
+        transform: translateX(2px);
+      }
+
+      .nav-item.is-active {
+        background: rgba(255, 250, 239, 0.66);
+        color: var(--olive-dark);
+      }
+
+      .nav-item.is-active::before {
+        position: absolute;
+        top: 8px;
+        bottom: 8px;
+        left: -16px;
+        width: 4px;
+        border-radius: 0 6px 6px 0;
+        background: var(--olive);
+        content: "";
+      }
+
+      .nav-badge {
+        display: inline-grid;
+        place-items: center;
+        min-width: 24px;
+        height: 24px;
+        padding: 0 7px;
+        border-radius: 999px;
+        color: var(--paper-soft);
+        background: var(--sepia);
+        font-size: 0.78rem;
+      }
+
+      .profile-card {
+        margin-top: auto;
+        padding: 16px;
+        border: 1px solid rgba(185, 173, 155, 0.55);
+        border-radius: 8px;
+        background: rgba(255, 250, 239, 0.42);
+      }
+
+      .profile-head {
+        display: grid;
+        grid-template-columns: 48px 1fr;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .avatar,
+      .top-avatar {
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        border-radius: 999px;
+        background: var(--olive-dark);
+        color: var(--paper-soft);
+        font-family: var(--display);
+      }
+
+      .avatar {
+        width: 48px;
+        height: 48px;
+        font-size: 1.35rem;
+      }
+
+      .profile-head strong {
+        display: block;
+      }
+
+      .profile-head span,
+      .profile-meta,
+      .logout-button {
+        color: var(--text);
+        font-size: 0.86rem;
+      }
+
+      .profile-meta {
+        display: grid;
+        gap: 10px;
+        margin: 16px 0;
+        padding-top: 14px;
+        border-top: 1px solid rgba(185, 173, 155, 0.44);
+      }
+
+      .profile-meta div {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .profile-meta span {
+        color: var(--muted);
+      }
+
+      .logout-button {
+        display: inline-flex;
+        gap: 8px;
+        align-items: center;
+        width: 100%;
+        padding: 12px 0 0;
+        border: 0;
+        border-top: 1px solid rgba(185, 173, 155, 0.44);
+        background: transparent;
+        text-align: left;
+        transition: color 180ms ease;
+      }
+
+      .logout-button:hover,
+      .logout-button:focus-visible {
+        color: var(--olive-dark);
+      }
+
+      .main-area {
+        min-width: 0;
+        padding: 34px 32px 28px;
+      }
+
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        align-items: center;
+        min-height: 48px;
+      }
+
+      .breadcrumb {
+        display: inline-flex;
+        gap: 11px;
+        align-items: center;
+        color: var(--text);
+        font-size: 0.92rem;
+      }
+
+      .breadcrumb svg {
+        width: 20px;
+        height: 20px;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.7;
+      }
+
+      .top-actions {
+        display: flex;
+        gap: 22px;
+        align-items: center;
+      }
+
+      .icon-only {
+        position: relative;
+        display: inline-grid;
+        place-items: center;
+        width: 38px;
+        height: 38px;
+        border: 0;
+        background: transparent;
+        color: var(--text);
+        transition:
+          color 180ms ease,
+          transform 180ms ease;
+      }
+
+      .icon-only svg {
+        width: 24px;
+        height: 24px;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.7;
+      }
+
+      .icon-only::after {
+        position: absolute;
+        top: 8px;
+        right: 7px;
+        width: 8px;
+        height: 8px;
+        border: 2px solid var(--paper);
+        border-radius: 999px;
+        background: var(--sepia);
+        content: "";
+      }
+
+      .icon-only:hover,
+      .icon-only:focus-visible {
+        color: var(--olive-dark);
+        transform: translateY(-1px);
+      }
+
+      .user-menu {
+        display: inline-flex;
+        gap: 10px;
+        align-items: center;
+        border: 0;
+        background: transparent;
+      }
+
+      .top-avatar {
+        width: 42px;
+        height: 42px;
+        font-size: 1.1rem;
+      }
+
+      .user-menu svg {
+        width: 16px;
+        height: 16px;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.7;
+      }
+
+      .page-heading {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px 48px;
+        align-items: end;
+        margin: 28px 0 26px;
+      }
+
+      .page-heading h1 {
+        margin: 0;
+        font-size: clamp(2.4rem, 4vw, 3.2rem);
+        line-height: 0.95;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .page-heading p {
+        margin: 0.5rem 0 0;
+        color: var(--muted);
+        font-size: 1rem;
+      }
+
+      .archive-number {
+        color: var(--text);
+      }
+
+      .archive-number strong {
+        color: var(--sepia);
+        font-weight: 700;
+      }
+
+      .workspace-grid {
+        display: grid;
+        grid-template-columns: minmax(560px, 1fr) minmax(360px, 430px) minmax(270px, 330px);
+        gap: 16px;
+        align-items: start;
+      }
+
+      .panel {
+        border: 1px solid rgba(185, 173, 155, 0.62);
+        border-radius: 8px;
+        background:
+          linear-gradient(rgba(255, 250, 239, 0.86), rgba(251, 248, 241, 0.82)),
+          var(--paper-card);
+      }
+
+      .list-panel {
+        min-width: 0;
+        overflow: hidden;
+      }
+
+      .list-toolbar {
+        display: grid;
+        grid-template-columns: minmax(145px, 1fr) minmax(150px, 190px) minmax(160px, 210px) auto;
+        gap: 12px;
+        align-items: center;
+        padding: 18px 20px;
+        border-bottom: 1px solid rgba(185, 173, 155, 0.44);
+      }
+
+      .count-text {
+        margin: 0;
+        color: var(--text);
+        font-weight: 700;
+      }
+
+      .select-field,
+      .text-field,
+      .textarea-field {
+        width: 100%;
+        border: 1px solid rgba(185, 173, 155, 0.58);
+        border-radius: 5px;
+        background: rgba(255, 250, 239, 0.5);
+        color: var(--text);
+        transition:
+          border-color 180ms ease,
+          box-shadow 180ms ease,
+          background-color 180ms ease;
+      }
+
+      .select-field,
+      .text-field {
+        min-height: 42px;
+        padding: 0 12px;
+      }
+
+      .textarea-field {
+        min-height: 100px;
+        padding: 12px;
+        resize: vertical;
+      }
+
+      .select-field:hover,
+      .text-field:hover,
+      .textarea-field:hover,
+      .select-field:focus,
+      .text-field:focus,
+      .textarea-field:focus {
+        border-color: var(--olive);
+        background: rgba(255, 250, 239, 0.75);
+        box-shadow: 0 0 0 3px rgba(95, 111, 82, 0.1);
+        outline: none;
+      }
+
+      .primary-button,
+      .secondary-button,
+      .danger-button {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        gap: 9px;
+        min-height: 42px;
+        padding: 0 18px;
+        border-radius: 5px;
+        transition:
+          background-color 180ms ease,
+          border-color 180ms ease,
+          color 180ms ease,
+          box-shadow 180ms ease,
+          transform 180ms ease;
+      }
+
+      .primary-button svg,
+      .secondary-button svg,
+      .danger-button svg {
+        width: 18px;
+        height: 18px;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.9;
+      }
+
+      .primary-button {
+        border: 1px solid var(--olive-dark);
+        color: var(--paper-soft);
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 0.08), transparent),
+          var(--olive-dark);
+        box-shadow: 0 12px 26px rgba(63, 74, 53, 0.12);
+      }
+
+      .primary-button:hover,
+      .primary-button:focus-visible {
+        background-color: #4f5d43;
+        transform: translateY(-1px);
+      }
+
+      .secondary-button {
+        border: 1px solid rgba(185, 173, 155, 0.64);
+        background: rgba(255, 250, 239, 0.48);
+        color: var(--text);
+      }
+
+      .secondary-button:hover,
+      .secondary-button:focus-visible {
+        border-color: var(--olive);
+        color: var(--olive-dark);
+        transform: translateY(-1px);
+      }
+
+      .danger-button {
+        border: 1px solid rgba(143, 78, 55, 0.5);
+        background: rgba(143, 78, 55, 0.08);
+        color: var(--danger);
+      }
+
+      .danger-button:hover,
+      .danger-button:focus-visible {
+        background: rgba(143, 78, 55, 0.14);
+        transform: translateY(-1px);
+      }
+
+      .table-wrap {
+        overflow-x: auto;
+      }
+
+      table {
+        width: 100%;
+        min-width: 980px;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 14px 12px;
+        border-bottom: 1px solid rgba(185, 173, 155, 0.34);
+        text-align: left;
+        vertical-align: middle;
+      }
+
+      th {
+        color: var(--text);
+        font-family: var(--mono);
+        font-size: 0.74rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      td {
+        color: var(--text);
+        font-size: 0.9rem;
+      }
+
+      tbody tr {
+        transition:
+          background-color 180ms ease,
+          box-shadow 180ms ease;
+      }
+
+      tbody tr:hover,
+      tbody tr.is-selected {
+        background: rgba(244, 240, 232, 0.72);
+      }
+
+      tbody tr.is-selected {
+        box-shadow: inset 4px 0 0 var(--olive);
+      }
+
+      .drag-handle {
+        color: var(--muted);
+        font-family: var(--mono);
+        letter-spacing: -0.12em;
+      }
+
+      .cover-thumb {
+        width: 58px;
+        height: 58px;
+        overflow: hidden;
+        border: 1px solid rgba(185, 173, 155, 0.52);
+        border-radius: 6px;
+        background: rgba(231, 234, 220, 0.36);
+      }
+
+      .cover-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .title-cell strong,
+      .preview-card h2 {
+        color: var(--ink);
+      }
+
+      .title-cell strong {
+        display: block;
+        margin-bottom: 0.18rem;
+      }
+
+      .title-cell span,
+      .muted-line {
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 0.74rem;
+      }
+
+      .status-pill,
+      .featured-pill,
+      .category-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        min-height: 27px;
+        padding: 0 10px;
+        border-radius: 5px;
+        font-size: 0.8rem;
+        line-height: 1;
+        white-space: nowrap;
+      }
+
+      .status-pill {
+        border: 0;
+      }
+
+      .status-pill.is-visible {
+        color: var(--paper-soft);
+        background: var(--olive);
+      }
+
+      .status-pill.is-hidden {
+        color: var(--text);
+        background: #c4beb5;
+      }
+
+      .featured-pill {
+        border: 1px solid rgba(159, 117, 68, 0.25);
+        color: var(--sepia);
+        background: rgba(159, 117, 68, 0.1);
+      }
+
+      .featured-pill.is-off {
+        color: var(--muted);
+        background: rgba(169, 159, 143, 0.12);
+      }
+
+      .action-group {
+        display: inline-flex;
+        gap: 7px;
+        align-items: center;
+      }
+
+      .row-action {
+        display: inline-grid;
+        place-items: center;
+        width: 32px;
+        height: 32px;
+        border: 1px solid transparent;
+        border-radius: 5px;
+        background: transparent;
+        color: var(--text);
+        transition:
+          border-color 180ms ease,
+          color 180ms ease,
+          background-color 180ms ease,
+          transform 180ms ease;
+      }
+
+      .row-action svg {
+        width: 18px;
+        height: 18px;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.75;
+      }
+
+      .row-action:hover,
+      .row-action:focus-visible {
+        border-color: rgba(185, 173, 155, 0.58);
+        background: rgba(255, 250, 239, 0.62);
+        color: var(--olive-dark);
+        transform: translateY(-1px);
+      }
+
+      .row-action.is-danger:hover,
+      .row-action.is-danger:focus-visible {
+        color: var(--danger);
+      }
+
+      .list-footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: center;
+        min-height: 62px;
+        padding: 0 20px;
+        color: var(--muted);
+        font-size: 0.86rem;
+      }
+
+      .pager {
+        display: inline-flex;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .pager button {
+        display: inline-grid;
+        place-items: center;
+        width: 34px;
+        height: 34px;
+        border: 1px solid rgba(185, 173, 155, 0.58);
+        border-radius: 5px;
+        background: transparent;
+        color: var(--text);
+      }
+
+      .pager button.is-current {
+        color: var(--paper-soft);
+        background: var(--olive-dark);
+      }
+
+      .empty-state {
+        display: grid;
+        place-items: center;
+        min-height: 330px;
+        padding: 32px;
+        text-align: center;
+      }
+
+      .empty-state h3 {
+        margin: 0 0 0.45rem;
+        font-family: var(--display);
+        font-size: 2rem;
+        font-weight: 400;
+      }
+
+      .empty-state p {
+        max-width: 420px;
+        margin: 0 auto 1.3rem;
+        color: var(--muted);
+      }
+
+      .editor-panel,
+      .preview-panel {
+        padding: 18px;
+      }
+
+      .panel-title {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: baseline;
+        margin: 0 0 18px;
+      }
+
+      .panel-title h2 {
+        margin: 0;
+        font-size: 1.05rem;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .panel-title span {
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 0.75rem;
+      }
+
+      .project-form {
+        display: grid;
+        gap: 14px;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .field {
+        display: grid;
+        gap: 7px;
+      }
+
+      .field.full {
+        grid-column: 1 / -1;
+      }
+
+      .field label,
+      .field legend,
+      .upload-label {
+        color: var(--ink);
+        font-family: var(--mono);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .field label span,
+      .field legend span {
+        color: var(--sepia);
+      }
+
+      .field-help {
+        color: var(--muted);
+        font-size: 0.78rem;
+      }
+
+      .field-error {
+        min-height: 1rem;
+        margin: -2px 0 0;
+        color: var(--danger);
+        font-size: 0.78rem;
+      }
+
+      .field-error:empty {
+        display: none;
+      }
+
+      .textarea-row {
+        position: relative;
+      }
+
+      .textarea-count {
+        position: absolute;
+        right: 10px;
+        bottom: 8px;
+        color: var(--muted);
+        font-size: 0.75rem;
+      }
+
+      .cover-manager {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .cover-preview {
+        min-height: 134px;
+        overflow: hidden;
+        border: 1px solid rgba(185, 173, 155, 0.58);
+        border-radius: 7px;
+        background: rgba(231, 234, 220, 0.24);
+      }
+
+      .cover-preview img {
+        width: 100%;
+        height: 100%;
+        min-height: 134px;
+        object-fit: cover;
+      }
+
+      .upload-placeholder {
+        display: grid;
+        place-items: center;
+        min-height: 134px;
+        padding: 18px;
+        border: 1px dashed rgba(185, 173, 155, 0.78);
+        border-radius: 7px;
+        background: rgba(255, 250, 239, 0.42);
+        color: var(--muted);
+        text-align: center;
+        transition:
+          border-color 180ms ease,
+          background-color 180ms ease,
+          color 180ms ease;
+      }
+
+      .upload-placeholder svg {
+        width: 31px;
+        height: 31px;
+        margin: 0 auto 8px;
+        fill: none;
+        stroke: var(--olive);
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.7;
+      }
+
+      .upload-placeholder strong {
+        display: block;
+        color: var(--text);
+        font-weight: 500;
+      }
+
+      .upload-placeholder:hover,
+      .upload-placeholder:focus-visible {
+        border-color: var(--olive);
+        background: rgba(231, 234, 220, 0.2);
+        color: var(--olive-dark);
+      }
+
+      .category-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 0;
+        border: 0;
+        margin: 0;
+      }
+
+      .category-option {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        min-height: 34px;
+        padding: 0 11px;
+        border: 1px solid rgba(185, 173, 155, 0.58);
+        border-radius: 5px;
+        background: rgba(255, 250, 239, 0.5);
+        color: var(--text);
+        font-size: 0.86rem;
+        transition:
+          background-color 180ms ease,
+          border-color 180ms ease,
+          color 180ms ease,
+          transform 180ms ease;
+      }
+
+      .category-option input {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        opacity: 0;
+      }
+
+      .category-option:has(input:checked) {
+        border-color: rgba(95, 111, 82, 0.5);
+        background: var(--olive-soft);
+        color: var(--olive-dark);
+      }
+
+      .category-option:hover,
+      .category-option:focus-within {
+        transform: translateY(-1px);
+      }
+
+      .switch-grid {
+        display: grid;
+        gap: 10px;
+      }
+
+      .switch-row {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .switch-row input {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        opacity: 0;
+      }
+
+      .switch-track {
+        position: relative;
+        display: inline-block;
+        width: 44px;
+        height: 24px;
+        border: 1px solid rgba(185, 173, 155, 0.65);
+        border-radius: 999px;
+        background: #c8c1b7;
+        transition:
+          background-color 180ms ease,
+          border-color 180ms ease;
+      }
+
+      .switch-track::after {
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 16px;
+        height: 16px;
+        border-radius: 999px;
+        background: var(--paper-soft);
+        box-shadow: 0 2px 5px rgba(49, 39, 24, 0.16);
+        content: "";
+        transition: transform 180ms ease;
+      }
+
+      .switch-row input:checked + .switch-track {
+        border-color: var(--olive);
+        background: var(--olive);
+      }
+
+      .switch-row input:checked + .switch-track::after {
+        transform: translateX(20px);
+      }
+
+      .switch-copy strong {
+        display: block;
+      }
+
+      .switch-copy span {
+        display: block;
+        color: var(--muted);
+        font-size: 0.78rem;
+      }
+
+      .form-actions {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        padding-top: 4px;
+      }
+
+      .preview-panel {
+        display: grid;
+        gap: 18px;
+      }
+
+      .preview-card {
+        padding: 14px;
+        border: 1px solid rgba(185, 173, 155, 0.5);
+        border-radius: 7px;
+        background: rgba(255, 250, 239, 0.52);
+      }
+
+      .preview-image {
+        overflow: hidden;
+        border: 1px solid rgba(185, 173, 155, 0.48);
+        border-radius: 6px;
+        background: var(--olive-soft);
+      }
+
+      .preview-image img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+      }
+
+      .preview-placeholder {
+        display: grid;
+        place-items: center;
+        min-height: 230px;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      .preview-card h2 {
+        margin: 16px 0 4px;
+        font-family: var(--display);
+        font-size: 1.55rem;
+        font-weight: 400;
+      }
+
+      .preview-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 12px;
+        color: var(--text);
+        font-size: 0.86rem;
+      }
+
+      .preview-card p {
+        margin: 16px 0 14px;
+        color: var(--text);
+      }
+
+      .category-chip {
+        background: rgba(231, 234, 220, 0.75);
+        color: var(--olive-dark);
+      }
+
+      .preview-arrow {
+        display: flex;
+        justify-content: flex-end;
+        color: var(--text);
+        font-size: 1.55rem;
+      }
+
+      .tips-card {
+        padding: 18px;
+        border: 1px solid rgba(185, 173, 155, 0.5);
+        border-radius: 7px;
+        background:
+          linear-gradient(135deg, rgba(255, 250, 239, 0.76), rgba(244, 240, 232, 0.72)),
+          var(--paper-card);
+      }
+
+      .tips-card h3 {
+        margin: 0 0 10px;
+        font-size: 0.9rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .tips-card ul {
+        display: grid;
+        gap: 8px;
+        margin: 0;
+        padding-left: 18px;
+        color: var(--muted);
+        font-size: 0.86rem;
+      }
+
+      .toast {
+        position: fixed;
+        top: 36px;
+        left: 50%;
+        z-index: 20;
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        gap: 14px;
+        align-items: center;
+        width: min(100% - 32px, 410px);
+        min-height: 56px;
+        padding: 12px 14px;
+        border: 1px solid rgba(185, 173, 155, 0.62);
+        border-radius: 8px;
+        background: rgba(251, 248, 241, 0.96);
+        box-shadow: var(--shadow);
+        transform: translateX(-50%);
+        animation: toast-in 240ms ease-out both;
+      }
+
+      .toast[hidden] {
+        display: none;
+      }
+
+      .toast-icon {
+        display: inline-grid;
+        place-items: center;
+        width: 24px;
+        height: 24px;
+        border-radius: 999px;
+        color: var(--paper-soft);
+        background: var(--olive);
+      }
+
+      .toast p {
+        margin: 0;
+        color: var(--text);
+      }
+
+      .toast button {
+        display: inline-grid;
+        place-items: center;
+        width: 30px;
+        height: 30px;
+        border: 0;
+        background: transparent;
+        color: var(--text);
+        font-size: 1.35rem;
+        line-height: 1;
+        transition:
+          color 180ms ease,
+          transform 180ms ease;
+      }
+
+      .toast button:hover,
+      .toast button:focus-visible {
+        color: var(--olive-dark);
+        transform: rotate(90deg);
+      }
+
+      .confirm-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 30;
+        display: grid;
+        place-items: center;
+        padding: 20px;
+        background: rgba(31, 27, 22, 0.26);
+      }
+
+      .confirm-overlay[hidden] {
+        display: none;
+      }
+
+      .confirm-card {
+        width: min(100%, 420px);
+        padding: 22px;
+        border: 1px solid rgba(185, 173, 155, 0.7);
+        border-radius: 8px;
+        background: var(--paper-soft);
+        box-shadow: var(--shadow);
+        animation: modal-in 180ms ease-out both;
+      }
+
+      .confirm-card h2 {
+        margin: 0 0 8px;
+        font-size: 1.25rem;
+      }
+
+      .confirm-card p {
+        margin: 0 0 18px;
+        color: var(--muted);
+      }
+
+      .confirm-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+      }
+
+      @keyframes toast-in {
+        from {
+          opacity: 0;
+          transform: translate(-50%, 10px) scale(0.985);
+        }
+
+        to {
+          opacity: 1;
+          transform: translate(-50%, 0) scale(1);
+        }
+      }
+
+      @keyframes modal-in {
+        from {
+          opacity: 0;
+          transform: translateY(10px) scale(0.985);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      @media (max-width: 1460px) {
+        .workspace-grid {
+          grid-template-columns: minmax(520px, 1fr) minmax(340px, 420px);
+        }
+
+        .preview-panel {
+          grid-column: 1 / -1;
+          grid-template-columns: minmax(280px, 360px) minmax(260px, 1fr);
+        }
+
+        .preview-panel .panel-title {
+          grid-column: 1 / -1;
+        }
+      }
+
+      @media (max-width: 1120px) {
+        .admin-shell {
+          grid-template-columns: 1fr;
+        }
+
+        .sidebar {
+          position: static;
+          height: auto;
+          padding: 18px 18px 12px;
+          border-right: 0;
+          border-bottom: 1px solid rgba(185, 173, 155, 0.6);
+        }
+
+        .brand {
+          padding: 0 0 14px;
+        }
+
+        .side-nav {
+          grid-auto-flow: column;
+          grid-auto-columns: max-content;
+          gap: 8px;
+          overflow-x: auto;
+          margin-top: 14px;
+          padding-bottom: 6px;
+        }
+
+        .nav-item {
+          min-height: 44px;
+        }
+
+        .nav-item.is-active::before {
+          inset: auto 12px -7px;
+          width: auto;
+          height: 3px;
+          border-radius: 999px;
+        }
+
+        .profile-card {
+          display: none;
+        }
+
+        .main-area {
+          padding: 24px 18px 22px;
+        }
+
+        .workspace-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .editor-panel,
+        .preview-panel {
+          grid-column: auto;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .topbar,
+        .page-heading,
+        .list-footer,
+        .form-actions,
+        .confirm-actions {
+          align-items: stretch;
+          flex-direction: column;
+        }
+
+        .topbar {
+          align-items: flex-start;
+        }
+
+        .top-actions {
+          width: 100%;
+          justify-content: space-between;
+        }
+
+        .page-heading {
+          margin-top: 22px;
+        }
+
+        .list-toolbar {
+          grid-template-columns: 1fr;
+          padding: 16px;
+        }
+
+        .form-grid,
+        .cover-manager,
+        .preview-panel {
+          grid-template-columns: 1fr;
+        }
+
+        .field.full {
+          grid-column: auto;
+        }
+
+        .primary-button,
+        .secondary-button,
+        .danger-button {
+          width: 100%;
+        }
+
+        .toast {
+          top: 14px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          animation-duration: 1ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 1ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="sidebar" aria-label="Admin navigation">
+        <div class="brand">
+          <svg class="brand-mark" viewBox="0 0 32 48" aria-hidden="true">
+            <path d="M16 44V6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" />
+            <path
+              d="M16 20c-5-2-8-6-9-11 5 1 8 5 9 11Zm0 8c5-2 8-6 9-11-5 1-8 5-9 11Zm0-15c4-2 6-5 6-9-4 1-6 4-6 9Z"
+              fill="currentColor"
+              opacity=".72"
+            />
+          </svg>
+          <div>
+            <strong>Wong.Visual</strong>
+            <span>Visual Archive CMS</span>
+          </div>
+        </div>
+
+        <nav class="side-nav" aria-label="CMS sections">
+          <a class="nav-item" href="#dashboard">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" /></svg>
+            <span>Dashboard</span>
+          </a>
+          <a class="nav-item" href="#profile">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 21a8 8 0 0 0-16 0M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" /></svg>
+            <span>Profile</span>
+          </a>
+          <a class="nav-item is-active" href="#projects" aria-current="page">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h18v13H3z" /><path d="m8 7 2-3h4l2 3M7 12h10" /></svg>
+            <span>Projects</span>
+          </a>
+          <a class="nav-item" href="#gallery">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4z" /><path d="m4 16 5-5 4 4 2-2 5 5" /><circle cx="15" cy="9" r="1.5" /></svg>
+            <span>Gallery</span>
+          </a>
+          <a class="nav-item" href="#categories">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" /></svg>
+            <span>Categories</span>
+          </a>
+          <a class="nav-item" href="#contact">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z" /><path d="m4 7 8 6 8-6" /></svg>
+            <span>Contact</span>
+          </a>
+          <a class="nav-item" href="#messages">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v12H8l-4 4z" /><path d="M8 9h8M8 13h5" /></svg>
+            <span>Messages</span>
+            <span class="nav-badge">4</span>
+          </a>
+          <a class="nav-item" href="#settings">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z" /><path d="M19.4 15a1.8 1.8 0 0 0 .36 1.98l.04.04-2 3-.05-.02a1.8 1.8 0 0 0-2 .1 1.8 1.8 0 0 0-.9 1.62V22h-5.7v-.28a1.8 1.8 0 0 0-.9-1.62 1.8 1.8 0 0 0-2-.1l-.05.02-2-3 .04-.04A1.8 1.8 0 0 0 4.6 15a1.8 1.8 0 0 0-1.55-1H3v-4h.05A1.8 1.8 0 0 0 4.6 9a1.8 1.8 0 0 0-.36-1.98L4.2 6.98l2-3 .05.02a1.8 1.8 0 0 0 2-.1 1.8 1.8 0 0 0 .9-1.62V2h5.7v.28a1.8 1.8 0 0 0 .9 1.62 1.8 1.8 0 0 0 2 .1l.05-.02 2 3-.04.04A1.8 1.8 0 0 0 19.4 9a1.8 1.8 0 0 0 1.55 1H21v4h-.05A1.8 1.8 0 0 0 19.4 15Z" /></svg>
+            <span>Settings</span>
+          </a>
+        </nav>
+
+        <section class="profile-card" aria-label="Current administrator">
+          <div class="profile-head">
+            <div class="avatar">W</div>
+            <div>
+              <strong>WonG</strong>
+              <span>Administrator</span>
+            </div>
+          </div>
+          <div class="profile-meta">
+            <div><span>Role</span><strong>Administrator</strong></div>
+            <div><span>Last Login</span><strong>May 12, 2025</strong></div>
+          </div>
+          <button class="logout-button" type="button">
+            <span aria-hidden="true">↳</span>
+            Log Out
+          </button>
+        </section>
+      </aside>
+
+      <main class="main-area" id="projects">
+        <header class="topbar">
+          <div class="breadcrumb" aria-label="Breadcrumb">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 9-8 9 8" /><path d="M5 10v10h14V10" /><path d="M10 20v-6h4v6" /></svg>
+            <span>/</span>
+            <span>admin</span>
+            <span>/</span>
+            <strong>projects</strong>
+          </div>
+          <div class="top-actions">
+            <button class="icon-only" type="button" aria-label="Notifications" title="Notifications">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9" /><path d="M10 21h4" /></svg>
+            </button>
+            <button class="user-menu" type="button" aria-label="User menu">
+              <span class="top-avatar">W</span>
+              <span>WonG</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+            </button>
+          </div>
+        </header>
+
+        <section class="page-heading" aria-labelledby="page-title">
+          <div>
+            <h1 id="page-title">Projects</h1>
+            <p>Manage photography project experiences and case studies.</p>
+          </div>
+          <p class="archive-number">Archive No. <strong>A09</strong></p>
+        </section>
+
+        <section class="workspace-grid" aria-label="Projects manager">
+          <div class="panel list-panel">
+            <div class="list-toolbar">
+              <p class="count-text" data-project-count>Total 0 Projects</p>
+              <label class="sr-only" for="status-filter">Filter by status</label>
+              <select class="select-field" id="status-filter" data-status-filter>
+                <option value="all">All Status</option>
+                <option value="visible">Published</option>
+                <option value="hidden">Hidden</option>
+                <option value="featured">Featured</option>
+              </select>
+              <label class="sr-only" for="sort-mode">Sort projects</label>
+              <select class="select-field" id="sort-mode" data-sort-mode>
+                <option value="sortOrder">Sort by Order</option>
+                <option value="updatedAt">Recently Updated</option>
+                <option value="year">Year Descending</option>
+                <option value="title">Title A-Z</option>
+              </select>
+              <button class="primary-button" type="button" data-new-project>
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+                New Project
+              </button>
+            </div>
+            <div class="table-wrap" data-table-wrap></div>
+            <div class="list-footer">
+              <span data-result-summary>Showing 0 projects</span>
+              <div class="pager" aria-label="Pagination preview">
+                <button type="button" aria-label="Previous page">‹</button>
+                <button class="is-current" type="button" aria-current="page">1</button>
+                <button type="button">2</button>
+                <button type="button" aria-label="Next page">›</button>
+              </div>
+            </div>
+          </div>
+
+          <aside class="panel editor-panel" aria-labelledby="editor-title">
+            <div class="panel-title">
+              <h2 id="editor-title" data-editor-title>Edit Project</h2>
+              <span data-save-state>Unsaved mock state</span>
+            </div>
+            <form class="project-form" data-project-form novalidate></form>
+          </aside>
+
+          <aside class="panel preview-panel" aria-labelledby="preview-title">
+            <div class="panel-title">
+              <h2 id="preview-title">Live Preview</h2>
+              <span>/projects card</span>
+            </div>
+            <div data-live-preview></div>
+            <section class="tips-card" aria-label="Project management tips">
+              <h3>Tips</h3>
+              <ul>
+                <li>Use sort order to control the public project sequence.</li>
+                <li>Only visible projects should appear on the public site.</li>
+                <li>Mock changes live in this browser session only.</li>
+              </ul>
+            </section>
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast" data-toast hidden>
+      <span class="toast-icon" aria-hidden="true">✓</span>
+      <p data-toast-message>Project saved successfully.</p>
+      <button type="button" data-close-toast aria-label="Close notification">×</button>
+    </div>
+
+    <div class="confirm-overlay" data-confirm-overlay hidden>
+      <div class="confirm-card" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
+        <h2 id="confirm-title">Delete project?</h2>
+        <p data-confirm-copy>This removes the project from the mock list. Existing source files are not touched.</p>
+        <div class="confirm-actions">
+          <button class="secondary-button" type="button" data-cancel-delete>Cancel</button>
+          <button class="danger-button" type="button" data-confirm-delete>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18" /><path d="M8 6V4h8v2M7 6l1 14h8l1-14" /></svg>
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        const categories = [
+          { id: "city-humanity", name: "City Humanity" },
+          { id: "landscape", name: "Landscape" },
+          { id: "portrait", name: "Portrait" },
+          { id: "personal", name: "Personal" },
+          { id: "travel", name: "Travel" }
+        ];
+
+        const fallbackCover =
+          "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='640' viewBox='0 0 640 640'%3E%3Crect width='640' height='640' fill='%23e7eadc'/%3E%3Cpath d='M160 410l92-112 74 79 48-56 106 89H160z' fill='%235f6f52' opacity='.34'/%3E%3Ccircle cx='420' cy='224' r='44' fill='%239f947e' opacity='.34'/%3E%3C/svg%3E";
+
+        const initialProjects = [
+          {
+            id: "project-city-rhythm",
+            title: "City Rhythm",
+            slug: "city-rhythm",
+            theme: "Urban Documentary / City Life",
+            location: "Shanghai, China",
+            year: 2023,
+            description:
+              "Fragments of everyday life in the city. People, streets and the rhythm that connects them.",
+            coverImage: "../Project/assets/project-city-rhythm.png",
+            galleryImageIds: ["city-001", "city-002", "city-003"],
+            categoryIds: ["city-humanity"],
+            isFeatured: true,
+            isVisible: true,
+            sortOrder: 1,
+            createdAt: "2025-05-01T09:30:00.000Z",
+            updatedAt: "2025-05-12T10:24:00.000Z"
+          },
+          {
+            id: "project-edges-light",
+            title: "Edges of Light",
+            slug: "edges-of-light",
+            theme: "Landscape / Coastline",
+            location: "Northern California, USA",
+            year: 2022,
+            description:
+              "Coastlines, fog and open distance. A personal study of atmosphere and light.",
+            coverImage: "../Project/assets/project-edges-light.png",
+            galleryImageIds: ["edge-001", "edge-002", "edge-003"],
+            categoryIds: ["landscape"],
+            isFeatured: true,
+            isVisible: true,
+            sortOrder: 2,
+            createdAt: "2025-05-01T09:35:00.000Z",
+            updatedAt: "2025-05-10T08:10:00.000Z"
+          },
+          {
+            id: "project-seen-silence",
+            title: "Seen in Silence",
+            slug: "seen-in-silence",
+            theme: "Portrait / Natural Light",
+            location: "Shenzhen, China",
+            year: 2021,
+            description:
+              "Intimate portraits of people I've met. Quiet moments, honest expressions.",
+            coverImage: "../Project/assets/project-seen-silence.png",
+            galleryImageIds: ["portrait-001", "portrait-002"],
+            categoryIds: ["portrait"],
+            isFeatured: false,
+            isVisible: true,
+            sortOrder: 3,
+            createdAt: "2025-05-01T09:40:00.000Z",
+            updatedAt: "2025-05-09T12:00:00.000Z"
+          },
+          {
+            id: "project-highlands",
+            title: "Highlands",
+            slug: "highlands",
+            theme: "Landscape / Mountain Road",
+            location: "Yunnan, China",
+            year: 2020,
+            description:
+              "On the road in the mountains. Searching for scale, silence and light.",
+            coverImage: "../Project/assets/project-highlands.png",
+            galleryImageIds: ["highland-001", "highland-002", "highland-003"],
+            categoryIds: ["landscape", "travel"],
+            isFeatured: false,
+            isVisible: true,
+            sortOrder: 4,
+            createdAt: "2025-05-01T09:45:00.000Z",
+            updatedAt: "2025-05-08T14:30:00.000Z"
+          },
+          {
+            id: "project-coastal-road",
+            title: "Coastal Road",
+            slug: "coastal-road",
+            theme: "Travel / Landscape",
+            location: "Dali, Yunnan, China",
+            year: 2023,
+            description:
+              "A quiet travel note about open roads, soft weather and distance beside the water.",
+            coverImage: "../Project/assets/project-edges-light.png",
+            galleryImageIds: ["road-001", "road-002"],
+            categoryIds: ["landscape", "travel"],
+            isFeatured: false,
+            isVisible: true,
+            sortOrder: 5,
+            createdAt: "2025-05-02T09:45:00.000Z",
+            updatedAt: "2025-05-08T11:20:00.000Z"
+          },
+          {
+            id: "project-market-days",
+            title: "Market Days",
+            slug: "market-days",
+            theme: "Street Documentary",
+            location: "Chengdu, China",
+            year: 2022,
+            description:
+              "Small trades, gestures and warm street corners collected through repeat walks.",
+            coverImage: "../CityHuman/assets/market.png",
+            galleryImageIds: ["market-001", "market-002"],
+            categoryIds: ["city-humanity"],
+            isFeatured: false,
+            isVisible: false,
+            sortOrder: 6,
+            createdAt: "2025-05-03T09:45:00.000Z",
+            updatedAt: "2025-05-07T09:40:00.000Z"
+          },
+          {
+            id: "project-home-diaries",
+            title: "Home Diaries",
+            slug: "home-diaries",
+            theme: "Personal Diary",
+            location: "Guangzhou, China",
+            year: 2021,
+            description:
+              "Personal interiors, ordinary light and the private rhythm of staying in one place.",
+            coverImage: "../Home/assets/personal.png",
+            galleryImageIds: ["home-001", "home-002"],
+            categoryIds: ["personal"],
+            isFeatured: false,
+            isVisible: true,
+            sortOrder: 7,
+            createdAt: "2025-05-04T09:45:00.000Z",
+            updatedAt: "2025-05-06T16:00:00.000Z"
+          },
+          {
+            id: "project-facing-sea",
+            title: "Facing the Sea",
+            slug: "facing-the-sea",
+            theme: "Landscape / Travel",
+            location: "Qingdao, China",
+            year: 2020,
+            description:
+              "Sea air, solitary figures and a slower horizon from a short coastal walk.",
+            coverImage: "../Image/Landscape.png",
+            galleryImageIds: ["sea-001"],
+            categoryIds: ["landscape", "travel"],
+            isFeatured: false,
+            isVisible: false,
+            sortOrder: 8,
+            createdAt: "2025-05-05T09:45:00.000Z",
+            updatedAt: "2025-05-06T09:00:00.000Z"
+          }
+        ];
+
+        const state = {
+          projects: initialProjects.map(cloneProject),
+          selectedId: initialProjects[0]?.id || null,
+          draft: cloneProject(initialProjects[0]),
+          mode: "edit",
+          errors: {},
+          statusFilter: "all",
+          sortMode: "sortOrder",
+          pendingDeleteId: null,
+          toastTimer: null
+        };
+
+        const elements = {
+          count: document.querySelector("[data-project-count]"),
+          statusFilter: document.querySelector("[data-status-filter]"),
+          sortMode: document.querySelector("[data-sort-mode]"),
+          tableWrap: document.querySelector("[data-table-wrap]"),
+          resultSummary: document.querySelector("[data-result-summary]"),
+          newProject: document.querySelector("[data-new-project]"),
+          editorTitle: document.querySelector("[data-editor-title]"),
+          saveState: document.querySelector("[data-save-state]"),
+          form: document.querySelector("[data-project-form]"),
+          livePreview: document.querySelector("[data-live-preview]"),
+          toast: document.querySelector("[data-toast]"),
+          toastMessage: document.querySelector("[data-toast-message]"),
+          closeToast: document.querySelector("[data-close-toast]"),
+          confirmOverlay: document.querySelector("[data-confirm-overlay]"),
+          confirmCopy: document.querySelector("[data-confirm-copy]"),
+          cancelDelete: document.querySelector("[data-cancel-delete]"),
+          confirmDelete: document.querySelector("[data-confirm-delete]")
+        };
+
+        function cloneProject(project) {
+          return project
+            ? {
+                ...project,
+                galleryImageIds: [...project.galleryImageIds],
+                categoryIds: [...project.categoryIds]
+              }
+            : null;
+        }
+
+        function escapeHtml(value) {
+          return String(value ?? "")
+            .replaceAll("&", "&amp;")
+            .replaceAll("<", "&lt;")
+            .replaceAll(">", "&gt;")
+            .replaceAll('"', "&quot;")
+            .replaceAll("'", "&#039;");
+        }
+
+        function getCategoryName(id) {
+          return categories.find((category) => category.id === id)?.name || "Uncategorized";
+        }
+
+        function getPrimaryCategory(project) {
+          return getCategoryName(project.categoryIds[0]);
+        }
+
+        function getStatusLabel(project) {
+          return project.isVisible ? "Published" : "Hidden";
+        }
+
+        function getFilteredProjects() {
+          const filtered = state.projects.filter((project) => {
+            if (state.statusFilter === "visible") return project.isVisible;
+            if (state.statusFilter === "hidden") return !project.isVisible;
+            if (state.statusFilter === "featured") return project.isFeatured;
+            return true;
+          });
+
+          return filtered.sort((a, b) => {
+            if (state.sortMode === "updatedAt") {
+              return new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime();
+            }
+
+            if (state.sortMode === "year") {
+              return Number(b.year) - Number(a.year);
+            }
+
+            if (state.sortMode === "title") {
+              return a.title.localeCompare(b.title);
+            }
+
+            return Number(a.sortOrder) - Number(b.sortOrder);
+          });
+        }
+
+        function createBlankProject() {
+          const nextOrder =
+            state.projects.reduce((max, project) => Math.max(max, Number(project.sortOrder) || 0), 0) + 1;
+          const now = new Date().toISOString();
+
+          return {
+            id: "",
+            title: "",
+            slug: "",
+            theme: "",
+            location: "",
+            year: new Date().getFullYear(),
+            description: "",
+            coverImage: "",
+            galleryImageIds: [],
+            categoryIds: ["city-humanity"],
+            isFeatured: false,
+            isVisible: true,
+            sortOrder: nextOrder,
+            createdAt: now,
+            updatedAt: now
+          };
+        }
+
+        function render() {
+          const filteredProjects = getFilteredProjects();
+          elements.count.textContent = `Total ${state.projects.length} Projects`;
+          elements.resultSummary.textContent =
+            filteredProjects.length > 0
+              ? `Showing 1 to ${filteredProjects.length} of ${state.projects.length} results`
+              : "No projects match the current filter";
+          renderTable(filteredProjects);
+          renderForm();
+          renderPreview();
+        }
+
+        function renderTable(projects) {
+          if (state.projects.length === 0) {
+            elements.tableWrap.innerHTML = `
+              <div class="empty-state">
+                <div>
+                  <h3>No projects yet</h3>
+                  <p>Create the first project record to start building the public Projects archive.</p>
+                  <button class="primary-button" type="button" data-empty-new>
+                    ${icon("plus")}
+                    New Project
+                  </button>
+                </div>
+              </div>
+            `;
+            return;
+          }
+
+          if (projects.length === 0) {
+            elements.tableWrap.innerHTML = `
+              <div class="empty-state">
+                <div>
+                  <h3>No matching projects</h3>
+                  <p>Adjust the status filter to return to the full mock project list.</p>
+                  <button class="secondary-button" type="button" data-reset-filter>Reset Filter</button>
+                </div>
+              </div>
+            `;
+            return;
+          }
+
+          elements.tableWrap.innerHTML = `
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Cover</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Theme</th>
+                  <th scope="col">Location</th>
+                  <th scope="col">Year</th>
+                  <th scope="col">Collection</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Featured</th>
+                  <th scope="col">Order</th>
+                  <th scope="col">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${projects.map(renderProjectRow).join("")}
+              </tbody>
+            </table>
+          `;
+        }
+
+        function renderProjectRow(project, index) {
+          const selectedClass = project.id === state.selectedId ? " is-selected" : "";
+          const coverSource = project.coverImage || fallbackCover;
+          const statusClass = project.isVisible ? "is-visible" : "is-hidden";
+          const featuredClass = project.isFeatured ? "" : " is-off";
+
+          return `
+            <tr class="${selectedClass}" data-project-id="${escapeHtml(project.id)}">
+              <td><span class="drag-handle" aria-hidden="true">::</span> ${String(index + 1).padStart(2, "0")}</td>
+              <td>
+                <div class="cover-thumb">
+                  <img src="${escapeHtml(coverSource)}" alt="${escapeHtml(project.title)} cover" loading="lazy" />
+                </div>
+              </td>
+              <td class="title-cell">
+                <strong>${escapeHtml(project.title)}</strong>
+                <span>/${escapeHtml(project.slug)}</span>
+              </td>
+              <td>${escapeHtml(project.theme)}</td>
+              <td>${escapeHtml(project.location)}</td>
+              <td>${escapeHtml(project.year)}</td>
+              <td>${escapeHtml(getPrimaryCategory(project))}</td>
+              <td>
+                <button class="status-pill ${statusClass}" type="button" data-action="toggle-visible" data-id="${escapeHtml(project.id)}" title="Toggle public visibility">
+                  ${escapeHtml(getStatusLabel(project))}
+                </button>
+              </td>
+              <td>
+                <button class="featured-pill${featuredClass}" type="button" data-action="toggle-featured" data-id="${escapeHtml(project.id)}" title="Toggle featured state">
+                  ${project.isFeatured ? "Featured" : "Standard"}
+                </button>
+              </td>
+              <td>${escapeHtml(project.sortOrder)}</td>
+              <td>
+                <div class="action-group">
+                  <button class="row-action" type="button" data-action="edit" data-id="${escapeHtml(project.id)}" aria-label="Edit ${escapeHtml(project.title)}" title="Edit">
+                    ${icon("edit")}
+                  </button>
+                  <button class="row-action is-danger" type="button" data-action="delete" data-id="${escapeHtml(project.id)}" aria-label="Delete ${escapeHtml(project.title)}" title="Delete">
+                    ${icon("trash")}
+                  </button>
+                </div>
+              </td>
+            </tr>
+          `;
+        }
+
+        function renderForm() {
+          const draft = state.draft || createBlankProject();
+          elements.editorTitle.textContent = state.mode === "create" ? "New Project" : "Edit Project";
+          elements.saveState.textContent =
+            state.mode === "create"
+              ? "Creating in mock state"
+              : `Updated ${formatDate(draft.updatedAt)}`;
+
+          elements.form.innerHTML = `
+            <div class="form-grid">
+              ${inputField("title", "Project Title", draft.title, true, "City Rhythm")}
+              ${inputField("slug", "Slug", draft.slug, true, "city-rhythm", "Use lowercase letters, numbers and hyphens.")}
+              ${inputField("theme", "Theme / Focus", draft.theme, true, "Urban Documentary / City Life")}
+              ${inputField("location", "Location", draft.location, true, "Shenzhen, China")}
+              ${inputField("year", "Year", draft.year, true, "2024", "", "number")}
+              ${inputField("sortOrder", "Sort Order", draft.sortOrder, true, "1", "", "number")}
+              <div class="field full">
+                <label for="description">Description <span>*</span></label>
+                <div class="textarea-row">
+                  <textarea class="textarea-field" id="description" data-field="description" maxlength="500" placeholder="Short public project summary">${escapeHtml(draft.description)}</textarea>
+                  <span class="textarea-count" data-description-count>${String(draft.description || "").length} / 500</span>
+                </div>
+                <p class="field-error" data-error-for="description">${escapeHtml(state.errors.description || "")}</p>
+              </div>
+              <div class="field full">
+                <label for="coverImage">Cover Image URL</label>
+                <input class="text-field" id="coverImage" data-field="coverImage" value="${escapeHtml(draft.coverImage || "")}" placeholder="../Project/assets/project-city-rhythm.png" />
+                <p class="field-help">Mock upload uses an image URL or relative asset path. Real upload is not connected in this round.</p>
+                <p class="field-error" data-error-for="coverImage">${escapeHtml(state.errors.coverImage || "")}</p>
+                <div class="cover-manager">
+                  <div class="cover-preview" data-cover-preview>
+                    <img src="${escapeHtml(draft.coverImage || fallbackCover)}" alt="Cover preview" />
+                  </div>
+                  <button class="upload-placeholder" type="button" data-upload-placeholder>
+                    <span>
+                      ${icon("upload")}
+                      <strong>Click to upload</strong>
+                      JPG / PNG, Max 5MB
+                    </span>
+                  </button>
+                </div>
+              </div>
+              <div class="field full">
+                <fieldset class="category-list">
+                  <legend>Related Collection <span>*</span></legend>
+                  ${categories
+                    .map(
+                      (category) => `
+                        <label class="category-option">
+                          <input type="checkbox" name="categoryIds" value="${escapeHtml(category.id)}" ${draft.categoryIds.includes(category.id) ? "checked" : ""} />
+                          ${escapeHtml(category.name)}
+                        </label>
+                      `
+                    )
+                    .join("")}
+                </fieldset>
+                <p class="field-error" data-error-for="categoryIds">${escapeHtml(state.errors.categoryIds || "")}</p>
+              </div>
+              <div class="field full switch-grid">
+                <label class="switch-row">
+                  <input type="checkbox" data-field="isVisible" ${draft.isVisible ? "checked" : ""} />
+                  <span class="switch-track" aria-hidden="true"></span>
+                  <span class="switch-copy">
+                    <strong>${draft.isVisible ? "Published" : "Hidden"}</strong>
+                    <span>${draft.isVisible ? "Visible on the public site." : "Hidden from the public site."}</span>
+                  </span>
+                </label>
+                <label class="switch-row">
+                  <input type="checkbox" data-field="isFeatured" ${draft.isFeatured ? "checked" : ""} />
+                  <span class="switch-track" aria-hidden="true"></span>
+                  <span class="switch-copy">
+                    <strong>${draft.isFeatured ? "Featured" : "Standard"}</strong>
+                    <span>Featured projects can be highlighted on the public page.</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div class="form-actions">
+              <button class="primary-button" type="submit">${icon("save")}Save Changes</button>
+              <button class="secondary-button" type="button" data-cancel-edit>Cancel</button>
+            </div>
+          `;
+        }
+
+        function inputField(field, label, value, required, placeholder, help = "", type = "text") {
+          return `
+            <div class="field">
+              <label for="${field}">${label} ${required ? "<span>*</span>" : ""}</label>
+              <input class="text-field" id="${field}" data-field="${field}" type="${type}" value="${escapeHtml(value ?? "")}" placeholder="${escapeHtml(placeholder)}" />
+              ${help ? `<p class="field-help">${escapeHtml(help)}</p>` : ""}
+              <p class="field-error" data-error-for="${field}">${escapeHtml(state.errors[field] || "")}</p>
+            </div>
+          `;
+        }
+
+        function renderPreview() {
+          const project = state.draft;
+
+          if (!project) {
+            elements.livePreview.innerHTML = `
+              <div class="preview-card">
+                <div class="preview-placeholder">Select or create a project to preview.</div>
+              </div>
+            `;
+            return;
+          }
+
+          const categoryName = getPrimaryCategory(project);
+          const coverSource = project.coverImage || fallbackCover;
+
+          elements.livePreview.innerHTML = `
+            <article class="preview-card">
+              <div class="preview-image">
+                <img src="${escapeHtml(coverSource)}" alt="${escapeHtml(project.title || "Project")} preview" />
+              </div>
+              <h2>${escapeHtml(project.title || "Untitled Project")}</h2>
+              <div class="preview-meta">
+                <span>${escapeHtml(project.theme || "Theme not set")}</span>
+                <span>·</span>
+                <span>${escapeHtml(project.location || "Location not set")}</span>
+                <span>·</span>
+                <span>${escapeHtml(project.year || "Year")}</span>
+              </div>
+              <p>${escapeHtml(project.description || "Project description will appear here.")}</p>
+              <span class="category-chip">${escapeHtml(categoryName)}</span>
+              <span class="preview-arrow" aria-hidden="true">→</span>
+            </article>
+          `;
+        }
+
+        function validateDraft() {
+          const draft = state.draft;
+          const errors = {};
+          const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+          const yearNumber = Number(draft.year);
+          const sortNumber = Number(draft.sortOrder);
+          const duplicateSlug = state.projects.some(
+            (project) => project.slug === draft.slug && project.id !== draft.id
+          );
+
+          if (!String(draft.title || "").trim()) errors.title = "Project title is required.";
+          if (!String(draft.slug || "").trim()) {
+            errors.slug = "Slug is required.";
+          } else if (!slugPattern.test(String(draft.slug))) {
+            errors.slug = "Use lowercase letters, numbers and hyphens only.";
+          } else if (duplicateSlug) {
+            errors.slug = "This slug is already used by another project.";
+          }
+
+          if (!Number.isInteger(yearNumber) || yearNumber < 1900 || yearNumber > 2100) {
+            errors.year = "Enter a valid year.";
+          }
+
+          if (!String(draft.description || "").trim()) errors.description = "Description is required.";
+
+          if (!Number.isFinite(sortNumber)) errors.sortOrder = "Sort order must be a number.";
+
+          if (!String(draft.theme || "").trim()) errors.theme = "Theme is required.";
+          if (!String(draft.location || "").trim()) errors.location = "Location is required.";
+          if (!draft.categoryIds.length) errors.categoryIds = "Choose at least one collection.";
+
+          state.errors = errors;
+          return Object.keys(errors).length === 0;
+        }
+
+        function saveDraft() {
+          if (!validateDraft()) {
+            renderForm();
+            showToast("Please fix the highlighted fields.", "warning");
+            return;
+          }
+
+          const now = new Date().toISOString();
+          const draft = {
+            ...state.draft,
+            title: String(state.draft.title).trim(),
+            slug: String(state.draft.slug).trim(),
+            theme: String(state.draft.theme).trim(),
+            location: String(state.draft.location).trim(),
+            description: String(state.draft.description).trim(),
+            coverImage: String(state.draft.coverImage || "").trim(),
+            year: Number(state.draft.year),
+            sortOrder: Number(state.draft.sortOrder),
+            updatedAt: now
+          };
+
+          if (state.mode === "create") {
+            draft.id = `project-${Date.now()}`;
+            draft.createdAt = now;
+            state.projects.push(draft);
+            state.selectedId = draft.id;
+            state.mode = "edit";
+            showToast("Project created successfully.");
+          } else {
+            state.projects = state.projects.map((project) =>
+              project.id === draft.id ? cloneProject(draft) : project
+            );
+            state.selectedId = draft.id;
+            showToast("Project saved successfully.");
+          }
+
+          state.draft = cloneProject(draft);
+          state.errors = {};
+          render();
+        }
+
+        function selectProject(projectId) {
+          const project = state.projects.find((item) => item.id === projectId);
+          if (!project) return;
+          state.selectedId = project.id;
+          state.draft = cloneProject(project);
+          state.mode = "edit";
+          state.errors = {};
+          render();
+        }
+
+        function updateProjectFlag(projectId, field) {
+          state.projects = state.projects.map((project) => {
+            if (project.id !== projectId) return project;
+            return {
+              ...project,
+              [field]: !project[field],
+              updatedAt: new Date().toISOString()
+            };
+          });
+
+          if (state.draft?.id === projectId) {
+            const updated = state.projects.find((project) => project.id === projectId);
+            state.draft = cloneProject(updated);
+          }
+
+          showToast(field === "isVisible" ? "Visibility updated." : "Featured state updated.");
+          render();
+        }
+
+        function openDeleteConfirm(projectId) {
+          const project = state.projects.find((item) => item.id === projectId);
+          if (!project) return;
+          state.pendingDeleteId = projectId;
+          elements.confirmCopy.textContent = `Delete "${project.title}" from the mock project list? Existing files are not touched.`;
+          elements.confirmOverlay.hidden = false;
+          elements.confirmDelete.focus();
+        }
+
+        function deletePendingProject() {
+          const projectId = state.pendingDeleteId;
+          if (!projectId) return;
+
+          state.projects = state.projects.filter((project) => project.id !== projectId);
+          state.pendingDeleteId = null;
+          elements.confirmOverlay.hidden = true;
+
+          if (state.selectedId === projectId) {
+            const nextProject = getFilteredProjects()[0] || state.projects[0] || null;
+            state.selectedId = nextProject?.id || null;
+            state.draft = nextProject ? cloneProject(nextProject) : createBlankProject();
+            state.mode = nextProject ? "edit" : "create";
+          }
+
+          showToast("Project deleted from mock state.");
+          render();
+        }
+
+        function startNewProject() {
+          state.mode = "create";
+          state.selectedId = null;
+          state.draft = createBlankProject();
+          state.errors = {};
+          render();
+          elements.form.querySelector("[data-field='title']")?.focus();
+        }
+
+        function cancelEdit() {
+          if (state.mode === "create") {
+            const firstProject = state.projects[0] || null;
+            state.mode = firstProject ? "edit" : "create";
+            state.selectedId = firstProject?.id || null;
+            state.draft = firstProject ? cloneProject(firstProject) : createBlankProject();
+          } else {
+            const currentProject = state.projects.find((project) => project.id === state.selectedId);
+            state.draft = currentProject ? cloneProject(currentProject) : createBlankProject();
+          }
+
+          state.errors = {};
+          render();
+        }
+
+        function handleFormInput(event) {
+          const field = event.target.dataset.field;
+          if (!field || !state.draft) return;
+
+          if (event.target.type === "checkbox") {
+            state.draft[field] = event.target.checked;
+          } else {
+            state.draft[field] = event.target.value;
+          }
+
+          if (field === "description") {
+            const counter = elements.form.querySelector("[data-description-count]");
+            if (counter) counter.textContent = `${event.target.value.length} / 500`;
+          }
+
+          if (field === "coverImage") {
+            const cover = elements.form.querySelector("[data-cover-preview]");
+            if (cover) {
+              cover.innerHTML = `<img src="${escapeHtml(event.target.value || fallbackCover)}" alt="Cover preview" />`;
+            }
+          }
+
+          clearFieldError(field);
+          renderPreview();
+        }
+
+        function handleCategoryChange() {
+          const checked = Array.from(elements.form.querySelectorAll("input[name='categoryIds']:checked")).map(
+            (input) => input.value
+          );
+          state.draft.categoryIds = checked;
+          delete state.errors.categoryIds;
+          const errorElement = elements.form.querySelector("[data-error-for='categoryIds']");
+          if (errorElement) errorElement.textContent = "";
+          renderPreview();
+        }
+
+        function clearFieldError(field) {
+          if (!state.errors[field]) return;
+          delete state.errors[field];
+          const errorElement = elements.form.querySelector(`[data-error-for='${field}']`);
+          if (errorElement) errorElement.textContent = "";
+        }
+
+        function showToast(message) {
+          window.clearTimeout(state.toastTimer);
+          elements.toastMessage.textContent = message;
+          elements.toast.hidden = false;
+          state.toastTimer = window.setTimeout(() => {
+            elements.toast.hidden = true;
+          }, 3600);
+        }
+
+        function formatDate(value) {
+          const date = new Date(value);
+          if (Number.isNaN(date.getTime())) return "mock data";
+          return date.toLocaleDateString("en-US", {
+            month: "short",
+            day: "numeric",
+            year: "numeric"
+          });
+        }
+
+        function icon(name) {
+          const icons = {
+            plus: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>',
+            edit: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 20 4.5-1 10-10a2.8 2.8 0 0 0-4-4l-10 10L4 20Z" /><path d="m13.5 6.5 4 4" /></svg>',
+            trash: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18" /><path d="M8 6V4h8v2M7 6l1 14h8l1-14" /></svg>',
+            save: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h12l2 2v14H5z" /><path d="M8 4v6h8V4M8 20v-6h8v6" /></svg>',
+            upload: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4" /><path d="m7 9 5-5 5 5" /><path d="M5 16v3h14v-3" /></svg>'
+          };
+
+          return icons[name] || "";
+        }
+
+        elements.statusFilter.addEventListener("change", (event) => {
+          state.statusFilter = event.target.value;
+          render();
+        });
+
+        elements.sortMode.addEventListener("change", (event) => {
+          state.sortMode = event.target.value;
+          render();
+        });
+
+        elements.newProject.addEventListener("click", startNewProject);
+
+        elements.tableWrap.addEventListener("click", (event) => {
+          const button = event.target.closest("button");
+          const row = event.target.closest("tr[data-project-id]");
+
+          if (button?.dataset.action) {
+            const projectId = button.dataset.id;
+            if (button.dataset.action === "edit") selectProject(projectId);
+            if (button.dataset.action === "delete") openDeleteConfirm(projectId);
+            if (button.dataset.action === "toggle-visible") updateProjectFlag(projectId, "isVisible");
+            if (button.dataset.action === "toggle-featured") updateProjectFlag(projectId, "isFeatured");
+            return;
+          }
+
+          if (event.target.closest("[data-empty-new]")) {
+            startNewProject();
+            return;
+          }
+
+          if (event.target.closest("[data-reset-filter]")) {
+            state.statusFilter = "all";
+            elements.statusFilter.value = "all";
+            render();
+            return;
+          }
+
+          if (row) selectProject(row.dataset.projectId);
+        });
+
+        elements.form.addEventListener("input", handleFormInput);
+
+        elements.form.addEventListener("change", (event) => {
+          if (event.target.name === "categoryIds") handleCategoryChange();
+        });
+
+        elements.form.addEventListener("submit", (event) => {
+          event.preventDefault();
+          saveDraft();
+        });
+
+        elements.form.addEventListener("click", (event) => {
+          if (event.target.closest("[data-cancel-edit]")) cancelEdit();
+          if (event.target.closest("[data-upload-placeholder]")) {
+            showToast("Real image upload is intentionally not connected in this mock page.");
+          }
+        });
+
+        elements.closeToast.addEventListener("click", () => {
+          elements.toast.hidden = true;
+        });
+
+        elements.cancelDelete.addEventListener("click", () => {
+          state.pendingDeleteId = null;
+          elements.confirmOverlay.hidden = true;
+        });
+
+        elements.confirmDelete.addEventListener("click", deletePendingProject);
+
+        elements.confirmOverlay.addEventListener("click", (event) => {
+          if (event.target === elements.confirmOverlay) {
+            state.pendingDeleteId = null;
+            elements.confirmOverlay.hidden = true;
+          }
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && !elements.confirmOverlay.hidden) {
+            state.pendingDeleteId = null;
+            elements.confirmOverlay.hidden = true;
+          }
+        });
+
+        render();
+      })();
+    </script>
+  </body>
+</html>

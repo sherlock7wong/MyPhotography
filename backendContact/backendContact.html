@@ -1,0 +1,2687 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="WonG Visual Archive CMS mock page for managing public Contact page settings."
+    />
+    <title>WonG.Visual CMS - Contact</title>
+    <style>
+      :root {
+        --paper: #f4f0e8;
+        --paper-soft: #fbf8f1;
+        --paper-card: #fffaf0;
+        --ink: #1f1b16;
+        --text: #4e473e;
+        --muted: #84796b;
+        --faint: #a99f8f;
+        --line: #d9d0c1;
+        --line-strong: #b9ad9b;
+        --olive: #5f6f52;
+        --olive-dark: #3f4a35;
+        --olive-soft: #e6eadc;
+        --sepia: #9f7544;
+        --danger: #8f4e37;
+        --warning: #9b7140;
+        --shadow: 0 18px 42px rgba(49, 39, 24, 0.09);
+        --display: Georgia, "Times New Roman", serif;
+        --sans: "Trebuchet MS", "Gill Sans", "Segoe UI", sans-serif;
+        --mono: "Courier New", ui-monospace, monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        min-width: 320px;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-width: 320px;
+        margin: 0;
+        color: var(--ink);
+        background:
+          linear-gradient(90deg, rgba(80, 63, 38, 0.026) 1px, transparent 1px),
+          linear-gradient(rgba(80, 63, 38, 0.024) 1px, transparent 1px),
+          linear-gradient(110deg, rgba(90, 79, 51, 0.034) 0 1px, transparent 1px 7px),
+          var(--paper);
+        background-size: 38px 38px, 34px 34px, auto, auto;
+        font-family: var(--sans);
+        line-height: 1.5;
+      }
+
+      body::after {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background-image:
+          radial-gradient(circle at 2px 2px, rgba(45, 35, 22, 0.035) 0 1px, transparent 1px),
+          radial-gradient(circle at 4px 4px, rgba(45, 35, 22, 0.025) 0 1px, transparent 1px);
+        background-size: 9px 9px, 13px 13px;
+        content: "";
+        mix-blend-mode: multiply;
+        opacity: 0.22;
+      }
+
+      button,
+      input,
+      textarea,
+      select {
+        color: inherit;
+        font: inherit;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      img,
+      svg {
+        display: block;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      :focus-visible {
+        outline: 2px solid var(--olive);
+        outline-offset: 3px;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .admin-shell {
+        display: grid;
+        grid-template-columns: 280px minmax(0, 1fr);
+        min-height: 100vh;
+      }
+
+      .sidebar {
+        position: sticky;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        padding: 34px 16px 24px;
+        border-right: 1px solid rgba(185, 173, 155, 0.62);
+        background: rgba(251, 248, 241, 0.72);
+        backdrop-filter: blur(8px);
+      }
+
+      .brand {
+        display: grid;
+        grid-template-columns: 30px 1fr;
+        gap: 12px;
+        align-items: center;
+        padding: 0 14px 30px;
+        border-bottom: 1px solid rgba(185, 173, 155, 0.52);
+      }
+
+      .brand-mark {
+        width: 24px;
+        height: 38px;
+        color: var(--olive);
+      }
+
+      .brand strong {
+        display: block;
+        font-size: 1.22rem;
+        line-height: 1.05;
+        text-transform: uppercase;
+      }
+
+      .brand span,
+      .breadcrumb,
+      .eyebrow,
+      .panel-title span,
+      .field label,
+      .count-text,
+      .status-badge,
+      .mini-label,
+      .method-type,
+      .preview-label,
+      .nav-badge,
+      .user-card span {
+        font-family: var(--mono);
+      }
+
+      .brand span {
+        display: block;
+        margin-top: 0.22rem;
+        color: var(--muted);
+        font-size: 0.72rem;
+        text-transform: uppercase;
+      }
+
+      .side-nav {
+        display: grid;
+        gap: 6px;
+        margin-top: 28px;
+      }
+
+      .nav-item {
+        position: relative;
+        display: grid;
+        grid-template-columns: 24px minmax(0, 1fr) auto;
+        gap: 14px;
+        align-items: center;
+        min-height: 50px;
+        padding: 0 14px;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        color: var(--text);
+        text-decoration: none;
+        transition:
+          background-color 180ms ease,
+          border-color 180ms ease,
+          color 180ms ease,
+          transform 180ms ease;
+      }
+
+      .nav-item svg,
+      .top-actions svg,
+      .button-icon svg,
+      .icon-button svg,
+      .method-icon svg,
+      .preview-icon svg,
+      .empty-state svg,
+      .confirm-card svg {
+        width: 22px;
+        height: 22px;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.75;
+      }
+
+      .nav-item:hover,
+      .nav-item:focus-visible {
+        background: rgba(255, 250, 239, 0.64);
+        border-color: rgba(185, 173, 155, 0.45);
+        color: var(--olive-dark);
+        transform: translateX(2px);
+      }
+
+      .nav-item.is-active {
+        background: rgba(255, 250, 239, 0.72);
+        color: var(--olive-dark);
+      }
+
+      .nav-item.is-active::before {
+        position: absolute;
+        top: 8px;
+        bottom: 8px;
+        left: -16px;
+        width: 4px;
+        border-radius: 0 6px 6px 0;
+        background: var(--olive);
+        content: "";
+      }
+
+      .nav-badge {
+        display: inline-grid;
+        min-width: 24px;
+        height: 24px;
+        place-items: center;
+        padding: 0 7px;
+        border-radius: 999px;
+        background: var(--sepia);
+        color: var(--paper-soft);
+        font-size: 0.72rem;
+      }
+
+      .user-card {
+        display: grid;
+        grid-template-columns: 46px 1fr;
+        gap: 12px;
+        margin-top: auto;
+        padding: 14px;
+        border: 1px solid rgba(185, 173, 155, 0.55);
+        border-radius: 8px;
+        background: rgba(255, 250, 239, 0.44);
+      }
+
+      .avatar,
+      .top-avatar {
+        display: grid;
+        place-items: center;
+        border-radius: 999px;
+        background:
+          linear-gradient(140deg, rgba(31, 27, 22, 0.85), rgba(63, 74, 53, 0.8)),
+          var(--ink);
+        color: var(--paper-soft);
+        font-weight: 700;
+      }
+
+      .avatar {
+        width: 46px;
+        height: 46px;
+      }
+
+      .top-avatar {
+        width: 42px;
+        height: 42px;
+      }
+
+      .user-card strong {
+        display: block;
+        margin-top: 0.12rem;
+      }
+
+      .user-card span {
+        display: block;
+        color: var(--muted);
+        font-size: 0.78rem;
+      }
+
+      .user-meta {
+        grid-column: 1 / -1;
+        display: grid;
+        gap: 8px;
+        padding-top: 12px;
+        border-top: 1px solid rgba(185, 173, 155, 0.46);
+        color: var(--text);
+        font-size: 0.86rem;
+      }
+
+      .meta-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .main-area {
+        min-width: 0;
+        padding: 46px 56px 56px;
+      }
+
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        align-items: center;
+        margin-bottom: 28px;
+      }
+
+      .breadcrumb {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--text);
+        font-size: 0.82rem;
+      }
+
+      .breadcrumb svg {
+        width: 22px;
+        height: 22px;
+        color: var(--muted);
+      }
+
+      .top-actions {
+        display: flex;
+        gap: 18px;
+        align-items: center;
+      }
+
+      .icon-button,
+      .user-menu {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 0;
+        background: transparent;
+      }
+
+      .icon-button {
+        position: relative;
+        width: 42px;
+        height: 42px;
+        border-radius: 999px;
+        color: var(--text);
+        transition:
+          background-color 180ms ease,
+          color 180ms ease;
+      }
+
+      .icon-button::after {
+        position: absolute;
+        top: 9px;
+        right: 10px;
+        width: 7px;
+        height: 7px;
+        border: 1px solid var(--paper);
+        border-radius: 999px;
+        background: var(--sepia);
+        content: "";
+      }
+
+      .icon-button:hover,
+      .icon-button:focus-visible {
+        background: rgba(255, 250, 239, 0.58);
+        color: var(--olive-dark);
+      }
+
+      .user-menu {
+        gap: 10px;
+        padding: 0;
+        color: var(--ink);
+      }
+
+      .user-menu svg {
+        width: 18px;
+        height: 18px;
+        color: var(--muted);
+      }
+
+      .page-heading {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        align-items: flex-end;
+        margin-bottom: 24px;
+      }
+
+      .eyebrow {
+        margin: 0 0 8px;
+        color: var(--olive-dark);
+        font-size: 0.76rem;
+        text-transform: uppercase;
+      }
+
+      .page-heading h1 {
+        margin: 0;
+        font-size: 2.55rem;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .page-heading p:last-child {
+        max-width: 660px;
+        margin: 10px 0 0;
+        color: var(--text);
+        font-size: 1.02rem;
+      }
+
+      .heading-actions,
+      .toolbar-actions,
+      .form-actions,
+      .modal-actions,
+      .confirm-actions {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .workspace-grid {
+        display: grid;
+        grid-template-columns: minmax(620px, 1fr) minmax(380px, 520px);
+        gap: 18px;
+        align-items: start;
+      }
+
+      .left-stack,
+      .right-stack {
+        display: grid;
+        gap: 18px;
+        min-width: 0;
+      }
+
+      .panel {
+        border: 1px solid rgba(185, 173, 155, 0.64);
+        border-radius: 8px;
+        background: rgba(251, 248, 241, 0.72);
+        box-shadow: 0 8px 24px rgba(49, 39, 24, 0.04);
+      }
+
+      .panel-title,
+      .list-toolbar,
+      .settings-footer,
+      .preview-title,
+      .status-line {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        align-items: center;
+      }
+
+      .panel-title,
+      .list-toolbar {
+        padding: 18px 22px;
+        border-bottom: 1px solid rgba(185, 173, 155, 0.5);
+      }
+
+      .panel-title h2,
+      .preview-title h2 {
+        margin: 0;
+        font-size: 1rem;
+        text-transform: uppercase;
+      }
+
+      .panel-title span,
+      .preview-title span {
+        color: var(--muted);
+        font-size: 0.74rem;
+      }
+
+      .settings-form,
+      .list-body,
+      .preview-body,
+      .status-body {
+        padding: 20px 22px 22px;
+      }
+
+      .settings-form {
+        display: grid;
+        gap: 18px;
+      }
+
+      .section-label {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 0;
+        color: var(--olive-dark);
+        font-weight: 700;
+      }
+
+      .section-label::after {
+        display: block;
+        flex: 1;
+        height: 1px;
+        background: rgba(185, 173, 155, 0.58);
+        content: "";
+      }
+
+      .field-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px 16px;
+      }
+
+      .field {
+        display: grid;
+        gap: 7px;
+        min-width: 0;
+      }
+
+      .field.full {
+        grid-column: 1 / -1;
+      }
+
+      .field label {
+        color: var(--ink);
+        font-size: 0.74rem;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .field input,
+      .field textarea,
+      .field select,
+      .select-field,
+      .search-field {
+        width: 100%;
+        border: 1px solid rgba(185, 173, 155, 0.68);
+        border-radius: 5px;
+        background: rgba(255, 250, 239, 0.42);
+        color: var(--ink);
+        transition:
+          background-color 180ms ease,
+          border-color 180ms ease,
+          box-shadow 180ms ease;
+      }
+
+      .field input,
+      .field select,
+      .select-field,
+      .search-field {
+        min-height: 42px;
+        padding: 0 12px;
+      }
+
+      .field textarea {
+        min-height: 96px;
+        resize: vertical;
+        padding: 11px 12px;
+      }
+
+      .field input::placeholder,
+      .field textarea::placeholder,
+      .search-field::placeholder {
+        color: var(--faint);
+      }
+
+      .field input:hover,
+      .field textarea:hover,
+      .field select:hover,
+      .select-field:hover,
+      .search-field:hover,
+      .field input:focus,
+      .field textarea:focus,
+      .field select:focus,
+      .select-field:focus,
+      .search-field:focus {
+        border-color: var(--olive);
+        background: rgba(255, 250, 239, 0.72);
+        box-shadow: 0 0 0 3px rgba(95, 111, 82, 0.09);
+        outline: none;
+      }
+
+      .field.is-invalid input,
+      .field.is-invalid textarea,
+      .field.is-invalid select {
+        border-color: var(--danger);
+      }
+
+      .field-error {
+        min-height: 1rem;
+        margin: 0;
+        color: var(--danger);
+        font-size: 0.76rem;
+      }
+
+      .field-error:empty {
+        display: none;
+      }
+
+      .field-hint {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.78rem;
+      }
+
+      .settings-footer {
+        padding-top: 4px;
+      }
+
+      .count-text {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.78rem;
+      }
+
+      .toolbar-actions {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .search-field {
+        width: 190px;
+      }
+
+      .select-field {
+        width: 150px;
+      }
+
+      .primary-button,
+      .secondary-button,
+      .danger-button,
+      .ghost-button,
+      .mini-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        min-height: 42px;
+        padding: 0 18px;
+        border-radius: 6px;
+        font-weight: 700;
+        text-decoration: none;
+        transition:
+          background-color 180ms ease,
+          border-color 180ms ease,
+          color 180ms ease,
+          transform 180ms ease,
+          box-shadow 180ms ease;
+      }
+
+      .primary-button svg,
+      .secondary-button svg,
+      .danger-button svg,
+      .ghost-button svg,
+      .mini-button svg {
+        width: 18px;
+        height: 18px;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.8;
+      }
+
+      .primary-button {
+        border: 1px solid var(--olive-dark);
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 0.08), transparent),
+          var(--olive-dark);
+        color: var(--paper-soft);
+        box-shadow: 0 12px 22px rgba(63, 74, 53, 0.12);
+      }
+
+      .primary-button:hover,
+      .primary-button:focus-visible {
+        background-color: #4f5d43;
+        transform: translateY(-1px);
+      }
+
+      .secondary-button,
+      .ghost-button {
+        border: 1px solid rgba(185, 173, 155, 0.64);
+        background: rgba(255, 250, 239, 0.48);
+        color: var(--text);
+      }
+
+      .secondary-button:hover,
+      .secondary-button:focus-visible,
+      .ghost-button:hover,
+      .ghost-button:focus-visible {
+        border-color: var(--olive);
+        color: var(--olive-dark);
+        transform: translateY(-1px);
+      }
+
+      .danger-button {
+        border: 1px solid rgba(143, 78, 55, 0.5);
+        background: rgba(143, 78, 55, 0.08);
+        color: var(--danger);
+      }
+
+      .danger-button:hover,
+      .danger-button:focus-visible {
+        background: rgba(143, 78, 55, 0.14);
+        transform: translateY(-1px);
+      }
+
+      .ghost-button {
+        min-height: 34px;
+        padding: 0 12px;
+        font-size: 0.84rem;
+      }
+
+      .mini-button {
+        min-height: 34px;
+        padding: 0 11px;
+        border: 1px solid rgba(185, 173, 155, 0.6);
+        background: rgba(255, 250, 239, 0.36);
+        color: var(--text);
+        font-size: 0.82rem;
+      }
+
+      .mini-button:hover,
+      .mini-button:focus-visible {
+        border-color: var(--olive);
+        color: var(--olive-dark);
+        transform: translateY(-1px);
+      }
+
+      .list-body {
+        display: grid;
+        gap: 12px;
+      }
+
+      .method-card {
+        display: grid;
+        grid-template-columns: 54px minmax(0, 1fr) 190px;
+        gap: 16px;
+        align-items: start;
+        padding: 17px;
+        border: 1px solid rgba(185, 173, 155, 0.52);
+        border-radius: 8px;
+        background: rgba(255, 250, 239, 0.42);
+        transition:
+          background-color 180ms ease,
+          border-color 180ms ease,
+          transform 180ms ease,
+          box-shadow 180ms ease;
+      }
+
+      .method-card:hover,
+      .method-card:focus-within {
+        border-color: rgba(95, 111, 82, 0.72);
+        background: rgba(255, 250, 239, 0.68);
+        box-shadow: 0 14px 30px rgba(49, 39, 24, 0.06);
+        transform: translateY(-1px);
+      }
+
+      .method-icon,
+      .preview-icon {
+        display: grid;
+        place-items: center;
+        width: 48px;
+        height: 48px;
+        border: 1px solid rgba(95, 111, 82, 0.24);
+        border-radius: 8px;
+        background: rgba(230, 234, 220, 0.4);
+        color: var(--olive-dark);
+      }
+
+      .method-main {
+        min-width: 0;
+      }
+
+      .method-title-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        align-items: center;
+        margin-bottom: 4px;
+      }
+
+      .method-title-row h3 {
+        margin: 0;
+        font-size: 1rem;
+        text-transform: uppercase;
+      }
+
+      .method-type {
+        color: var(--muted);
+        font-size: 0.74rem;
+      }
+
+      .method-value {
+        margin: 0;
+        color: var(--ink);
+        overflow-wrap: anywhere;
+      }
+
+      .method-description {
+        margin: 8px 0 0;
+        color: var(--text);
+        font-size: 0.9rem;
+        line-height: 1.65;
+      }
+
+      .method-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        margin-top: 12px;
+      }
+
+      .status-badge {
+        display: inline-flex;
+        align-items: center;
+        min-height: 26px;
+        padding: 0 9px;
+        border-radius: 999px;
+        font-size: 0.72rem;
+        border: 1px solid transparent;
+      }
+
+      .status-badge.is-visible {
+        color: var(--paper-soft);
+        background: var(--olive);
+      }
+
+      .status-badge.is-hidden {
+        color: var(--text);
+        background: #c4beb5;
+      }
+
+      .status-badge.is-featured {
+        color: #704d27;
+        background: #efe0bf;
+      }
+
+      .status-badge.is-muted {
+        color: var(--muted);
+        border-color: rgba(185, 173, 155, 0.6);
+        background: rgba(255, 250, 239, 0.5);
+      }
+
+      .method-actions {
+        display: grid;
+        gap: 10px;
+      }
+
+      .switch-row {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 10px;
+        align-items: center;
+        min-height: 34px;
+      }
+
+      .switch-row input {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        opacity: 0;
+      }
+
+      .switch-track {
+        position: relative;
+        display: inline-block;
+        width: 42px;
+        height: 24px;
+        border: 1px solid rgba(132, 121, 107, 0.55);
+        border-radius: 999px;
+        background: #d7d1c7;
+        transition:
+          background-color 180ms ease,
+          border-color 180ms ease;
+      }
+
+      .switch-track::after {
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 16px;
+        height: 16px;
+        border-radius: 999px;
+        background: var(--paper-soft);
+        box-shadow: 0 2px 5px rgba(49, 39, 24, 0.18);
+        content: "";
+        transition: transform 180ms ease;
+      }
+
+      .switch-row input:checked + .switch-track {
+        border-color: var(--olive);
+        background: var(--olive);
+      }
+
+      .switch-row input:checked + .switch-track::after {
+        transform: translateX(18px);
+      }
+
+      .switch-copy strong {
+        display: block;
+        font-size: 0.86rem;
+      }
+
+      .switch-copy span {
+        display: block;
+        color: var(--muted);
+        font-size: 0.74rem;
+      }
+
+      .row-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        padding-top: 2px;
+      }
+
+      .empty-state {
+        display: grid;
+        place-items: center;
+        min-height: 250px;
+        padding: 30px;
+        border: 1px dashed rgba(185, 173, 155, 0.7);
+        border-radius: 8px;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      .empty-state svg {
+        width: 42px;
+        height: 42px;
+        margin-bottom: 14px;
+      }
+
+      .empty-state h3 {
+        margin: 0 0 8px;
+        color: var(--ink);
+      }
+
+      .empty-state p {
+        max-width: 360px;
+        margin: 0 0 16px;
+      }
+
+      .list-footer {
+        padding: 0 22px 20px;
+        color: var(--muted);
+        font-size: 0.84rem;
+      }
+
+      .preview-panel {
+        position: sticky;
+        top: 24px;
+      }
+
+      .preview-title {
+        padding: 18px 18px 0;
+      }
+
+      .preview-body {
+        display: grid;
+        gap: 16px;
+      }
+
+      .preview-page-copy {
+        padding: 15px;
+        border: 1px solid rgba(185, 173, 155, 0.52);
+        border-radius: 8px;
+        background: rgba(255, 250, 239, 0.42);
+      }
+
+      .preview-page-copy h3 {
+        margin: 3px 0 2px;
+        font-family: var(--display);
+        font-size: 2.05rem;
+        font-weight: 400;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .preview-page-copy p {
+        margin: 0;
+        color: var(--text);
+      }
+
+      .preview-description {
+        margin-top: 10px !important;
+        line-height: 1.65;
+      }
+
+      .fact-grid,
+      .status-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .fact-item,
+      .status-item {
+        min-width: 0;
+        padding: 10px;
+        border: 1px solid rgba(185, 173, 155, 0.42);
+        border-radius: 6px;
+        background: rgba(255, 250, 239, 0.34);
+      }
+
+      .mini-label,
+      .preview-label {
+        display: block;
+        margin-bottom: 3px;
+        color: var(--muted);
+        font-size: 0.7rem;
+        text-transform: uppercase;
+      }
+
+      .fact-item strong,
+      .status-item strong {
+        display: block;
+        overflow-wrap: anywhere;
+        font-size: 0.9rem;
+      }
+
+      .preview-list {
+        overflow: hidden;
+        border: 1px solid rgba(185, 173, 155, 0.52);
+        border-radius: 8px;
+        background: rgba(255, 250, 239, 0.46);
+      }
+
+      .preview-method {
+        display: grid;
+        grid-template-columns: 52px minmax(0, 1fr) auto;
+        gap: 14px;
+        align-items: center;
+        padding: 15px;
+        border-bottom: 1px solid rgba(185, 173, 155, 0.42);
+      }
+
+      .preview-method:last-child {
+        border-bottom: 0;
+      }
+
+      .preview-method h3 {
+        margin: 0;
+        font-size: 0.92rem;
+        text-transform: uppercase;
+      }
+
+      .preview-method p {
+        margin: 2px 0 0;
+        color: var(--text);
+        overflow-wrap: anywhere;
+        font-size: 0.86rem;
+      }
+
+      .preview-method img,
+      .image-preview img {
+        width: 82px;
+        height: 82px;
+        object-fit: cover;
+        border: 1px solid rgba(185, 173, 155, 0.52);
+        background: var(--paper-soft);
+      }
+
+      .preview-arrow {
+        color: var(--muted);
+        font-size: 1.4rem;
+      }
+
+      .film-strip {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 4px;
+        overflow: hidden;
+        padding: 5px;
+        border-radius: 8px;
+        background: #191813;
+      }
+
+      .film-strip img {
+        width: 100%;
+        height: 68px;
+        object-fit: cover;
+        filter: sepia(0.24) saturate(0.68) contrast(0.98) brightness(0.84);
+      }
+
+      .preview-note {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.84rem;
+      }
+
+      .status-panel .status-body {
+        display: grid;
+        gap: 15px;
+      }
+
+      .status-line {
+        padding-bottom: 13px;
+        border-bottom: 1px solid rgba(185, 173, 155, 0.42);
+      }
+
+      .status-line:last-child {
+        padding-bottom: 0;
+        border-bottom: 0;
+      }
+
+      .status-line strong {
+        color: var(--text);
+      }
+
+      .validation-ok,
+      .validation-warn {
+        display: inline-flex;
+        gap: 8px;
+        align-items: center;
+        font-weight: 700;
+      }
+
+      .validation-ok::before,
+      .validation-warn::before {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 999px;
+        content: "";
+      }
+
+      .validation-ok::before {
+        background: var(--olive);
+      }
+
+      .validation-warn::before {
+        background: var(--warning);
+      }
+
+      .modal-overlay,
+      .confirm-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 30;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: rgba(31, 27, 22, 0.22);
+      }
+
+      .modal-overlay[hidden],
+      .confirm-overlay[hidden],
+      .toast[hidden] {
+        display: none;
+      }
+
+      .modal-card {
+        width: min(100%, 760px);
+        max-height: min(90vh, 860px);
+        overflow: auto;
+        border: 1px solid rgba(185, 173, 155, 0.72);
+        border-radius: 9px;
+        background: var(--paper-soft);
+        box-shadow: 0 24px 62px rgba(49, 39, 24, 0.2);
+        animation: modal-in 180ms ease-out both;
+      }
+
+      .modal-header {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        align-items: start;
+        padding: 20px 22px;
+        border-bottom: 1px solid rgba(185, 173, 155, 0.52);
+      }
+
+      .modal-header h2 {
+        margin: 0;
+        font-size: 1.18rem;
+        text-transform: uppercase;
+      }
+
+      .modal-header p {
+        margin: 4px 0 0;
+        color: var(--muted);
+      }
+
+      .close-button {
+        display: grid;
+        width: 34px;
+        height: 34px;
+        place-items: center;
+        border: 0;
+        border-radius: 999px;
+        background: transparent;
+        color: var(--text);
+        font-size: 1.4rem;
+        line-height: 1;
+        transition:
+          background-color 180ms ease,
+          color 180ms ease,
+          transform 180ms ease;
+      }
+
+      .close-button:hover,
+      .close-button:focus-visible {
+        background: rgba(95, 111, 82, 0.1);
+        color: var(--olive-dark);
+        transform: rotate(90deg);
+      }
+
+      .contact-method-form {
+        display: grid;
+        gap: 18px;
+        padding: 22px;
+      }
+
+      .image-preview {
+        display: grid;
+        grid-template-columns: 98px minmax(0, 1fr);
+        gap: 14px;
+        align-items: center;
+        min-height: 112px;
+        padding: 12px;
+        border: 1px dashed rgba(185, 173, 155, 0.72);
+        border-radius: 7px;
+        background: rgba(255, 250, 239, 0.35);
+      }
+
+      .image-placeholder {
+        display: grid;
+        width: 82px;
+        height: 82px;
+        place-items: center;
+        border: 1px solid rgba(185, 173, 155, 0.5);
+        background: var(--olive-soft);
+        color: var(--olive-dark);
+        font-size: 0.74rem;
+        text-align: center;
+      }
+
+      .modal-actions {
+        justify-content: flex-end;
+        padding-top: 2px;
+      }
+
+      .confirm-card {
+        width: min(100%, 430px);
+        padding: 22px;
+        border: 1px solid rgba(185, 173, 155, 0.7);
+        border-radius: 8px;
+        background: var(--paper-soft);
+        box-shadow: 0 22px 60px rgba(49, 39, 24, 0.18);
+        animation: modal-in 180ms ease-out both;
+      }
+
+      .confirm-card h2 {
+        margin: 0 0 8px;
+        font-size: 1.24rem;
+      }
+
+      .confirm-card p {
+        margin: 0 0 18px;
+        color: var(--muted);
+      }
+
+      .confirm-actions {
+        justify-content: flex-end;
+      }
+
+      .toast {
+        position: fixed;
+        top: 38px;
+        left: 50%;
+        z-index: 40;
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        gap: 14px;
+        align-items: center;
+        width: min(92vw, 430px);
+        padding: 13px 14px;
+        border: 1px solid rgba(185, 173, 155, 0.66);
+        border-radius: 7px;
+        background: rgba(251, 248, 241, 0.96);
+        box-shadow: 0 18px 42px rgba(49, 39, 24, 0.14);
+        transform: translateX(-50%);
+        animation: toast-in 240ms ease-out both;
+      }
+
+      .toast-icon {
+        display: inline-grid;
+        width: 24px;
+        height: 24px;
+        place-items: center;
+        border-radius: 999px;
+        background: var(--olive);
+        color: var(--paper-soft);
+        font-weight: 700;
+      }
+
+      .toast p {
+        margin: 0;
+        color: var(--text);
+      }
+
+      .toast button {
+        display: grid;
+        width: 30px;
+        height: 30px;
+        place-items: center;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: var(--text);
+        font-size: 1.3rem;
+        transition:
+          color 180ms ease,
+          transform 180ms ease;
+      }
+
+      .toast button:hover,
+      .toast button:focus-visible {
+        color: var(--olive-dark);
+        transform: rotate(90deg);
+      }
+
+      @keyframes toast-in {
+        from {
+          opacity: 0;
+          transform: translate(-50%, 10px) scale(0.985);
+        }
+
+        to {
+          opacity: 1;
+          transform: translate(-50%, 0) scale(1);
+        }
+      }
+
+      @keyframes modal-in {
+        from {
+          opacity: 0;
+          transform: translateY(12px) scale(0.99);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      @media (max-width: 1320px) {
+        .main-area {
+          padding: 38px 34px 46px;
+        }
+
+        .workspace-grid {
+          grid-template-columns: minmax(540px, 1fr) minmax(340px, 440px);
+        }
+      }
+
+      @media (max-width: 1120px) {
+        .admin-shell {
+          grid-template-columns: 1fr;
+        }
+
+        .sidebar {
+          position: static;
+          height: auto;
+          padding: 18px;
+          border-right: 0;
+          border-bottom: 1px solid rgba(185, 173, 155, 0.62);
+        }
+
+        .brand {
+          padding: 0 0 16px;
+        }
+
+        .side-nav {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          margin-top: 16px;
+        }
+
+        .nav-item {
+          min-height: 46px;
+        }
+
+        .nav-item.is-active::before {
+          top: auto;
+          right: 10px;
+          bottom: -1px;
+          left: 10px;
+          width: auto;
+          height: 3px;
+          border-radius: 6px 6px 0 0;
+        }
+
+        .user-card {
+          display: none;
+        }
+
+        .workspace-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .preview-panel {
+          position: static;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .main-area {
+          padding: 26px 16px 34px;
+        }
+
+        .topbar,
+        .page-heading,
+        .settings-footer,
+        .list-toolbar,
+        .modal-actions,
+        .confirm-actions {
+          align-items: stretch;
+          flex-direction: column;
+        }
+
+        .topbar {
+          align-items: flex-start;
+        }
+
+        .top-actions,
+        .heading-actions,
+        .toolbar-actions {
+          width: 100%;
+          justify-content: flex-start;
+        }
+
+        .user-menu {
+          justify-content: flex-start;
+        }
+
+        .page-heading h1 {
+          font-size: 2rem;
+        }
+
+        .side-nav {
+          display: flex;
+          gap: 8px;
+          overflow-x: auto;
+          padding-bottom: 4px;
+        }
+
+        .nav-item {
+          flex: 0 0 178px;
+        }
+
+        .field-grid,
+        .fact-grid,
+        .status-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .method-card {
+          grid-template-columns: 1fr;
+        }
+
+        .method-icon {
+          width: 46px;
+          height: 46px;
+        }
+
+        .method-actions {
+          border-top: 1px solid rgba(185, 173, 155, 0.44);
+          padding-top: 12px;
+        }
+
+        .search-field,
+        .select-field,
+        .primary-button,
+        .secondary-button,
+        .danger-button {
+          width: 100%;
+        }
+
+        .preview-method {
+          grid-template-columns: 46px minmax(0, 1fr);
+        }
+
+        .preview-method img,
+        .preview-arrow {
+          grid-column: 1 / -1;
+        }
+
+        .film-strip {
+          display: flex;
+          overflow-x: auto;
+        }
+
+        .film-strip img {
+          flex: 0 0 180px;
+          width: 180px;
+        }
+
+        .image-preview {
+          grid-template-columns: 1fr;
+        }
+
+        .modal-overlay,
+        .confirm-overlay {
+          padding: 12px;
+        }
+
+        .toast {
+          top: 14px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          animation-duration: 1ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 1ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="sidebar" aria-label="Admin navigation">
+        <div class="brand">
+          <svg class="brand-mark" viewBox="0 0 32 48" aria-hidden="true">
+            <path d="M16 44V6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" />
+            <path d="M16 15c-5-5-9-6-12-6 0 7 4 11 12 11" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+            <path d="M16 24c-5-5-9-6-12-6 0 7 4 11 12 11" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+            <path d="M16 33c-5-5-9-6-12-6 0 7 4 11 12 11" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+            <path d="M16 15c5-5 9-6 12-6 0 7-4 11-12 11" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+            <path d="M16 24c5-5 9-6 12-6 0 7-4 11-12 11" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+            <path d="M16 33c5-5 9-6 12-6 0 7-4 11-12 11" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+          </svg>
+          <div>
+            <strong>Wong.Visual</strong>
+            <span>Visual Archive CMS</span>
+          </div>
+        </div>
+
+        <nav class="side-nav" aria-label="CMS sections">
+          <a class="nav-item" href="#dashboard">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" /></svg>
+            <span>Dashboard</span>
+          </a>
+          <a class="nav-item" href="#profile">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" /><path d="M4 21a8 8 0 0 1 16 0" /></svg>
+            <span>Profile</span>
+          </a>
+          <a class="nav-item" href="../backendProject/backendProject.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7V5h12v2" /><path d="M4 7h16v13H4z" /><path d="M8 7v13M16 7v13" /></svg>
+            <span>Projects</span>
+          </a>
+          <a class="nav-item" href="#gallery">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" /><path d="m4 16 5-5 4 4 2-2 5 5" /><circle cx="15.5" cy="8.5" r="1.5" /></svg>
+            <span>Gallery</span>
+          </a>
+          <a class="nav-item" href="#categories">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h7l2 2h7v10H4z" /><path d="M4 10h16" /></svg>
+            <span>Categories</span>
+          </a>
+          <a class="nav-item is-active" href="#admin-contact" aria-current="page">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z" /><path d="m5 7 7 6 7-6" /></svg>
+            <span>Contact</span>
+          </a>
+          <a class="nav-item" href="#messages">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3z" /><path d="m4 7 8 6 8-6" /></svg>
+            <span>Messages</span>
+            <span class="nav-badge">4</span>
+          </a>
+          <a class="nav-item" href="#settings">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z" /><path d="M19 12a7 7 0 0 0-.1-1l2-1.5-2-3.5-2.4 1a7 7 0 0 0-1.8-1L14.5 3h-5l-.2 3a7 7 0 0 0-1.8 1L5.1 6l-2 3.5 2 1.5a7 7 0 0 0 0 2l-2 1.5 2 3.5 2.4-1a7 7 0 0 0 1.8 1l.2 3h5l.2-3a7 7 0 0 0 1.8-1l2.4 1 2-3.5-2-1.5c.1-.3.1-.7.1-1Z" /></svg>
+            <span>Settings</span>
+          </a>
+        </nav>
+
+        <div class="user-card" aria-label="Current user">
+          <div class="avatar" aria-hidden="true">W</div>
+          <div>
+            <strong>WonG</strong>
+            <span>Administrator</span>
+          </div>
+          <div class="user-meta">
+            <div class="meta-row"><span>Role</span><strong>Administrator</strong></div>
+            <div class="meta-row"><span>Last Login</span><strong>Jun 18, 2026</strong></div>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-area" id="admin-contact">
+        <header class="topbar">
+          <div class="breadcrumb" aria-label="Breadcrumb">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 9-8 9 8" /><path d="M5 10v10h14V10" /><path d="M10 20v-6h4v6" /></svg>
+            <span>/</span>
+            <span>admin</span>
+            <span>/</span>
+            <strong>contact</strong>
+          </div>
+
+          <div class="top-actions">
+            <button class="icon-button" type="button" aria-label="Notifications">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9" /><path d="M10 21h4" /></svg>
+            </button>
+            <button class="user-menu" type="button" aria-label="User menu">
+              <span class="top-avatar">W</span>
+              <strong>WonG</strong>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+            </button>
+          </div>
+        </header>
+
+        <section class="page-heading" aria-labelledby="page-title">
+          <div>
+            <p class="eyebrow">Contact Content Model</p>
+            <h1 id="page-title">Contact Settings</h1>
+            <p>Manage public contact information, contact cards, inquiry form labels, and archive status for the Contact page.</p>
+          </div>
+          <div class="heading-actions">
+            <button class="primary-button" type="button" data-save-settings>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h12l2 2v14H5z" /><path d="M8 4v6h8V4M8 20v-6h8v6" /></svg>
+              Save Changes
+            </button>
+            <button class="secondary-button" type="button" data-reset-mock>Reset</button>
+          </div>
+        </section>
+
+        <section class="workspace-grid" aria-label="Contact settings manager">
+          <div class="left-stack">
+            <section class="panel settings-panel" aria-labelledby="settings-title">
+              <div class="panel-title">
+                <h2 id="settings-title">Public Page Fields</h2>
+                <span>/Contact display data</span>
+              </div>
+              <form class="settings-form" data-settings-form novalidate>
+                <p class="section-label">Hero Copy</p>
+                <div class="field-grid">
+                  <div class="field">
+                    <label for="page-slug">Slug *</label>
+                    <input id="page-slug" name="slug" data-page-field="slug" type="text" />
+                    <p class="field-error" data-page-error="slug"></p>
+                  </div>
+                  <div class="field">
+                    <label for="page-title-field">Title *</label>
+                    <input id="page-title-field" name="title" data-page-field="title" type="text" />
+                    <p class="field-error" data-page-error="title"></p>
+                  </div>
+                  <div class="field">
+                    <label for="page-subtitle">Subtitle</label>
+                    <input id="page-subtitle" name="subtitle" data-page-field="subtitle" type="text" />
+                  </div>
+                  <div class="field">
+                    <label for="page-year">Year *</label>
+                    <input id="page-year" name="year" data-page-field="year" type="text" />
+                    <p class="field-error" data-page-error="year"></p>
+                  </div>
+                  <div class="field full">
+                    <label for="page-description">Description *</label>
+                    <textarea id="page-description" name="description" data-page-field="description" rows="3"></textarea>
+                    <p class="field-error" data-page-error="description"></p>
+                  </div>
+                </div>
+
+                <p class="section-label">Archive Facts</p>
+                <div class="field-grid">
+                  <div class="field">
+                    <label for="page-location">Location</label>
+                    <input id="page-location" name="location" data-page-field="location" type="text" />
+                  </div>
+                  <div class="field">
+                    <label for="page-response-time">Response Time</label>
+                    <input id="page-response-time" name="responseTime" data-page-field="responseTime" type="text" />
+                  </div>
+                  <div class="field">
+                    <label for="page-language">Language</label>
+                    <input id="page-language" name="language" data-page-field="language" type="text" />
+                  </div>
+                  <div class="field">
+                    <label for="page-availability">Availability</label>
+                    <select id="page-availability" name="availability" data-page-field="availability">
+                      <option value="Open">Open</option>
+                      <option value="Limited">Limited</option>
+                      <option value="Closed">Closed</option>
+                    </select>
+                  </div>
+                  <div class="field">
+                    <label for="page-working-days">Working Days</label>
+                    <input id="page-working-days" name="workingDays" data-page-field="workingDays" type="text" />
+                  </div>
+                  <div class="field">
+                    <label for="page-current-location">Current Location</label>
+                    <input id="page-current-location" name="currentLocation" data-page-field="currentLocation" type="text" />
+                  </div>
+                </div>
+
+                <p class="section-label">Message Form</p>
+                <div class="field-grid">
+                  <div class="field">
+                    <label for="form-title">Form Title</label>
+                    <input id="form-title" name="formTitle" data-page-field="formTitle" type="text" />
+                  </div>
+                  <div class="field">
+                    <label for="form-subtitle">Form Subtitle</label>
+                    <input id="form-subtitle" name="formSubtitle" data-page-field="formSubtitle" type="text" />
+                  </div>
+                  <div class="field full">
+                    <label for="form-note">Form Note</label>
+                    <input id="form-note" name="formNote" data-page-field="formNote" type="text" />
+                  </div>
+                  <div class="field full">
+                    <label for="project-types">Project Types</label>
+                    <textarea id="project-types" name="projectTypesText" data-page-field="projectTypesText" rows="2"></textarea>
+                    <p class="field-hint">One option per line. These map to the public Contact form select.</p>
+                  </div>
+                </div>
+              </form>
+            </section>
+
+            <section class="panel methods-panel" aria-labelledby="methods-title">
+              <div class="list-toolbar">
+                <div>
+                  <h2 id="methods-title" class="sr-only">Contact methods</h2>
+                  <p class="count-text" data-method-count>Total 0 contact items</p>
+                </div>
+                <div class="toolbar-actions">
+                  <label class="sr-only" for="contact-search">Search contact methods</label>
+                  <input class="search-field" id="contact-search" type="search" placeholder="Search" data-search />
+                  <label class="sr-only" for="status-filter">Filter contact methods</label>
+                  <select class="select-field" id="status-filter" data-status-filter>
+                    <option value="all">All status</option>
+                    <option value="visible">Visible</option>
+                    <option value="hidden">Hidden</option>
+                    <option value="featured">Featured</option>
+                  </select>
+                  <button class="primary-button" type="button" data-new-method>
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+                    New Contact
+                  </button>
+                </div>
+              </div>
+              <div class="list-body" data-method-list></div>
+              <div class="list-footer" data-result-summary>Showing 0 contact items</div>
+            </section>
+          </div>
+
+          <aside class="right-stack">
+            <section class="panel preview-panel" aria-labelledby="preview-title">
+              <div class="preview-title">
+                <h2 id="preview-title">Live Preview</h2>
+                <span>Public Contact Page</span>
+              </div>
+              <div class="preview-body" data-live-preview></div>
+            </section>
+
+            <section class="panel status-panel" aria-labelledby="status-title">
+              <div class="panel-title">
+                <h2 id="status-title">Status</h2>
+                <span>mock state</span>
+              </div>
+              <div class="status-body" data-status-panel></div>
+            </section>
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal-overlay" data-modal-overlay hidden>
+      <section class="modal-card" role="dialog" aria-modal="true" aria-labelledby="method-modal-title">
+        <div class="modal-header">
+          <div>
+            <h2 id="method-modal-title" data-modal-title>Edit Contact Item</h2>
+            <p>Fields here map to the public Contact cards and live preview.</p>
+          </div>
+          <button class="close-button" type="button" data-close-modal aria-label="Close editor">&times;</button>
+        </div>
+        <form class="contact-method-form" data-method-form novalidate>
+          <div class="field-grid">
+            <div class="field">
+              <label for="method-title">Title *</label>
+              <input id="method-title" type="text" data-field="title" />
+              <p class="field-error" data-error-for="title"></p>
+            </div>
+            <div class="field">
+              <label for="method-slug">Slug *</label>
+              <input id="method-slug" type="text" data-field="slug" />
+              <p class="field-error" data-error-for="slug"></p>
+            </div>
+            <div class="field">
+              <label for="method-year">Year *</label>
+              <input id="method-year" type="text" data-field="year" />
+              <p class="field-error" data-error-for="year"></p>
+            </div>
+            <div class="field">
+              <label for="method-type">Type</label>
+              <select id="method-type" data-field="type">
+                <option value="instagram">Instagram</option>
+                <option value="email">Email</option>
+                <option value="wechat">WeChat</option>
+                <option value="qr">QR Code</option>
+                <option value="link">Link</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="method-value">Display Value</label>
+              <input id="method-value" type="text" data-field="value" />
+            </div>
+            <div class="field">
+              <label for="method-url">URL / Action Target</label>
+              <input id="method-url" type="text" data-field="url" />
+            </div>
+            <div class="field">
+              <label for="method-action">Action Label</label>
+              <input id="method-action" type="text" data-field="actionLabel" />
+            </div>
+            <div class="field">
+              <label for="method-sort">Display Order *</label>
+              <input id="method-sort" type="number" min="1" step="1" data-field="sortOrder" />
+              <p class="field-error" data-error-for="sortOrder"></p>
+            </div>
+            <div class="field full">
+              <label for="method-description">Description *</label>
+              <textarea id="method-description" rows="3" data-field="description"></textarea>
+              <p class="field-error" data-error-for="description"></p>
+            </div>
+            <div class="field full">
+              <label for="method-cover">Cover / QR Image URL</label>
+              <input id="method-cover" type="text" data-field="coverImage" />
+              <div class="image-preview" data-cover-preview>
+                <div class="image-placeholder">No image</div>
+                <p class="field-hint">Image upload is mocked. Use a relative path or URL for preview.</p>
+              </div>
+            </div>
+            <div class="field full">
+              <div class="switch-row">
+                <input id="method-visible" type="checkbox" data-field="isVisible" />
+                <span class="switch-track" aria-hidden="true"></span>
+                <label class="switch-copy" for="method-visible">
+                  <strong>Show on public Contact page</strong>
+                  <span>Off means hidden from the public page mock state.</span>
+                </label>
+              </div>
+              <div class="switch-row">
+                <input id="method-featured" type="checkbox" data-field="isFeatured" />
+                <span class="switch-track" aria-hidden="true"></span>
+                <label class="switch-copy" for="method-featured">
+                  <strong>Featured contact method</strong>
+                  <span>Featured items can be emphasized in future layouts.</span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="modal-actions">
+            <button class="primary-button" type="submit">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h12l2 2v14H5z" /><path d="M8 4v6h8V4M8 20v-6h8v6" /></svg>
+              Save Contact
+            </button>
+            <button class="secondary-button" type="button" data-cancel-modal>Cancel</button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <div class="confirm-overlay" data-confirm-overlay hidden>
+      <div class="confirm-card" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
+        <h2 id="confirm-title">Delete contact item?</h2>
+        <p data-confirm-copy>This removes the item from the mock list. Existing source files are not touched.</p>
+        <div class="confirm-actions">
+          <button class="secondary-button" type="button" data-cancel-delete>Cancel</button>
+          <button class="danger-button" type="button" data-confirm-delete>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18" /><path d="M8 6V4h8v2M7 6l1 14h8l1-14" /></svg>
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" data-toast hidden>
+      <span class="toast-icon" aria-hidden="true">✓</span>
+      <p data-toast-message>Contact settings saved successfully.</p>
+      <button type="button" data-close-toast aria-label="Close notification">&times;</button>
+    </div>
+
+    <script>
+      (function () {
+        const initialContactMock = {
+          page: {
+            slug: "contact",
+            title: "Contact",
+            subtitle: "联系 / 合作洽谈",
+            description:
+              "如果你有项目合作、拍摄计划，或关于影像的任何想法，欢迎随时与我联系。每一条消息都会认真阅读与回复。",
+            year: "2020 - 2025",
+            location: "Shenzhen, China",
+            responseTime: "Within 48 Hours",
+            language: "中文 / English",
+            availability: "Open",
+            currentLocation: "Shenzhen, China",
+            workingDays: "Mon - Sun",
+            formTitle: "Send a Message",
+            formSubtitle: "给我留言",
+            formNote: "* 所有消息将发送至管理员审核后回复",
+            projectTypes: [
+              "Portrait / 人像拍摄",
+              "Commercial / 商业项目",
+              "Editorial / 媒体与采访",
+              "Personal / 私人影像",
+              "Other / 其他合作"
+            ],
+            updatedAt: "2026-06-18T09:30:00.000Z",
+            updatedBy: "WonG (Administrator)"
+          },
+          contactMethods: [
+            {
+              id: "contact-instagram",
+              title: "Instagram",
+              slug: "instagram",
+              year: "2020 - 2025",
+              type: "instagram",
+              value: "@wong.visual.archive",
+              url: "https://www.instagram.com/wong.visual.archive",
+              actionLabel: "View Profile",
+              description: "更多日常影像与拍摄花絮在 Instagram 更新。",
+              coverImage: "",
+              isVisible: true,
+              isFeatured: true,
+              sortOrder: 1,
+              updatedAt: "2026-06-18T09:30:00.000Z"
+            },
+            {
+              id: "contact-email",
+              title: "Email",
+              slug: "email",
+              year: "2020 - 2025",
+              type: "email",
+              value: "hello@wongvisual.com",
+              url: "mailto:hello@wongvisual.com",
+              actionLabel: "Send Email",
+              description: "项目合作 / 商业拍摄 / 媒体与采访，请邮件联系。",
+              coverImage: "",
+              isVisible: true,
+              isFeatured: true,
+              sortOrder: 2,
+              updatedAt: "2026-06-18T09:30:00.000Z"
+            },
+            {
+              id: "contact-wechat",
+              title: "WeChat",
+              slug: "wechat",
+              year: "2020 - 2025",
+              type: "wechat",
+              value: "Wong_Visual_Archive",
+              url: "",
+              actionLabel: "Add WeChat",
+              description: "添加微信，备注「合作咨询」，通过后可查看更多作品。",
+              coverImage: "../Contact/assets/wechat-qr.png",
+              isVisible: true,
+              isFeatured: true,
+              sortOrder: 3,
+              updatedAt: "2026-06-18T09:30:00.000Z"
+            },
+            {
+              id: "contact-wechat-qr",
+              title: "WeChat QR Code",
+              slug: "wechat-qr-code",
+              year: "2020 - 2025",
+              type: "qr",
+              value: "Scan to add me on WeChat",
+              url: "",
+              actionLabel: "Replace Image",
+              description: "二维码用于前台 WeChat 联系卡与后台实时预览。",
+              coverImage: "../Contact/assets/wechat-qr.png",
+              isVisible: true,
+              isFeatured: false,
+              sortOrder: 4,
+              updatedAt: "2026-06-18T09:30:00.000Z"
+            }
+          ],
+          filmStrip: [
+            "../Project/assets/project-city-rhythm.png",
+            "../Project/assets/project-seen-silence.png",
+            "../Home/assets/personal.png",
+            "../Project/assets/project-highlands.png"
+          ]
+        };
+
+        const slugPattern = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
+
+        const state = {
+          data: cloneData(initialContactMock),
+          draft: null,
+          mode: "edit",
+          search: "",
+          statusFilter: "all",
+          pageErrors: {},
+          methodErrors: {},
+          pendingDeleteId: null,
+          toastTimer: null
+        };
+
+        const elements = {
+          settingsForm: document.querySelector("[data-settings-form]"),
+          methodList: document.querySelector("[data-method-list]"),
+          methodCount: document.querySelector("[data-method-count]"),
+          resultSummary: document.querySelector("[data-result-summary]"),
+          livePreview: document.querySelector("[data-live-preview]"),
+          statusPanel: document.querySelector("[data-status-panel]"),
+          search: document.querySelector("[data-search]"),
+          statusFilter: document.querySelector("[data-status-filter]"),
+          newMethod: document.querySelector("[data-new-method]"),
+          saveSettings: document.querySelector("[data-save-settings]"),
+          resetMock: document.querySelector("[data-reset-mock]"),
+          modalOverlay: document.querySelector("[data-modal-overlay]"),
+          modalTitle: document.querySelector("[data-modal-title]"),
+          closeModal: document.querySelector("[data-close-modal]"),
+          cancelModal: document.querySelector("[data-cancel-modal]"),
+          methodForm: document.querySelector("[data-method-form]"),
+          coverPreview: document.querySelector("[data-cover-preview]"),
+          confirmOverlay: document.querySelector("[data-confirm-overlay]"),
+          confirmCopy: document.querySelector("[data-confirm-copy]"),
+          cancelDelete: document.querySelector("[data-cancel-delete]"),
+          confirmDelete: document.querySelector("[data-confirm-delete]"),
+          toast: document.querySelector("[data-toast]"),
+          toastMessage: document.querySelector("[data-toast-message]"),
+          closeToast: document.querySelector("[data-close-toast]")
+        };
+
+        function cloneData(value) {
+          return JSON.parse(JSON.stringify(value));
+        }
+
+        function escapeHtml(value) {
+          return String(value ?? "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+        }
+
+        function formatDate(value) {
+          const date = new Date(value);
+          if (Number.isNaN(date.getTime())) return "mock data";
+          return date.toLocaleDateString("en-US", {
+            month: "short",
+            day: "numeric",
+            year: "numeric"
+          });
+        }
+
+        function icon(name) {
+          const icons = {
+            instagram:
+              '<svg viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="8" width="32" height="32" rx="9" /><circle cx="24" cy="24" r="8" /><circle cx="33.5" cy="14.5" r="2" /></svg>',
+            email:
+              '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M7 13h34v24H7z" /><path d="m8 14 16 13 16-13" /></svg>',
+            wechat:
+              '<svg viewBox="0 0 54 48" aria-hidden="true"><path d="M21 10C12.7 10 6 15.1 6 21.4c0 3.6 2.2 6.9 5.7 9l-1.2 4.2 5-2.3c1.7.5 3.5.8 5.5.8 8.3 0 15-5.1 15-11.5S29.3 10 21 10Z" /><path d="M34.5 20.2c7 0 12.5 4.3 12.5 9.7 0 3-1.8 5.8-4.6 7.6l1 3.5-4.2-1.9c-1.4.4-3 .6-4.7.6-7 0-12.5-4.3-12.5-9.8s5.6-9.7 12.5-9.7Z" /><circle cx="16.4" cy="20.2" r="1.4" /><circle cx="25.5" cy="20.2" r="1.4" /></svg>',
+            qr:
+              '<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 8h12v12H8zM28 8h12v12H28zM8 28h12v12H8z" /><path d="M28 28h4v4h-4zM36 28h4v12h-8v-4M28 36h4v4h-4z" /></svg>',
+            link:
+              '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1" /><path d="M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1" /></svg>',
+            plus: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>',
+            edit:
+              '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m4 20 4.5-1 10-10a2.8 2.8 0 0 0-4-4l-10 10L4 20Z" /><path d="m13.5 6.5 4 4" /></svg>',
+            trash:
+              '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18" /><path d="M8 6V4h8v2M7 6l1 14h8l1-14" /></svg>'
+          };
+
+          return icons[name] || icons.link;
+        }
+
+        function getSortedMethods(methods = state.data.contactMethods) {
+          return [...methods].sort((a, b) => Number(a.sortOrder) - Number(b.sortOrder));
+        }
+
+        function getFilteredMethods() {
+          const keyword = state.search.trim().toLowerCase();
+          return getSortedMethods().filter((method) => {
+            const matchesKeyword =
+              !keyword ||
+              [method.title, method.slug, method.value, method.description, method.type]
+                .join(" ")
+                .toLowerCase()
+                .includes(keyword);
+            const matchesStatus =
+              state.statusFilter === "all" ||
+              (state.statusFilter === "visible" && method.isVisible) ||
+              (state.statusFilter === "hidden" && !method.isVisible) ||
+              (state.statusFilter === "featured" && method.isFeatured);
+            return matchesKeyword && matchesStatus;
+          });
+        }
+
+        function createBlankMethod() {
+          const nextSort =
+            state.data.contactMethods.reduce((max, method) => Math.max(max, Number(method.sortOrder) || 0), 0) + 1;
+          return {
+            id: `contact-${Date.now()}`,
+            title: "",
+            slug: "",
+            year: state.data.page.year,
+            type: "link",
+            value: "",
+            url: "",
+            actionLabel: "Open",
+            description: "",
+            coverImage: "",
+            isVisible: true,
+            isFeatured: false,
+            sortOrder: nextSort,
+            updatedAt: new Date().toISOString()
+          };
+        }
+
+        function populateSettingsForm() {
+          const page = state.data.page;
+          elements.settingsForm.querySelectorAll("[data-page-field]").forEach((field) => {
+            const key = field.dataset.pageField;
+            if (key === "projectTypesText") {
+              field.value = page.projectTypes.join("\n");
+            } else {
+              field.value = page[key] ?? "";
+            }
+          });
+          renderPageErrors();
+        }
+
+        function renderPageErrors() {
+          elements.settingsForm.querySelectorAll("[data-page-error]").forEach((node) => {
+            const key = node.dataset.pageError;
+            node.textContent = state.pageErrors[key] || "";
+            node.closest(".field")?.classList.toggle("is-invalid", Boolean(state.pageErrors[key]));
+          });
+        }
+
+        function validatePage() {
+          const page = state.data.page;
+          const errors = {};
+
+          if (!page.slug.trim()) errors.slug = "Slug is required.";
+          else if (!slugPattern.test(page.slug.trim())) errors.slug = "Use lowercase letters, numbers, and hyphens only.";
+          if (!page.title.trim()) errors.title = "Title is required.";
+          if (!page.year.trim()) errors.year = "Year is required.";
+          if (!page.description.trim()) errors.description = "Description is required.";
+
+          state.pageErrors = errors;
+          renderPageErrors();
+          return Object.keys(errors).length === 0;
+        }
+
+        function validateMethod(draft) {
+          const errors = {};
+          if (!draft.title.trim()) errors.title = "Title is required.";
+          if (!draft.slug.trim()) errors.slug = "Slug is required.";
+          else if (!slugPattern.test(draft.slug.trim())) errors.slug = "Use lowercase letters, numbers, and hyphens only.";
+          if (!draft.year.trim()) errors.year = "Year is required.";
+          if (!draft.description.trim()) errors.description = "Description is required.";
+          if (draft.sortOrder === "" || Number.isNaN(Number(draft.sortOrder))) {
+            errors.sortOrder = "Display order must be a number.";
+          }
+
+          state.methodErrors = errors;
+          renderMethodErrors();
+          return Object.keys(errors).length === 0;
+        }
+
+        function renderMethodErrors() {
+          elements.methodForm.querySelectorAll("[data-error-for]").forEach((node) => {
+            const key = node.dataset.errorFor;
+            node.textContent = state.methodErrors[key] || "";
+            node.closest(".field")?.classList.toggle("is-invalid", Boolean(state.methodErrors[key]));
+          });
+        }
+
+        function renderList() {
+          const filtered = getFilteredMethods();
+          elements.methodCount.textContent = `Total ${state.data.contactMethods.length} contact items`;
+          elements.resultSummary.textContent =
+            filtered.length > 0
+              ? `Showing ${filtered.length} of ${state.data.contactMethods.length} contact items`
+              : "No contact items match the current filter";
+
+          if (state.data.contactMethods.length === 0) {
+            elements.methodList.innerHTML = `
+              <div class="empty-state">
+                ${icon("email")}
+                <h3>No contact items yet</h3>
+                <p>Create the first contact record to start building the public Contact page.</p>
+                <button class="primary-button" type="button" data-empty-new>${icon("plus")}New Contact</button>
+              </div>
+            `;
+            return;
+          }
+
+          if (filtered.length === 0) {
+            elements.methodList.innerHTML = `
+              <div class="empty-state">
+                ${icon("link")}
+                <h3>No matching contact items</h3>
+                <p>Adjust search or status filters to view hidden contact records.</p>
+                <button class="secondary-button" type="button" data-reset-filter>Reset Filter</button>
+              </div>
+            `;
+            return;
+          }
+
+          elements.methodList.innerHTML = filtered
+            .map((method) => {
+              const visibleLabel = method.isVisible ? "Visible" : "Hidden";
+              const statusClass = method.isVisible ? "is-visible" : "is-hidden";
+              const featuredClass = method.isFeatured ? '<span class="status-badge is-featured">Featured</span>' : "";
+              const imageBadge = method.coverImage ? '<span class="status-badge is-muted">Image</span>' : "";
+
+              return `
+                <article class="method-card" data-method-id="${escapeHtml(method.id)}">
+                  <div class="method-icon">${icon(method.type)}</div>
+                  <div class="method-main">
+                    <div class="method-title-row">
+                      <h3>${escapeHtml(method.title || "Untitled")}</h3>
+                      <span class="method-type">/${escapeHtml(method.slug || "no-slug")}</span>
+                    </div>
+                    <p class="method-value">${escapeHtml(method.value || "No value set")}</p>
+                    <p class="method-description">${escapeHtml(method.description || "No description set.")}</p>
+                    <div class="method-meta">
+                      <span class="status-badge ${statusClass}">${visibleLabel}</span>
+                      ${featuredClass}
+                      ${imageBadge}
+                      <span class="status-badge is-muted">Order ${escapeHtml(method.sortOrder)}</span>
+                    </div>
+                  </div>
+                  <div class="method-actions">
+                    <label class="switch-row">
+                      <input type="checkbox" data-action="toggle-visible" data-id="${escapeHtml(method.id)}" ${method.isVisible ? "checked" : ""} />
+                      <span class="switch-track" aria-hidden="true"></span>
+                      <span class="switch-copy"><strong>Show</strong><span>${method.isVisible ? "Public" : "Hidden"}</span></span>
+                    </label>
+                    <label class="switch-row">
+                      <input type="checkbox" data-action="toggle-featured" data-id="${escapeHtml(method.id)}" ${method.isFeatured ? "checked" : ""} />
+                      <span class="switch-track" aria-hidden="true"></span>
+                      <span class="switch-copy"><strong>Featured</strong><span>${method.isFeatured ? "On" : "Off"}</span></span>
+                    </label>
+                    <div class="row-actions">
+                      <button class="mini-button" type="button" data-action="edit" data-id="${escapeHtml(method.id)}">${icon("edit")}Edit</button>
+                      <button class="mini-button" type="button" data-action="delete" data-id="${escapeHtml(method.id)}">${icon("trash")}Delete</button>
+                    </div>
+                  </div>
+                </article>
+              `;
+            })
+            .join("");
+        }
+
+        function renderPreview() {
+          const page = state.data.page;
+          const visibleMethods = getSortedMethods().filter((method) => method.isVisible);
+          const facts = [
+            ["Year", page.year],
+            ["Location", page.location],
+            ["Response Time", page.responseTime],
+            ["Language", page.language]
+          ];
+          const status = [
+            ["Availability", page.availability],
+            ["Current Location", page.currentLocation],
+            ["Working Days", page.workingDays],
+            ["Response Time", page.responseTime]
+          ];
+
+          const methodPreview =
+            visibleMethods.length > 0
+              ? visibleMethods
+                  .map((method) => {
+                    const isImage = Boolean(method.coverImage) && method.type === "qr";
+                    return `
+                      <article class="preview-method">
+                        <div class="preview-icon">${icon(method.type)}</div>
+                        <div>
+                          <h3>${escapeHtml(method.title)}</h3>
+                          <p>${escapeHtml(method.value || method.actionLabel || "No value set")}</p>
+                        </div>
+                        ${
+                          isImage
+                            ? `<img src="${escapeHtml(method.coverImage)}" alt="${escapeHtml(method.title)} preview" />`
+                            : '<span class="preview-arrow" aria-hidden="true">›</span>'
+                        }
+                      </article>
+                    `;
+                  })
+                  .join("")
+              : `
+                <div class="empty-state">
+                  ${icon("email")}
+                  <h3>No visible contact items</h3>
+                  <p>Turn on Show for at least one contact item to populate the public Contact page.</p>
+                </div>
+              `;
+
+          elements.livePreview.innerHTML = `
+            <section class="preview-page-copy">
+              <span class="preview-label">/${escapeHtml(page.slug || "contact")}</span>
+              <h3>${escapeHtml(page.title || "Contact")}</h3>
+              <p>${escapeHtml(page.subtitle || "")}</p>
+              <p class="preview-description">${escapeHtml(page.description || "")}</p>
+            </section>
+
+            <div class="fact-grid">
+              ${facts
+                .map(
+                  ([label, value]) => `
+                    <div class="fact-item">
+                      <span class="mini-label">${escapeHtml(label)}</span>
+                      <strong>${escapeHtml(value || "Not set")}</strong>
+                    </div>
+                  `
+                )
+                .join("")}
+            </div>
+
+            <div class="preview-list">${methodPreview}</div>
+
+            <div class="film-strip" aria-label="Contact film strip preview">
+              ${state.data.filmStrip
+                .map((imagePath) => `<img src="${escapeHtml(imagePath)}" alt="Archive contact preview" />`)
+                .join("")}
+            </div>
+
+            <div class="status-grid">
+              ${status
+                .map(
+                  ([label, value]) => `
+                    <div class="status-item">
+                      <span class="mini-label">${escapeHtml(label)}</span>
+                      <strong>${escapeHtml(value || "Not set")}</strong>
+                    </div>
+                  `
+                )
+                .join("")}
+            </div>
+
+            <p class="preview-note">${escapeHtml(page.formTitle)} · ${escapeHtml(page.formSubtitle)} · ${escapeHtml(
+              page.projectTypes.length
+            )} project type options</p>
+          `;
+        }
+
+        function getValidationIssues() {
+          const issues = [];
+          const page = state.data.page;
+
+          if (!page.slug || !slugPattern.test(page.slug)) issues.push("Page slug");
+          if (!page.title) issues.push("Page title");
+          if (!page.year) issues.push("Page year");
+          if (!page.description) issues.push("Page description");
+          if (!state.data.contactMethods.some((method) => method.isVisible)) issues.push("Visible contact item");
+
+          state.data.contactMethods.forEach((method) => {
+            if (!method.title || !method.slug || !method.year || !method.description) {
+              issues.push(method.title || method.id);
+            }
+            if (Number.isNaN(Number(method.sortOrder))) {
+              issues.push(`${method.title || method.id} sort order`);
+            }
+          });
+
+          return issues;
+        }
+
+        function renderStatus() {
+          const issues = getValidationIssues();
+          const visibleCount = state.data.contactMethods.filter((method) => method.isVisible).length;
+          const featuredCount = state.data.contactMethods.filter((method) => method.isFeatured).length;
+          const page = state.data.page;
+
+          elements.statusPanel.innerHTML = `
+            <div class="status-line">
+              <span>Validation</span>
+              <strong class="${issues.length ? "validation-warn" : "validation-ok"}">
+                ${issues.length ? `${issues.length} issue${issues.length > 1 ? "s" : ""} found` : "All fields are valid."}
+              </strong>
+            </div>
+            <div class="status-line">
+              <span>Visible Items</span>
+              <strong>${visibleCount} / ${state.data.contactMethods.length}</strong>
+            </div>
+            <div class="status-line">
+              <span>Featured Items</span>
+              <strong>${featuredCount}</strong>
+            </div>
+            <div class="status-line">
+              <span>Last Updated</span>
+              <strong>${escapeHtml(formatDate(page.updatedAt))}</strong>
+            </div>
+            <div class="status-line">
+              <span>Updated By</span>
+              <strong>${escapeHtml(page.updatedBy)}</strong>
+            </div>
+            <div class="status-line">
+              <span>Visibility</span>
+              <span class="status-badge is-visible">Public</span>
+            </div>
+          `;
+        }
+
+        function render() {
+          renderList();
+          renderPreview();
+          renderStatus();
+        }
+
+        function showToast(message) {
+          window.clearTimeout(state.toastTimer);
+          elements.toastMessage.textContent = message;
+          elements.toast.hidden = false;
+          state.toastTimer = window.setTimeout(() => {
+            elements.toast.hidden = true;
+          }, 3600);
+        }
+
+        function clearMethodErrors() {
+          state.methodErrors = {};
+          renderMethodErrors();
+        }
+
+        function openModal(method, mode) {
+          state.mode = mode;
+          state.draft = cloneData(method);
+          state.methodErrors = {};
+          elements.modalTitle.textContent = mode === "create" ? "New Contact Item" : "Edit Contact Item";
+
+          elements.methodForm.querySelectorAll("[data-field]").forEach((field) => {
+            const key = field.dataset.field;
+            if (field.type === "checkbox") {
+              field.checked = Boolean(state.draft[key]);
+            } else {
+              field.value = state.draft[key] ?? "";
+            }
+          });
+
+          renderCoverPreview();
+          renderMethodErrors();
+          elements.modalOverlay.hidden = false;
+          elements.methodForm.querySelector("[data-field='title']")?.focus();
+        }
+
+        function closeModal() {
+          state.draft = null;
+          state.methodErrors = {};
+          elements.modalOverlay.hidden = true;
+        }
+
+        function renderCoverPreview() {
+          const cover = state.draft?.coverImage || "";
+          elements.coverPreview.innerHTML = cover
+            ? `
+              <img src="${escapeHtml(cover)}" alt="Cover or QR preview" />
+              <p class="field-hint">Current preview source: ${escapeHtml(cover)}</p>
+            `
+            : `
+              <div class="image-placeholder">No image</div>
+              <p class="field-hint">Cover image is optional. Empty values use an icon-only placeholder.</p>
+            `;
+        }
+
+        function saveDraft() {
+          if (!state.draft || !validateMethod(state.draft)) {
+            showToast("Please fix the highlighted fields.");
+            return;
+          }
+
+          const now = new Date().toISOString();
+          const savedDraft = {
+            ...state.draft,
+            slug: state.draft.slug.trim(),
+            title: state.draft.title.trim(),
+            year: state.draft.year.trim(),
+            description: state.draft.description.trim(),
+            sortOrder: Number(state.draft.sortOrder),
+            updatedAt: now
+          };
+
+          if (state.mode === "create") {
+            state.data.contactMethods = [...state.data.contactMethods, savedDraft];
+            showToast("Contact item created in mock state.");
+          } else {
+            state.data.contactMethods = state.data.contactMethods.map((method) =>
+              method.id === savedDraft.id ? savedDraft : method
+            );
+            showToast("Contact item saved in mock state.");
+          }
+
+          state.data.page.updatedAt = now;
+          closeModal();
+          render();
+        }
+
+        function toggleMethod(methodId, field) {
+          state.data.contactMethods = state.data.contactMethods.map((method) => {
+            if (method.id !== methodId) return method;
+            return {
+              ...method,
+              [field]: !method[field],
+              updatedAt: new Date().toISOString()
+            };
+          });
+          state.data.page.updatedAt = new Date().toISOString();
+          showToast(field === "isVisible" ? "Visibility updated." : "Featured state updated.");
+          render();
+        }
+
+        function openDeleteConfirm(methodId) {
+          const method = state.data.contactMethods.find((item) => item.id === methodId);
+          if (!method) return;
+          state.pendingDeleteId = methodId;
+          elements.confirmCopy.textContent = `Delete "${method.title}" from the mock Contact list? Existing files are not touched.`;
+          elements.confirmOverlay.hidden = false;
+          elements.confirmDelete.focus();
+        }
+
+        function deletePendingMethod() {
+          const methodId = state.pendingDeleteId;
+          if (!methodId) return;
+          state.data.contactMethods = state.data.contactMethods.filter((method) => method.id !== methodId);
+          state.data.page.updatedAt = new Date().toISOString();
+          state.pendingDeleteId = null;
+          elements.confirmOverlay.hidden = true;
+          showToast("Contact item deleted from mock state.");
+          render();
+        }
+
+        elements.settingsForm.addEventListener("input", (event) => {
+          const field = event.target.closest("[data-page-field]");
+          if (!field) return;
+
+          const key = field.dataset.pageField;
+          if (key === "projectTypesText") {
+            state.data.page.projectTypes = field.value
+              .split("\n")
+              .map((item) => item.trim())
+              .filter(Boolean);
+          } else {
+            state.data.page[key] = field.value;
+          }
+
+          delete state.pageErrors[key];
+          state.data.page.updatedAt = new Date().toISOString();
+          renderPageErrors();
+          renderPreview();
+          renderStatus();
+        });
+
+        elements.saveSettings.addEventListener("click", () => {
+          if (!validatePage()) {
+            showToast("Please fix the highlighted page fields.");
+            return;
+          }
+          state.data.page.updatedAt = new Date().toISOString();
+          showToast("Contact settings saved successfully.");
+          renderStatus();
+        });
+
+        elements.resetMock.addEventListener("click", () => {
+          state.data = cloneData(initialContactMock);
+          state.search = "";
+          state.statusFilter = "all";
+          state.pageErrors = {};
+          elements.search.value = "";
+          elements.statusFilter.value = "all";
+          populateSettingsForm();
+          render();
+          showToast("Mock contact data reset.");
+        });
+
+        elements.search.addEventListener("input", (event) => {
+          state.search = event.target.value;
+          renderList();
+        });
+
+        elements.statusFilter.addEventListener("change", (event) => {
+          state.statusFilter = event.target.value;
+          renderList();
+        });
+
+        elements.newMethod.addEventListener("click", () => openModal(createBlankMethod(), "create"));
+
+        elements.methodList.addEventListener("click", (event) => {
+          const button = event.target.closest("button");
+          const switchInput = event.target.closest("input[data-action]");
+
+          if (switchInput) {
+            toggleMethod(switchInput.dataset.id, switchInput.dataset.action === "toggle-visible" ? "isVisible" : "isFeatured");
+            return;
+          }
+
+          if (button?.dataset.action) {
+            const method = state.data.contactMethods.find((item) => item.id === button.dataset.id);
+            if (button.dataset.action === "edit" && method) openModal(method, "edit");
+            if (button.dataset.action === "delete") openDeleteConfirm(button.dataset.id);
+            return;
+          }
+
+          if (event.target.closest("[data-empty-new]")) {
+            openModal(createBlankMethod(), "create");
+            return;
+          }
+
+          if (event.target.closest("[data-reset-filter]")) {
+            state.search = "";
+            state.statusFilter = "all";
+            elements.search.value = "";
+            elements.statusFilter.value = "all";
+            renderList();
+          }
+        });
+
+        elements.methodForm.addEventListener("input", (event) => {
+          const field = event.target.closest("[data-field]");
+          if (!field || !state.draft) return;
+
+          const key = field.dataset.field;
+          if (field.type === "checkbox") {
+            state.draft[key] = field.checked;
+          } else {
+            state.draft[key] = field.value;
+          }
+
+          if (key === "coverImage") renderCoverPreview();
+          delete state.methodErrors[key];
+          renderMethodErrors();
+        });
+
+        elements.methodForm.addEventListener("submit", (event) => {
+          event.preventDefault();
+          saveDraft();
+        });
+
+        elements.closeModal.addEventListener("click", closeModal);
+        elements.cancelModal.addEventListener("click", closeModal);
+
+        elements.modalOverlay.addEventListener("click", (event) => {
+          if (event.target === elements.modalOverlay) closeModal();
+        });
+
+        elements.cancelDelete.addEventListener("click", () => {
+          state.pendingDeleteId = null;
+          elements.confirmOverlay.hidden = true;
+        });
+
+        elements.confirmDelete.addEventListener("click", deletePendingMethod);
+
+        elements.confirmOverlay.addEventListener("click", (event) => {
+          if (event.target === elements.confirmOverlay) {
+            state.pendingDeleteId = null;
+            elements.confirmOverlay.hidden = true;
+          }
+        });
+
+        elements.closeToast.addEventListener("click", () => {
+          elements.toast.hidden = true;
+          window.clearTimeout(state.toastTimer);
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key !== "Escape") return;
+          if (!elements.modalOverlay.hidden) closeModal();
+          if (!elements.confirmOverlay.hidden) {
+            state.pendingDeleteId = null;
+            elements.confirmOverlay.hidden = true;
+          }
+          if (!elements.toast.hidden) {
+            elements.toast.hidden = true;
+            window.clearTimeout(state.toastTimer);
+          }
+        });
+
+        populateSettingsForm();
+        render();
+      })();
+    </script>
+  </body>
+</html>

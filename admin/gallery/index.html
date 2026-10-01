@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="WonG Visual Archive CMS mock page for managing photography gallery content."
+    />
+    <title>WonG.Visual CMS - Gallery</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="sidebar" aria-label="Admin navigation">
+        <a class="brand" href="../../Home/index.html" aria-label="WonG Visual home">
+          <svg class="brand-mark" viewBox="0 0 32 52" aria-hidden="true">
+            <path d="M16 3v46M9 13l7 7 7-7M7 30l9 8 9-8" />
+            <circle cx="16" cy="7" r="2.4" />
+            <circle cx="7" cy="24" r="2" />
+            <circle cx="25" cy="24" r="2" />
+          </svg>
+          <span>
+            <strong>Wong.Visual</strong>
+            <small>Visual Archive CMS</small>
+          </span>
+        </a>
+
+        <nav class="side-nav">
+          <a class="nav-item" href="#" aria-label="Dashboard">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z" /></svg>
+            <span>Dashboard</span>
+          </a>
+          <a class="nav-item" href="../profile/index.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM4 21a8 8 0 0 1 16 0" /></svg>
+            <span>Profile</span>
+          </a>
+          <a class="nav-item" href="../../backendProject/backendProject.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4zM4 9h16M8 3v4M16 3v4" /></svg>
+            <span>Projects</span>
+          </a>
+          <a class="nav-item is-active" href="index.html" aria-current="page">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4zM8 15l3-3 3 3 2-2 4 4M8 9h.01" /></svg>
+            <span>Gallery</span>
+          </a>
+          <a class="nav-item" href="#categoryEditor">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" /></svg>
+            <span>Categories</span>
+          </a>
+          <a class="nav-item" href="../../backendContact/backendContact.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4zM4 7l8 6 8-6" /></svg>
+            <span>Contact</span>
+          </a>
+          <a class="nav-item" href="../../backendMessages/backendMessages.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v12H8l-4 4z" /></svg>
+            <span>Messages</span>
+            <small class="nav-badge">4</small>
+          </a>
+          <a class="nav-item" href="#">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z" />
+              <path d="m4 13-1-1 1-1 2-.4.7-1.7-1.1-1.7 1.4-1.4 1.7 1.1 1.7-.7L11 3h2l.4 2.3 1.7.7 1.7-1.1 1.4 1.4-1.1 1.7.7 1.7 2.2.3v2l-2.2.4-.7 1.7 1.1 1.7-1.4 1.4-1.7-1.1-1.7.7L13 21h-2l-.4-2.3-1.7-.7-1.7 1.1-1.4-1.4 1.1-1.7-.7-1.7Z" />
+            </svg>
+            <span>Settings</span>
+          </a>
+        </nav>
+
+        <section class="sidebar-card" aria-label="Signed in user">
+          <div class="mini-user">
+            <img src="../../Home/assets/photographer.png" alt="WonG avatar" />
+            <span>
+              <strong>WonG</strong>
+              <small>Administrator</small>
+            </span>
+          </div>
+          <dl class="sidebar-meta">
+            <div><dt>Role</dt><dd>Administrator</dd></div>
+            <div><dt>Last Login</dt><dd>May 12, 2025 10:24</dd></div>
+          </dl>
+          <a class="logout-link" href="../../AdminLogin/index.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 17H5V7h5M14 16l4-4-4-4M8 12h10" /></svg>
+            Log Out
+          </a>
+        </section>
+      </aside>
+
+      <main class="admin-main">
+        <header class="topbar">
+          <div>
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+              <a href="../../Home/index.html" aria-label="Home">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 4l9 7M5 10v10h14V10" /></svg>
+              </a>
+              <span>/</span>
+              <a href="#">admin</a>
+              <span>/</span>
+              <span>gallery</span>
+            </nav>
+            <div class="title-row">
+              <div>
+                <h1>Gallery</h1>
+                <p>Manage and organize photography works in your portfolio.</p>
+              </div>
+              <p class="archive-number">Archive No. <strong>A12</strong></p>
+            </div>
+          </div>
+
+          <div class="top-actions">
+            <button class="top-save-button" type="button" data-action="save-all">Save Changes</button>
+            <button class="top-reset-button" type="button" data-action="reset-data">Reset</button>
+            <button class="icon-button notification-button" type="button" aria-label="Notifications">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9a6 6 0 0 1 12 0c0 7 3 7 3 9H3c0-2 3-2 3-9M10 21h4" /></svg>
+              <span aria-hidden="true"></span>
+            </button>
+            <img class="top-avatar" src="../../Home/assets/photographer.png" alt="WonG avatar" />
+            <button class="user-menu" type="button" aria-label="User menu">
+              <span>WonG</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5" /></svg>
+            </button>
+          </div>
+        </header>
+
+        <div id="unsavedNotice" class="unsaved-notice" hidden>
+          <span class="notice-dot" aria-hidden="true"></span>
+          <p>Unsaved changes</p>
+        </div>
+
+        <section class="workspace" aria-label="Gallery management workspace">
+          <div class="content-column">
+            <section class="panel gallery-panel" aria-labelledby="galleryManagerTitle">
+              <div class="gallery-toolbar">
+                <h2 id="galleryManagerTitle" class="sr-only">Gallery manager</h2>
+                <label class="upload-button">
+                  <input id="uploadInput" type="file" accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp" multiple />
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M5 20h14" /></svg>
+                  Upload Photos
+                </label>
+
+                <select id="categoryFilter" aria-label="Filter by category">
+                  <option>All Categories</option>
+                  <option>Portrait</option>
+                  <option>Landscape</option>
+                  <option>City Humanity</option>
+                  <option>Personal</option>
+                </select>
+
+                <select id="featuredFilter" aria-label="Filter by featured">
+                  <option>All Featured</option>
+                  <option>Featured</option>
+                  <option>Not Featured</option>
+                </select>
+
+                <select id="statusFilter" aria-label="Filter by status">
+                  <option>All Status</option>
+                  <option>Published</option>
+                  <option>Draft</option>
+                  <option>Hidden</option>
+                </select>
+
+                <label class="search-box">
+                  <input id="searchInput" type="search" placeholder="Search by title, description..." aria-label="Search by title, description, or alt text" />
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.5-4.5M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" /></svg>
+                </label>
+
+                <div class="view-control" aria-label="Toggle gallery view">
+                  <span>View</span>
+                  <button class="is-active" type="button" data-view="grid" aria-label="Grid view" aria-pressed="true">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z" /></svg>
+                  </button>
+                  <button type="button" data-view="list" aria-label="List view" aria-pressed="false">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14M5 12h14M5 17h14" /></svg>
+                  </button>
+                </div>
+              </div>
+
+              <div class="batch-bar" id="batchBar">
+                <label class="check-row">
+                  <input id="selectVisible" type="checkbox" />
+                  <span id="selectedCount">0 selected</span>
+                </label>
+                <button type="button" data-action="batch-feature">Make Featured</button>
+                <button type="button" data-action="batch-unfeature">Remove Featured</button>
+                <select id="batchCategory" aria-label="Batch category">
+                  <option value="">Change Category</option>
+                  <option>Portrait</option>
+                  <option>Landscape</option>
+                  <option>City Humanity</option>
+                  <option>Personal</option>
+                </select>
+                <button type="button" data-action="batch-category">Apply</button>
+                <button class="danger-text" type="button" data-action="batch-delete">Delete</button>
+              </div>
+
+              <section id="uploadQueue" class="upload-queue" aria-label="Upload progress" hidden>
+                <div class="upload-summary">
+                  <label class="check-row">
+                    <input type="checkbox" disabled />
+                    <span id="uploadSummaryText">Uploading 0 of 0 files</span>
+                  </label>
+                  <div class="queue-meter"><span id="uploadSummaryBar"></span></div>
+                  <strong id="uploadSummaryPercent">0%</strong>
+                  <button type="button" data-action="cancel-upload">Cancel All</button>
+                </div>
+                <div id="uploadItems" class="upload-items"></div>
+              </section>
+
+              <div id="photoGrid" class="photo-grid" aria-live="polite"></div>
+
+              <div class="gallery-footer">
+                <p id="paginationInfo">Showing 0 to 0 of 0 photos</p>
+                <div id="paginationPages" class="pagination-pages" aria-label="Pagination"></div>
+                <label class="rows-control">
+                  Rows per page:
+                  <select id="rowsPerPage">
+                    <option>12</option>
+                    <option selected>24</option>
+                    <option>48</option>
+                  </select>
+                </label>
+              </div>
+            </section>
+
+            <section class="panel content-panel" aria-label="Photography page content management">
+              <details open>
+                <summary>Component Control</summary>
+                <div id="componentControl" class="component-grid"></div>
+              </details>
+
+              <details open>
+                <summary>Photography Page Content</summary>
+                <div id="pageContentEditor" class="content-editor"></div>
+              </details>
+
+              <details id="categoryEditor">
+                <summary>Categories</summary>
+                <div id="categoryList" class="category-editor"></div>
+              </details>
+
+              <details>
+                <summary>Featured Ordering</summary>
+                <div class="featured-note">
+                  <p>Featured photos are managed from each photo card or the Edit Photo panel. Use these controls to adjust their display order.</p>
+                </div>
+                <div id="featuredList" class="featured-list"></div>
+              </details>
+            </section>
+          </div>
+
+          <aside class="panel edit-panel" aria-labelledby="editPhotoTitle">
+            <div class="edit-heading">
+              <h2 id="editPhotoTitle">Edit Photo</h2>
+              <button class="plain-icon" type="button" data-action="close-editor" aria-label="Close edit panel">x</button>
+            </div>
+            <div id="editContent"></div>
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <div id="toast" class="toast" hidden role="status" aria-live="polite"></div>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

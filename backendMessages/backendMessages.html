@@ -1,0 +1,2469 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="WonG Visual Archive CMS mock page for managing contact form messages."
+    />
+    <title>WonG.Visual CMS - Messages</title>
+    <style>
+      :root {
+        --paper: #f4f0e8;
+        --paper-soft: #fbf8f1;
+        --paper-card: #fffaf0;
+        --ink: #1f1b16;
+        --text: #4e473e;
+        --muted: #84796b;
+        --faint: #a99f8f;
+        --line: #d9d0c1;
+        --line-strong: #b9ad9b;
+        --olive: #5f6f52;
+        --olive-dark: #3f4a35;
+        --olive-soft: #e7eadc;
+        --sepia: #9f7544;
+        --gold-soft: #efe0bf;
+        --ash-soft: #e8e4dc;
+        --danger: #8f4e37;
+        --shadow: 0 18px 42px rgba(49, 39, 24, 0.09);
+        --sans: "Trebuchet MS", "Gill Sans", "Segoe UI", sans-serif;
+        --mono: "Courier New", ui-monospace, monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        min-width: 320px;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-width: 320px;
+        margin: 0;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 18% 8%, rgba(255, 255, 255, 0.88), transparent 30rem),
+          radial-gradient(circle at 84% 12%, rgba(214, 197, 166, 0.22), transparent 34rem),
+          linear-gradient(110deg, rgba(90, 79, 51, 0.035) 0 1px, transparent 1px 7px),
+          var(--paper);
+        font-family: var(--sans);
+        line-height: 1.5;
+      }
+
+      body::before,
+      body::after {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        content: "";
+      }
+
+      body::before {
+        background-image:
+          linear-gradient(rgba(80, 63, 38, 0.028) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(80, 63, 38, 0.022) 1px, transparent 1px);
+        background-size: 34px 34px, 38px 38px;
+        opacity: 0.34;
+      }
+
+      body::after {
+        background-image:
+          radial-gradient(circle at 30% 20%, rgba(45, 35, 22, 0.04) 0 1px, transparent 1px),
+          radial-gradient(circle at 72% 58%, rgba(45, 35, 22, 0.03) 0 1px, transparent 1px);
+        background-size: 7px 7px, 11px 11px;
+        mix-blend-mode: multiply;
+        opacity: 0.26;
+      }
+
+      button,
+      input,
+      textarea,
+      select {
+        color: inherit;
+        font: inherit;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+      button:disabled {
+        cursor: default;
+        opacity: 0.48;
+        transform: none !important;
+      }
+
+      img,
+      svg {
+        display: block;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      :focus-visible {
+        outline: 2px solid var(--olive);
+        outline-offset: 3px;
+      }
+
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .admin-shell {
+        display: grid;
+        grid-template-columns: 280px minmax(0, 1fr);
+        min-height: 100vh;
+      }
+
+      .sidebar {
+        position: sticky;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        padding: 34px 16px 24px;
+        border-right: 1px solid rgba(185, 173, 155, 0.62);
+        background: rgba(251, 248, 241, 0.72);
+        backdrop-filter: blur(8px);
+      }
+
+      .brand {
+        display: grid;
+        grid-template-columns: 30px 1fr;
+        gap: 12px;
+        align-items: center;
+        padding: 0 14px 30px;
+        border-bottom: 1px solid rgba(185, 173, 155, 0.52);
+      }
+
+      .brand-mark {
+        width: 24px;
+        height: 38px;
+        color: var(--olive);
+      }
+
+      .brand strong {
+        display: block;
+        font-size: 1.22rem;
+        line-height: 1.05;
+        text-transform: uppercase;
+      }
+
+      .brand span,
+      .breadcrumb,
+      .eyebrow,
+      .tab-button,
+      .metric-badge,
+      .nav-badge,
+      .panel-kicker,
+      .table th,
+      .status-pill,
+      .detail-label,
+      .profile-card span {
+        font-family: var(--mono);
+      }
+
+      .brand span {
+        display: block;
+        margin-top: 0.22rem;
+        color: var(--muted);
+        font-size: 0.72rem;
+        text-transform: uppercase;
+      }
+
+      .side-nav {
+        display: grid;
+        gap: 6px;
+        margin-top: 28px;
+      }
+
+      .nav-item {
+        position: relative;
+        display: grid;
+        grid-template-columns: 24px minmax(0, 1fr) auto;
+        gap: 14px;
+        align-items: center;
+        min-height: 50px;
+        padding: 0 14px;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        color: var(--text);
+        text-decoration: none;
+        transition:
+          background-color 180ms ease,
+          border-color 180ms ease,
+          color 180ms ease,
+          transform 180ms ease;
+      }
+
+      .nav-item svg,
+      .icon-button svg,
+      .primary-button svg,
+      .secondary-button svg,
+      .danger-button svg,
+      .ghost-button svg,
+      .table-action svg,
+      .empty-state svg,
+      .confirm-card svg {
+        width: 22px;
+        height: 22px;
+        fill: none;
+        stroke: currentColor;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 1.75;
+      }
+
+      .nav-item:hover,
+      .nav-item:focus-visible {
+        background: rgba(255, 250, 239, 0.64);
+        border-color: rgba(185, 173, 155, 0.45);
+        color: var(--olive-dark);
+        transform: translateX(2px);
+      }
+
+      .nav-item.is-active {
+        background: rgba(255, 250, 239, 0.72);
+        color: var(--olive-dark);
+      }
+
+      .nav-item.is-active::before {
+        position: absolute;
+        top: 8px;
+        bottom: 8px;
+        left: -16px;
+        width: 4px;
+        border-radius: 0 6px 6px 0;
+        background: var(--olive);
+        content: "";
+      }
+
+      .nav-badge,
+      .metric-badge {
+        display: inline-grid;
+        min-width: 24px;
+        height: 24px;
+        place-items: center;
+        padding: 0 7px;
+        border-radius: 999px;
+        font-size: 0.72rem;
+      }
+
+      .nav-badge {
+        background: var(--sepia);
+        color: var(--paper-soft);
+      }
+
+      .metric-badge {
+        margin-left: 8px;
+        background: rgba(159, 117, 68, 0.18);
+        color: var(--sepia);
+      }
+
+      .profile-card {
+        margin-top: auto;
+        padding: 16px;
+        border: 1px solid rgba(185, 173, 155, 0.55);
+        border-radius: 8px;
+        background: rgba(255, 250, 239, 0.42);
+      }
+
+      .profile-head {
+        display: grid;
+        grid-template-columns: 48px 1fr;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .avatar,
+      .top-avatar {
+        display: grid;
+        place-items: center;
+        border-radius: 999px;
+        background:
+          linear-gradient(140deg, rgba(31, 27, 22, 0.85), rgba(63, 74, 53, 0.82)),
+          var(--ink);
+        color: var(--paper-soft);
+        font-weight: 700;
+      }
+
+      .avatar {
+        width: 48px;
+        height: 48px;
+      }
+
+      .profile-head strong {
+        display: block;
+      }
+
+      .profile-head span {
+        display: block;
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+
+      .profile-meta {
+        display: grid;
+        gap: 8px;
+        margin-top: 16px;
+        padding-top: 14px;
+        border-top: 1px solid rgba(185, 173, 155, 0.5);
+        font-size: 0.84rem;
+      }
+
+      .meta-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .main-area {
+        min-width: 0;
+        padding: 46px 50px 48px;
+      }
+
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        gap: 24px;
+        align-items: center;
+        margin-bottom: 26px;
+      }
+
+      .breadcrumb {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--text);
+        font-size: 0.82rem;
+      }
+
+      .breadcrumb svg {
+        width: 22px;
+        height: 22px;
+        color: var(--muted);
+      }
+
+      .top-actions {
+        display: flex;
+        gap: 18px;
+        align-items: center;
+      }
+
+      .icon-button,
+      .user-menu {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 0;
+        background: transparent;
+      }
+
+      .icon-button {
+        position: relative;
+        width: 42px;
+        height: 42px;
+        border-radius: 999px;
+        color: var(--text);
+        transition:
+          background-color 180ms ease,
+          color 180ms ease;
+      }
+
+      .icon-button::after {
+        position: absolute;
+        top: 9px;
+        right: 10px;
+        width: 7px;
+        height: 7px;
+        border: 1px solid var(--paper);
+        border-radius: 999px;
+        background: var(--sepia);
+        content: "";
+      }
+
+      .icon-button:hover,
+      .icon-button:focus-visible {
+        background: rgba(255, 250, 239, 0.58);
+        color: var(--olive-dark);
+      }
+
+      .user-menu {
+        gap: 10px;
+        padding: 0;
+        color: var(--ink);
+      }
+
+      .top-avatar {
+        width: 42px;
+        height: 42px;
+      }
+
+      .user-menu svg {
+        width: 18px;
+        height: 18px;
+        color: var(--muted);
+      }
+
+      .page-head {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 520px);
+        gap: 24px;
+        align-items: end;
+        margin-bottom: 20px;
+      }
+
+      .eyebrow {
+        margin: 0 0 8px;
+        color: var(--olive-dark);
+        font-size: 0.76rem;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 2.55rem;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      .page-head p:last-child {
+        max-width: 650px;
+        margin: 10px 0 0;
+        color: var(--text);
+        font-size: 1.02rem;
+      }
+
+      .film-strip {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 5px;
+        padding: 5px;
+        overflow: hidden;
+        border-radius: 8px;
+        background: #191813;
+      }
+
+      .film-strip img {
+        width: 100%;
+        height: 76px;
+        object-fit: cover;
+        filter: sepia(0.24) saturate(0.68) contrast(0.98) brightness(0.84);
+        transition:
+          filter 180ms ease,
+          transform 180ms ease;
+      }
+
+      .film-strip img:hover {
+        filter: sepia(0.14) saturate(0.85) contrast(1) brightness(0.92);
+        transform: scale(1.015);
+      }
+
+      .workspace-grid {
+        display: grid;
+        grid-template-columns: minmax(650px, 1fr) minmax(390px, 560px);
+        gap: 18px;
+        align-items: start;
+      }
+
+      .panel {
+        border: 1px solid rgba(185, 173, 155, 0.64);
+        border-radius: 8px;
+        background: rgba(251, 248, 241, 0.74);
+        box-shadow: 0 8px 24px rgba(49, 39, 24, 0.04);
+      }
+
+      .messages-panel {
+        min-width: 0;
+        overflow: hidden;
+      }
+
+      .toolbar,
+      .bulkbar,
+      .detail-header,
+      .detail-actions,
+      .pagination,
+      .confirm-actions {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .toolbar {
+        justify-content: space-between;
+        padding: 18px;
+        border-bottom: 1px solid rgba(185, 173, 155, 0.5);
+      }
+
+      .tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .tab-button {
+        display: inline-flex;
+        align-items: center;
+        min-height: 42px;
+        padding: 0 16px;
+        border: 1px solid transparent;
+        border-radius: 7px;
+        background: transparent;
+        color: var(--ink);
+        font-size: 0.84rem;
+        transition:
+          background-color 180ms ease,
+          border-color 180ms ease,
+          color 180ms ease,
+          transform 180ms ease;
+      }
+
+      .tab-button:hover,
+      .tab-button:focus-visible {
+        border-color: rgba(185, 173, 155, 0.58);
+        background: rgba(255, 250, 239, 0.48);
+        color: var(--olive-dark);
+        transform: translateY(-1px);
+      }
+
+      .tab-button.is-active {
+        border-color: var(--olive-dark);
+        background: var(--olive);
+        color: var(--paper-soft);
+      }
+
+      .tab-button.is-active .metric-badge {
+        background: rgba(255, 250, 239, 0.22);
+        color: var(--paper-soft);
+      }
+
+      .search-actions {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .search-box {
+        position: relative;
+        min-width: 290px;
+      }
+
+      .search-box svg {
+        position: absolute;
+        top: 50%;
+        left: 12px;
+        width: 19px;
+        height: 19px;
+        color: var(--muted);
+        transform: translateY(-50%);
+      }
+
+      .search-box input,
+      .filter-panel select,
+      .detail-notes textarea {
+        width: 100%;
+        border: 1px solid rgba(185, 173, 155, 0.68);
+        border-radius: 6px;
+        background: rgba(255, 250, 239, 0.45);
+        color: var(--ink);
+        transition:
+          background-color 180ms ease,
+          border-color 180ms ease,
+          box-shadow 180ms ease;
+      }
+
+      .search-box input,
+      .filter-panel select {
+        min-height: 42px;
+        padding: 0 12px;
+      }
+
+      .search-box input {
+        padding-left: 40px;
+      }
+
+      .search-box input:hover,
+      .search-box input:focus,
+      .filter-panel select:hover,
+      .filter-panel select:focus,
+      .detail-notes textarea:hover,
+      .detail-notes textarea:focus {
+        border-color: var(--olive);
+        background: rgba(255, 250, 239, 0.72);
+        box-shadow: 0 0 0 3px rgba(95, 111, 82, 0.09);
+        outline: none;
+      }
+
+      .ghost-button,
+      .primary-button,
+      .secondary-button,
+      .danger-button,
+      .table-action,
+      .page-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-height: 42px;
+        padding: 0 16px;
+        border-radius: 6px;
+        font-weight: 700;
+        transition:
+          background-color 180ms ease,
+          border-color 180ms ease,
+          color 180ms ease,
+          transform 180ms ease,
+          box-shadow 180ms ease;
+      }
+
+      .ghost-button,
+      .secondary-button,
+      .page-button {
+        border: 1px solid rgba(185, 173, 155, 0.64);
+        background: rgba(255, 250, 239, 0.48);
+        color: var(--text);
+      }
+
+      .ghost-button {
+        width: 42px;
+        padding: 0;
+      }
+
+      .primary-button {
+        border: 1px solid var(--olive-dark);
+        background:
+          linear-gradient(90deg, rgba(255, 255, 255, 0.08), transparent),
+          var(--olive-dark);
+        color: var(--paper-soft);
+        box-shadow: 0 12px 22px rgba(63, 74, 53, 0.12);
+      }
+
+      .danger-button {
+        border: 1px solid rgba(143, 78, 55, 0.38);
+        background: rgba(143, 78, 55, 0.07);
+        color: var(--danger);
+      }
+
+      .table-action {
+        width: 34px;
+        min-height: 34px;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: var(--muted);
+      }
+
+      .ghost-button:hover,
+      .ghost-button:focus-visible,
+      .secondary-button:hover,
+      .secondary-button:focus-visible,
+      .page-button:hover,
+      .page-button:focus-visible,
+      .table-action:hover,
+      .table-action:focus-visible {
+        border-color: var(--olive);
+        color: var(--olive-dark);
+        transform: translateY(-1px);
+      }
+
+      .primary-button:hover,
+      .primary-button:focus-visible {
+        background-color: #4f5d43;
+        transform: translateY(-1px);
+      }
+
+      .danger-button:hover,
+      .danger-button:focus-visible {
+        background: rgba(143, 78, 55, 0.13);
+        transform: translateY(-1px);
+      }
+
+      .filter-panel {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        padding: 0 18px 16px;
+      }
+
+      .filter-panel[hidden] {
+        display: none;
+      }
+
+      .filter-panel label {
+        display: grid;
+        gap: 6px;
+        color: var(--muted);
+        font-size: 0.8rem;
+      }
+
+      .bulkbar {
+        justify-content: space-between;
+        min-height: 70px;
+        padding: 14px 18px;
+        border-top: 1px solid rgba(185, 173, 155, 0.36);
+        border-bottom: 1px solid rgba(185, 173, 155, 0.5);
+        background: rgba(255, 250, 239, 0.32);
+      }
+
+      .bulk-left,
+      .bulk-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .checkbox {
+        display: inline-grid;
+        width: 20px;
+        height: 20px;
+        place-items: center;
+        border: 1px solid rgba(132, 121, 107, 0.45);
+        border-radius: 4px;
+        background: rgba(255, 250, 239, 0.45);
+      }
+
+      input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        accent-color: var(--olive);
+      }
+
+      .table-scroll {
+        overflow-x: auto;
+      }
+
+      .table {
+        width: 100%;
+        min-width: 980px;
+        border-collapse: collapse;
+      }
+
+      .table th,
+      .table td {
+        padding: 14px 12px;
+        border-bottom: 1px solid rgba(185, 173, 155, 0.42);
+        vertical-align: middle;
+        text-align: left;
+      }
+
+      .table th {
+        color: var(--ink);
+        font-size: 0.74rem;
+        font-weight: 700;
+      }
+
+      .message-row {
+        position: relative;
+        transition:
+          background-color 160ms ease,
+          box-shadow 160ms ease;
+      }
+
+      .message-row:hover {
+        background: rgba(255, 250, 239, 0.44);
+      }
+
+      .message-row.is-active {
+        background: rgba(238, 232, 216, 0.72);
+        box-shadow: inset 4px 0 0 var(--olive);
+      }
+
+      .message-row.is-selected {
+        background: rgba(238, 232, 216, 0.54);
+      }
+
+      .sender strong {
+        display: inline-flex;
+        gap: 7px;
+        align-items: center;
+      }
+
+      .sender small,
+      .muted-cell {
+        display: block;
+        color: var(--muted);
+        font-size: 0.82rem;
+      }
+
+      .dot {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        border-radius: 999px;
+        background: var(--sepia);
+      }
+
+      .message-snippet {
+        max-width: 270px;
+        color: var(--text);
+      }
+
+      .status-pill {
+        display: inline-flex;
+        align-items: center;
+        min-height: 30px;
+        padding: 0 12px;
+        border-radius: 999px;
+        font-size: 0.74rem;
+      }
+
+      .status-pill.unread {
+        background: var(--gold-soft);
+        color: #7a5529;
+      }
+
+      .status-pill.replied {
+        background: var(--olive-soft);
+        color: var(--olive-dark);
+      }
+
+      .status-pill.archived {
+        background: var(--ash-soft);
+        color: var(--text);
+      }
+
+      .empty-state {
+        display: grid;
+        place-items: center;
+        min-height: 330px;
+        padding: 40px 24px;
+        color: var(--muted);
+        text-align: center;
+      }
+
+      .empty-state svg {
+        width: 44px;
+        height: 44px;
+        margin-bottom: 14px;
+      }
+
+      .empty-state h3 {
+        margin: 0 0 8px;
+        color: var(--ink);
+      }
+
+      .empty-state p {
+        max-width: 360px;
+        margin: 0 0 16px;
+      }
+
+      .list-footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: center;
+        padding: 16px 18px;
+        color: var(--muted);
+        font-size: 0.86rem;
+      }
+
+      .pagination {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .page-button {
+        min-width: 38px;
+        min-height: 38px;
+        padding: 0 10px;
+      }
+
+      .page-button.is-current {
+        border-color: var(--olive-dark);
+        background: var(--olive);
+        color: var(--paper-soft);
+      }
+
+      .detail-panel {
+        position: sticky;
+        top: 24px;
+        min-width: 0;
+        overflow: hidden;
+      }
+
+      .detail-card {
+        animation: detail-in 180ms ease-out both;
+      }
+
+      .detail-header {
+        justify-content: space-between;
+        min-height: 70px;
+        padding: 18px 22px;
+        border-bottom: 1px solid rgba(185, 173, 155, 0.5);
+      }
+
+      .panel-kicker {
+        color: var(--ink);
+        font-size: 0.82rem;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .detail-nav {
+        display: flex;
+        gap: 0;
+        overflow: hidden;
+        border: 1px solid rgba(185, 173, 155, 0.62);
+        border-radius: 6px;
+      }
+
+      .detail-nav button,
+      .close-detail {
+        display: grid;
+        width: 40px;
+        height: 38px;
+        place-items: center;
+        border: 0;
+        background: rgba(255, 250, 239, 0.36);
+        color: var(--text);
+        transition:
+          background-color 180ms ease,
+          color 180ms ease;
+      }
+
+      .detail-nav button + button {
+        border-left: 1px solid rgba(185, 173, 155, 0.62);
+      }
+
+      .detail-nav button:hover,
+      .detail-nav button:focus-visible,
+      .close-detail:hover,
+      .close-detail:focus-visible {
+        background: rgba(95, 111, 82, 0.1);
+        color: var(--olive-dark);
+      }
+
+      .detail-body {
+        padding: 22px;
+      }
+
+      .detail-sender {
+        display: grid;
+        gap: 10px;
+        padding-bottom: 16px;
+        border-bottom: 1px solid rgba(185, 173, 155, 0.42);
+      }
+
+      .detail-sender h2 {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+        align-items: center;
+        margin: 0;
+        font-size: 1.35rem;
+      }
+
+      .email-copy {
+        display: inline-flex;
+        gap: 7px;
+        align-items: center;
+        width: fit-content;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: var(--text);
+      }
+
+      .email-copy svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .detail-meta {
+        display: grid;
+        grid-template-columns: 118px minmax(0, 1fr);
+        gap: 11px 18px;
+        padding: 16px 0;
+        border-bottom: 1px solid rgba(185, 173, 155, 0.42);
+      }
+
+      .detail-label {
+        color: var(--muted);
+        font-size: 0.74rem;
+        text-transform: uppercase;
+      }
+
+      .detail-value {
+        min-width: 0;
+        overflow-wrap: anywhere;
+      }
+
+      .message-content {
+        padding: 18px 0;
+        border-bottom: 1px solid rgba(185, 173, 155, 0.42);
+      }
+
+      .message-content h3,
+      .detail-notes h3 {
+        margin: 0 0 12px;
+        font-size: 0.92rem;
+        text-transform: uppercase;
+      }
+
+      .message-content p {
+        margin: 0;
+        color: var(--text);
+        white-space: pre-line;
+      }
+
+      .detail-notes {
+        padding: 18px 0 0;
+      }
+
+      .detail-notes textarea {
+        min-height: 94px;
+        resize: vertical;
+        padding: 11px 12px;
+      }
+
+      .detail-actions {
+        justify-content: space-between;
+        padding: 18px 22px 22px;
+        border-top: 1px solid rgba(185, 173, 155, 0.42);
+      }
+
+      .detail-actions .primary-button,
+      .detail-actions .secondary-button,
+      .detail-actions .danger-button {
+        min-width: 150px;
+      }
+
+      .toast {
+        position: fixed;
+        top: 38px;
+        left: 50%;
+        z-index: 40;
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr) auto;
+        gap: 14px;
+        align-items: center;
+        width: min(92vw, 430px);
+        padding: 13px 14px;
+        border: 1px solid rgba(185, 173, 155, 0.66);
+        border-radius: 7px;
+        background: rgba(251, 248, 241, 0.96);
+        box-shadow: 0 18px 42px rgba(49, 39, 24, 0.14);
+        animation: toast-in 240ms ease-out both;
+      }
+
+      .toast[hidden],
+      .confirm-overlay[hidden] {
+        display: none;
+      }
+
+      .toast-icon {
+        display: inline-grid;
+        width: 24px;
+        height: 24px;
+        place-items: center;
+        border-radius: 999px;
+        background: var(--olive);
+        color: var(--paper-soft);
+        font-weight: 700;
+      }
+
+      .toast p {
+        margin: 0;
+        color: var(--text);
+      }
+
+      .toast button {
+        display: grid;
+        width: 30px;
+        height: 30px;
+        place-items: center;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: var(--text);
+        font-size: 1.3rem;
+        transition:
+          color 180ms ease,
+          transform 180ms ease;
+      }
+
+      .toast button:hover,
+      .toast button:focus-visible {
+        color: var(--olive-dark);
+        transform: rotate(90deg);
+      }
+
+      .confirm-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 35;
+        display: grid;
+        place-items: center;
+        padding: 20px;
+        background: rgba(31, 27, 22, 0.22);
+      }
+
+      .confirm-card {
+        width: min(100%, 430px);
+        padding: 22px;
+        border: 1px solid rgba(185, 173, 155, 0.7);
+        border-radius: 8px;
+        background: var(--paper-soft);
+        box-shadow: 0 22px 60px rgba(49, 39, 24, 0.18);
+        animation: modal-in 180ms ease-out both;
+      }
+
+      .confirm-card h2 {
+        margin: 0 0 8px;
+        font-size: 1.24rem;
+      }
+
+      .confirm-card p {
+        margin: 0 0 18px;
+        color: var(--muted);
+      }
+
+      .confirm-actions {
+        justify-content: flex-end;
+      }
+
+      @keyframes toast-in {
+        from {
+          opacity: 0;
+          transform: translate(-50%, 10px) scale(0.985);
+        }
+
+        to {
+          opacity: 1;
+          transform: translate(-50%, 0) scale(1);
+        }
+      }
+
+      @keyframes modal-in {
+        from {
+          opacity: 0;
+          transform: translateY(12px) scale(0.99);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      @keyframes detail-in {
+        from {
+          opacity: 0.4;
+          transform: translateY(6px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 1460px) {
+        .main-area {
+          padding: 38px 34px 46px;
+        }
+
+        .workspace-grid {
+          grid-template-columns: minmax(600px, 1fr) minmax(360px, 450px);
+        }
+      }
+
+      @media (max-width: 1180px) {
+        .admin-shell {
+          grid-template-columns: 1fr;
+        }
+
+        .sidebar {
+          position: static;
+          height: auto;
+          padding: 18px;
+          border-right: 0;
+          border-bottom: 1px solid rgba(185, 173, 155, 0.62);
+        }
+
+        .brand {
+          padding: 0 0 16px;
+        }
+
+        .side-nav {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          margin-top: 16px;
+        }
+
+        .nav-item {
+          min-height: 46px;
+        }
+
+        .nav-item.is-active::before {
+          top: auto;
+          right: 10px;
+          bottom: -1px;
+          left: 10px;
+          width: auto;
+          height: 3px;
+          border-radius: 6px 6px 0 0;
+        }
+
+        .profile-card {
+          display: none;
+        }
+
+        .page-head,
+        .workspace-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .detail-panel {
+          position: static;
+        }
+      }
+
+      @media (max-width: 760px) {
+        .main-area {
+          padding: 26px 16px 34px;
+        }
+
+        .topbar,
+        .toolbar,
+        .bulkbar,
+        .list-footer,
+        .detail-actions,
+        .confirm-actions {
+          align-items: stretch;
+          flex-direction: column;
+        }
+
+        .topbar {
+          align-items: flex-start;
+        }
+
+        .top-actions,
+        .search-actions,
+        .bulk-left,
+        .bulk-actions {
+          width: 100%;
+          justify-content: flex-start;
+        }
+
+        .user-menu {
+          justify-content: flex-start;
+        }
+
+        h1 {
+          font-size: 2rem;
+        }
+
+        .side-nav {
+          display: flex;
+          gap: 8px;
+          overflow-x: auto;
+          padding-bottom: 4px;
+        }
+
+        .nav-item {
+          flex: 0 0 178px;
+        }
+
+        .tabs,
+        .search-actions,
+        .bulk-actions,
+        .pagination {
+          flex-wrap: wrap;
+        }
+
+        .search-box,
+        .filter-panel select,
+        .primary-button,
+        .secondary-button,
+        .danger-button {
+          width: 100%;
+          min-width: 0;
+        }
+
+        .filter-panel {
+          grid-template-columns: 1fr;
+        }
+
+        .film-strip {
+          display: flex;
+          overflow-x: auto;
+        }
+
+        .film-strip img {
+          flex: 0 0 180px;
+          width: 180px;
+        }
+
+        .detail-header {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        .detail-meta {
+          grid-template-columns: 1fr;
+          gap: 4px;
+        }
+
+        .toast {
+          top: 14px;
+          width: min(94vw, 430px);
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          animation-duration: 1ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 1ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="sidebar" aria-label="Admin navigation">
+        <div class="brand">
+          <svg class="brand-mark" viewBox="0 0 32 48" aria-hidden="true">
+            <path d="M16 44V6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2" />
+            <path d="M16 15c-5-5-9-6-12-6 0 7 4 11 12 11" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+            <path d="M16 24c-5-5-9-6-12-6 0 7 4 11 12 11" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+            <path d="M16 33c-5-5-9-6-12-6 0 7 4 11 12 11" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+            <path d="M16 15c5-5 9-6 12-6 0 7-4 11-12 11" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+            <path d="M16 24c5-5 9-6 12-6 0 7-4 11-12 11" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+            <path d="M16 33c5-5 9-6 12-6 0 7-4 11-12 11" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+          </svg>
+          <div>
+            <strong>Wong.Visual</strong>
+            <span>Visual Archive CMS</span>
+          </div>
+        </div>
+
+        <nav class="side-nav" aria-label="CMS sections">
+          <a class="nav-item" href="#dashboard">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" /></svg>
+            <span>Dashboard</span>
+          </a>
+          <a class="nav-item" href="#profile">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" /><path d="M4 21a8 8 0 0 1 16 0" /></svg>
+            <span>Profile</span>
+          </a>
+          <a class="nav-item" href="../backendProject/backendProject.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 7V5h12v2" /><path d="M4 7h16v13H4z" /><path d="M8 7v13M16 7v13" /></svg>
+            <span>Projects</span>
+          </a>
+          <a class="nav-item" href="#gallery">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2" /><path d="m4 16 5-5 4 4 2-2 5 5" /><circle cx="15.5" cy="8.5" r="1.5" /></svg>
+            <span>Gallery</span>
+          </a>
+          <a class="nav-item" href="#categories">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h7l2 2h7v10H4z" /><path d="M4 10h16" /></svg>
+            <span>Categories</span>
+          </a>
+          <a class="nav-item" href="../backendContact/backendContact.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z" /><path d="m5 7 7 6 7-6" /></svg>
+            <span>Contact</span>
+          </a>
+          <a class="nav-item is-active" href="#admin-messages" aria-current="page">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3z" /><path d="m4 7 8 6 8-6" /></svg>
+            <span>Messages</span>
+            <span class="nav-badge" data-nav-unread>0</span>
+          </a>
+          <a class="nav-item" href="#settings">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z" /><path d="M19 12a7 7 0 0 0-.1-1l2-1.5-2-3.5-2.4 1a7 7 0 0 0-1.8-1L14.5 3h-5l-.2 3a7 7 0 0 0-1.8 1L5.1 6l-2 3.5 2 1.5a7 7 0 0 0 0 2l-2 1.5 2 3.5 2.4-1a7 7 0 0 0 1.8 1l.2 3h5l.2-3a7 7 0 0 0 1.8-1l2.4 1 2-3.5-2-1.5c.1-.3.1-.7.1-1Z" /></svg>
+            <span>Settings</span>
+          </a>
+        </nav>
+
+        <div class="profile-card" aria-label="Current user">
+          <div class="profile-head">
+            <div class="avatar" aria-hidden="true">W</div>
+            <div>
+              <strong>WonG</strong>
+              <span>Administrator</span>
+            </div>
+          </div>
+          <div class="profile-meta">
+            <div class="meta-row"><span>Role</span><strong>Administrator</strong></div>
+            <div class="meta-row"><span>Last Login</span><strong>Jun 18, 2026</strong></div>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-area" id="admin-messages">
+        <header class="topbar">
+          <div class="breadcrumb" aria-label="Breadcrumb">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 11 9-8 9 8" /><path d="M5 10v10h14V10" /><path d="M10 20v-6h4v6" /></svg>
+            <span>/</span>
+            <span>admin</span>
+            <span>/</span>
+            <strong>messages</strong>
+          </div>
+
+          <div class="top-actions">
+            <button class="icon-button" type="button" aria-label="Notifications">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9" /><path d="M10 21h4" /></svg>
+            </button>
+            <button class="user-menu" type="button" aria-label="User menu">
+              <span class="top-avatar">W</span>
+              <strong>WonG</strong>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+            </button>
+          </div>
+        </header>
+
+        <section class="page-head" aria-labelledby="page-title">
+          <div>
+            <p class="eyebrow">Contact Inbox</p>
+            <h1 id="page-title">Messages</h1>
+            <p>View and manage messages submitted from the Contact page.</p>
+          </div>
+          <div class="film-strip" aria-label="Archive image preview">
+            <img src="../Project/assets/project-city-rhythm.png" alt="Camera archive preview" />
+            <img src="../Project/assets/project-seen-silence.png" alt="Print archive preview" />
+            <img src="../Home/assets/personal.png" alt="Coffee archive preview" />
+            <img src="../Project/assets/project-highlands.png" alt="Window archive preview" />
+          </div>
+        </section>
+
+        <section class="workspace-grid" aria-label="Messages manager">
+          <section class="panel messages-panel" aria-labelledby="messages-list-title">
+            <h2 id="messages-list-title" class="sr-only">Message list</h2>
+            <div class="toolbar">
+              <div class="tabs" data-tabs></div>
+              <div class="search-actions">
+                <label class="search-box" for="message-search">
+                  <span class="sr-only">Search messages</span>
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-5.2-5.2" /><circle cx="10.5" cy="10.5" r="6.5" /></svg>
+                  <input id="message-search" type="search" placeholder="Search messages..." data-search />
+                </label>
+                <button class="ghost-button" type="button" data-toggle-filters aria-expanded="false" aria-controls="filter-panel" title="Toggle filters">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4" /></svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="filter-panel" id="filter-panel" data-filter-panel hidden>
+              <label>
+                Project Type
+                <select data-project-filter>
+                  <option value="all">All project types</option>
+                  <option value="portrait">Portrait</option>
+                  <option value="commercial">Commercial</option>
+                  <option value="event">Event</option>
+                  <option value="collaboration">Collaboration</option>
+                  <option value="editorial">Editorial</option>
+                  <option value="personal">Personal</option>
+                  <option value="other">Other</option>
+                </select>
+              </label>
+              <label>
+                Submitted
+                <select data-date-filter>
+                  <option value="all">All dates</option>
+                  <option value="recent">Last 7 days in mock data</option>
+                  <option value="older">Older mock messages</option>
+                </select>
+              </label>
+              <label>
+                Sort
+                <select data-sort-mode>
+                  <option value="newest">Newest first</option>
+                  <option value="oldest">Oldest first</option>
+                  <option value="sender">Sender A-Z</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="bulkbar">
+              <div class="bulk-left">
+                <label class="checkbox" title="Select current page">
+                  <input type="checkbox" data-select-page aria-label="Select messages on current page" />
+                </label>
+                <span data-selected-count>0 selected</span>
+              </div>
+              <div class="bulk-actions">
+                <button class="secondary-button" type="button" data-bulk-replied disabled>Mark as Replied</button>
+                <button class="secondary-button" type="button" data-bulk-archive disabled>Archive</button>
+                <button class="danger-button" type="button" data-bulk-delete disabled>Delete</button>
+              </div>
+            </div>
+
+            <div class="table-scroll" data-table-wrap></div>
+            <div class="list-footer">
+              <span data-list-summary>Showing 0 messages</span>
+              <div class="pagination" data-pagination></div>
+            </div>
+          </section>
+
+          <aside class="panel detail-panel" aria-labelledby="detail-title">
+            <div data-detail></div>
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <div class="toast" data-toast hidden>
+      <span class="toast-icon" aria-hidden="true">✓</span>
+      <p data-toast-message>Message marked as replied.</p>
+      <button type="button" data-close-toast aria-label="Close notification">&times;</button>
+    </div>
+
+    <div class="confirm-overlay" data-confirm-overlay hidden>
+      <div class="confirm-card" role="dialog" aria-modal="true" aria-labelledby="confirm-title">
+        <h2 id="confirm-title">Delete message?</h2>
+        <p data-confirm-copy>This removes the selected message from mock state. Existing files are not touched.</p>
+        <div class="confirm-actions">
+          <button class="secondary-button" type="button" data-cancel-delete>Cancel</button>
+          <button class="danger-button" type="button" data-confirm-delete>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18" /><path d="M8 6V4h8v2M7 6l1 14h8l1-14" /></svg>
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        const initialMessages = [
+          {
+            id: "24-0512-001",
+            name: "Li Chen",
+            email: "lichen@example.com",
+            projectType: "portrait",
+            message:
+              "Hi there,\n\nI'm interested in booking a portrait session for my personal brand. Could you share your availability and pricing details?\n\nLooking forward to hearing from you.\n\nBest regards,\nLi Chen",
+            status: "unread",
+            submittedAt: "2025-05-12T14:32:00+08:00",
+            ipAddress: "123.45.67.89",
+            location: "Shanghai, China",
+            userAgent: "Chrome / macOS",
+            internalNotes: ""
+          },
+          {
+            id: "24-0512-002",
+            name: "Emma Zhang",
+            email: "emma.zhang@example.com",
+            projectType: "commercial",
+            message:
+              "We are looking for a photographer to capture our upcoming product launch. The project includes still life images and a short brand story.",
+            status: "replied",
+            submittedAt: "2025-05-12T11:08:00+08:00",
+            ipAddress: "103.72.14.20",
+            location: "Shenzhen, China",
+            userAgent: "Safari / iOS",
+            internalNotes: "Sent rate card and asked for product list."
+          },
+          {
+            id: "24-0511-003",
+            name: "Michael Wong",
+            email: "michael.wong@example.com",
+            projectType: "event",
+            message: "Hello! I'd like to inquire about availability for an event on June 15th in Shanghai.",
+            status: "replied",
+            submittedAt: "2025-05-11T19:45:00+08:00",
+            ipAddress: "58.247.8.61",
+            location: "Shanghai, China",
+            userAgent: "Chrome / Windows",
+            internalNotes: "Event is indoor, around 120 guests."
+          },
+          {
+            id: "24-0511-004",
+            name: "Sarah Lin",
+            email: "sarah.lin@example.com",
+            projectType: "portrait",
+            message: "Do you have any prints available from your Iceland series? I would love to buy one for my studio.",
+            status: "unread",
+            submittedAt: "2025-05-11T16:21:00+08:00",
+            ipAddress: "117.136.22.7",
+            location: "Guangzhou, China",
+            userAgent: "WeChat Browser / Android",
+            internalNotes: ""
+          },
+          {
+            id: "24-0510-005",
+            name: "Jason Wu",
+            email: "jason.wu@example.com",
+            projectType: "collaboration",
+            message: "I'm a filmmaker looking for a DP for a short film project. Let's connect!",
+            status: "replied",
+            submittedAt: "2025-05-10T09:14:00+08:00",
+            ipAddress: "101.226.68.44",
+            location: "Hangzhou, China",
+            userAgent: "Firefox / Windows",
+            internalNotes: "Potential creative collaboration, not commercial yet."
+          },
+          {
+            id: "24-0509-006",
+            name: "Chloe Zhao",
+            email: "chloe.zhao@example.com",
+            projectType: "other",
+            message: "Just wanted to say your work is incredible. Really inspiring!",
+            status: "archived",
+            submittedAt: "2025-05-09T22:37:00+08:00",
+            ipAddress: "183.14.18.73",
+            location: "Beijing, China",
+            userAgent: "Edge / Windows",
+            internalNotes: "Compliment, no action needed."
+          },
+          {
+            id: "24-0509-007",
+            name: "David Lee",
+            email: "david.lee@example.com",
+            projectType: "other",
+            message: "Planning a trip to Japan this autumn and would love some advice about visual documentation.",
+            status: "archived",
+            submittedAt: "2025-05-09T18:02:00+08:00",
+            ipAddress: "119.29.32.10",
+            location: "Taipei, China",
+            userAgent: "Safari / macOS",
+            internalNotes: ""
+          },
+          {
+            id: "24-0508-008",
+            name: "Anna Liu",
+            email: "anna.liu@example.com",
+            projectType: "editorial",
+            message: "Could we license two images from the city archive for an editorial feature?",
+            status: "unread",
+            submittedAt: "2025-05-08T15:28:00+08:00",
+            ipAddress: "61.144.39.80",
+            location: "Shenzhen, China",
+            userAgent: "Chrome / macOS",
+            internalNotes: ""
+          },
+          {
+            id: "24-0508-009",
+            name: "Noah Park",
+            email: "noah.park@example.com",
+            projectType: "commercial",
+            message: "Our hotel group is refreshing its visual library. Are you available for a three-day commercial shoot?",
+            status: "replied",
+            submittedAt: "2025-05-08T10:16:00+08:00",
+            ipAddress: "203.119.24.5",
+            location: "Seoul, Korea",
+            userAgent: "Chrome / Android",
+            internalNotes: "Good lead. Asked for dates and usage scope."
+          },
+          {
+            id: "24-0507-010",
+            name: "Grace Huang",
+            email: "grace.huang@example.com",
+            projectType: "portrait",
+            message: "I need a quiet portrait session for a musician profile. Prefer a film-like mood and neutral styling.",
+            status: "replied",
+            submittedAt: "2025-05-07T20:41:00+08:00",
+            ipAddress: "112.96.99.31",
+            location: "Shenzhen, China",
+            userAgent: "Safari / iOS",
+            internalNotes: "Suggested studio morning slots."
+          },
+          {
+            id: "24-0507-011",
+            name: "Oliver Chen",
+            email: "oliver.chen@example.com",
+            projectType: "event",
+            message: "Can you cover a private gallery opening next month? The event is small, around 60 people.",
+            status: "unread",
+            submittedAt: "2025-05-07T13:09:00+08:00",
+            ipAddress: "116.25.75.92",
+            location: "Guangzhou, China",
+            userAgent: "Chrome / Windows",
+            internalNotes: ""
+          },
+          {
+            id: "24-0506-012",
+            name: "Mia Sun",
+            email: "mia.sun@example.com",
+            projectType: "personal",
+            message: "I'm looking for a small family archive session. We prefer documentary-style photos at home.",
+            status: "replied",
+            submittedAt: "2025-05-06T17:33:00+08:00",
+            ipAddress: "120.229.41.16",
+            location: "Dongguan, China",
+            userAgent: "WeChat Browser / iOS",
+            internalNotes: "Warm lead, replied with family session range."
+          },
+          {
+            id: "24-0506-013",
+            name: "Ethan Zhou",
+            email: "ethan.zhou@example.com",
+            projectType: "collaboration",
+            message: "I'm building an independent magazine and would like to discuss an image essay.",
+            status: "replied",
+            submittedAt: "2025-05-06T10:18:00+08:00",
+            ipAddress: "222.73.12.5",
+            location: "Shanghai, China",
+            userAgent: "Firefox / macOS",
+            internalNotes: ""
+          },
+          {
+            id: "24-0505-014",
+            name: "Yuki Tanaka",
+            email: "yuki.tanaka@example.com",
+            projectType: "commercial",
+            message: "We need visual assets for a tea brand campaign in late June. Please share your commercial package.",
+            status: "archived",
+            submittedAt: "2025-05-05T19:55:00+08:00",
+            ipAddress: "210.160.8.33",
+            location: "Tokyo, Japan",
+            userAgent: "Safari / macOS",
+            internalNotes: "Archived after no response from client."
+          },
+          {
+            id: "24-0505-015",
+            name: "Kevin Ma",
+            email: "kevin.ma@example.com",
+            projectType: "event",
+            message: "Are you available for behind-the-scenes coverage for a one-day workshop?",
+            status: "unread",
+            submittedAt: "2025-05-05T15:12:00+08:00",
+            ipAddress: "14.215.177.39",
+            location: "Foshan, China",
+            userAgent: "Chrome / Android",
+            internalNotes: ""
+          },
+          {
+            id: "24-0504-016",
+            name: "Rachel Qiu",
+            email: "rachel.qiu@example.com",
+            projectType: "editorial",
+            message: "We are preparing an article about personal archives and want to interview you.",
+            status: "replied",
+            submittedAt: "2025-05-04T12:44:00+08:00",
+            ipAddress: "183.62.57.11",
+            location: "Beijing, China",
+            userAgent: "Edge / Windows",
+            internalNotes: "Interview request, replied with available windows."
+          },
+          {
+            id: "24-0503-017",
+            name: "Henry Luo",
+            email: "henry.luo@example.com",
+            projectType: "other",
+            message: "Can I use one of your images as a reference for a student research project?",
+            status: "archived",
+            submittedAt: "2025-05-03T18:26:00+08:00",
+            ipAddress: "125.88.14.51",
+            location: "Shenzhen, China",
+            userAgent: "Chrome / Windows",
+            internalNotes: ""
+          },
+          {
+            id: "24-0503-018",
+            name: "Sofia Wang",
+            email: "sofia.wang@example.com",
+            projectType: "portrait",
+            message: "I need portraits for a designer profile. The final use is website and press kit.",
+            status: "replied",
+            submittedAt: "2025-05-03T10:10:00+08:00",
+            ipAddress: "101.80.27.4",
+            location: "Shanghai, China",
+            userAgent: "Safari / iOS",
+            internalNotes: ""
+          },
+          {
+            id: "24-0502-019",
+            name: "Daniel Xu",
+            email: "daniel.xu@example.com",
+            projectType: "commercial",
+            message: "Could you quote for a two-day architecture shoot for a boutique workspace?",
+            status: "replied",
+            submittedAt: "2025-05-02T16:48:00+08:00",
+            ipAddress: "58.60.12.80",
+            location: "Shenzhen, China",
+            userAgent: "Chrome / macOS",
+            internalNotes: "Asked for shot list and licensing scope."
+          },
+          {
+            id: "24-0502-020",
+            name: "Iris Fan",
+            email: "iris.fan@example.com",
+            projectType: "collaboration",
+            message: "Would you be open to a small exhibition collaboration around city memory?",
+            status: "unread",
+            submittedAt: "2025-05-02T09:22:00+08:00",
+            ipAddress: "121.35.44.17",
+            location: "Shenzhen, China",
+            userAgent: "WeChat Browser / Android",
+            internalNotes: ""
+          },
+          {
+            id: "24-0501-021",
+            name: "Marcus Ho",
+            email: "marcus.ho@example.com",
+            projectType: "event",
+            message: "A brand dinner needs quiet documentary coverage. Please let me know if you can cover evenings.",
+            status: "replied",
+            submittedAt: "2025-05-01T21:04:00+08:00",
+            ipAddress: "113.108.77.92",
+            location: "Hong Kong, China",
+            userAgent: "Chrome / Android",
+            internalNotes: ""
+          },
+          {
+            id: "24-0501-022",
+            name: "Nina Zhou",
+            email: "nina.zhou@example.com",
+            projectType: "personal",
+            message: "I'm interested in a personal visual archive session before moving abroad.",
+            status: "archived",
+            submittedAt: "2025-05-01T14:30:00+08:00",
+            ipAddress: "183.237.18.30",
+            location: "Guangzhou, China",
+            userAgent: "Safari / iOS",
+            internalNotes: "Client postponed."
+          },
+          {
+            id: "24-0430-023",
+            name: "Leo Fang",
+            email: "leo.fang@example.com",
+            projectType: "editorial",
+            message: "Do you have unpublished city night images for a magazine layout?",
+            status: "replied",
+            submittedAt: "2025-04-30T19:12:00+08:00",
+            ipAddress: "101.226.19.77",
+            location: "Shanghai, China",
+            userAgent: "Firefox / Windows",
+            internalNotes: ""
+          },
+          {
+            id: "24-0430-024",
+            name: "Tina He",
+            email: "tina.he@example.com",
+            projectType: "other",
+            message: "I found your archive through Instagram and wanted to ask if you offer mentoring sessions.",
+            status: "archived",
+            submittedAt: "2025-04-30T08:40:00+08:00",
+            ipAddress: "120.85.31.9",
+            location: "Shenzhen, China",
+            userAgent: "Chrome / macOS",
+            internalNotes: "Not a current service."
+          }
+        ];
+
+        const projectLabels = {
+          portrait: "Portrait Session",
+          commercial: "Commercial Project",
+          event: "Event Coverage",
+          collaboration: "Collaboration",
+          editorial: "Editorial Inquiry",
+          personal: "Personal Archive",
+          other: "Other"
+        };
+
+        const statusLabels = {
+          unread: "Unread",
+          replied: "Replied",
+          archived: "Archived"
+        };
+
+        const state = {
+          messages: initialMessages.map(cloneMessage),
+          selectedId: initialMessages[0].id,
+          selectedIds: new Set([initialMessages[0].id]),
+          statusFilter: "all",
+          projectFilter: "all",
+          dateFilter: "all",
+          sortMode: "newest",
+          search: "",
+          page: 1,
+          pageSize: 7,
+          filtersOpen: false,
+          pendingDeleteIds: [],
+          toastTimer: null
+        };
+
+        const elements = {
+          navUnread: document.querySelector("[data-nav-unread]"),
+          tabs: document.querySelector("[data-tabs]"),
+          search: document.querySelector("[data-search]"),
+          toggleFilters: document.querySelector("[data-toggle-filters]"),
+          filterPanel: document.querySelector("[data-filter-panel]"),
+          projectFilter: document.querySelector("[data-project-filter]"),
+          dateFilter: document.querySelector("[data-date-filter]"),
+          sortMode: document.querySelector("[data-sort-mode]"),
+          selectPage: document.querySelector("[data-select-page]"),
+          selectedCount: document.querySelector("[data-selected-count]"),
+          bulkReplied: document.querySelector("[data-bulk-replied]"),
+          bulkArchive: document.querySelector("[data-bulk-archive]"),
+          bulkDelete: document.querySelector("[data-bulk-delete]"),
+          tableWrap: document.querySelector("[data-table-wrap]"),
+          listSummary: document.querySelector("[data-list-summary]"),
+          pagination: document.querySelector("[data-pagination]"),
+          detail: document.querySelector("[data-detail]"),
+          toast: document.querySelector("[data-toast]"),
+          toastMessage: document.querySelector("[data-toast-message]"),
+          closeToast: document.querySelector("[data-close-toast]"),
+          confirmOverlay: document.querySelector("[data-confirm-overlay]"),
+          confirmCopy: document.querySelector("[data-confirm-copy]"),
+          cancelDelete: document.querySelector("[data-cancel-delete]"),
+          confirmDelete: document.querySelector("[data-confirm-delete]")
+        };
+
+        function cloneMessage(message) {
+          return { ...message };
+        }
+
+        function escapeHtml(value) {
+          return String(value ?? "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+        }
+
+        function formatDate(value) {
+          const date = new Date(value);
+          if (Number.isNaN(date.getTime())) return "Unknown";
+          return date.toLocaleDateString("en-US", {
+            month: "short",
+            day: "numeric",
+            year: "numeric"
+          });
+        }
+
+        function formatTime(value) {
+          const date = new Date(value);
+          if (Number.isNaN(date.getTime())) return "";
+          return date.toLocaleTimeString("en-US", {
+            hour: "2-digit",
+            minute: "2-digit",
+            hour12: false
+          });
+        }
+
+        function icon(name) {
+          const icons = {
+            search: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-5.2-5.2" /><circle cx="10.5" cy="10.5" r="6.5" /></svg>',
+            mail: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18v12H3z" /><path d="m4 7 8 6 8-6" /></svg>',
+            reply: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 10 4 15l5 5" /><path d="M5 15h8a6 6 0 0 0 6-6V5" /></svg>',
+            archive: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16v13H4z" /><path d="M3 4h18v3H3z" /><path d="M9 12h6" /></svg>',
+            trash: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18" /><path d="M8 6V4h8v2M7 6l1 14h8l1-14" /></svg>',
+            dots: '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="1" /><circle cx="12" cy="12" r="1" /><circle cx="12" cy="19" r="1" /></svg>',
+            copy: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 8h11v11H8z" /><path d="M5 15H4V4h11v1" /></svg>',
+            empty: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4z" /><path d="m5 7 7 6 7-6" /></svg>',
+            refresh: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.7" /><path d="M20 4v6h-6" /></svg>',
+            previous: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 18-6-6 6-6" /></svg>',
+            next: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 6 6 6-6 6" /></svg>'
+          };
+          return icons[name] || "";
+        }
+
+        function getCounts() {
+          return state.messages.reduce(
+            (counts, message) => {
+              counts.all += 1;
+              counts[message.status] += 1;
+              return counts;
+            },
+            { all: 0, unread: 0, replied: 0, archived: 0 }
+          );
+        }
+
+        function getFilteredMessages() {
+          const keyword = state.search.trim().toLowerCase();
+          let filtered = state.messages.filter((message) => {
+            const matchesStatus = state.statusFilter === "all" || message.status === state.statusFilter;
+            const matchesProject = state.projectFilter === "all" || message.projectType === state.projectFilter;
+            const matchesKeyword =
+              !keyword ||
+              [message.name, message.email, message.message, message.projectType, projectLabels[message.projectType]]
+                .join(" ")
+                .toLowerCase()
+                .includes(keyword);
+            const submittedTime = new Date(message.submittedAt).getTime();
+            const recentBoundary = new Date("2025-05-06T00:00:00+08:00").getTime();
+            const matchesDate =
+              state.dateFilter === "all" ||
+              (state.dateFilter === "recent" && submittedTime >= recentBoundary) ||
+              (state.dateFilter === "older" && submittedTime < recentBoundary);
+            return matchesStatus && matchesProject && matchesKeyword && matchesDate;
+          });
+
+          filtered = filtered.sort((a, b) => {
+            if (state.sortMode === "oldest") return new Date(a.submittedAt) - new Date(b.submittedAt);
+            if (state.sortMode === "sender") return a.name.localeCompare(b.name);
+            return new Date(b.submittedAt) - new Date(a.submittedAt);
+          });
+
+          return filtered;
+        }
+
+        function getPageMessages(filtered = getFilteredMessages()) {
+          const totalPages = Math.max(1, Math.ceil(filtered.length / state.pageSize));
+          if (state.page > totalPages) state.page = totalPages;
+          const start = (state.page - 1) * state.pageSize;
+          return filtered.slice(start, start + state.pageSize);
+        }
+
+        function getSelectedMessage() {
+          return state.messages.find((message) => message.id === state.selectedId) || state.messages[0] || null;
+        }
+
+        function normalizeSelection() {
+          const validIds = new Set(state.messages.map((message) => message.id));
+          state.selectedIds = new Set([...state.selectedIds].filter((id) => validIds.has(id)));
+          if (!validIds.has(state.selectedId)) {
+            state.selectedId = state.messages[0]?.id || null;
+          }
+        }
+
+        function showToast(message) {
+          window.clearTimeout(state.toastTimer);
+          elements.toastMessage.textContent = message;
+          elements.toast.hidden = false;
+          state.toastTimer = window.setTimeout(() => {
+            elements.toast.hidden = true;
+          }, 3600);
+        }
+
+        function renderTabs() {
+          const counts = getCounts();
+          const tabs = [
+            ["all", "All"],
+            ["unread", "Unread"],
+            ["replied", "Replied"],
+            ["archived", "Archived"]
+          ];
+
+          elements.tabs.innerHTML = tabs
+            .map(
+              ([status, label]) => `
+                <button class="tab-button${state.statusFilter === status ? " is-active" : ""}" type="button" data-status="${status}">
+                  ${label}<span class="metric-badge">${counts[status]}</span>
+                </button>
+              `
+            )
+            .join("");
+          elements.navUnread.textContent = counts.unread;
+        }
+
+        function renderTable() {
+          const filtered = getFilteredMessages();
+          const pageMessages = getPageMessages(filtered);
+          const selectedCount = state.selectedIds.size;
+          const allPageSelected = pageMessages.length > 0 && pageMessages.every((message) => state.selectedIds.has(message.id));
+          const first = filtered.length ? (state.page - 1) * state.pageSize + 1 : 0;
+          const last = Math.min(state.page * state.pageSize, filtered.length);
+
+          elements.selectPage.checked = allPageSelected;
+          elements.selectedCount.textContent = `${selectedCount} selected`;
+          elements.bulkReplied.disabled = selectedCount === 0;
+          elements.bulkArchive.disabled = selectedCount === 0;
+          elements.bulkDelete.disabled = selectedCount === 0;
+          elements.listSummary.textContent =
+            filtered.length > 0
+              ? `Showing ${first} to ${last} of ${filtered.length} messages`
+              : "No messages match the current filters";
+
+          if (state.messages.length === 0) {
+            elements.tableWrap.innerHTML = `
+              <div class="empty-state">
+                ${icon("empty")}
+                <h3>No messages yet</h3>
+                <p>Contact form submissions will appear here after the real API is connected.</p>
+              </div>
+            `;
+            renderPagination(filtered);
+            return;
+          }
+
+          if (filtered.length === 0) {
+            elements.tableWrap.innerHTML = `
+              <div class="empty-state">
+                ${icon("search")}
+                <h3>No matching messages</h3>
+                <p>Try clearing search text, status filters, or project type filters.</p>
+                <button class="secondary-button" type="button" data-reset-filters>${icon("refresh")}Reset Filters</button>
+              </div>
+            `;
+            renderPagination(filtered);
+            return;
+          }
+
+          elements.tableWrap.innerHTML = `
+            <table class="table">
+              <thead>
+                <tr>
+                  <th aria-label="Select"></th>
+                  <th>Sender</th>
+                  <th>Email</th>
+                  <th>Project Type</th>
+                  <th>Message</th>
+                  <th>Submitted</th>
+                  <th>Status</th>
+                  <th aria-label="Actions"></th>
+                </tr>
+              </thead>
+              <tbody>
+                ${pageMessages
+                  .map((message) => {
+                    const isActive = message.id === state.selectedId;
+                    const isSelected = state.selectedIds.has(message.id);
+                    return `
+                      <tr class="message-row${isActive ? " is-active" : ""}${isSelected ? " is-selected" : ""}" data-message-id="${escapeHtml(message.id)}">
+                        <td>
+                          <input type="checkbox" data-row-check data-id="${escapeHtml(message.id)}" aria-label="Select message from ${escapeHtml(message.name)}" ${isSelected ? "checked" : ""} />
+                        </td>
+                        <td class="sender">
+                          <strong>${escapeHtml(message.name)}${message.status === "unread" ? '<span class="dot" aria-hidden="true"></span>' : ""}</strong>
+                          <small>${escapeHtml(message.email)}</small>
+                        </td>
+                        <td>${escapeHtml(message.email)}</td>
+                        <td>${escapeHtml(projectLabels[message.projectType] || message.projectType)}</td>
+                        <td class="message-snippet">${escapeHtml(message.message).slice(0, 96)}${message.message.length > 96 ? "..." : ""}</td>
+                        <td>
+                          ${escapeHtml(formatDate(message.submittedAt))}
+                          <span class="muted-cell">${escapeHtml(formatTime(message.submittedAt))}</span>
+                        </td>
+                        <td><span class="status-pill ${escapeHtml(message.status)}">${escapeHtml(statusLabels[message.status])}</span></td>
+                        <td>
+                          <button class="table-action" type="button" data-action="select" data-id="${escapeHtml(message.id)}" aria-label="Open message details">
+                            ${icon("dots")}
+                          </button>
+                        </td>
+                      </tr>
+                    `;
+                  })
+                  .join("")}
+              </tbody>
+            </table>
+          `;
+
+          renderPagination(filtered);
+        }
+
+        function renderPagination(filtered) {
+          const totalPages = Math.max(1, Math.ceil(filtered.length / state.pageSize));
+          const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
+
+          elements.pagination.innerHTML = `
+            <button class="page-button" type="button" data-page="${state.page - 1}" ${state.page <= 1 ? "disabled" : ""} aria-label="Previous page">${icon("previous")}</button>
+            ${pages
+              .map(
+                (page) => `
+                  <button class="page-button${page === state.page ? " is-current" : ""}" type="button" data-page="${page}" ${page === state.page ? 'aria-current="page"' : ""}>
+                    ${page}
+                  </button>
+                `
+              )
+              .join("")}
+            <button class="page-button" type="button" data-page="${state.page + 1}" ${state.page >= totalPages ? "disabled" : ""} aria-label="Next page">${icon("next")}</button>
+          `;
+        }
+
+        function renderDetail() {
+          const message = getSelectedMessage();
+
+          if (!message) {
+            elements.detail.innerHTML = `
+              <div class="detail-card">
+                <div class="detail-header">
+                  <span class="panel-kicker">No Message Selected</span>
+                </div>
+                <div class="empty-state">
+                  ${icon("empty")}
+                  <h3>No message to preview</h3>
+                  <p>Select a message from the list to view metadata, content, and internal notes.</p>
+                </div>
+              </div>
+            `;
+            return;
+          }
+
+          elements.detail.innerHTML = `
+            <div class="detail-card">
+              <div class="detail-header">
+                <span class="panel-kicker">Message #${escapeHtml(message.id)}</span>
+                <div class="detail-nav">
+                  <button type="button" data-detail-nav="prev" aria-label="Previous message">${icon("previous")}</button>
+                  <button type="button" data-detail-nav="next" aria-label="Next message">${icon("next")}</button>
+                </div>
+              </div>
+              <div class="detail-body">
+                <section class="detail-sender" aria-labelledby="detail-title">
+                  <h2 id="detail-title">
+                    ${escapeHtml(message.name)}
+                    ${message.status === "unread" ? '<span class="dot" aria-hidden="true"></span>' : ""}
+                    <span class="status-pill ${escapeHtml(message.status)}">${escapeHtml(statusLabels[message.status])}</span>
+                  </h2>
+                  <button class="email-copy" type="button" data-copy-email="${escapeHtml(message.email)}">
+                    ${escapeHtml(message.email)} ${icon("copy")}
+                  </button>
+                </section>
+
+                <dl class="detail-meta">
+                  <dt class="detail-label">Project Type</dt>
+                  <dd class="detail-value">${escapeHtml(projectLabels[message.projectType] || message.projectType)}</dd>
+                  <dt class="detail-label">Submitted</dt>
+                  <dd class="detail-value">${escapeHtml(formatDate(message.submittedAt))} ${escapeHtml(formatTime(message.submittedAt))}</dd>
+                  <dt class="detail-label">IP Address</dt>
+                  <dd class="detail-value">${escapeHtml(message.ipAddress)}</dd>
+                  <dt class="detail-label">Location</dt>
+                  <dd class="detail-value">${escapeHtml(message.location)}</dd>
+                  <dt class="detail-label">User Agent</dt>
+                  <dd class="detail-value">${escapeHtml(message.userAgent)}</dd>
+                </dl>
+
+                <section class="message-content" aria-label="Message content">
+                  <h3>Message</h3>
+                  <p>${escapeHtml(message.message)}</p>
+                </section>
+
+                <section class="detail-notes" aria-label="Internal notes">
+                  <h3>Notes</h3>
+                  <textarea data-notes-field placeholder="No internal notes yet. Click to add a note...">${escapeHtml(message.internalNotes)}</textarea>
+                </section>
+              </div>
+              <div class="detail-actions">
+                <button class="primary-button" type="button" data-detail-action="replied" ${message.status === "replied" ? "disabled" : ""}>${icon("reply")}Mark as Replied</button>
+                <button class="secondary-button" type="button" data-detail-action="archived" ${message.status === "archived" ? "disabled" : ""}>${icon("archive")}Archive</button>
+                <button class="danger-button" type="button" data-detail-action="delete">${icon("trash")}Delete</button>
+              </div>
+            </div>
+          `;
+        }
+
+        function render() {
+          normalizeSelection();
+          renderTabs();
+          renderTable();
+          renderDetail();
+        }
+
+        function setStatus(ids, status) {
+          if (!ids.length) return;
+          state.messages = state.messages.map((message) =>
+            ids.includes(message.id) ? { ...message, status } : message
+          );
+          showToast(ids.length === 1 ? `Message marked as ${statusLabels[status].toLowerCase()}.` : `${ids.length} messages marked as ${statusLabels[status].toLowerCase()}.`);
+          render();
+        }
+
+        function openDeleteConfirm(ids) {
+          if (!ids.length) return;
+          state.pendingDeleteIds = ids;
+          elements.confirmCopy.textContent =
+            ids.length === 1
+              ? "This removes the selected message from mock state. Existing files are not touched."
+              : `This removes ${ids.length} selected messages from mock state. Existing files are not touched.`;
+          elements.confirmOverlay.hidden = false;
+          elements.confirmDelete.focus();
+        }
+
+        function deletePendingMessages() {
+          const ids = state.pendingDeleteIds;
+          if (!ids.length) return;
+          state.messages = state.messages.filter((message) => !ids.includes(message.id));
+          state.selectedIds = new Set([...state.selectedIds].filter((id) => !ids.includes(id)));
+          if (ids.includes(state.selectedId)) state.selectedId = state.messages[0]?.id || null;
+          state.pendingDeleteIds = [];
+          elements.confirmOverlay.hidden = true;
+          showToast(ids.length === 1 ? "Message deleted from mock state." : `${ids.length} messages deleted from mock state.`);
+          render();
+        }
+
+        function resetFilters() {
+          state.search = "";
+          state.statusFilter = "all";
+          state.projectFilter = "all";
+          state.dateFilter = "all";
+          state.sortMode = "newest";
+          state.page = 1;
+          elements.search.value = "";
+          elements.projectFilter.value = "all";
+          elements.dateFilter.value = "all";
+          elements.sortMode.value = "newest";
+          render();
+        }
+
+        function moveDetail(direction) {
+          const filtered = getFilteredMessages();
+          if (!filtered.length) return;
+          const currentIndex = Math.max(0, filtered.findIndex((message) => message.id === state.selectedId));
+          const nextIndex =
+            direction === "next"
+              ? Math.min(filtered.length - 1, currentIndex + 1)
+              : Math.max(0, currentIndex - 1);
+          state.selectedId = filtered[nextIndex].id;
+          render();
+        }
+
+        elements.tabs.addEventListener("click", (event) => {
+          const button = event.target.closest("[data-status]");
+          if (!button) return;
+          state.statusFilter = button.dataset.status;
+          state.page = 1;
+          render();
+        });
+
+        elements.search.addEventListener("input", (event) => {
+          state.search = event.target.value;
+          state.page = 1;
+          renderTable();
+        });
+
+        elements.toggleFilters.addEventListener("click", () => {
+          state.filtersOpen = !state.filtersOpen;
+          elements.filterPanel.hidden = !state.filtersOpen;
+          elements.toggleFilters.setAttribute("aria-expanded", String(state.filtersOpen));
+        });
+
+        elements.projectFilter.addEventListener("change", (event) => {
+          state.projectFilter = event.target.value;
+          state.page = 1;
+          renderTable();
+        });
+
+        elements.dateFilter.addEventListener("change", (event) => {
+          state.dateFilter = event.target.value;
+          state.page = 1;
+          renderTable();
+        });
+
+        elements.sortMode.addEventListener("change", (event) => {
+          state.sortMode = event.target.value;
+          state.page = 1;
+          renderTable();
+        });
+
+        elements.selectPage.addEventListener("change", (event) => {
+          const pageMessages = getPageMessages();
+          pageMessages.forEach((message) => {
+            if (event.target.checked) state.selectedIds.add(message.id);
+            else state.selectedIds.delete(message.id);
+          });
+          renderTable();
+        });
+
+        elements.bulkReplied.addEventListener("click", () => setStatus([...state.selectedIds], "replied"));
+        elements.bulkArchive.addEventListener("click", () => setStatus([...state.selectedIds], "archived"));
+        elements.bulkDelete.addEventListener("click", () => openDeleteConfirm([...state.selectedIds]));
+
+        elements.tableWrap.addEventListener("click", (event) => {
+          const checkbox = event.target.closest("[data-row-check]");
+          if (checkbox) {
+            if (checkbox.checked) state.selectedIds.add(checkbox.dataset.id);
+            else state.selectedIds.delete(checkbox.dataset.id);
+            renderTable();
+            return;
+          }
+
+          if (event.target.closest("[data-reset-filters]")) {
+            resetFilters();
+            return;
+          }
+
+          const button = event.target.closest("[data-action='select']");
+          const row = event.target.closest("[data-message-id]");
+          const id = button?.dataset.id || row?.dataset.messageId;
+          if (!id) return;
+          state.selectedId = id;
+          render();
+        });
+
+        elements.pagination.addEventListener("click", (event) => {
+          const button = event.target.closest("[data-page]");
+          if (!button || button.disabled) return;
+          const page = Number(button.dataset.page);
+          const totalPages = Math.max(1, Math.ceil(getFilteredMessages().length / state.pageSize));
+          if (page < 1 || page > totalPages) return;
+          state.page = page;
+          renderTable();
+        });
+
+        elements.detail.addEventListener("click", async (event) => {
+          const actionButton = event.target.closest("[data-detail-action]");
+          if (actionButton) {
+            if (actionButton.dataset.detailAction === "delete") openDeleteConfirm([state.selectedId]);
+            else setStatus([state.selectedId], actionButton.dataset.detailAction);
+            return;
+          }
+
+          const navButton = event.target.closest("[data-detail-nav]");
+          if (navButton) {
+            moveDetail(navButton.dataset.detailNav);
+            return;
+          }
+
+          const copyButton = event.target.closest("[data-copy-email]");
+          if (copyButton) {
+            try {
+              await navigator.clipboard.writeText(copyButton.dataset.copyEmail);
+              showToast("Email copied.");
+            } catch (error) {
+              showToast(copyButton.dataset.copyEmail);
+            }
+          }
+        });
+
+        elements.detail.addEventListener("input", (event) => {
+          const notes = event.target.closest("[data-notes-field]");
+          if (!notes || !state.selectedId) return;
+          state.messages = state.messages.map((message) =>
+            message.id === state.selectedId ? { ...message, internalNotes: notes.value } : message
+          );
+        });
+
+        elements.detail.addEventListener("change", (event) => {
+          if (event.target.closest("[data-notes-field]")) {
+            showToast("Internal note updated in mock state.");
+          }
+        });
+
+        elements.cancelDelete.addEventListener("click", () => {
+          state.pendingDeleteIds = [];
+          elements.confirmOverlay.hidden = true;
+        });
+
+        elements.confirmDelete.addEventListener("click", deletePendingMessages);
+
+        elements.confirmOverlay.addEventListener("click", (event) => {
+          if (event.target === elements.confirmOverlay) {
+            state.pendingDeleteIds = [];
+            elements.confirmOverlay.hidden = true;
+          }
+        });
+
+        elements.closeToast.addEventListener("click", () => {
+          elements.toast.hidden = true;
+          window.clearTimeout(state.toastTimer);
+        });
+
+        document.addEventListener("keydown", (event) => {
+          if (event.key !== "Escape") return;
+          if (!elements.confirmOverlay.hidden) {
+            state.pendingDeleteIds = [];
+            elements.confirmOverlay.hidden = true;
+          }
+          if (!elements.toast.hidden) {
+            elements.toast.hidden = true;
+            window.clearTimeout(state.toastTimer);
+          }
+        });
+
+        render();
+      })();
+    </script>
+  </body>
+</html>

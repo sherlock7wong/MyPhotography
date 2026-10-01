@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="WonG Visual Archive CMS mock dashboard for photography archive statistics, uploads, messages, categories and local site status."
+    />
+    <title>Wong.Visual CMS - Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="sidebar" aria-label="Admin navigation">
+        <a class="brand" href="../../Home/index.html" aria-label="WonG Visual home">
+          <svg class="brand-mark" viewBox="0 0 32 52" aria-hidden="true">
+            <path d="M16 3v46M9 13l7 7 7-7M7 30l9 8 9-8" />
+            <circle cx="16" cy="7" r="2.4" />
+            <circle cx="7" cy="24" r="2" />
+            <circle cx="25" cy="24" r="2" />
+          </svg>
+          <span>
+            <strong>Wong.Visual</strong>
+            <small>Visual Archive CMS</small>
+          </span>
+        </a>
+
+        <nav class="side-nav" aria-label="CMS sections">
+          <a class="nav-item is-active" href="index.html" aria-current="page">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z" /></svg>
+            <span>Dashboard</span>
+          </a>
+          <a class="nav-item" href="../profile/index.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM4 21a8 8 0 0 1 16 0" /></svg>
+            <span>Profile</span>
+          </a>
+          <a class="nav-item" href="../../backendProject/backendProject.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4zM4 9h16M8 3v4M16 3v4" /></svg>
+            <span>Projects</span>
+          </a>
+          <a class="nav-item" href="../gallery/index.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4zM8 15l3-3 3 3 2-2 4 4M8 9h.01" /></svg>
+            <span>Gallery</span>
+          </a>
+          <a class="nav-item" href="../categories/index.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" /></svg>
+            <span>Categories</span>
+          </a>
+          <a class="nav-item" href="../../backendContact/backendContact.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4zM4 7l8 6 8-6" /></svg>
+            <span>Contact</span>
+          </a>
+          <a class="nav-item" href="../../backendMessages/backendMessages.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v12H8l-4 4z" /></svg>
+            <span>Messages</span>
+            <small class="nav-badge">4</small>
+          </a>
+          <a class="nav-item" href="../settings/index.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z" />
+              <path d="m4 13-1-1 1-1 2-.4.7-1.7-1.1-1.7 1.4-1.4 1.7 1.1 1.7-.7L11 3h2l.4 2.3 1.7.7 1.7-1.1 1.4 1.4-1.1 1.7.7 1.7 2.2.3v2l-2.2.4-.7 1.7 1.1 1.7-1.4 1.4-1.7-1.1-1.7.7L13 21h-2l-.4-2.3-1.7-.7-1.7 1.1-1.4-1.4 1.1-1.7-.7-1.7Z" />
+            </svg>
+            <span>Settings</span>
+          </a>
+        </nav>
+
+        <section class="sidebar-card" aria-label="Signed in user">
+          <div class="mini-user">
+            <img src="../../Home/assets/photographer.png" alt="WonG avatar" width="48" height="48" />
+            <span>
+              <strong>WonG</strong>
+              <small>Administrator</small>
+            </span>
+          </div>
+          <dl class="sidebar-meta">
+            <div><dt>Role</dt><dd>Administrator</dd></div>
+            <div><dt>Last Login</dt><dd>May 12, 2025 10:24</dd></div>
+          </dl>
+          <a class="logout-link" href="../../AdminLogin/index.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 17H5V7h5M14 16l4-4-4-4M8 12h10" /></svg>
+            Log Out
+          </a>
+        </section>
+      </aside>
+
+      <main class="admin-main">
+        <header class="topbar">
+          <div>
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+              <a href="../../Home/index.html" aria-label="Home">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 4l9 7M5 10v10h14V10" /></svg>
+              </a>
+              <span>/</span>
+              <a href="#">admin</a>
+            </nav>
+            <div class="title-row">
+              <div>
+                <h1>DASHBOARD</h1>
+                <p>Welcome back, WonG. Manage your photography archive.</p>
+              </div>
+              <p class="archive-number">Archive No. <strong>A08</strong></p>
+            </div>
+          </div>
+
+          <div class="top-actions">
+            <button class="primary-button" type="button" data-action="save">Save Changes</button>
+            <button class="ghost-button" type="button" data-action="reset">Reset</button>
+            <button class="icon-button notification-button" type="button" aria-label="Notifications">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9a6 6 0 0 1 12 0c0 7 3 7 3 9H3c0-2 3-2 3-9M10 21h4" /></svg>
+              <span aria-hidden="true"></span>
+            </button>
+            <img class="top-avatar" src="../../Home/assets/photographer.png" alt="WonG avatar" width="44" height="44" />
+            <button class="user-menu" type="button" aria-label="User menu">
+              <span>WonG</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5" /></svg>
+            </button>
+          </div>
+        </header>
+
+        <div id="statusToast" class="status-toast" hidden role="status" aria-live="polite">
+          <span class="status-dot" aria-hidden="true"></span>
+          <p data-toast-message>Site settings saved successfully.</p>
+          <button type="button" data-action="dismiss-toast" aria-label="Dismiss notification">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19" /></svg>
+          </button>
+        </div>
+
+        <section id="unsavedBar" class="unsaved-bar" hidden aria-live="polite">
+          <div>
+            <span class="notice-dot" aria-hidden="true"></span>
+            <p>Unsaved changes</p>
+          </div>
+          <div class="bar-actions">
+            <button class="text-button" type="button" data-action="discard">Discard</button>
+            <button class="primary-button" type="button" data-action="save">Save Changes</button>
+          </div>
+        </section>
+
+        <section class="stats-grid" data-module="statsCards" aria-label="Archive statistics"></section>
+
+        <section class="dashboard-grid">
+          <article class="panel recent-panel" data-module="recentUploads" aria-labelledby="recentTitle">
+            <div class="panel-heading">
+              <h2 id="recentTitle">Recent Uploads</h2>
+              <a href="../gallery/index.html">View all</a>
+            </div>
+            <div id="recentUploads" class="upload-list" aria-live="polite"></div>
+            <p id="uploadSelection" class="selection-note" aria-live="polite"></p>
+          </article>
+
+          <article class="panel message-panel" data-module="messagePreview" aria-labelledby="messageTitle">
+            <div class="panel-heading">
+              <h2 id="messageTitle">Message Preview</h2>
+              <a href="../../backendMessages/backendMessages.html">View all messages</a>
+            </div>
+            <div class="table-wrap">
+              <table class="message-table">
+                <thead>
+                  <tr>
+                    <th scope="col">From</th>
+                    <th scope="col">Subject</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody id="messageRows"></tbody>
+              </table>
+            </div>
+            <div id="messageDetail" class="message-detail" aria-live="polite"></div>
+          </article>
+        </section>
+
+        <section class="dashboard-grid lower-grid">
+          <article class="panel category-panel" data-module="categorySummary" aria-labelledby="categoryTitle">
+            <div class="panel-heading">
+              <h2 id="categoryTitle">Category Summary</h2>
+              <a href="../categories/index.html">Manage Categories</a>
+            </div>
+            <div id="categorySummary" class="category-list" aria-live="polite"></div>
+          </article>
+
+          <article class="panel status-panel" data-module="siteStatus" aria-labelledby="siteStatusTitle">
+            <div class="panel-heading">
+              <div>
+                <h2 id="siteStatusTitle">Site Status</h2>
+                <p>Mock local fields only. No server status is checked.</p>
+              </div>
+            </div>
+            <form id="siteStatusForm" class="status-form" aria-label="Editable mock site status"></form>
+          </article>
+
+          <article class="panel quick-panel" data-module="quickActions" aria-labelledby="quickTitle">
+            <div class="panel-heading">
+              <h2 id="quickTitle">Quick Actions</h2>
+            </div>
+            <div class="quick-grid" aria-label="Quick actions">
+              <a class="quick-action" href="../gallery/index.html#uploadInput">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M5 20h14" /></svg>
+                <span>Add New Photo</span>
+              </a>
+              <a class="quick-action" href="../../backendProject/backendProject.html">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h14v12H4zM18 10h3M18 14h3M11 3v6M8 6h6" /></svg>
+                <span>Create Project</span>
+              </a>
+              <a class="quick-action" href="../categories/index.html">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6zM12 8v8M8 12h8" /></svg>
+                <span>Add New Category</span>
+              </a>
+              <a class="quick-action" href="../gallery/index.html">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4zM8 15l3-3 3 3 2-2 4 4M8 9h.01" /></svg>
+                <span>View Gallery</span>
+              </a>
+              <a class="quick-action" href="../../backendMessages/backendMessages.html">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v12H8l-4 4z" /></svg>
+                <span>Manage Messages</span>
+              </a>
+              <a class="quick-action" href="../settings/index.html">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z" /><path d="m4 13-1-1 1-1 2-.4.7-1.7-1.1-1.7 1.4-1.4 1.7 1.1 1.7-.7L11 3h2l.4 2.3 1.7.7 1.7-1.1 1.4 1.4-1.1 1.7.7 1.7 2.2.3v2l-2.2.4-.7 1.7 1.1 1.7-1.4 1.4-1.7-1.1-1.7.7L13 21h-2l-.4-2.3-1.7-.7-1.7 1.1-1.4-1.4 1.1-1.7-.7-1.7Z" /></svg>
+                <span>Site Settings</span>
+              </a>
+            </div>
+          </article>
+        </section>
+
+        <section class="dashboard-grid control-grid">
+          <article class="panel control-panel" aria-labelledby="componentTitle">
+            <div class="panel-heading">
+              <div>
+                <h2 id="componentTitle">Component Control</h2>
+                <p>Controls this Dashboard page only. Save to persist in localStorage.</p>
+              </div>
+            </div>
+            <div id="componentControls" class="component-controls"></div>
+          </article>
+
+          <article class="panel overview-panel" aria-labelledby="overviewTitle">
+            <div class="panel-heading">
+              <h2 id="overviewTitle">Front Page Overview</h2>
+            </div>
+            <div class="table-wrap">
+              <table class="overview-table">
+                <thead>
+                  <tr>
+                    <th scope="col">Page</th>
+                    <th scope="col">Path</th>
+                    <th scope="col">Modules</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Edit</th>
+                  </tr>
+                </thead>
+                <tbody id="pageOverviewRows"></tbody>
+              </table>
+            </div>
+          </article>
+        </section>
+
+        <footer class="dashboard-footer" data-module="footer">
+          <p>&copy; 2020 - 2025 WonG. All Rights Reserved.</p>
+          <p>Private Archive. All Access Logged.</p>
+          <p>Shenzhen, China</p>
+        </footer>
+      </main>
+    </div>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

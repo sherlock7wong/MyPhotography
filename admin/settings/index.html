@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="WonG Visual Archive CMS mock Site Settings page for SEO, homepage hero, site info, navigation and accessibility."
+    />
+    <title>Wong.Visual CMS - Site Settings</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="sidebar" aria-label="Admin navigation">
+        <a class="brand" href="../../Home/index.html" aria-label="WonG Visual home">
+          <svg class="brand-mark" viewBox="0 0 32 52" aria-hidden="true">
+            <path d="M16 3v46M9 13l7 7 7-7M7 30l9 8 9-8" />
+            <circle cx="16" cy="7" r="2.4" />
+            <circle cx="7" cy="24" r="2" />
+            <circle cx="25" cy="24" r="2" />
+          </svg>
+          <span>
+            <strong>Wong.Visual</strong>
+            <small>Visual Archive CMS</small>
+          </span>
+        </a>
+
+        <nav class="side-nav" aria-label="CMS sections">
+          <a class="nav-item" href="#" aria-label="Dashboard">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z" /></svg>
+            <span>Dashboard</span>
+          </a>
+          <a class="nav-item" href="../profile/index.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM4 21a8 8 0 0 1 16 0" /></svg>
+            <span>Profile</span>
+          </a>
+          <a class="nav-item" href="../../backendProject/backendProject.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4zM4 9h16M8 3v4M16 3v4" /></svg>
+            <span>Projects</span>
+          </a>
+          <a class="nav-item" href="../gallery/index.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4zM8 15l3-3 3 3 2-2 4 4M8 9h.01" /></svg>
+            <span>Gallery</span>
+          </a>
+          <a class="nav-item" href="../categories/index.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" /></svg>
+            <span>Categories</span>
+          </a>
+          <a class="nav-item" href="../../backendContact/backendContact.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4zM4 7l8 6 8-6" /></svg>
+            <span>Contact</span>
+          </a>
+          <a class="nav-item" href="../../backendMessages/backendMessages.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v12H8l-4 4z" /></svg>
+            <span>Messages</span>
+            <small class="nav-badge">6</small>
+          </a>
+          <a class="nav-item is-active" href="index.html" aria-current="page">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z" />
+              <path d="m4 13-1-1 1-1 2-.4.7-1.7-1.1-1.7 1.4-1.4 1.7 1.1 1.7-.7L11 3h2l.4 2.3 1.7.7 1.7-1.1 1.4 1.4-1.1 1.7.7 1.7 2.2.3v2l-2.2.4-.7 1.7 1.1 1.7-1.4 1.4-1.7-1.1-1.7.7L13 21h-2l-.4-2.3-1.7-.7-1.7 1.1-1.4-1.4 1.1-1.7-.7-1.7Z" />
+            </svg>
+            <span>Settings</span>
+          </a>
+        </nav>
+
+        <section class="sidebar-card" aria-label="Signed in user">
+          <div class="mini-user">
+            <img src="../../Home/assets/photographer.png" alt="WonG avatar" />
+            <span>
+              <strong>WonG</strong>
+              <small>Administrator</small>
+            </span>
+          </div>
+          <dl class="sidebar-meta">
+            <div><dt>Role</dt><dd>Administrator</dd></div>
+            <div><dt>Last Login</dt><dd>May 12, 2025 10:24</dd></div>
+          </dl>
+          <a class="logout-link" href="../../AdminLogin/index.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 17H5V7h5M14 16l4-4-4-4M8 12h10" /></svg>
+            Log Out
+          </a>
+        </section>
+      </aside>
+
+      <main class="admin-main">
+        <header class="topbar">
+          <div>
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+              <a href="../../Home/index.html" aria-label="Home">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 4l9 7M5 10v10h14V10" /></svg>
+              </a>
+              <span>/</span>
+              <a href="#">admin</a>
+              <span>/</span>
+              <span>settings</span>
+            </nav>
+            <div class="title-row">
+              <div>
+                <h1>SITE SETTINGS</h1>
+                <p>Manage global configuration for SEO, homepage hero, site info, navigation and accessibility.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="top-actions">
+            <button class="icon-button notification-button" type="button" aria-label="Notifications">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9a6 6 0 0 1 12 0c0 7 3 7 3 9H3c0-2 3-2 3-9M10 21h4" /></svg>
+              <span aria-hidden="true"></span>
+            </button>
+            <img class="top-avatar" src="../../Home/assets/photographer.png" alt="WonG avatar" />
+            <button class="user-menu" type="button" aria-label="User menu">
+              <span>WonG</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5" /></svg>
+            </button>
+          </div>
+        </header>
+
+        <div id="statusToast" class="status-toast" hidden role="status" aria-live="polite">
+          <span class="status-dot" aria-hidden="true"></span>
+          <p data-toast-message>Settings saved successfully.</p>
+          <button type="button" data-action="dismiss-toast" aria-label="Dismiss message">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19" /></svg>
+          </button>
+        </div>
+
+        <section id="unsavedBar" class="unsaved-bar" hidden aria-live="polite">
+          <div>
+            <span class="notice-dot" aria-hidden="true">+</span>
+            <p>You have unsaved changes.</p>
+          </div>
+          <div class="bar-actions">
+            <button class="text-button" type="button" data-action="discard">Discard</button>
+            <button class="primary-button" type="button" data-action="save">Save Changes</button>
+          </div>
+        </section>
+
+        <section class="settings-layout" aria-label="Site settings workspace">
+          <div class="settings-column">
+            <article class="panel settings-panel">
+              <div class="tabs" role="tablist" aria-label="Site settings tabs">
+                <button class="tab-button is-active" id="tab-seo" type="button" role="tab" aria-selected="true" aria-controls="panel-seo" data-tab="seo">SEO</button>
+                <button class="tab-button" id="tab-homeHero" type="button" role="tab" aria-selected="false" aria-controls="panel-homeHero" data-tab="homeHero">Home Hero</button>
+                <button class="tab-button" id="tab-globalInfo" type="button" role="tab" aria-selected="false" aria-controls="panel-globalInfo" data-tab="globalInfo">Global Info</button>
+                <button class="tab-button" id="tab-accessibility" type="button" role="tab" aria-selected="false" aria-controls="panel-accessibility" data-tab="accessibility">Motion &amp; Accessibility</button>
+              </div>
+
+              <div class="tab-panels">
+                <section class="tab-panel is-active" id="panel-seo" role="tabpanel" aria-labelledby="tab-seo" data-panel="seo">
+                  <div class="section-block">
+                    <h2>Site Information</h2>
+                    <div class="form-grid">
+                      <label class="field" for="siteTitle">
+                        <span>Site Title</span>
+                        <input id="siteTitle" type="text" data-bind="seo.siteTitle" />
+                      </label>
+                      <label class="field is-wide" for="siteDescription">
+                        <span>Site Description</span>
+                        <textarea id="siteDescription" rows="3" data-bind="seo.siteDescription"></textarea>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="section-block">
+                    <h2>SEO Settings</h2>
+                    <div class="form-grid">
+                      <label class="field" for="seoTitle">
+                        <span>SEO Title</span>
+                        <input id="seoTitle" type="text" data-bind="seo.seoTitle" />
+                      </label>
+                      <label class="field is-wide" for="seoDescription">
+                        <span>SEO Description</span>
+                        <textarea id="seoDescription" rows="3" data-bind="seo.seoDescription"></textarea>
+                      </label>
+                      <div class="field image-field">
+                        <span>OG Image</span>
+                        <div class="image-upload-row">
+                          <figure class="image-preview small" aria-label="Open Graph image preview">
+                            <img id="ogImageThumb" src="" alt="" />
+                            <figcaption id="ogImageEmpty">No image uploaded</figcaption>
+                          </figure>
+                          <label class="file-button">
+                            Upload Image
+                            <input type="file" accept="image/*" data-image-target="seo.ogImage" aria-label="Upload OG image" />
+                          </label>
+                        </div>
+                      </div>
+                      <label class="field" for="canonicalUrl">
+                        <span>Canonical URL</span>
+                        <input id="canonicalUrl" type="url" data-bind="seo.canonicalUrl" placeholder="TODO: not found in frontend HTML" />
+                      </label>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="tab-panel" id="panel-homeHero" role="tabpanel" aria-labelledby="tab-homeHero" data-panel="homeHero" hidden>
+                  <div class="section-block">
+                    <h2>Homepage Hero</h2>
+                    <div class="hero-edit-grid">
+                      <div class="field image-field">
+                        <span>Hero Image</span>
+                        <figure class="image-preview hero" aria-label="Hero image preview">
+                          <img id="heroImageThumb" src="" alt="" />
+                          <figcaption>Recommended 1920x1080</figcaption>
+                        </figure>
+                        <label class="file-button">
+                          Change Image
+                          <input type="file" accept="image/*" data-image-target="homeHero.heroImage" aria-label="Change hero image" />
+                        </label>
+                      </div>
+                      <div class="form-grid">
+                        <label class="field" for="heroHeadline">
+                          <span>Hero Headline</span>
+                          <input id="heroHeadline" type="text" data-bind="homeHero.heroHeadline" />
+                        </label>
+                        <label class="field is-wide" for="heroIntro">
+                          <span>Hero Intro</span>
+                          <textarea id="heroIntro" rows="4" data-bind="homeHero.heroIntro"></textarea>
+                        </label>
+                        <label class="field" for="heroButtonText">
+                          <span>Hero Button Text</span>
+                          <input id="heroButtonText" type="text" data-bind="homeHero.heroButtonText" />
+                        </label>
+                        <label class="field" for="heroButtonLink">
+                          <span>Hero Button Link</span>
+                          <input id="heroButtonLink" type="text" data-bind="homeHero.heroButtonLink" />
+                        </label>
+                        <label class="field" for="archiveNo">
+                          <span>Archive No.</span>
+                          <input id="archiveNo" type="text" data-bind="homeHero.archiveNo" />
+                        </label>
+                        <label class="field" for="updated">
+                          <span>Updated</span>
+                          <input id="updated" type="text" data-bind="homeHero.updated" />
+                        </label>
+                        <label class="field" for="basedIn">
+                          <span>Based in</span>
+                          <input id="basedIn" type="text" data-bind="homeHero.basedIn" />
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="tab-panel" id="panel-globalInfo" role="tabpanel" aria-labelledby="tab-globalInfo" data-panel="globalInfo" hidden>
+                  <div class="section-block">
+                    <h2>Global Info</h2>
+                    <div class="form-grid">
+                      <label class="field" for="brandName">
+                        <span>Brand Name</span>
+                        <input id="brandName" type="text" data-bind="globalInfo.brandName" />
+                      </label>
+                      <label class="field" for="headerKicker">
+                        <span>Header Kicker</span>
+                        <input id="headerKicker" type="text" data-bind="globalInfo.headerKicker" />
+                      </label>
+                      <label class="field" for="siteName">
+                        <span>Site Name</span>
+                        <input id="siteName" type="text" data-bind="globalInfo.siteName" />
+                      </label>
+                      <label class="field" for="siteDomain">
+                        <span>Site Domain</span>
+                        <input id="siteDomain" type="text" data-bind="globalInfo.siteDomain" placeholder="TODO: not found in frontend HTML" />
+                      </label>
+                      <label class="field is-wide" for="copyrightText">
+                        <span>Copyright Text</span>
+                        <input id="copyrightText" type="text" data-bind="globalInfo.copyrightText" />
+                      </label>
+                      <label class="field" for="defaultLocation">
+                        <span>Default Location</span>
+                        <input id="defaultLocation" type="text" data-bind="globalInfo.defaultLocation" />
+                      </label>
+                      <label class="field" for="contactEmail">
+                        <span>Contact Email</span>
+                        <input id="contactEmail" type="email" data-bind="globalInfo.contactEmail" />
+                      </label>
+                      <label class="field" for="socialHandle">
+                        <span>Instagram / Social Handle</span>
+                        <input id="socialHandle" type="text" data-bind="globalInfo.socialHandle" />
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="section-block">
+                    <div class="section-heading-row">
+                      <h2>Global Navigation</h2>
+                      <button class="secondary-button" type="button" data-action="add-nav">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+                        Add Navigation Item
+                      </button>
+                    </div>
+                    <div id="navigationList" class="navigation-list" aria-live="polite"></div>
+                  </div>
+                </section>
+
+                <section class="tab-panel" id="panel-accessibility" role="tabpanel" aria-labelledby="tab-accessibility" data-panel="accessibility" hidden>
+                  <div class="section-grid">
+                    <div class="section-block">
+                      <h2>Site Maintenance</h2>
+                      <label class="switch-row" for="maintenanceMode">
+                        <span>
+                          <strong>Maintenance Mode</strong>
+                          <small>Only saved in localStorage. It does not block public pages.</small>
+                        </span>
+                        <span class="switch">
+                          <input id="maintenanceMode" type="checkbox" data-bind="maintenance.enabled" />
+                          <span aria-hidden="true"></span>
+                        </span>
+                      </label>
+                      <label class="field" for="maintenanceMessage">
+                        <span>Maintenance Message</span>
+                        <textarea id="maintenanceMessage" rows="3" data-bind="maintenance.message" placeholder="TODO: no frontend maintenance message configured"></textarea>
+                      </label>
+                    </div>
+
+                    <div class="section-block">
+                      <h2>Motion &amp; Accessibility</h2>
+                      <div class="switch-stack">
+                        <label class="switch-row" for="respectMotion">
+                          <span>
+                            <strong>Respect prefers-reduced-motion</strong>
+                            <small>Frontend CSS includes reduced-motion media queries.</small>
+                          </span>
+                          <span class="switch"><input id="respectMotion" type="checkbox" data-bind="accessibility.respectReducedMotion" /><span aria-hidden="true"></span></span>
+                        </label>
+                        <label class="switch-row" for="enableReveal">
+                          <span>
+                            <strong>Enable reveal animations</strong>
+                            <small>Saved only for future integration.</small>
+                          </span>
+                          <span class="switch"><input id="enableReveal" type="checkbox" data-bind="accessibility.enableRevealAnimations" /><span aria-hidden="true"></span></span>
+                        </label>
+                        <label class="switch-row" for="enableLazy">
+                          <span>
+                            <strong>Enable lazy loading</strong>
+                            <small>Saved only for future integration.</small>
+                          </span>
+                          <span class="switch"><input id="enableLazy" type="checkbox" data-bind="accessibility.enableLazyLoading" /><span aria-hidden="true"></span></span>
+                        </label>
+                        <label class="switch-row" for="highContrast">
+                          <span>
+                            <strong>High contrast mode</strong>
+                            <small>Applies to this admin preview only.</small>
+                          </span>
+                          <span class="switch"><input id="highContrast" type="checkbox" data-bind="accessibility.highContrastMode" /><span aria-hidden="true"></span></span>
+                        </label>
+                      </div>
+                      <label class="field" for="altFallback">
+                        <span>Default image alt fallback</span>
+                        <input id="altFallback" type="text" data-bind="accessibility.defaultImageAltFallback" placeholder="TODO: no fallback found in frontend HTML" />
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="section-block motion-effects-block">
+                    <h2>Motion Effects</h2>
+                    <div class="switch-stack effects-switch-stack">
+                      <label class="switch-row" for="effectPageTransition">
+                        <span>
+                          <strong>Page transition</strong>
+                          <small>Darkroom fade and film shutter transition for internal navigation.</small>
+                        </span>
+                        <span class="switch"><input id="effectPageTransition" type="checkbox" data-bind="effects.pageTransition" /><span aria-hidden="true"></span></span>
+                      </label>
+                      <label class="switch-row" for="effectFilmGrain">
+                        <span>
+                          <strong>Film grain</strong>
+                          <small>Very light global texture over public pages.</small>
+                        </span>
+                        <span class="switch"><input id="effectFilmGrain" type="checkbox" data-bind="effects.filmGrain" /><span aria-hidden="true"></span></span>
+                      </label>
+                      <label class="switch-row" for="effectCustomCursor">
+                        <span>
+                          <strong>Custom cursor</strong>
+                          <small>Desktop viewfinder cursor for image and action hover states.</small>
+                        </span>
+                        <span class="switch"><input id="effectCustomCursor" type="checkbox" data-bind="effects.customCursor" /><span aria-hidden="true"></span></span>
+                      </label>
+                      <label class="switch-row" for="effectImageHover">
+                        <span>
+                          <strong>Image hover effects</strong>
+                          <small>Light leak, film frame, magnetic buttons and card tilt.</small>
+                        </span>
+                        <span class="switch"><input id="effectImageHover" type="checkbox" data-bind="effects.imageHover" /><span aria-hidden="true"></span></span>
+                      </label>
+                      <label class="switch-row" for="effectScrollReveal">
+                        <span>
+                          <strong>Scroll reveal</strong>
+                          <small>IntersectionObserver reveal for sections, cards and image strips.</small>
+                        </span>
+                        <span class="switch"><input id="effectScrollReveal" type="checkbox" data-bind="effects.scrollReveal" /><span aria-hidden="true"></span></span>
+                      </label>
+                      <label class="switch-row" for="effectParallax">
+                        <span>
+                          <strong>Parallax</strong>
+                          <small>Subtle profile frame depth on desktop.</small>
+                        </span>
+                        <span class="switch"><input id="effectParallax" type="checkbox" data-bind="effects.parallax" /><span aria-hidden="true"></span></span>
+                      </label>
+                      <label class="switch-row" for="effectLightbox">
+                        <span>
+                          <strong>Photography lightbox</strong>
+                          <small>Fullscreen preview with close, previous, next and ESC support.</small>
+                        </span>
+                        <span class="switch"><input id="effectLightbox" type="checkbox" data-bind="effects.lightbox" /><span aria-hidden="true"></span></span>
+                      </label>
+                      <label class="switch-row" for="effectReducedMotion">
+                        <span>
+                          <strong>Reduced motion respect</strong>
+                          <small>System reduced-motion still takes priority for complex effects.</small>
+                        </span>
+                        <span class="switch"><input id="effectReducedMotion" type="checkbox" data-bind="effects.reducedMotionRespect" /><span aria-hidden="true"></span></span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="section-block">
+                    <h2>Component Control</h2>
+                    <div id="componentControl" class="component-control" aria-live="polite"></div>
+                  </div>
+                </section>
+              </div>
+            </article>
+
+            <div class="bottom-actions" aria-label="Local data actions">
+              <button class="ghost-button" type="button" data-action="reset">Reset Local Data</button>
+              <p>Restores the Settings portion of <code>wong.cms.data</code> in this browser.</p>
+            </div>
+          </div>
+
+          <aside class="preview-column" aria-label="Live previews">
+            <article class="panel preview-panel">
+              <div class="panel-heading">
+                <h2>Homepage Preview</h2>
+                <div class="device-toggle" role="group" aria-label="Preview device">
+                  <button class="is-active" type="button" data-device="desktop" aria-label="Desktop preview" aria-pressed="true">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H4zM9 20h6M12 16v4" /></svg>
+                  </button>
+                  <button type="button" data-device="tablet" aria-label="Tablet preview" aria-pressed="false">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10v18H7zM11 18h2" /></svg>
+                  </button>
+                  <button type="button" data-device="mobile" aria-label="Mobile preview" aria-pressed="false">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 2h6v20H9zM11 19h2" /></svg>
+                  </button>
+                </div>
+              </div>
+              <div id="homepagePreview" class="homepage-preview device-desktop" aria-live="polite"></div>
+            </article>
+
+            <article class="panel preview-panel">
+              <div class="panel-heading">
+                <h2>SEO Search Preview</h2>
+              </div>
+              <div id="seoSearchPreview" class="seo-preview" aria-live="polite"></div>
+              <p class="preview-note">This is how your site may appear in search results.</p>
+            </article>
+
+            <article class="panel preview-panel">
+              <div class="panel-heading">
+                <h2>Open Graph Preview</h2>
+              </div>
+              <div id="ogPreview" class="og-preview" aria-live="polite"></div>
+              <p class="preview-note">This is how your shared link may look on social platforms.</p>
+            </article>
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <script src="../../shared/cms-data.js" defer></script>
+    <script src="script.js" defer></script>
+  </body>
+</html>

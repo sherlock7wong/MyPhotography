@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="WonG Visual Archive CMS mock page for managing Home and About profile content."
+    />
+    <title>WonG.Visual CMS - Profile Management</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="sidebar" aria-label="Admin navigation">
+        <a class="brand" href="../../Home/index.html" aria-label="WonG Visual home">
+          <svg class="brand-mark" viewBox="0 0 32 52" aria-hidden="true">
+            <path d="M16 3v46M9 13l7 7 7-7M7 30l9 8 9-8" />
+            <circle cx="16" cy="7" r="2.4" />
+            <circle cx="7" cy="24" r="2" />
+            <circle cx="25" cy="24" r="2" />
+          </svg>
+          <span>
+            <strong>Wong.Visual</strong>
+            <small>Visual Archive CMS</small>
+          </span>
+        </a>
+
+        <nav class="side-nav">
+          <a class="nav-item" href="#" aria-label="Dashboard">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z" /></svg>
+            <span>Dashboard</span>
+          </a>
+          <a class="nav-item is-active" href="index.html" aria-current="page">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM4 21a8 8 0 0 1 16 0" /></svg>
+            <span>Profile</span>
+          </a>
+          <a class="nav-item" href="../../backendProject/backendProject.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4zM4 9h16M8 3v4M16 3v4" /></svg>
+            <span>Projects</span>
+          </a>
+          <a class="nav-item" href="#">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4zM8 15l3-3 3 3 2-2 4 4M8 9h.01" /></svg>
+            <span>Gallery</span>
+          </a>
+          <a class="nav-item" href="#">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" /></svg>
+            <span>Categories</span>
+          </a>
+          <a class="nav-item" href="../../backendContact/backendContact.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4zM4 7l8 6 8-6" /></svg>
+            <span>Contact</span>
+          </a>
+          <a class="nav-item" href="../../backendMessages/backendMessages.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v12H8l-4 4z" /></svg>
+            <span>Messages</span>
+            <small class="nav-badge">4</small>
+          </a>
+          <a class="nav-item" href="#">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z" />
+              <path d="m4 13-1-1 1-1 2-.4.7-1.7-1.1-1.7 1.4-1.4 1.7 1.1 1.7-.7L11 3h2l.4 2.3 1.7.7 1.7-1.1 1.4 1.4-1.1 1.7.7 1.7 2.2.3v2l-2.2.4-.7 1.7 1.1 1.7-1.4 1.4-1.7-1.1-1.7.7L13 21h-2l-.4-2.3-1.7-.7-1.7 1.1-1.4-1.4 1.1-1.7-.7-1.7Z" />
+            </svg>
+            <span>Settings</span>
+          </a>
+        </nav>
+
+        <section class="sidebar-card" aria-label="Signed in user">
+          <div class="mini-user">
+            <img data-render="sidebarAvatar" src="../../Home/assets/photographer.png" alt="WonG avatar" />
+            <span>
+              <strong data-render="sidebarName">WonG</strong>
+              <small>Administrator</small>
+            </span>
+          </div>
+          <dl class="sidebar-meta">
+            <div><dt>Role</dt><dd>Administrator</dd></div>
+            <div><dt>Last Login</dt><dd>May 12, 2025 10:24</dd></div>
+          </dl>
+          <a class="logout-link" href="../../AdminLogin/index.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 17H5V7h5M14 16l4-4-4-4M8 12h10" /></svg>
+            Log Out
+          </a>
+        </section>
+      </aside>
+
+      <main class="admin-main">
+        <header class="topbar">
+          <div>
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+              <a href="../../Home/index.html" aria-label="Home">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 4l9 7M5 10v10h14V10" /></svg>
+              </a>
+              <span>/</span>
+              <a href="#">admin</a>
+              <span>/</span>
+              <span>profile</span>
+            </nav>
+            <div class="title-row">
+              <div>
+                <h1>Profile Management</h1>
+                <p>Manage your public profile and professional information.</p>
+              </div>
+              <p class="archive-number">Archive No. <strong data-render="topArchiveNo">A08</strong></p>
+            </div>
+          </div>
+
+          <div class="top-actions">
+            <button class="icon-button notification-button" type="button" aria-label="Notifications">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9a6 6 0 0 1 12 0c0 7 3 7 3 9H3c0-2 3-2 3-9M10 21h4" /></svg>
+              <span aria-hidden="true"></span>
+            </button>
+            <img data-render="topAvatar" class="top-avatar" src="../../Home/assets/photographer.png" alt="WonG avatar" />
+            <button class="user-menu" type="button" aria-label="User menu">
+              <span data-render="topName">WonG</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5" /></svg>
+            </button>
+          </div>
+        </header>
+
+        <div id="unsavedNotice" class="unsaved-notice" hidden>
+          <span class="notice-dot" aria-hidden="true"></span>
+          <p>You have unsaved changes.</p>
+          <button type="button" data-action="dismiss-unsaved" aria-label="Dismiss unsaved notice">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5 5 19" /></svg>
+          </button>
+        </div>
+
+        <section class="workspace-grid" aria-label="Profile editor">
+          <article class="panel preview-panel">
+            <div class="panel-heading">
+              <h2>Public Profile Preview</h2>
+              <a class="ghost-button" href="../../about/index.html" data-render="publicPageLink">
+                View Public Page
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M10 14 20 4M20 14v6H4V4h6" /></svg>
+              </a>
+            </div>
+            <div id="profilePreview" class="profile-preview" aria-live="polite"></div>
+          </article>
+
+          <article class="panel editor-panel">
+            <div class="panel-heading editor-heading">
+              <h2>Edit Profile</h2>
+              <div class="button-row">
+                <button class="primary-button" type="button" data-action="save">Save Changes</button>
+                <button class="ghost-button" type="button" data-action="reset">Reset</button>
+              </div>
+            </div>
+            <div id="profileForm" class="editor-stack"></div>
+          </article>
+        </section>
+
+        <section class="panel timeline-panel" aria-labelledby="timelineTitle">
+          <div class="panel-heading">
+            <h2 id="timelineTitle">Experiences Timeline</h2>
+            <button class="primary-button add-button" type="button" data-action="add-experience">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+              Add Experience
+            </button>
+          </div>
+          <div class="table-wrap">
+            <table class="timeline-table">
+              <thead>
+                <tr>
+                  <th aria-label="Sort handle"></th>
+                  <th>Year</th>
+                  <th>Title / Role</th>
+                  <th>Place / Project</th>
+                  <th>Description</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="timelineRows"></tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="toast" class="toast" hidden role="status" aria-live="polite"></div>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

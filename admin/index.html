@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="WonG Visual Archive CMS unified mock administration system."
+    />
+    <title>WonG.Visual CMS - Admin</title>
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main id="loginScreen" class="login-screen" aria-labelledby="loginTitle">
+      <section class="login-visual" aria-label="Visual archive login">
+        <div class="login-rail">
+          <span>Visual Archive System</span>
+          <strong>A01</strong>
+          <span>Admin Area</span>
+        </div>
+        <figure>
+          <img src="../AdminLogin/assets/archive-desk.png" alt="Archive desk with cameras and printed photographs" />
+        </figure>
+      </section>
+
+      <section class="login-panel">
+        <p class="page-path">/ admin</p>
+        <form id="loginForm" class="login-card" novalidate>
+          <div class="card-heading">
+            <div>
+              <p class="eyebrow">Visual Archive CMS</p>
+              <h1 id="loginTitle">Admin Login</h1>
+            </div>
+            <span>Archive / A01</span>
+          </div>
+
+          <label class="field" for="loginUsername">
+            <span>Username</span>
+            <input id="loginUsername" name="username" type="text" autocomplete="username" required />
+          </label>
+
+          <label class="field" for="loginPassword">
+            <span>Password</span>
+            <input id="loginPassword" name="password" type="password" autocomplete="current-password" required />
+          </label>
+
+          <p id="loginError" class="form-error" hidden>Login failed. Check username and password.</p>
+
+          <button class="primary-button full" type="submit">Sign In</button>
+          <p class="protected-note">Protected mock area. Real deployment must use backend authentication.</p>
+        </form>
+      </section>
+    </main>
+
+    <div id="adminShell" class="admin-shell" hidden>
+      <aside class="sidebar" aria-label="Admin navigation">
+        <a class="brand" href="#dashboard" data-view-link="dashboard" aria-label="Dashboard">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>
+            <strong>Wong.Visual</strong>
+            <small>Visual Archive CMS</small>
+          </span>
+        </a>
+
+        <nav id="sidebarNav" class="side-nav" aria-label="Admin modules"></nav>
+
+        <section class="sidebar-card" aria-label="Signed in user">
+          <div class="mini-user">
+            <img id="sidebarAvatar" src="../Home/assets/photographer.png" alt="WonG avatar" />
+            <span>
+              <strong id="sidebarName">WonG</strong>
+              <small>Administrator</small>
+            </span>
+          </div>
+          <dl class="sidebar-meta">
+            <div><dt>Role</dt><dd>Administrator</dd></div>
+            <div><dt>Session</dt><dd>Mock local</dd></div>
+          </dl>
+          <button class="text-action" type="button" data-action="logout">Log Out</button>
+        </section>
+      </aside>
+
+      <main class="admin-main">
+        <header class="topbar">
+          <div>
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+              <a href="#dashboard" data-view-link="dashboard">Home</a>
+              <span>/</span>
+              <span>admin</span>
+              <span>/</span>
+              <strong id="breadcrumbView">dashboard</strong>
+            </nav>
+            <div class="title-row">
+              <div>
+                <h1 id="viewTitle">Dashboard</h1>
+                <p id="viewSubtitle">Visual archive administration overview.</p>
+              </div>
+              <p class="archive-number">Archive No. <strong id="viewArchiveNo">A00</strong></p>
+            </div>
+          </div>
+
+          <div class="top-actions">
+            <div id="unsavedNotice" class="unsaved-notice" hidden>
+              <span aria-hidden="true"></span>
+              Unsaved changes
+            </div>
+            <button class="primary-button" type="button" data-action="save-current">Save Changes</button>
+            <button class="secondary-button" type="button" data-action="reset-current">Reset</button>
+            <button class="icon-button" type="button" aria-label="Notifications">
+              <span id="topUnreadBadge" class="dot-badge">0</span>
+            </button>
+            <img id="topAvatar" class="top-avatar" src="../Home/assets/photographer.png" alt="WonG avatar" />
+            <button class="user-menu" type="button" data-action="logout">
+              <span id="topName">WonG</span>
+            </button>
+          </div>
+        </header>
+
+        <section id="viewRoot" class="view-root" aria-live="polite"></section>
+      </main>
+    </div>
+
+    <div id="toast" class="toast" hidden role="status" aria-live="polite"></div>
+
+    <div id="confirmModal" class="modal-backdrop" hidden>
+      <section class="confirm-card" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
+        <h2 id="confirmTitle">Confirm action</h2>
+        <p id="confirmMessage">Are you sure?</p>
+        <div class="confirm-actions">
+          <button class="secondary-button" type="button" data-confirm-cancel>Cancel</button>
+          <button class="danger-button" type="button" data-confirm-ok>Confirm</button>
+        </div>
+      </section>
+    </div>
+
+    <script src="../shared/cms-data.js" defer></script>
+    <script src="script.js" defer></script>
+  </body>
+</html>

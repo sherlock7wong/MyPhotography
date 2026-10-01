@@ -4,6 +4,7 @@
 .git/
 .git-new/
 .git-upload/
+site-deployment/
 node_modules/
 dist/
 .wrangler/

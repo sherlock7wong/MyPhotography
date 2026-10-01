@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="City Humanity collection by WonG, a warm photography archive of streets, stations, markets, public space, and daily city movement."
+    />
+    <meta property="og:title" content="WonG - City Humanity" />
+    <meta
+      property="og:description"
+      content="A quiet city humanity archive of public space, movement, and everyday rhythm."
+    />
+    <meta property="og:image" content="assets/hero-street.png" />
+    <title>WonG - City Humanity</title>
+    <link rel="preload" as="image" href="assets/hero-street.png" />
+    <link rel="preload" as="image" href="assets/detail-commute.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header" aria-label="Primary">
+        <a class="brand" href="../Home/index.html" aria-label="WonG home">WonG</a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="../Home/index.html">Home</a>
+          <a href="../about/index.html">About</a>
+          <a href="../Project/index.html">Projects</a>
+          <a class="is-active" href="../photography/index.html" aria-current="page">Photography</a>
+          <a href="../Contact/index.html">Contact</a>
+        </nav>
+        <p class="header-kicker">Photographer / Visual Archive</p>
+      </header>
+
+      <main id="city-humanity" class="city-page">
+        <section class="city-hero" aria-labelledby="city-title">
+          <aside class="collection-rail reveal-item" aria-label="City humanity collection marker">
+            <span aria-hidden="true"></span>
+            <p>City Humanity Collection</p>
+            <strong>06</strong>
+            <span aria-hidden="true"></span>
+          </aside>
+
+          <div class="hero-copy reveal-item">
+            <p class="page-path">/photography/city-humanity</p>
+            <h1 id="city-title">City Humanity</h1>
+            <p class="hero-description">
+              城市是由人构成的现场。<br />
+              街道、站台、市场、广场，日常在此流动。<br />
+              我以观察者的视角，记录城市中的个体与群体，<br />
+              捕捉公共空间里那些安静、真实、易逝的瞬间与痕迹。
+            </p>
+          </div>
+
+          <aside class="archive-meta reveal-item" aria-label="Archive metadata">
+            <span>Archive No.</span>
+            <strong>06</strong>
+            <span>Updated</span>
+            <b>May 2025</b>
+            <span>Based in</span>
+            <b>Shenzhen, China</b>
+          </aside>
+
+          <figure class="hero-frame reveal-item">
+            <img
+              src="assets/hero-street.png"
+              alt="People crossing a city street in a dense old block"
+              width="852"
+              height="249"
+              decoding="async"
+            />
+            <figcaption aria-label="Hero photo metadata">
+              <span><b>City</b> Shenzhen</span>
+              <span><b>Year</b> 2024</span>
+              <span><b>Route</b> Nanshan Old Street</span>
+              <span><b>Time</b> 16:42</span>
+            </figcaption>
+          </figure>
+        </section>
+
+        <section class="archive-toolbar reveal-item" aria-label="City humanity filter and view controls">
+          <div class="filter-group" data-filter-group role="group" aria-label="Filter city humanity photos">
+            <span>Filter:</span>
+          </div>
+
+          <div class="sort-controls">
+            <label for="photo-sort">Sort by:</label>
+            <select id="photo-sort" data-sort aria-label="Sort city humanity photos">
+              <option value="latest">Latest</option>
+              <option value="oldest">Oldest</option>
+              <option value="title">Title</option>
+            </select>
+            <div class="view-toggle" role="group" aria-label="Toggle gallery view">
+              <button class="is-active" type="button" data-view="grid" aria-label="Grid view" aria-pressed="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" />
+                </svg>
+              </button>
+              <button type="button" data-view="list" aria-label="List view" aria-pressed="false">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M5 7h14M5 12h14M5 17h14" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="gallery-section reveal-section" aria-labelledby="gallery-title">
+          <h2 id="gallery-title" class="sr-only">City humanity works</h2>
+          <div class="gallery-layout">
+            <div class="photo-grid" data-photo-grid aria-live="polite"></div>
+
+            <aside class="detail-panel" data-detail-panel tabindex="-1" aria-label="Selected city humanity photo details">
+              <button class="detail-close" type="button" data-detail-close aria-label="Close photo details">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <div class="detail-image-wrap">
+                <img data-detail-image src="assets/detail-commute.png" alt="An elderly passenger looking out from a bus window" />
+              </div>
+              <div class="detail-heading">
+                <h3 data-detail-title>公交车上</h3>
+                <p data-detail-meta>
+                  <span>Commute</span>
+                  <span>2024</span>
+                </p>
+              </div>
+              <p class="detail-description" data-detail-description>
+                傍晚的公交车，光线透过车窗落在她的身上。城市在移动，人们也在各自的方向上前行。
+              </p>
+              <dl class="detail-specs" data-detail-specs></dl>
+              <div class="detail-actions">
+                <button type="button" data-photo-prev aria-label="Previous photo">Prev</button>
+                <span data-detail-count>1 / 9</span>
+                <button type="button" data-photo-next aria-label="Next photo">Next</button>
+              </div>
+            </aside>
+          </div>
+          <p class="empty-state" data-empty-state hidden>No images found in this archive view.</p>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" role="img">
+            <path d="M16 12h16l3 5h5a4 4 0 0 1 4 4v17a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V21a4 4 0 0 1 4-4h5l3-5Z" />
+            <circle cx="24" cy="29" r="8" />
+            <path d="M34 22h4" />
+          </svg>
+        </div>
+        <div class="footer-column">
+          <span>Archive</span>
+          <p>WonG</p>
+        </div>
+        <div class="footer-column">
+          <span>Capture Life</span>
+          <p>Keep it real.</p>
+        </div>
+        <div class="footer-column">
+          <span>City Humanity</span>
+          <p>Public moments.</p>
+        </div>
+        <p class="copyright">&copy; 2026 WonG. All rights reserved.</p>
+      </footer>
+    </div>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

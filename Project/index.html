@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Projects by WonG, a selection of independent photography projects exploring place, life, and light."
+    />
+    <meta property="og:title" content="WonG - Projects" />
+    <meta
+      property="og:description"
+      content="A visual archive of independent photography projects, portraits, landscapes, and city stories."
+    />
+    <meta property="og:image" content="assets/project-edges-light.png" />
+    <title>WonG - Projects</title>
+    <link rel="icon" href="data:," />
+    <link rel="preload" as="image" href="assets/project-edges-light.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../shared/effects.css" />
+  </head>
+  <body>
+    <div class="project-page-shell">
+      <header class="project-header" aria-label="Primary">
+        <a class="brand" href="../Home/index.html" aria-label="WonG home">WonG</a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="../Home/index.html">Home</a>
+          <a href="../about/index.html">About</a>
+          <a class="is-active" href="index.html" aria-current="page">Projects</a>
+          <a href="../photography/index.html">Photography</a>
+          <a href="../Contact/index.html">Contact</a>
+        </nav>
+        <p class="header-kicker">Photographer / Visual Archive</p>
+      </header>
+
+      <main id="projects">
+        <section class="projects-hero" aria-labelledby="projects-title">
+          <div class="hero-copy reveal-item">
+            <h1 id="projects-title">Projects</h1>
+            <p class="page-path">/projects</p>
+            <p class="hero-description">
+              A selection of independent photography projects.<br />
+              Each project is a personal exploration of place, life, and light.
+            </p>
+          </div>
+
+          <aside class="archive-meta reveal-item" aria-label="Archive metadata">
+            <span>Archive No.</span>
+            <strong>02</strong>
+            <span>Updated</span>
+            <b>May 2025</b>
+            <span>Based in</span>
+            <b>Shenzhen, China</b>
+          </aside>
+
+          <aside class="archive-stamp reveal-item" aria-label="Projects archive number">
+            <span class="corner corner-top-left" aria-hidden="true"></span>
+            <span class="corner corner-top-right" aria-hidden="true"></span>
+            <span class="corner corner-bottom-left" aria-hidden="true"></span>
+            <span class="corner corner-bottom-right" aria-hidden="true"></span>
+            <p>WonG Archive<br />Projects Collection</p>
+            <strong>02</strong>
+          </aside>
+        </section>
+
+        <section class="project-exhibition reveal-item" aria-labelledby="exhibition-title">
+          <div class="section-topline">
+            <h2 id="exhibition-title">Project Exhibition</h2>
+            <div class="project-controls" aria-label="Project controls">
+              <button class="icon-button" type="button" data-project-prev aria-label="Previous project">
+                &larr;
+              </button>
+              <button class="icon-button" type="button" data-project-next aria-label="Next project">
+                &rarr;
+              </button>
+            </div>
+          </div>
+
+          <div class="project-rail" aria-label="Project position">
+            <button class="rail-node" type="button" data-project-node="0" aria-label="Select City Rhythm"></button>
+            <button
+              class="rail-node is-active"
+              type="button"
+              data-project-node="1"
+              aria-label="Select Edges of Light"
+              aria-current="true"
+            ></button>
+            <button class="rail-node" type="button" data-project-node="2" aria-label="Select Seen in Silence"></button>
+            <button class="rail-node" type="button" data-project-node="3" aria-label="Select Highlands"></button>
+          </div>
+
+          <div class="project-grid" data-project-list>
+            <article class="project-card" id="project-city-rhythm" data-project-card data-index="0" tabindex="0">
+              <img
+                src="assets/project-city-rhythm.png"
+                alt="A person crossing a street in a quiet city neighborhood"
+                width="292"
+                height="213"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="project-card-body">
+                <h3>City Rhythm</h3>
+                <p class="project-tag">City Humanity</p>
+                <dl class="project-meta">
+                  <div>
+                    <dt>Location</dt>
+                    <dd>Shanghai, China</dd>
+                  </div>
+                  <div>
+                    <dt>Year</dt>
+                    <dd>2023</dd>
+                  </div>
+                </dl>
+                <p class="project-summary">
+                  Fragments of everyday life in the city. People, streets and the rhythm that connects them.
+                </p>
+                <a class="view-link" href="#project-city-rhythm">View Collection <span aria-hidden="true">&rarr;</span></a>
+              </div>
+            </article>
+
+            <article
+              class="project-card is-active"
+              id="project-edges-light"
+              data-project-card
+              data-index="1"
+              tabindex="0"
+              aria-selected="true"
+            >
+              <img
+                src="assets/project-edges-light.png"
+                alt="A misty coastline with waves and cliffs"
+                width="386"
+                height="242"
+                decoding="async"
+              />
+              <div class="project-card-body">
+                <h3>Edges of Light</h3>
+                <p class="project-tag">Landscape</p>
+                <dl class="project-meta">
+                  <div>
+                    <dt>Location</dt>
+                    <dd>Northern California, USA</dd>
+                  </div>
+                  <div>
+                    <dt>Year</dt>
+                    <dd>2022</dd>
+                  </div>
+                </dl>
+                <p class="project-summary">
+                  Coastlines, fog and open distance. A personal study of atmosphere and light.
+                </p>
+                <a class="view-link" href="#project-edges-light">View Collection <span aria-hidden="true">&rarr;</span></a>
+              </div>
+            </article>
+
+            <article class="project-card" id="project-seen-silence" data-project-card data-index="2" tabindex="0">
+              <img
+                src="assets/project-seen-silence.png"
+                alt="A quiet portrait of a woman sitting beside a window"
+                width="287"
+                height="218"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="project-card-body">
+                <h3>Seen in Silence</h3>
+                <p class="project-tag">Portrait</p>
+                <dl class="project-meta">
+                  <div>
+                    <dt>Location</dt>
+                    <dd>Shenzhen, China</dd>
+                  </div>
+                  <div>
+                    <dt>Year</dt>
+                    <dd>2021</dd>
+                  </div>
+                </dl>
+                <p class="project-summary">
+                  Intimate portraits of people I've met. Quiet moments, honest expressions.
+                </p>
+                <a class="view-link" href="#project-seen-silence">View Collection <span aria-hidden="true">&rarr;</span></a>
+              </div>
+            </article>
+
+            <article class="project-card" id="project-highlands" data-project-card data-index="3" tabindex="0">
+              <img
+                src="assets/project-highlands.png"
+                alt="A mountain ridge in warm light with distant peaks"
+                width="281"
+                height="216"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="project-card-body">
+                <h3>Highlands</h3>
+                <p class="project-tag">Landscape</p>
+                <dl class="project-meta">
+                  <div>
+                    <dt>Location</dt>
+                    <dd>Yunnan, China</dd>
+                  </div>
+                  <div>
+                    <dt>Year</dt>
+                    <dd>2020</dd>
+                  </div>
+                </dl>
+                <p class="project-summary">
+                  On the road in the mountains. Searching for scale, silence and light.
+                </p>
+                <a class="view-link" href="#project-highlands">View Collection <span aria-hidden="true">&rarr;</span></a>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="project-footer">
+        <div class="footer-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" role="img">
+            <path d="M16 12h16l3 5h5a4 4 0 0 1 4 4v17a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V21a4 4 0 0 1 4-4h5l3-5Z" />
+            <circle cx="24" cy="29" r="8" />
+            <path d="M34 22h4" />
+          </svg>
+        </div>
+        <div class="footer-column">
+          <span>Archive</span>
+          <p>WonG</p>
+        </div>
+        <div class="footer-column">
+          <span>Capture Life</span>
+          <p>Keep it real.</p>
+        </div>
+        <div class="footer-column">
+          <span>Photography</span>
+          <p>Stories in light.</p>
+        </div>
+        <p class="copyright">&copy; 2025 WonG. All rights reserved.</p>
+      </footer>
+    </div>
+
+    <script src="../shared/cms-data.js" defer></script>
+    <script src="script.js" defer></script>
+    <script src="../shared/effects.js" defer></script>
+  </body>
+</html>

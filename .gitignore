@@ -1,0 +1,16 @@
+.agents/
+.codex/
+.codex-backups/
+.git/
+.git-new/
+.git-upload/
+node_modules/
+dist/
+.wrangler/
+.npm-cache/
+*.log
+*.tmp
+Thumbs.db
+.DS_Store
+davinci_*.lua
+downloaded_assets/

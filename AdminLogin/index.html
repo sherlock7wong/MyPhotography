@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="WonG Visual Archive CMS admin login page." />
+    <meta property="og:title" content="WonG Visual Archive CMS - Admin Login" />
+    <meta property="og:description" content="Protected visual archive administration entrance." />
+    <meta property="og:image" content="assets/archive-desk.png" />
+    <title>WonG Visual Archive CMS - Admin Login</title>
+    <link rel="preload" as="image" href="assets/archive-desk.png" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="admin-login-page" aria-labelledby="login-title">
+      <div class="archive-shell">
+        <div class="top-rule" aria-hidden="true"></div>
+        <p class="cms-label">Visual Archive CMS</p>
+
+        <aside class="side-rail" aria-label="Archive section">
+          <span class="rail-dot rail-dot-top" aria-hidden="true"></span>
+          <span class="rail-line" aria-hidden="true"></span>
+          <p class="rail-title">Visual Archive System</p>
+          <strong>
+            <span>A</span>
+            <span>01</span>
+          </strong>
+          <p class="rail-area">Admin Area</p>
+          <span class="rail-dot rail-dot-bottom" aria-hidden="true"></span>
+        </aside>
+
+        <section class="photo-panel reveal-item" aria-label="Visual archive desk photograph">
+          <img
+            src="assets/archive-desk.png"
+            alt="A warm archive desk with cameras, printed photographs, notebooks, and film materials"
+            width="722"
+            height="781"
+            decoding="async"
+          />
+        </section>
+
+        <section class="login-column reveal-item" aria-label="Admin login form">
+          <p class="page-path">/ admin/login</p>
+
+          <form class="login-card" novalidate data-login-form>
+            <div class="card-heading">
+              <div>
+                <h1 id="login-title">Admin Login</h1>
+                <p>管理系统登录</p>
+              </div>
+              <span>Archive / A01</span>
+            </div>
+
+            <div class="form-rule" aria-hidden="true"></div>
+
+            <div class="field-group">
+              <label for="email">Email</label>
+              <div class="input-shell is-filled">
+                <input id="email" name="email" type="email" value="admin@wong.visual" autocomplete="username" />
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 6h16v12H4z" />
+                  <path d="m4.7 7 7.3 6 7.3-6" />
+                </svg>
+              </div>
+              <p class="field-error" data-error-for="email"></p>
+            </div>
+
+            <div class="field-group">
+              <label for="password">Password</label>
+              <div class="input-shell">
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  value="archive01"
+                  autocomplete="current-password"
+                />
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <rect x="6" y="10" width="12" height="10" rx="1.6" />
+                  <path d="M8.6 10V7.8a3.4 3.4 0 0 1 6.8 0V10" />
+                  <path d="M12 14.2v2.2" />
+                </svg>
+              </div>
+              <p class="field-error" data-error-for="password"></p>
+            </div>
+
+            <div class="form-options">
+              <label class="remember-control">
+                <input type="checkbox" name="remember" checked />
+                <span aria-hidden="true"></span>
+                Remember me
+              </label>
+              <button class="text-button" type="button" data-forgot-password>Forgot password?</button>
+            </div>
+
+            <button class="signin-button" type="submit">
+              <span>Sign In</span>
+              <svg viewBox="0 0 28 18" aria-hidden="true">
+                <path d="M1 9h24" />
+                <path d="m18 2 7 7-7 7" />
+              </svg>
+            </button>
+
+            <p class="protected-note">
+              <span aria-hidden="true"></span>
+              Protected area. Authorized access only.
+            </p>
+          </form>
+
+          <div class="alert-card" role="status" aria-live="polite" data-login-alert>
+            <svg class="alert-icon" viewBox="0 0 38 34" aria-hidden="true">
+              <path d="M19 2 36 32H2L19 2Z" />
+              <path d="M19 12v9" />
+              <path d="M19 26h.01" />
+            </svg>
+            <p>
+              Login failed. Please check your email<br />
+              and password and try again.
+            </p>
+            <button type="button" aria-label="Close login alert" data-alert-close>
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </section>
+
+        <footer class="archive-footer">
+          <p>&copy; 2020 - 2025 WonG. All Rights Reserved.</p>
+          <p>Private Archive. All Access Logged.</p>
+          <p>Shenzhen, China <span aria-hidden="true"></span></p>
+        </footer>
+      </div>
+    </main>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

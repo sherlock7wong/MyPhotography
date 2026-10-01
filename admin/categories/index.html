@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="WonG Visual Archive CMS mock page for managing photography categories."
+    />
+    <title>WonG.Visual CMS - Categories</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="sidebar" aria-label="Admin navigation">
+        <a class="brand" href="../../Home/index.html" aria-label="WonG Visual home">
+          <svg class="brand-mark" viewBox="0 0 32 52" aria-hidden="true">
+            <path d="M16 3v46M9 13l7 7 7-7M7 30l9 8 9-8" />
+            <circle cx="16" cy="7" r="2.4" />
+            <circle cx="7" cy="24" r="2" />
+            <circle cx="25" cy="24" r="2" />
+          </svg>
+          <span>
+            <strong>Wong.Visual</strong>
+            <small>Visual Archive CMS</small>
+          </span>
+        </a>
+
+        <nav class="side-nav">
+          <a class="nav-item" href="../dashboard/index.html" aria-label="Dashboard">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z" /></svg>
+            <span>Dashboard</span>
+          </a>
+          <a class="nav-item" href="../profile/index.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM4 21a8 8 0 0 1 16 0" /></svg>
+            <span>Profile</span>
+          </a>
+          <a class="nav-item" href="../../backendProject/backendProject.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4zM4 9h16M8 3v4M16 3v4" /></svg>
+            <span>Projects</span>
+          </a>
+          <a class="nav-item" href="../gallery/index.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v14H4zM8 15l3-3 3 3 2-2 4 4M8 9h.01" /></svg>
+            <span>Gallery</span>
+          </a>
+          <a class="nav-item is-active" href="index.html" aria-current="page">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h6v6H4zM14 4h6v6h-6zM4 14h6v6H4zM14 14h6v6h-6z" /></svg>
+            <span>Categories</span>
+          </a>
+          <a class="nav-item" href="../../backendContact/backendContact.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v12H4zM4 7l8 6 8-6" /></svg>
+            <span>Contact</span>
+          </a>
+          <a class="nav-item" href="../../backendMessages/backendMessages.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v12H8l-4 4z" /></svg>
+            <span>Messages</span>
+            <small class="nav-badge">4</small>
+          </a>
+          <a class="nav-item" href="../settings/index.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z" />
+              <path d="m4 13-1-1 1-1 2-.4.7-1.7-1.1-1.7 1.4-1.4 1.7 1.1 1.7-.7L11 3h2l.4 2.3 1.7.7 1.7-1.1 1.4 1.4-1.1 1.7.7 1.7 2.2.3v2l-2.2.4-.7 1.7 1.1 1.7-1.4 1.4-1.7-1.1-1.7.7L13 21h-2l-.4-2.3-1.7-.7-1.7 1.1-1.4-1.4 1.1-1.7-.7-1.7Z" />
+            </svg>
+            <span>Settings</span>
+          </a>
+        </nav>
+
+        <section class="sidebar-card" aria-label="Signed in user">
+          <div class="mini-user">
+            <img src="../../Home/assets/photographer.png" alt="WonG avatar" />
+            <span>
+              <strong>WonG</strong>
+              <small>Administrator</small>
+            </span>
+          </div>
+          <dl class="sidebar-meta">
+            <div><dt>Role</dt><dd>Administrator</dd></div>
+            <div><dt>Last Login</dt><dd>May 12, 2025 10:24</dd></div>
+          </dl>
+          <a class="logout-link" href="../../AdminLogin/index.html">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 17H5V7h5M14 16l4-4-4-4M8 12h10" /></svg>
+            Log Out
+          </a>
+        </section>
+      </aside>
+
+      <main class="admin-main">
+        <header class="topbar">
+          <div>
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+              <a href="../../Home/index.html" aria-label="Home">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11 12 4l9 7M5 10v10h14V10" /></svg>
+              </a>
+              <span>/</span>
+              <a href="#">admin</a>
+              <span>/</span>
+              <span>categories</span>
+            </nav>
+            <div class="title-row">
+              <div>
+                <h1>CATEGORIES</h1>
+                <p>Manage photography categories and their page content.</p>
+              </div>
+              <p class="archive-number">Archive No. <strong>A04</strong></p>
+            </div>
+          </div>
+
+          <div class="top-actions">
+            <button class="top-save-button" type="button" data-action="save-data">Save Changes</button>
+            <button class="top-reset-button" type="button" data-action="reset-data">Reset</button>
+            <button class="icon-button notification-button" type="button" aria-label="Notifications">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9a6 6 0 0 1 12 0c0 7 3 7 3 9H3c0-2 3-2 3-9M10 21h4" /></svg>
+              <span aria-hidden="true"></span>
+            </button>
+            <img class="top-avatar" src="../../Home/assets/photographer.png" alt="WonG avatar" />
+            <button class="user-menu" type="button" aria-label="User menu">
+              <span>WonG</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m7 10 5 5 5-5" /></svg>
+            </button>
+          </div>
+        </header>
+
+        <div id="unsavedNotice" class="unsaved-notice" hidden>
+          <span class="notice-dot" aria-hidden="true"></span>
+          <p>Unsaved changes</p>
+        </div>
+
+        <section class="workspace" aria-label="Category management workspace">
+          <div class="content-column">
+            <section id="categoryPanel" class="panel category-panel" aria-labelledby="categoryManagerTitle">
+              <div class="category-toolbar">
+                <h2 id="categoryManagerTitle" class="sr-only">Category manager</h2>
+                <button class="primary-button" type="button" data-action="add-category">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14" /></svg>
+                  Add Category
+                </button>
+
+                <label class="select-field" aria-label="Bulk Actions">
+                  <select id="bulkAction">
+                    <option value="">Bulk Actions</option>
+                    <option value="publish">Publish</option>
+                    <option value="hide">Hide</option>
+                    <option value="delete">Delete</option>
+                  </select>
+                </label>
+
+                <button class="ghost-button" type="button" data-action="apply-bulk">Apply</button>
+
+                <label class="search-box">
+                  <input id="searchInput" type="search" placeholder="Search categories..." aria-label="Search categories" />
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m21 21-4.5-4.5M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" /></svg>
+                </label>
+              </div>
+
+              <div id="categoryComponentNotice" class="component-disabled-note" hidden>
+                Categories Section is disabled in Component Control. Management remains available here.
+              </div>
+
+              <div class="table-wrap">
+                <table class="category-table">
+                  <thead>
+                    <tr>
+                      <th scope="col" class="handle-col"><span class="sr-only">Drag handle</span></th>
+                      <th scope="col">Order</th>
+                      <th scope="col">Category</th>
+                      <th scope="col">Slug</th>
+                      <th scope="col">Photos</th>
+                      <th scope="col">Visibility</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="categoryRows"></tbody>
+                </table>
+                <p id="emptyState" class="empty-state" hidden>No categories match this search.</p>
+              </div>
+
+              <div class="table-footer">
+                <p id="resultCount">Showing 0 to 0 of 0 categories</p>
+                <p>Drag rows or use the arrow buttons to update sort order.</p>
+              </div>
+            </section>
+
+            <section class="panel component-panel" aria-labelledby="componentControlTitle">
+              <div class="panel-heading">
+                <div>
+                  <h2 id="componentControlTitle">Component Control</h2>
+                  <p>Toggle photography-page modules used by category preview and management.</p>
+                </div>
+                <span>Page Map</span>
+              </div>
+
+              <div id="componentControls" class="component-grid"></div>
+              <div id="componentPreview" class="component-preview" aria-live="polite"></div>
+            </section>
+          </div>
+
+          <aside class="panel edit-panel" aria-labelledby="editCategoryTitle">
+            <div class="edit-heading">
+              <h2 id="editCategoryTitle">Edit Category</h2>
+              <button class="plain-icon" type="button" data-action="close-editor" aria-label="Close edit panel">&times;</button>
+            </div>
+
+            <p id="editorEmpty" class="edit-empty" hidden>Select a category row to edit its content.</p>
+
+            <form id="categoryForm" class="edit-form" novalidate>
+              <div class="form-grid">
+                <label class="field">
+                  <span>Category Name <b>*</b></span>
+                  <input id="categoryName" data-field="name" required />
+                </label>
+                <label class="field">
+                  <span>Slug <b>*</b></span>
+                  <input id="categorySlug" data-field="slug" required />
+                </label>
+
+                <label class="field is-wide counter-field">
+                  <span>Hero Title</span>
+                  <input id="heroTitle" data-field="heroTitle" maxlength="60" />
+                  <small><span data-count-for="heroTitle">0</span> / 60</small>
+                </label>
+
+                <label class="field is-wide counter-field">
+                  <span>Description</span>
+                  <textarea id="description" data-field="description" maxlength="300"></textarea>
+                  <small><span data-count-for="description">0</span> / 300</small>
+                </label>
+
+                <div class="field cover-field">
+                  <span>Cover Image</span>
+                  <figure class="cover-preview">
+                    <img id="coverPreview" alt="" />
+                    <figcaption id="coverPlaceholder">No image selected</figcaption>
+                  </figure>
+                  <label class="image-button">
+                    <input id="coverInput" type="file" accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp" />
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M5 20h14" /></svg>
+                    Change Image
+                  </label>
+                </div>
+
+                <label class="field cover-alt-field">
+                  <span>Cover Alt</span>
+                  <textarea id="coverAlt" data-field="coverAlt"></textarea>
+                </label>
+
+                <label class="field is-wide counter-field">
+                  <span>SEO Title</span>
+                  <input id="seoTitle" data-field="seoTitle" maxlength="60" />
+                  <small><span data-count-for="seoTitle">0</span> / 60</small>
+                </label>
+
+                <label class="field is-wide counter-field">
+                  <span>SEO Description</span>
+                  <textarea id="seoDescription" data-field="seoDescription" maxlength="160"></textarea>
+                  <small><span data-count-for="seoDescription">0</span> / 160</small>
+                </label>
+
+                <label class="field">
+                  <span>Photos</span>
+                  <input id="photoCount" data-field="photoCount" type="number" min="0" step="1" />
+                </label>
+
+                <label class="field">
+                  <span>Status</span>
+                  <select id="status" data-field="status">
+                    <option>Published</option>
+                    <option>Draft</option>
+                  </select>
+                </label>
+
+                <div class="field">
+                  <span>Visibility</span>
+                  <label class="switch-row">
+                    <span id="visibilityLabel">Public</span>
+                    <span class="switch">
+                      <input id="visibilitySwitch" type="checkbox" data-field="visibility" />
+                      <span aria-hidden="true"></span>
+                    </span>
+                  </label>
+                </div>
+
+                <label class="field">
+                  <span>Sort Order</span>
+                  <input id="sortOrder" data-field="sortOrder" type="number" min="1" step="1" />
+                </label>
+              </div>
+
+              <div class="edit-actions">
+                <button class="edit-save" type="button" data-action="save-data">Save Changes</button>
+                <button class="edit-cancel" type="button" data-action="cancel-edit">Cancel</button>
+              </div>
+            </form>
+
+            <section class="live-panel" aria-labelledby="livePreviewTitle">
+              <div class="live-heading">
+                <h3 id="livePreviewTitle">Live Preview</h3>
+                <a id="viewOnSite" href="#" target="_self">
+                  View on site
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8M5 5h7M5 5v14h14v-7" /></svg>
+                </a>
+              </div>
+              <div id="livePreview" class="live-preview"></div>
+            </section>
+          </aside>
+        </section>
+      </main>
+    </div>
+
+    <div id="toast" class="toast" hidden role="status" aria-live="polite"></div>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

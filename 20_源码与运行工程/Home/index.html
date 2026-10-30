@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="WonG Archive, a personal photography archive exploring portraits, landscapes, city humanity, and quiet everyday moments."
+    />
+    <meta property="og:title" content="WonG Archive - Home" />
+    <meta
+      property="og:description"
+      content="A warm visual archive of light, place, people, and everyday stories by WonG."
+    />
+    <meta property="og:image" content="assets/photographer.png" />
+    <title>WonG Archive - Home</title>
+    <link rel="icon" href="data:," />
+    <script>
+      if (document.querySelector('meta[name="cms-mode"]')?.content === "cloud") {
+        document.documentElement.dataset.cmsPending = "true";
+      }
+    </script>
+    <script src="../shared/motion-preferences.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="../shared/effects.css" />
+  <link rel="stylesheet" href="../shared/image-protection.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header" aria-label="Primary">
+        <a class="brand" href="index.html" aria-label="WonG home">WonG</a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a class="is-active" href="index.html" aria-current="page">Home</a>
+          <a href="../about/index.html">About</a>
+          <a href="../Project/index.html">Projects</a>
+          <a href="../photography/index.html">Photography</a>
+          <a href="../Contact/index.html">Contact</a>
+        </nav>
+        <p class="header-kicker">Photographer / Visual Archive</p>
+      </header>
+
+      <main id="home" class="home-page">
+        <section class="archive-hero" aria-labelledby="home-title" data-hero>
+          <aside class="archive-meta reveal-item" aria-label="Archive metadata">
+            <span>Archive No.</span>
+            <strong>00</strong>
+            <span>Today</span>
+            <b><time data-current-date></time></b>
+            <span>Based in</span>
+            <b>Shenzhen, China</b>
+          </aside>
+
+          <div class="hero-stamp reveal-item" aria-label="Archive statement">
+            <span class="corner corner-top-left" aria-hidden="true"></span>
+            <span class="corner corner-top-right" aria-hidden="true"></span>
+            <span class="corner corner-bottom-left" aria-hidden="true"></span>
+            <span class="corner corner-bottom-right" aria-hidden="true"></span>
+            <span class="stamp-dot" aria-hidden="true"></span>
+            <p>Capture life,<br />stories in light.</p>
+          </div>
+
+          <h1 id="home-title" class="hero-title reveal-item">Wong Archive</h1>
+
+          <div class="photo-stage reveal-item" aria-label="Featured photography archive">
+            <div class="photo-strip" data-photo-strip></div>
+            <p class="featured-empty" data-featured-empty>Loading selected frames…</p>
+          </div>
+
+          <div class="hero-control reveal-item" aria-label="Selected frames navigation" hidden>
+            <div class="selection-info">
+              <span class="selection-label">Selected frames</span>
+              <span class="selection-count" data-selection-count></span>
+              <span class="selection-title" data-selection-title></span>
+            </div>
+            <div class="index-row" data-photo-index aria-label="Focus a selected photograph"></div>
+          </div>
+
+          <button class="scroll-callout reveal-item" type="button" data-next-frame aria-label="翻阅下一张精选照片" disabled>
+            <span>Scroll to explore</span>
+            <svg viewBox="0 0 42 18" aria-hidden="true">
+              <path d="M1 9h38M32 3l8 6-8 6" />
+            </svg>
+          </button>
+
+          <div class="cursor-mark" aria-hidden="true">
+            <span></span>
+            <svg viewBox="0 0 42 52">
+              <path d="M4 4 36 31 22 34l-5 13-4-15L4 4Z" />
+            </svg>
+          </div>
+        </section>
+
+        <section id="collections" class="comparison-section reveal-section" aria-labelledby="comparison-title">
+          <header class="comparison-heading">
+            <div>
+              <p class="comparison-kicker"><span aria-hidden="true">02 /</span> The editing room</p>
+              <h2 id="comparison-title" data-comparison-title>从原片，到成片。</h2>
+            </div>
+          </header>
+
+          <div class="comparison-layout">
+            <figure class="comparison-figure">
+              <div class="comparison-mat">
+                <div class="comparison-frame-label"><span data-comparison-work>Image study</span><span data-comparison-badge>交互示例 / DEMO</span></div>
+                <div class="comparison-stage is-demo" data-comparison-stage style="--comparison-position: 50%" aria-busy="true">
+                  <img class="comparison-photo comparison-after" data-comparison-after alt="" width="1200" height="800" decoding="async" />
+                  <img class="comparison-photo comparison-before" data-comparison-before alt="" width="1200" height="800" decoding="async" />
+                  <span class="comparison-label comparison-label-before" data-label-before>原片 <span>Before</span></span>
+                  <span class="comparison-label comparison-label-after" data-label-after>成片 <span>After</span></span>
+                  <span class="comparison-divider" aria-hidden="true">
+                    <span class="comparison-handle"><svg viewBox="0 0 40 22"><path d="m13 5-6 6 6 6M7 11h10m10-6 6 6-6 6m6-6H23" /></svg></span>
+                  </span>
+                  <input class="comparison-range" data-comparison-range type="range" min="0" max="100" step="1" value="50" aria-label="拖动对比原片与成片" aria-describedby="comparison-instructions comparison-disclosure" disabled />
+                  <p class="comparison-status" data-comparison-status role="status">正在载入影像…</p>
+                </div>
+                <div class="comparison-frame-foot"><span>Before / After</span><span aria-hidden="true">← A different point of view →</span></div>
+              </div>
+              <figcaption class="comparison-toolbar">
+                <p id="comparison-instructions">左右拖动比较 <span aria-hidden="true">/</span> 也可使用方向键</p>
+                <div class="comparison-modes" role="group" aria-label="对照查看方式">
+                  <button type="button" data-comparison-view="100" aria-pressed="false">原片</button>
+                  <button type="button" data-comparison-view="50" aria-pressed="true">对比</button>
+                  <button type="button" data-comparison-view="0" aria-pressed="false">成片</button>
+                </div>
+              </figcaption>
+              <p id="comparison-disclosure" class="comparison-disclosure">交互示例：当前使用同一张照片模拟对比效果，并非真实修图前后记录。</p>
+            </figure>
+
+            <aside class="comparison-notes" aria-labelledby="comparison-notes-title">
+              <p class="comparison-notes-kicker">Looking closer</p>
+              <h3 id="comparison-notes-title">看见变化，也看见取舍。</h3>
+              <ol class="comparison-note-list">
+                <li><span class="comparison-note-index" aria-hidden="true">01</span><div><h4>光线 <span>Light</span></h4><p data-comparison-light>观察高光与阴影之间，层次如何被保留。</p></div></li>
+                <li><span class="comparison-note-index" aria-hidden="true">02</span><div><h4>色调 <span>Tone</span></h4><p data-comparison-tone>比较冷暖与饱和度，感受画面的情绪变化。</p></div></li>
+                <li><span class="comparison-note-index" aria-hidden="true">03</span><div><h4>细节 <span>Detail</span></h4><p data-comparison-detail>留意局部细节，也让目光回到整体氛围。</p></div></li>
+              </ol>
+            </aside>
+          </div>
+        </section>
+      </main>
+
+      <footer id="contact" class="site-footer">
+        <div class="footer-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" role="img">
+            <path d="M16 12h16l3 5h5a4 4 0 0 1 4 4v17a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V21a4 4 0 0 1 4-4h5l3-5Z" />
+            <circle cx="24" cy="29" r="8" />
+            <path d="M34 22h4" />
+          </svg>
+        </div>
+        <div class="footer-column">
+          <span>Archive</span>
+          <p>WonG</p>
+        </div>
+        <div class="footer-column">
+          <span>Capture Life</span>
+          <p>Keep it real.</p>
+        </div>
+        <div class="footer-column">
+          <span>Photography</span>
+          <p>Stories in light.</p>
+        </div>
+        <p class="copyright">&copy; 2026 WonG. All rights reserved.</p>
+      </footer>
+    </div>
+
+    <script src="../shared/city-content.js" defer></script>
+    <script src="../shared/site-content.js" defer></script>
+    <script src="../shared/cms-pages.js" defer></script>
+    <script src="../shared/seo-meta.js" defer></script>
+  <script src="../shared/image-protection.js" defer></script>
+  <script src="../shared/cms-data.js" defer></script>
+  <script src="../shared/site-analytics.js" defer></script>
+    <script src="../shared/home-comparison.js" defer></script>
+  <script src="script.js" defer></script>
+    <script src="../shared/effects.js" defer></script>
+  </body>
+</html>

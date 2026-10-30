@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A photography project from the WonG visual archive." />
+    <meta property="og:title" content="WonG - Project collection" />
+    <meta property="og:description" content="Photographs, places, and stories from one project." />
+    <title>WonG - Project collection</title>
+    <link rel="icon" href="data:," />
+    <script src="../shared/motion-preferences.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="detail.css" />
+    <link rel="stylesheet" href="../shared/effects.css" />
+  <link rel="stylesheet" href="../shared/image-protection.css" />
+  </head>
+  <body class="project-detail-page">
+    <div class="project-page-shell">
+      <header class="project-header site-header" aria-label="Primary">
+        <a class="brand" href="../Home/index.html" aria-label="WonG home">WonG</a>
+        <nav class="main-nav" aria-label="Main navigation">
+          <a href="../Home/index.html">Home</a>
+          <a href="../about/index.html">About</a>
+          <a class="is-active" href="index.html" aria-current="page">Projects</a>
+          <a href="../photography/index.html">Photography</a>
+          <a href="../Contact/index.html">Contact</a>
+        </nav>
+        <p class="header-kicker">Photographer / Visual Archive</p>
+      </header>
+      <main id="project-detail">
+        <div class="project-detail-navigation">
+          <a class="project-back-link" href="index.html?page=1" data-project-back><span aria-hidden="true">←</span> <span data-project-back-label>All projects</span></a>
+          <div class="project-switcher">
+            <span class="project-switch-label" data-project-switch-label>Projects</span>
+            <nav data-project-switch aria-label="Switch photography project"></nav>
+          </div>
+        </div>
+        <section class="project-detail-missing" data-project-missing hidden aria-labelledby="project-missing-title">
+          <h1 id="project-missing-title" data-project-missing-title>Project unavailable</h1>
+          <p data-project-missing-text>This project is unavailable or has not been published.</p>
+        </section>
+        <div data-project-detail-content hidden>
+          <section class="project-detail-hero" aria-labelledby="project-detail-title">
+            <div class="project-detail-copy">
+              <p class="project-detail-kicker" data-project-detail-theme></p>
+              <h1 id="project-detail-title" data-project-detail-title></h1>
+              <dl class="project-collection-facts">
+                <div><dt data-project-total-label>Photographs</dt><dd data-project-total-photo-count data-project-overview-count>0</dd></div>
+                <div><dt data-project-pages-label>Pages</dt><dd data-project-overview-page><span data-project-current-photo-page>0</span> / <span data-project-photo-page-count>0</span></dd></div>
+              </dl>
+              <a class="project-browse-link" href="#project-photographs" data-project-browse><span data-project-browse-label>Browse photographs</span><span aria-hidden="true">↓</span></a>
+              <div class="project-page-index" data-project-page-index>
+                <p data-project-page-index-label>Page index</p>
+                <nav data-project-photo-groups aria-label="Project photograph page index"></nav>
+              </div>
+            </div>
+            <figure class="project-detail-cover"><img data-project-detail-cover src="assets/project-edges-light.png" alt="" width="800" height="600" decoding="async" /></figure>
+          </section>
+          <details class="project-notes" data-project-notes>
+            <summary data-project-notes-label>Project notes</summary>
+            <div class="project-notes-content">
+              <dl class="project-detail-meta">
+                <div><dt data-project-location-label>Location</dt><dd data-project-detail-location></dd></div>
+                <div><dt data-project-year-label>Year</dt><dd data-project-detail-year></dd></div>
+              </dl>
+              <p class="project-detail-description" data-project-detail-description></p>
+            </div>
+          </details>
+          <section id="project-photographs" class="project-photo-collection" aria-labelledby="project-collection-title">
+            <div class="project-collection-heading">
+              <h2 id="project-collection-title" data-project-collection-title>Project photographs</h2>
+              <p><span data-project-photo-count>0</span> <span data-project-photo-unit>images</span></p>
+            </div>
+            <div id="project-photo-results" class="project-photo-grid" data-project-photo-grid></div>
+            <p class="project-photos-empty" data-project-photos-empty hidden>No photographs have been added to this project yet.</p>
+            <nav class="gallery-pagination" data-project-photo-pagination aria-label="Project photograph pages"></nav>
+          </section>
+        </div>
+      </main>
+      <footer class="project-footer">
+        <div class="footer-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" role="img">
+            <path d="M16 12h16l3 5h5a4 4 0 0 1 4 4v17a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V21a4 4 0 0 1 4-4h5l3-5Z" />
+            <circle cx="24" cy="29" r="8" />
+            <path d="M34 22h4" />
+          </svg>
+        </div>
+        <div class="footer-column">
+          <span>Archive</span>
+          <p>WonG</p>
+        </div>
+        <div class="footer-column">
+          <span>Capture Life</span>
+          <p>Keep it real.</p>
+        </div>
+        <div class="footer-column">
+          <span>Photography</span>
+          <p>Stories in light.</p>
+        </div>
+        <p class="copyright">&copy; 2025 WonG. All rights reserved.</p>
+      </footer>
+    </div>
+    <dialog class="project-lightbox" data-project-lightbox data-project-photo-frame="film" aria-labelledby="project-lightbox-title">
+      <div class="project-lightbox-shell">
+        <button class="project-lightbox-close" type="button" data-project-lightbox-close>Close</button>
+        <figure class="project-lightbox-figure">
+          <div class="project-film-stage" data-project-film-stage>
+            <div class="project-film-frame" data-project-film-frame aria-busy="false">
+              <span class="project-film-brand" data-project-film-brand aria-hidden="true"></span>
+              <img data-project-lightbox-image alt="" hidden />
+              <span class="project-film-title" aria-hidden="true"><span data-project-film-label>Projects</span> / <span data-project-film-title></span></span>
+              <span class="project-image-status" data-project-image-loading hidden role="status">Loading photograph…</span>
+              <span class="project-image-status" data-project-image-error hidden role="status">This photograph could not be loaded.</span>
+            </div>
+          </div>
+          <figcaption>
+            <div><h2 id="project-lightbox-title" data-project-lightbox-title></h2><p data-project-lightbox-meta></p><p data-project-lightbox-description></p></div>
+            <p class="project-lightbox-position" data-project-lightbox-position role="status"></p>
+          </figcaption>
+        </figure>
+        <nav class="project-lightbox-controls" aria-label="Photo controls">
+          <button type="button" data-project-lightbox-prev>← Prev</button>
+          <button type="button" data-project-lightbox-next>Next →</button>
+        </nav>
+      </div>
+    </dialog>
+    <script src="../shared/city-content.js" defer></script>
+    <script src="../shared/site-content.js" defer></script>
+    <script src="../shared/cms-pages.js" defer></script>
+    <script src="../shared/seo-meta.js" defer></script>
+    <script src="../shared/image-protection.js" defer></script>
+  <script src="../shared/cms-data.js" defer></script>
+    <script src="../shared/site-analytics.js" defer></script>
+    <script src="../shared/project-collections.js" defer></script>
+    <script src="detail.js" defer></script>
+    <script src="../shared/effects.js" defer></script>
+  </body>
+</html>

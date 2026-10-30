@@ -1,0 +1,12 @@
+/* Image-only restrictions keep text, controls, swipes and comparison sliders usable. */
+img,
+picture,
+.comparison-stage,
+[data-image-save-guard] {
+  -webkit-touch-callout: none;
+}
+img {
+  -webkit-user-drag: none !important;
+  -webkit-user-select: none;
+  user-select: none;
+}

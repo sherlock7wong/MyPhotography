@@ -1,0 +1,890 @@
+{
+  "dashboard": {
+    "siteStatus": "Online",
+    "lastBackup": "Local mock only",
+    "storageUsage": "Local browser storage",
+    "storagePercent": 0,
+    "quickActions": true
+  },
+  "profile": {
+    "displayName": "WonG",
+    "role": "Photographer / Visual Archive",
+    "location": "Shenzhen, China",
+    "availability": "Open for commissioned projects and collaborations",
+    "shortIntro": "I explore the relationship between place and people. Natural light, honest observation, and quiet moments in between.",
+    "biography": "I'm WonG, a photographer and visual archivist drawn to honest moments, natural light, and the quiet poetry of everyday life.\n\nMy work moves between people and places - portraits, landscapes, and the rhythm of the city.",
+    "email": "wong.studios@proton.me",
+    "social": "",
+    "avatar": "../Home/assets/photographer.png",
+    "tags": [
+      "Portrait",
+      "Landscape",
+      "City Humanity",
+      "Personal",
+      "Documentary",
+      "Natural Light"
+    ],
+    "timeline": [
+      {
+        "id": "timeline-2014",
+        "date": "2014 - 2016",
+        "title": "Photography Beginnings",
+        "place": "Shenzhen, China",
+        "description": "Exploring street and travel photography. Learning to see the world with a camera.",
+        "active": true
+      },
+      {
+        "id": "timeline-2020",
+        "date": "2020 - 2022",
+        "title": "Collaboration & Projects",
+        "place": "Shenzhen, China",
+        "description": "Collaborating with brands and creators on photo and visual campaigns.",
+        "active": true
+      },
+      {
+        "id": "timeline-now",
+        "date": "2024 - Now",
+        "title": "Ongoing Archive",
+        "place": "Shenzhen, China",
+        "description": "Continuing the archive, exploring new stories and visual expressions.",
+        "active": true
+      }
+    ],
+    "components": {
+      "homeHeader": true,
+      "homeHero": true,
+      "photoStrip": true,
+      "introCard": true,
+      "aboutHero": true,
+      "biography": true,
+      "skills": true,
+      "timeline": true
+    }
+  },
+  "projects": [
+    {
+      "id": "project-city-rhythm",
+      "title": "City Rhythm",
+      "slug": "city-rhythm",
+      "theme": "Urban Documentary / City Life",
+      "location": "Shanghai, China",
+      "year": 2023,
+      "description": "Fragments of everyday life in the city. People, streets and the rhythm that connects them.",
+      "coverImage": "../Project/assets/project-city-rhythm.png",
+      "categoryIds": [
+        "city-humanity"
+      ],
+      "isFeatured": true,
+      "isVisible": true,
+      "sortOrder": 1,
+      "status": "Published"
+    },
+    {
+      "id": "project-edges-light",
+      "title": "Edges of Light",
+      "slug": "edges-of-light",
+      "theme": "Landscape / Coastline",
+      "location": "Northern California, USA",
+      "year": 2022,
+      "description": "Coastlines, fog and open distance. A personal study of atmosphere and light.",
+      "coverImage": "../Project/assets/project-edges-light.png",
+      "categoryIds": [
+        "landscape"
+      ],
+      "isFeatured": true,
+      "isVisible": true,
+      "sortOrder": 2,
+      "status": "Published"
+    },
+    {
+      "id": "project-seen-silence",
+      "title": "Seen in Silence",
+      "slug": "seen-in-silence",
+      "theme": "Portrait / Natural Light",
+      "location": "Shenzhen, China",
+      "year": 2021,
+      "description": "Intimate portraits of people I've met. Quiet moments, honest expressions.",
+      "coverImage": "../Project/assets/project-seen-silence.png",
+      "categoryIds": [
+        "portrait"
+      ],
+      "isFeatured": false,
+      "isVisible": true,
+      "sortOrder": 3,
+      "status": "Published"
+    },
+    {
+      "id": "project-highlands",
+      "title": "Highlands",
+      "slug": "highlands",
+      "theme": "Landscape / Mountain Road",
+      "location": "Yunnan, China",
+      "year": 2020,
+      "description": "On the road in the mountains. Searching for scale, silence and light.",
+      "coverImage": "../Project/assets/project-highlands.png",
+      "categoryIds": [
+        "landscape"
+      ],
+      "isFeatured": false,
+      "isVisible": true,
+      "sortOrder": 4,
+      "status": "Published"
+    }
+  ],
+  "gallery": [
+    {
+      "id": "mountain-fog",
+      "title": "Mountain Fog",
+      "description": "Low clouds moved through the valley and softened the ridge line.",
+      "category": "Landscape",
+      "image": "../Project/assets/project-highlands.png",
+      "altText": "Mountain valley covered with soft fog",
+      "featured": false,
+      "status": "Published",
+      "sortOrder": 1,
+      "year": "2024",
+      "location": "Yunnan, China",
+      "categoryId": "landscape"
+    },
+    {
+      "id": "rainy-street",
+      "title": "Rainy Street",
+      "description": "A rainy afternoon in the city. People walk across the wet street, umbrellas and reflections.",
+      "category": "City Humanity",
+      "image": "../CityHuman/assets/rain-walk.png",
+      "altText": "People walking on a rainy street in the city",
+      "featured": true,
+      "status": "Published",
+      "sortOrder": 2,
+      "year": "2024",
+      "location": "Shanghai, China",
+      "categoryId": "city-humanity"
+    },
+    {
+      "id": "window-light",
+      "title": "Window Light",
+      "description": "A portrait held by window light. The room was quiet, and the face stayed close to shadow.",
+      "category": "Portrait",
+      "image": "../Home/assets/portrait.png",
+      "altText": "A quiet portrait beside a window in soft light",
+      "featured": false,
+      "status": "Published",
+      "sortOrder": 3,
+      "year": "2024",
+      "location": "Shenzhen, China",
+      "categoryId": "portrait"
+    },
+    {
+      "id": "coastline",
+      "title": "Coastline",
+      "description": "Fog cleared in the afternoon. The light was soft and the air was clean.",
+      "category": "Landscape",
+      "image": "../Project/assets/project-edges-light.png",
+      "altText": "A misty coastline with waves and cliffs",
+      "featured": false,
+      "status": "Published",
+      "sortOrder": 4,
+      "year": "2024",
+      "location": "Northern California, USA",
+      "categoryId": "landscape"
+    },
+    {
+      "id": "quiet-moment",
+      "title": "Quiet Moment",
+      "description": "A small still life by the window before the day began.",
+      "category": "Personal",
+      "image": "../Home/assets/personal.png",
+      "altText": "A quiet table scene with warm morning light",
+      "featured": true,
+      "status": "Published",
+      "sortOrder": 5,
+      "year": "2024",
+      "location": "Shenzhen, China",
+      "categoryId": "personal"
+    },
+    {
+      "id": "old-alley",
+      "title": "Old Alley",
+      "description": "A slow walk through the old block while light settled between the buildings.",
+      "category": "City Humanity",
+      "image": "../CityHuman/assets/old-street.png",
+      "altText": "People walking through an old city alley",
+      "featured": false,
+      "status": "Published",
+      "sortOrder": 6,
+      "year": "2024",
+      "location": "Shanghai, China",
+      "categoryId": "city-humanity"
+    }
+  ],
+  "categories": [
+    {
+      "id": "portrait",
+      "name": "Portrait",
+      "slug": "/photography/portrait",
+      "heroTitle": "",
+      "description": "Faces, expressions, and intimate light.",
+      "coverImage": "../Home/assets/portrait.png",
+      "coverAlt": "Portrait collection preview",
+      "photoCount": 128,
+      "visibility": "Public",
+      "status": "Published",
+      "sortOrder": 1,
+      "seoTitle": "",
+      "seoDescription": "",
+      "pageIntro": "关于人的凝视与表达。\n在自然光与真实情境中，记录神情、气质与情绪的微妙变化。\n每一次快门，都是一次真诚的对话。",
+      "heroImage": "../Project/assets/project-seen-silence.png",
+      "heroAlt": "Portrait collection cover in soft natural window light",
+      "archiveNo": "04",
+      "stampTitle": "Portrait Collection",
+      "coverNotes": [
+        "Year: 2024",
+        "Light: Natural Light",
+        "Location: Shenzhen, China"
+      ],
+      "filterLabels": [
+        "Studio",
+        "Street",
+        "Natural Light",
+        "Close-up"
+      ]
+    },
+    {
+      "id": "landscape",
+      "name": "Landscape",
+      "slug": "/photography/landscape",
+      "heroTitle": "",
+      "description": "Nature, distance, and the light of place.",
+      "coverImage": "../Project/assets/project-edges-light.png",
+      "coverAlt": "Landscape collection preview",
+      "photoCount": 156,
+      "visibility": "Public",
+      "status": "Published",
+      "sortOrder": 2,
+      "seoTitle": "",
+      "seoDescription": "",
+      "pageIntro": "风景是时间的容器。\n我在远方的地平线、变化的天气与地形中，\n寻找光线与沉默的关系，记录自然的节奏与呼吸。",
+      "heroImage": "../Home/assets/landscape.png",
+      "heroAlt": "Landscape collection cover with mountains and a lake under soft cloudy light",
+      "archiveNo": "05",
+      "stampTitle": "Landscape Collection",
+      "coverNotes": [
+        "Place: New Zealand, South Island",
+        "Year: 2024",
+        "Season: Autumn",
+        "Light: Soft Light"
+      ],
+      "filterLabels": [
+        "Mountain",
+        "Coast",
+        "Forest",
+        "Night",
+        "Weather"
+      ]
+    },
+    {
+      "id": "city-humanity",
+      "name": "City Humanity",
+      "slug": "/photography/city-humanity",
+      "heroTitle": "",
+      "description": "Streets, people, and the rhythm of the city.",
+      "coverImage": "../Project/assets/project-city-rhythm.png",
+      "coverAlt": "City humanity collection preview",
+      "photoCount": 214,
+      "visibility": "Public",
+      "status": "Published",
+      "sortOrder": 3,
+      "seoTitle": "",
+      "seoDescription": ""
+    },
+    {
+      "id": "personal",
+      "name": "Personal",
+      "slug": "/photography/personal",
+      "heroTitle": "",
+      "description": "Diary fragments and quiet everyday details.",
+      "coverImage": "../Home/assets/personal.png",
+      "coverAlt": "Personal diary collection preview",
+      "photoCount": 92,
+      "visibility": "Public",
+      "status": "Published",
+      "sortOrder": 4,
+      "seoTitle": "",
+      "seoDescription": "",
+      "pageIntro": "一些私人的片段与日常的光。\n旅行的记忆、生活的细节、安静的物件、\n靠近的时刻。\n这是属于我自己的视觉手账。",
+      "heroImage": "../Home/assets/personal.png",
+      "heroAlt": "Personal collection cover with quiet daily light",
+      "archiveNo": "07",
+      "stampTitle": "Personal Collection",
+      "coverNotes": [
+        "Place: Shenzhen",
+        "Month: Apr 2024",
+        "Light: Quiet Light"
+      ],
+      "filterLabels": [
+        "Travel",
+        "Close Moments",
+        "Objects",
+        "Quiet Light"
+      ]
+    }
+  ],
+  "contact": {
+    "page": {
+      "slug": "contact",
+      "title": "Contact",
+      "subtitle": "Projects / Commissions / Collaboration",
+      "description": "For photography projects, visual collaborations, licensing, or archive inquiries, send a message and I will reply after reviewing the details.",
+      "year": "2020 - 2025",
+      "location": "Shenzhen, China",
+      "responseTime": "Within 48 Hours",
+      "availability": "Open",
+      "currentLocation": "Shenzhen, China",
+      "workingDays": "Mon - Sun",
+      "formTitle": "Send a Message",
+      "formSubtitle": "Tell me what you need.",
+      "formNote": "* Current submissions are saved locally until a real backend is connected.",
+      "projectTypes": [
+        "Portrait",
+        "Commercial",
+        "Editorial",
+        "Personal",
+        "Other"
+      ]
+    },
+    "contactMethods": [
+      {
+        "id": "contact-instagram",
+        "title": "Instagram",
+        "slug": "instagram",
+        "type": "instagram",
+        "value": "@wong.visual.archive",
+        "url": "https://www.instagram.com/wong.visual.archive",
+        "actionLabel": "View Profile",
+        "description": "Recent archive updates and behind-the-scenes photography notes.",
+        "coverImage": "",
+        "isVisible": true,
+        "isFeatured": true,
+        "sortOrder": 1
+      },
+      {
+        "id": "contact-email",
+        "title": "Email",
+        "slug": "email",
+        "type": "email",
+        "value": "hello@wongvisual.com",
+        "url": "mailto:hello@wongvisual.com",
+        "actionLabel": "Send Email",
+        "description": "Project collaboration, commercial photography, media and licensing inquiries.",
+        "coverImage": "",
+        "isVisible": true,
+        "isFeatured": true,
+        "sortOrder": 2
+      },
+      {
+        "id": "contact-wechat",
+        "title": "WeChat",
+        "slug": "wechat",
+        "type": "wechat",
+        "value": "Wong_Visual_Archive",
+        "url": "",
+        "actionLabel": "Add WeChat",
+        "description": "Add WeChat and include a short note about the project.",
+        "coverImage": "../Contact/assets/wechat-qr.png",
+        "isVisible": true,
+        "isFeatured": true,
+        "sortOrder": 3
+      }
+    ],
+    "filmStrip": [
+      "../Project/assets/project-city-rhythm.png",
+      "../Project/assets/project-seen-silence.png",
+      "../Project/assets/project-edges-light.png",
+      "../Home/assets/personal.png",
+      "../Project/assets/project-highlands.png"
+    ]
+  },
+  "messages": [],
+  "settings": {
+    "seo": {
+      "siteTitle": "WonG Archive - Home",
+      "siteDescription": "WonG Archive, a personal photography archive exploring portraits, landscapes, city humanity, and quiet everyday moments.",
+      "seoTitle": "WonG Archive - Home",
+      "seoDescription": "A warm visual archive of light, place, people, and everyday stories by WonG.",
+      "ogImage": "../Home/assets/photographer.png",
+      "canonicalUrl": ""
+    },
+    "pageSeo": {
+      "home": {},
+      "about": {},
+      "projects": {},
+      "photography": {},
+      "contact": {},
+      "city": {}
+    },
+    "homeHero": {
+      "heroImage": "../Home/assets/photographer.png",
+      "heroHeadline": "Wong Archive",
+      "heroIntro": "I explore the relationship between place and people. Natural light, honest observation, and quiet moments in between.",
+      "heroButtonText": "View Photography",
+      "heroButtonLink": "../photography/index.html",
+      "archiveNo": "00",
+      "updated": "June 2026",
+      "basedIn": "Shenzhen, China"
+    },
+    "globalInfo": {
+      "brandName": "WonG",
+      "headerKicker": "Photographer / Visual Archive",
+      "siteName": "Wong Archive",
+      "siteDomain": "",
+      "copyrightText": "(c) 2026 WonG. All rights reserved.",
+      "defaultLocation": "Shenzhen, China",
+      "contactEmail": "hello@wongvisual.com",
+      "socialHandle": "@wong.visual.archive"
+    },
+    "navigation": [
+      {
+        "id": "nav-home",
+        "label": "Home",
+        "url": "../Home/index.html",
+        "visible": true,
+        "sortOrder": 1
+      },
+      {
+        "id": "nav-about",
+        "label": "About",
+        "url": "../about/index.html",
+        "visible": true,
+        "sortOrder": 2
+      },
+      {
+        "id": "nav-projects",
+        "label": "Projects",
+        "url": "../Project/index.html",
+        "visible": true,
+        "sortOrder": 3
+      },
+      {
+        "id": "nav-photography",
+        "label": "Photography",
+        "url": "../photography/index.html",
+        "visible": true,
+        "sortOrder": 4
+      },
+      {
+        "id": "nav-contact",
+        "label": "Contact",
+        "url": "../Contact/index.html",
+        "visible": true,
+        "sortOrder": 5
+      }
+    ],
+    "maintenance": {
+      "enabled": false,
+      "message": ""
+    },
+    "effects": {
+      "pageTransition": true,
+      "filmGrain": true,
+      "customCursor": true,
+      "imageHover": true,
+      "scrollReveal": true,
+      "parallax": true,
+      "lightbox": true,
+      "reducedMotionRespect": true
+    },
+    "accessibility": {
+      "respectReducedMotion": true,
+      "enableRevealAnimations": true,
+      "enableLazyLoading": true,
+      "defaultImageAltFallback": "Photography archive image",
+      "highContrastMode": false
+    },
+    "pageContent": {
+      "home": {
+        "introName": "WonG",
+        "introRole": "Photographer / Visual Archive",
+        "introCopy": "I explore the relationship between place and people. Natural light, honest observation, and quiet moments in between."
+      },
+      "about": {
+        "updated": "June 2026",
+        "location": "Shenzhen, China"
+      },
+      "projects": {
+        "updated": "June 2026",
+        "location": "Shenzhen, China"
+      },
+      "photography": {
+        "updated": "June 2026",
+        "location": "Shenzhen, China"
+      }
+    },
+    "homeDefaultIndex": 3,
+    "cityContent": {
+      "filters": [
+        {
+          "value": "all",
+          "label": "All"
+        },
+        {
+          "value": "street",
+          "label": "Street"
+        },
+        {
+          "value": "commute",
+          "label": "Commute"
+        },
+        {
+          "value": "market",
+          "label": "Market"
+        },
+        {
+          "value": "night",
+          "label": "Night"
+        },
+        {
+          "value": "public-space",
+          "label": "Public Space"
+        }
+      ],
+      "photos": [
+        {
+          "id": "old-lane",
+          "title": "老街巷弄",
+          "category": "street",
+          "categoryLabel": "Street",
+          "year": 2024,
+          "date": "Mar 10, 2024",
+          "time": "16:38",
+          "location": "Shenzhen, China",
+          "route": "Old Town",
+          "image": "../CityHuman/assets/old-street.png",
+          "alt": "People walking through an old narrow city street",
+          "description": "街巷里的人群缓慢穿过，招牌、线缆与脚步声留住了城市的旧时间。",
+          "camera": "Leica M6",
+          "lens": "Summicron 50mm",
+          "film": "Kodak Portra 400",
+          "aperture": "f/4",
+          "shutter": "1/250s",
+          "iso": "400",
+          "focalLength": "50mm",
+          "weather": "Cloudy",
+          "aspect": "3:2",
+          "layout": "tall",
+          "tags": [
+            "street"
+          ]
+        },
+        {
+          "id": "bus-window",
+          "title": "公交车上",
+          "category": "commute",
+          "categoryLabel": "Commute",
+          "year": 2024,
+          "date": "May 08, 2024",
+          "time": "17:21",
+          "location": "Shenzhen, China",
+          "route": "Bus Route 204",
+          "image": "../CityHuman/assets/bus-window.png",
+          "detailImage": "../CityHuman/assets/detail-commute.png",
+          "alt": "Passengers sitting on a city bus in low light",
+          "description": "傍晚的公交车，光线透过车窗落在她的身上。城市在移动，人们也在各自的方向上前行。",
+          "camera": "Leica M6",
+          "lens": "Summicron 50mm",
+          "film": "Kodak Portra 400",
+          "aperture": "f/2.8",
+          "shutter": "1/125s",
+          "iso": "400",
+          "focalLength": "50mm",
+          "weather": "Cloudy",
+          "aspect": "3:2",
+          "layout": "normal",
+          "tags": [
+            "street",
+            "commute"
+          ]
+        },
+        {
+          "id": "crossing",
+          "title": "过街",
+          "category": "street",
+          "categoryLabel": "Street",
+          "year": 2024,
+          "date": "Mar 22, 2024",
+          "time": "16:42",
+          "location": "Shenzhen, China",
+          "route": "Nanshan Old Street",
+          "image": "../CityHuman/assets/crossing.png",
+          "alt": "Pedestrians crossing an old urban street",
+          "description": "红绿灯切换的几秒钟，行人、车辆与街角同时进入画面，城市短暂地对齐。",
+          "camera": "Leica M6",
+          "lens": "Summicron 50mm",
+          "film": "Kodak Portra 400",
+          "aperture": "f/5.6",
+          "shutter": "1/250s",
+          "iso": "400",
+          "focalLength": "50mm",
+          "weather": "Overcast",
+          "aspect": "3:2",
+          "layout": "normal",
+          "tags": [
+            "street"
+          ]
+        },
+        {
+          "id": "after-rain",
+          "title": "雨后",
+          "category": "street",
+          "categoryLabel": "Street",
+          "year": 2024,
+          "date": "Mar 14, 2024",
+          "time": "17:28",
+          "location": "Shenzhen, China",
+          "route": "Wet Block",
+          "image": "../CityHuman/assets/rain-walk.png",
+          "alt": "A person walking with an umbrella on a wet city street",
+          "description": "雨停后的傍晚，街角的积水映出路人与匆忙的影。城市里潮湿的空气里恢复日常的节奏。",
+          "camera": "Leica M6",
+          "lens": "Summicron 50mm",
+          "film": "Kodak Portra 400",
+          "aperture": "f/4",
+          "shutter": "1/250s",
+          "iso": "400",
+          "focalLength": "50mm",
+          "weather": "Rain",
+          "aspect": "3:2",
+          "layout": "tall",
+          "tags": [
+            "street",
+            "public-space"
+          ]
+        },
+        {
+          "id": "station-platform",
+          "title": "站台",
+          "category": "commute",
+          "categoryLabel": "Commute",
+          "year": 2023,
+          "date": "Dec 06, 2023",
+          "time": "18:04",
+          "location": "Shenzhen, China",
+          "route": "Terminal Stop",
+          "image": "../CityHuman/assets/station.png",
+          "alt": "Silhouettes of people waiting at a station window",
+          "description": "站台上的剪影被车窗分隔开，等待本身也成为城市移动的一部分。",
+          "camera": "Fujifilm X100V",
+          "lens": "23mm f/2",
+          "film": "Digital",
+          "aperture": "f/2.8",
+          "shutter": "1/160s",
+          "iso": "800",
+          "focalLength": "35mm equiv.",
+          "weather": "Nightfall",
+          "aspect": "3:2",
+          "layout": "normal",
+          "tags": [
+            "street",
+            "commute"
+          ]
+        },
+        {
+          "id": "market-table",
+          "title": "菜市场",
+          "category": "market",
+          "categoryLabel": "Market",
+          "year": 2023,
+          "date": "Sep 18, 2023",
+          "time": "10:26",
+          "location": "Shenzhen, China",
+          "route": "Morning Market",
+          "image": "../CityHuman/assets/market.png",
+          "alt": "Market workers arranging food at a city market",
+          "description": "市场的桌面被手势和声音填满，真实的城市温度通常藏在这些重复劳动里。",
+          "camera": "Fujifilm X100V",
+          "lens": "23mm f/2",
+          "film": "Digital",
+          "aperture": "f/4",
+          "shutter": "1/250s",
+          "iso": "640",
+          "focalLength": "35mm equiv.",
+          "weather": "Indoor",
+          "aspect": "3:2",
+          "layout": "normal",
+          "tags": [
+            "street",
+            "market"
+          ]
+        },
+        {
+          "id": "riverwalk",
+          "title": "滨海步道",
+          "category": "public-space",
+          "categoryLabel": "Public Space",
+          "year": 2024,
+          "date": "Apr 02, 2024",
+          "time": "18:12",
+          "location": "Shenzhen, China",
+          "route": "Coastal Walk",
+          "image": "../CityHuman/assets/riverwalk.png",
+          "alt": "Two people standing beside a waterfront railing",
+          "description": "临水的步道让城市慢下来，人和建筑之间留出一段安静的距离。",
+          "camera": "Leica M6",
+          "lens": "Summicron 50mm",
+          "film": "Kodak Portra 400",
+          "aperture": "f/5.6",
+          "shutter": "1/500s",
+          "iso": "400",
+          "focalLength": "50mm",
+          "weather": "Hazy",
+          "aspect": "3:2",
+          "layout": "wide",
+          "tags": [
+            "street",
+            "public-space"
+          ]
+        },
+        {
+          "id": "tea-restaurant",
+          "title": "茶餐厅",
+          "category": "street",
+          "categoryLabel": "Daily",
+          "year": 2023,
+          "date": "Nov 19, 2023",
+          "time": "14:36",
+          "location": "Shenzhen, China",
+          "route": "Corner Cafe",
+          "image": "../CityHuman/assets/cafe.png",
+          "alt": "A man reading in a small restaurant by the street",
+          "description": "街边的小店里，报纸、杯子和窗外车流共同构成了一个下午的停顿。",
+          "camera": "Fujifilm X100V",
+          "lens": "23mm f/2",
+          "film": "Digital",
+          "aperture": "f/2.8",
+          "shutter": "1/125s",
+          "iso": "500",
+          "focalLength": "35mm equiv.",
+          "weather": "Cloudy",
+          "aspect": "16:9",
+          "layout": "wide",
+          "tags": [
+            "street"
+          ]
+        },
+        {
+          "id": "night-street",
+          "title": "夜晚的街头",
+          "category": "night",
+          "categoryLabel": "Night",
+          "year": 2023,
+          "date": "Oct 30, 2023",
+          "time": "21:07",
+          "location": "Shenzhen, China",
+          "route": "Main Road",
+          "image": "../CityHuman/assets/night-street.png",
+          "alt": "People and cars moving through a city street at night",
+          "description": "夜色把街头压低，车灯与店铺灯光留下更慢的层次。",
+          "camera": "Fujifilm X100V",
+          "lens": "23mm f/2",
+          "film": "Digital",
+          "aperture": "f/2",
+          "shutter": "1/80s",
+          "iso": "1600",
+          "focalLength": "35mm equiv.",
+          "weather": "Clear",
+          "aspect": "16:9",
+          "layout": "wide",
+          "tags": [
+            "street",
+            "night"
+          ]
+        }
+      ],
+      "defaultFilter": "street",
+      "defaultSort": "latest",
+      "defaultPhotoId": "bus-window"
+    },
+    "integrations": {
+      "timeoutSeconds": 15,
+      "refreshSeconds": 30,
+      "contactEnabled": true
+    },
+    "photographyView": {
+      "defaultSort": "latest",
+      "defaultView": "grid",
+      "favoritesEnabled": true
+    },
+    "contactForm": {
+      "minLength": 12,
+      "maxLength": 1000,
+      "sendingText": "Saving...",
+      "nameError": "Please enter your name.",
+      "emailError": "Please enter a valid email address.",
+      "messageError": "Please describe your project or idea.",
+      "lengthError": "Please enter at least 12 characters.",
+      "successTitle": "Message saved",
+      "localSuccess": "Your message was saved to the local admin inbox.",
+      "cloudSuccess": "Your message has been received.",
+      "errorText": "The message could not be saved. Please try again.",
+      "disabledText": "Message submissions are currently unavailable."
+    }
+  },
+  "componentVisibility": {
+    "global": {
+      "Header": true,
+      "Navigation": true,
+      "Footer": true,
+      "SEO Meta": true,
+      "Open Graph Meta": true
+    },
+    "home": {
+      "Hero": true,
+      "Archive Meta": true,
+      "Hero Stamp": true,
+      "Photo Strip": true,
+      "Intro Card": true,
+      "Collections": true,
+      "Footer": true
+    },
+    "about": {
+      "About Hero": true,
+      "Profile Details": true,
+      "Biography": true,
+      "Skills": true,
+      "Experience Timeline": true,
+      "JSON-LD SEO Block": true
+    },
+    "projects": {
+      "Projects Hero": true,
+      "Archive Meta": true,
+      "Archive Stamp": true,
+      "Project Exhibition": true,
+      "Project Cards": true,
+      "Footer": true
+    },
+    "photography": {
+      "Photography Hero": true,
+      "Toolbar": true,
+      "Categories": true,
+      "Featured": true,
+      "Gallery Grid": true,
+      "Detail Panel": true,
+      "Footer": true
+    },
+    "contact": {
+      "Contact Info": true,
+      "Contact Cards": true,
+      "Message Form": true,
+      "Archive Status": true,
+      "Film Strip": true,
+      "Contact Footer": true,
+      "Toast": true
+    },
+    "city": {
+      "Hero": true,
+      "Toolbar": true,
+      "Gallery": true,
+      "Details": true,
+      "Footer": true
+    }
+  }
+}

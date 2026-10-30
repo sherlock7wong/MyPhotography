@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WonG · 相册边框候选</title>
+<style>
+:root{--paper:#f4f0e8;--ink:#24221d;--olive:#5f6f52;--line:#d9d0c1;--viewer:#1d1e19;--serif:Georgia,"Times New Roman",serif;--sans:"Segoe UI","Microsoft YaHei",sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans)}a{color:inherit;text-decoration:none}.page{width:min(1640px,calc(100% - 96px));margin:0 auto;padding:48px 0 40px}.eyebrow{display:flex;justify-content:space-between;gap:20px;color:#827662;font:11px/1.6 "Courier New",monospace;letter-spacing:.2em}.masthead{padding-bottom:24px;border-bottom:1px solid #b8ac98}.masthead h1{margin:13px 0 9px;font:400 clamp(32px,3.5vw,58px)/1.1 var(--serif);letter-spacing:.015em}.masthead p{margin:0;color:#706651;font-size:14px;line-height:1.7}.options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;margin-top:28px}.option{min-width:0;border:1px solid #d5cbb9;background:#f8f5ed}.option:last-child{grid-column:1/-1;width:calc(50% - 14px);justify-self:center}.frame-scene{--iw:clamp(160px,29vw,480px);display:flex;align-items:center;justify-content:center;height:420px;padding:20px;background:radial-gradient(ellipse at 50% 45%,#303127,var(--viewer) 76%);overflow:hidden}.photo-mount{position:relative;flex:0 0 auto;width:fit-content;max-width:100%;box-shadow:0 18px 38px #0005}.photo-mount img{display:block;width:var(--iw);max-width:100%;height:auto;aspect-ratio:386/242;object-fit:contain}.meta{display:grid;grid-template-columns:56px 1fr auto;gap:14px;align-items:center;min-height:88px;padding:17px 22px}.number{font:400 34px/1 var(--serif);color:#94794f}.name{display:block;margin-bottom:5px;font:400 20px/1.3 var(--serif);letter-spacing:.03em}.description{display:block;color:#877c69;font-size:12px;line-height:1.5}.view-link{padding:8px 0;color:var(--olive);font-size:12px;white-space:nowrap;border-bottom:1px solid #a9ae98}.board-note{margin:28px 0 0;text-align:center;color:#897b66;font-size:12px;letter-spacing:.06em}
+/* 01 — warm gallery mount */
+.style-1{padding:24px 24px 30px;border:1px solid #d5cbb9;background:#faf7ef;box-shadow:0 18px 38px #0005,0 0 0 1px #8c816f55}.style-1 img{box-shadow:0 0 0 1px #a99d8666,0 1px 4px #5a4d3329}.style-1::after{content:"";position:absolute;inset:11px;border:1px solid #e6dfd2;pointer-events:none}
+/* 02 — instant photo, a wider lower margin */
+.style-2{padding:15px 15px 64px;background:linear-gradient(120deg,#fffdf6,#e9e4d9);border:1px solid #e5ddcb;border-radius:2px}.style-2::after{content:"Coastline";position:absolute;left:20px;bottom:20px;color:#5f6153;font:italic 22px/1 var(--serif);letter-spacing:.035em}.style-2 img{box-shadow:0 0 0 1px #9b968a66}
+/* 03 — neutral film rebate, a frame treatment rather than a film-stock claim */
+.style-3{padding:26px 28px 30px;background:#10120f;border:1px solid #4d4f41;box-shadow:0 18px 38px #0008}.film-holes{position:absolute;top:20px;bottom:20px;width:9px;background:radial-gradient(ellipse at center,#c7bda1 0 45%,transparent 52%) 0 0/9px 18px repeat-y}.film-holes.left{left:7px}.film-holes.right{right:7px}.film-notation{position:absolute;bottom:9px;left:28px;color:#b6a676;font:9px/1 "Courier New",monospace;letter-spacing:.2em}.film-top{position:absolute;top:9px;right:28px;color:#c0ac72;font:9px/1 "Courier New",monospace;letter-spacing:.18em}
+/* 04 — a mounted album print and four dark photo corners */
+.style-4{padding:28px;background:repeating-linear-gradient(90deg,#e5ddca1a 0 1px,transparent 1px 3px),repeating-linear-gradient(0deg,#d3c7ae15 0 1px,transparent 1px 3px),#f0e9d8;border:1px solid #c2b699}.style-4 img{box-shadow:0 1px 3px #473e2c55}.photo-corner{position:absolute;width:44px;height:44px;background:linear-gradient(135deg,#22291f,#464b3d);filter:drop-shadow(1px 2px 1px #0005)}.photo-corner.tl{left:19px;top:19px;clip-path:polygon(0 0,100% 0,0 100%)}.photo-corner.tr{right:19px;top:19px;clip-path:polygon(0 0,100% 0,100% 100%)}.photo-corner.bl{left:19px;bottom:19px;clip-path:polygon(0 0,100% 100%,0 100%)}.photo-corner.br{right:19px;bottom:19px;clip-path:polygon(100% 0,100% 100%,0 100%)}
+/* 05 — thin walnut frame and a soft ivory mat */
+.style-5{padding:9px;border:6px ridge #76573f;background:repeating-linear-gradient(0deg,#543a2b 0 2px,#745139 2px 3px,#5d412f 3px 5px);box-shadow:0 18px 38px #0008,inset 0 0 0 1px #b69062}.wood-mat{padding:21px;background:#e9e4d6;box-shadow:inset 0 0 0 1px #9e9686,inset 0 2px 7px #3d2d1c55}.wood-mat img{border:2px solid #c9c1ad;box-shadow:0 0 0 1px #665c45}.single-header,.single-footer{display:none}
+body.single{height:100dvh;overflow:hidden;background:var(--viewer);color:#f5f0e6}.single .page{width:100%;padding:18px 40px 12px}.single .masthead,.single .meta,.single .board-note{display:none}.single .options{display:block;margin:0}.single .option{display:none;width:100%;border:0;background:transparent}.single .option.is-selected{display:block}.single .frame-scene{--iw:min(74vw,calc((100dvh - 300px)*1.595),1000px);height:calc(100dvh - 184px);padding:0;background:radial-gradient(ellipse at 50% 46%,#282a22,var(--viewer) 74%)}.single .single-header{display:flex;justify-content:space-between;align-items:center;height:50px;padding:0 0 12px}.single-label{color:#c8c1b2;font-size:12px;letter-spacing:.08em}.single-close{padding:10px 14px;border:1px solid #807f6e;color:#eee7d9;font-size:14px}.single .single-footer{display:grid;justify-content:center;justify-items:center;gap:10px;padding-top:7px}.single-caption{font:14px/1.3 var(--serif);color:#eee6d5}.preview-controls{display:flex;align-items:center;gap:26px}.preview-controls a{display:grid;place-items:center;width:42px;height:38px;border:1px solid #707262;font-size:18px}.preview-controls span{font:11px/1 "Courier New",monospace;color:#bbb8a9}.single .style-1{padding:30px 30px 38px}.single .style-2{padding:18px 18px 72px}.single .style-3{padding:30px 32px 34px}.single .style-4{padding:34px}.single .style-4 .photo-corner.tl{left:25px;top:25px}.single .style-4 .photo-corner.tr{right:25px;top:25px}.single .style-4 .photo-corner.bl{left:25px;bottom:25px}.single .style-4 .photo-corner.br{right:25px;bottom:25px}.single .wood-mat{padding:28px}
+@media(max-width:900px){.page{width:calc(100% - 32px);padding:28px 0}.options{grid-template-columns:1fr}.option:last-child{grid-column:auto;width:100%}.frame-scene{--iw:min(65vw,480px);height:370px}.meta{grid-template-columns:38px 1fr auto;padding:16px;gap:10px}.number{font-size:29px}.name{font-size:18px}.description{font-size:11px}.single .page{padding:12px}.single .frame-scene{--iw:min(74vw,calc((100dvh - 280px)*1.595),1000px)}.single .style-1{padding:18px 18px 24px}.single .style-2{padding:12px 12px 58px}.single .style-3{padding:26px 24px 30px}.single .style-4{padding:24px}.single .style-4 .photo-corner.tl{left:15px;top:15px}.single .style-4 .photo-corner.tr{right:15px;top:15px}.single .style-4 .photo-corner.bl{left:15px;bottom:15px}.single .style-4 .photo-corner.br{right:15px;bottom:15px}.single .wood-mat{padding:16px}.eyebrow{font-size:9px}.masthead p{font-size:12px}}
+</style>
+</head>
+<body>
+<div class="page">
+<header class="masthead">
+<div class="eyebrow"><span>WONG / PHOTOGRAPHY</span><span>FRAME STUDIES · 2026.10.23</span></div>
+<h1>相册边框 · 五款候选</h1>
+<p>同一张 Coastline，搭配现有深色放大查看背景。已选择 03 胶片底片，摄影页放大查看已接入。</p>
+</header>
+<div class="single-header"><span class="single-label" data-single-label>边框候选</span><a class="single-close" href="相册边框预览_album-frame-preview.html">关闭 ×</a></div>
+<main class="options">
+<article class="option" data-option="1">
+<div class="frame-scene"><div class="photo-mount style-1"><img src="../../20_源码与运行工程/Project/assets/project-edges-light.png" alt="Coastline，配暖白留白装裱边框"></div></div>
+<div class="meta"><span class="number">01</span><div><strong class="name">留白装裱</strong><span class="description">暖白卡纸 · 细线内框 · 克制的展览感</span></div><a class="view-link" href="?frame=1">查看单张 ↗</a></div>
+</article>
+<article class="option" data-option="2">
+<div class="frame-scene"><div class="photo-mount style-2"><img src="../../20_源码与运行工程/Project/assets/project-edges-light.png" alt="Coastline，配拍立得相纸边框"></div></div>
+<div class="meta"><span class="number">02</span><div><strong class="name">拍立得相纸</strong><span class="description">窄边宽底 · 斜体照片名 · 私人手账感</span></div><a class="view-link" href="?frame=2">查看单张 ↗</a></div>
+</article>
+<article class="option" data-option="3">
+<div class="frame-scene"><div class="photo-mount style-3"><i class="film-holes left" aria-hidden="true"></i><i class="film-holes right" aria-hidden="true"></i><span class="film-top" aria-hidden="true">WONG · ARCHIVE</span><img src="../../20_源码与运行工程/Project/assets/project-edges-light.png" alt="Coastline，配胶片底片边框"><span class="film-notation" aria-hidden="true">PHOTOGRAPHY / COASTLINE</span></div></div>
+<div class="meta"><span class="number">03</span><div><strong class="name">胶片底片（已选）</strong><span class="description">深色片基 · 两侧齿孔 · 低调档案标注</span></div><a class="view-link" href="?frame=3">查看单张 ↗</a></div>
+</article>
+<article class="option" data-option="4">
+<div class="frame-scene"><div class="photo-mount style-4"><img src="../../20_源码与运行工程/Project/assets/project-edges-light.png" alt="Coastline，配复古相册护角边框"><i class="photo-corner tl" aria-hidden="true"></i><i class="photo-corner tr" aria-hidden="true"></i><i class="photo-corner bl" aria-hidden="true"></i><i class="photo-corner br" aria-hidden="true"></i></div></div>
+<div class="meta"><span class="number">04</span><div><strong class="name">复古相册护角</strong><span class="description">暖纸底衬 · 四角固定 · 手工相册感</span></div><a class="view-link" href="?frame=4">查看单张 ↗</a></div>
+</article>
+<article class="option" data-option="5">
+<div class="frame-scene"><div class="photo-mount style-5"><div class="wood-mat"><img src="../../20_源码与运行工程/Project/assets/project-edges-light.png" alt="Coastline，配细木框裱装"></div></div></div>
+<div class="meta"><span class="number">05</span><div><strong class="name">细木框裱装</strong><span class="description">胡桃木色 · 米白内衬 · 稳重的收藏感</span></div><a class="view-link" href="?frame=5">查看单张 ↗</a></div>
+</article>
+</main>
+<div class="single-footer"><span class="single-caption">Coastline</span><nav class="preview-controls" aria-label="切换边框候选"><a data-option-prev href="?frame=5" aria-label="上一款边框">←</a><span data-single-count>01 / 05</span><a data-option-next href="?frame=2" aria-label="下一款边框">→</a></nav></div>
+<p class="board-note">设计对照 / 原始照片保持原样 / 03 胶片底片已接入摄影页</p>
+</div>
+<script>
+(function(){
+  const requested = Number(new URLSearchParams(location.search).get("frame"));
+  if(!Number.isInteger(requested)||requested<1||requested>5)return;
+  document.body.classList.add("single");
+  const option=document.querySelector('[data-option="'+requested+'"]');
+  option.classList.add("is-selected");
+  const name=option.querySelector(".name").textContent;
+  document.querySelector("[data-single-label]").textContent=String(requested).padStart(2,"0")+" / "+name+" · 效果预览";
+  document.querySelector("[data-single-count]").textContent="边框 "+String(requested).padStart(2,"0")+" / 05";
+  document.querySelector("[data-option-prev]").href="?frame="+(requested===1?5:requested-1);
+  document.querySelector("[data-option-next]").href="?frame="+(requested===5?1:requested+1);
+  document.title=name+" · WonG 边框候选";
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>光影档案 · WonG 网站动效提案</title>
+  <link rel="icon" href="data:,">
+  <script src="motion-preferences.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+<div class="proposal-shell" id="motion-lab" data-intensity="standard">
+  <header class="proposal-header">
+    <a class="wordmark" href="index.html" aria-label="WonG 动效方案首页">WonG<span>ARCHIVE</span></a>
+    <div class="proposal-title">INTERACTION STUDY <span>/</span> 网站动效提案</div>
+    <a class="plain-link" href="../../Home/index.html">查看原网站 <span aria-hidden="true">↗</span></a>
+  </header>
+  <section class="proposal-intro">
+    <div><p class="eyebrow">LIGHT, WITH A LITTLE LIFE. / 2026</p><h1>光影档案<span>Light in Motion.</span></h1></div>
+    <p class="intro-note">把每一次交互，变成一次看见。<br>延续暖纸、胶片与留白，让动效服务于照片。</p>
+  </section>
+  <main class="lab-layout">
+    <aside class="direction-panel" aria-label="动效场景选择">
+      <p class="eyebrow">EXPLORE THE MOTION</p>
+      <div class="scene-list" role="group" aria-label="选择体验场景">
+        <button type="button" class="scene-choice is-active" data-scene="overview" aria-pressed="true"><span>00</span>完整体验<i aria-hidden="true">↗</i></button>
+        <button type="button" class="scene-choice" data-scene="cursor" aria-pressed="false"><span>01</span>鼠标 · 镜头跟随<i aria-hidden="true">↗</i></button>
+        <button type="button" class="scene-choice" data-scene="hover" aria-pressed="false"><span>02</span>停留 · 轻轻对焦<i aria-hidden="true">↗</i></button>
+        <button type="button" class="scene-choice" data-scene="click" aria-pressed="false"><span>03</span>点击 · 快门回响<i aria-hidden="true">↗</i></button>
+        <button type="button" class="scene-choice" data-scene="transition" aria-pressed="false"><span>04</span>跳转 · 画面接续<i aria-hidden="true">↗</i></button>
+        <button type="button" class="scene-choice" data-scene="scroll" aria-pressed="false"><span>05</span>滚动 · 画卷展开<i aria-hidden="true">↗</i></button>
+        <button type="button" class="scene-choice" data-scene="atmosphere" aria-pressed="false"><span>06</span>氛围 · 纸上微光<i aria-hidden="true">↗</i></button>
+      </div>
+      <div class="scene-description"><span class="small-label" id="scene-kicker">THE WHOLE EXPERIENCE</span><h2 id="scene-title">克制，但能被记住。</h2><p id="scene-copy">移动鼠标、停留在照片上，再点开它。所有交互使用同一套摄影语言。</p><button type="button" class="demo-trigger" id="demo-button"><span aria-hidden="true">▷</span> 演示一次 <span aria-hidden="true">↗</span></button></div>
+      <p class="preview-boundary">独立交互样片 · 使用现有素材<br>方案预览，尚未接入原站</p>
+    </aside>
+    <section class="preview-column" aria-label="交互动画预览">
+      <div class="lab-toolbar">
+        <div class="live-label"><span></span>LIVE PREVIEW <em>可直接操作</em></div>
+        <div class="motion-controls"><label for="intensity">动效强度</label><select id="intensity"><option value="quiet">克制</option><option value="standard" selected>标准 · 推荐</option><option value="immersive">沉浸</option></select><label class="reduce-label"><input type="checkbox" id="reduce-motion"> 减少动态</label></div>
+      </div>
+      <div class="preview-stage" id="preview-stage">
+        <div class="stage-light" aria-hidden="true"></div><div class="stage-grain" aria-hidden="true"></div>
+        <header class="site-nav"><span class="mini-brand">WonG</span><nav aria-label="样片页面导航"><button type="button" data-route="home" aria-current="page">Home</button><button type="button" data-route="photography">Photography</button><button type="button" data-route="about">About</button></nav><span class="nav-end">VISUAL ARCHIVE</span></header>
+        <div id="photo-experience" class="photo-experience">
+          <div class="stage-heading"><p class="eyebrow" id="route-kicker">A STUDY OF LIGHT & TIME</p><h2 id="route-heading">Capture the quiet.</h2><p class="route-subline" id="route-subline">让照片成为主角，让交互留有余韵。</p></div>
+          <div class="photo-composition" id="photo-composition">
+            <button type="button" class="photo-piece photo-piece-left" data-photo="portrait" aria-label="展开人像照片"><span class="film-top">01 / PORTRAIT</span><span class="image-clip"><img src="../Home/assets/portrait.png" alt="窗边柔光中的人像" width="287" height="218"></span><span class="film-bottom">STORIES IN LIGHT <span>01A</span></span><span class="focus-corners" aria-hidden="true"></span></button>
+            <button type="button" class="photo-piece photo-piece-main" data-photo="landscape" aria-label="展开海岸照片"><span class="film-top">WONG ARCHIVE / LANDSCAPE</span><span class="image-clip"><img id="hero-photo" src="../Home/assets/landscape.png" alt="海雾中的山崖与海岸" width="386" height="242"></span><span class="film-bottom">A QUIET OBSERVATION <span>02A</span></span><span class="focus-corners" aria-hidden="true"></span><span class="photo-open">查看作品 <span aria-hidden="true">↗</span></span></button>
+            <button type="button" class="photo-piece photo-piece-right" data-photo="city" aria-label="展开城市照片"><span class="film-top">03 / CITY HUMANITY</span><span class="image-clip"><img src="../Home/assets/city-humanity.png" alt="城市街道中的行人" width="292" height="213"></span><span class="film-bottom">THE EVERYDAY <span>03A</span></span><span class="focus-corners" aria-hidden="true"></span></button>
+          </div>
+          <div class="stage-bottom"><span class="coordinate">LIGHT / PLACE / PEOPLE</span><button class="magnetic-button" id="explore-button" type="button"><span>走进影像</span><span aria-hidden="true">↗</span></button><span class="frame-counter" id="frame-counter">FRAME — 02</span></div>
+          <div class="about-state" id="about-state" hidden><p class="eyebrow">ABOUT THE ARCHIVE</p><h3>Natural light.<br>Honest observation.</h3><p>原站介绍的中文概述：关注人与地方的关系，记录日常里安静的瞬间。</p><button type="button" class="magnetic-button" data-route="home">回到影像 <span aria-hidden="true">↗</span></button></div>
+        </div>
+        <section class="scroll-experience" id="scroll-experience" aria-label="滚动动效体验" hidden>
+          <div class="scroll-heading"><span class="eyebrow">A SCROLL THROUGH LIGHT</span><h2>一寸滚动，一段光阴。</h2><span>在下方画面内滚动 ↓</span></div>
+          <div class="scroll-window" id="scroll-window" aria-label="可滚动画卷" tabindex="0"><div class="scroll-content"><figure class="scroll-frame"><img src="../Home/assets/landscape.png" alt="海雾中的海岸" width="386" height="242"><figcaption>01 — DISTANCE / 远方</figcaption></figure><figure class="scroll-frame"><img src="../Home/assets/portrait.png" alt="窗边柔光中的人像" width="287" height="218"><figcaption>02 — PRESENCE / 此刻</figcaption></figure><figure class="scroll-frame"><img src="../Home/assets/personal.png" alt="桌上的咖啡与书" width="206" height="199"><figcaption>03 — EVERYDAY / 日常</figcaption></figure><p class="scroll-end">光，留在这里。</p></div><div class="scroll-progress" aria-hidden="true"><span></span></div></div>
+        </section>
+        <div class="cursor-reticle" id="cursor-reticle" aria-hidden="true"><span></span><b>VIEW</b></div>
+        <div class="ghost-cursor" id="ghost-cursor" aria-hidden="true"><span></span><b>VIEW</b></div>
+        <div class="shutter-echo" id="shutter-echo" aria-hidden="true"></div>
+      </div>
+      <div class="preview-footer"><span id="experience-status" role="status">在照片上停留，感受对焦；点击照片，体验连续展开。</span><span class="duration-note" id="duration-note">220 ms 微交互 / 620 ms 转场</span></div>
+      <div class="transition-options" id="transition-options" hidden><label for="transition-style">转场方式</label><select id="transition-style"><option value="shared">照片连续展开 · 推荐</option><option value="iris">镜头光圈</option><option value="curtain">胶片推幕</option></select><button type="button" class="text-button" id="route-demo">切换样片页面 ↗</button><a class="text-button" href="detail.html">体验真实页面跳转 ↗</a></div>
+    </section>
+  </main>
+  <section class="proposal-bottom" id="motion-notes">
+    <div class="motion-principle"><span class="eyebrow">ONE VISUAL LANGUAGE.</span><p>光标是取景框，悬停是对焦，点击是快门，跳转是下一张照片。</p></div>
+    <details class="technology-notes"><summary>技术、免费与兼容说明 <span aria-hidden="true">＋</span></summary><div class="tech-body"><p>预览仅使用原生 HTML / CSS / JavaScript 与项目现有图片，没有付费库、CDN、账户或订阅依赖。以下为当前浏览器能力检测，跨浏览器和真机验证另计。</p><dl id="capability-list"></dl><p>技术路线：View Transitions 负责画面接续；WAAPI 负责触发式动效；CSS scroll()/view() 负责滚动画卷；@starting-style 负责浮层入场。不支持新 API 时使用轻量动画或直接呈现；“减少动态”及系统减少动态设置优先。触屏保持点击与滚动，停用鼠标跟随和倾斜。</p><p>这是一套独立样片；页签与 About 内容用于体验提案。真实跨文档跳转请使用“体验真实页面跳转”。</p><div class="source-links"><a href="https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API" target="_blank" rel="noreferrer">View Transitions ↗</a><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Scroll-driven_animations" target="_blank" rel="noreferrer">Scroll-driven animations ↗</a><a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API" target="_blank" rel="noreferrer">Web Animations ↗</a><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@starting-style" target="_blank" rel="noreferrer">@starting-style ↗</a></div></div></details>
+  </section>
+  <footer class="proposal-footer"><span>WonG / MOTION DIRECTION</span><span>2026.10.19 · v1.0.0 · 独立提案预览</span></footer>
+</div>
+<dialog class="image-dialog" id="image-dialog" aria-labelledby="dialog-caption"><button class="dialog-close" type="button" aria-label="关闭照片预览">关闭 <span aria-hidden="true">×</span></button><figure><img id="expanded-photo" src="../Home/assets/landscape.png" alt="海雾中的山崖与海岸" width="386" height="242"><figcaption id="dialog-caption">LANDSCAPE / 海岸</figcaption></figure><p>照片从卡片延续到眼前。按 Esc 或“关闭”返回。</p></dialog>
+</body>
+</html>

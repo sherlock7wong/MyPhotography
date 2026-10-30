@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="WonG 摄影网站内容管理后台" />
+  <title>WonG 摄影网站管理后台</title>
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="loginScreen" class="login-screen" aria-labelledby="loginTitle">
+    <section class="login-visual" aria-label="摄影档案">
+      <div class="login-rail"><span>光影档案管理</span><strong>A01</strong><span>内容编辑</span></div>
+      <figure><img src="../AdminLogin/assets/archive-desk.png" alt="相机与摄影档案桌面" /></figure>
+    </section>
+    <section class="login-panel">
+      <p class="page-path">摄影网站 / 管理后台</p>
+      <form id="loginForm" class="login-card">
+        <div class="card-heading"><div><p class="eyebrow">WonG 摄影档案</p><h1 id="loginTitle">登录管理后台</h1></div></div>
+        <label class="field"><span>数据来源</span><select id="dataMode"><option value="server">本机网站（共享保存）</option><option value="local">旧版浏览器数据（独立预览）</option><option value="cloud">本站云端接口</option></select></label>
+        <p id="modeNote" class="protected-note"></p>
+        <label class="field" for="loginUsername"><span>用户名</span><input id="loginUsername" autocomplete="username" required /></label>
+        <label class="field" for="loginPassword"><span>密码</span><input id="loginPassword" type="password" autocomplete="current-password" required /></label>
+        <p id="loginError" class="form-error" role="alert" hidden></p>
+        <button class="primary-button full" type="submit">登录</button>
+        <a href="../Home/index.html">返回网站首页</a>
+      </form>
+    </section>
+  </main>
+  <div id="adminShell" class="admin-shell" hidden>
+    <aside class="sidebar" aria-label="后台导航">
+      <a class="brand" href="#dashboard" data-view-link="dashboard"><span class="brand-mark" aria-hidden="true"></span><span><strong>WonG</strong><small>摄影网站管理</small></span></a>
+      <nav id="sidebarNav" class="side-nav" aria-label="编辑页面"></nav>
+      <section class="sidebar-card">
+        <strong id="sidebarName">内容管理</strong>
+        <p id="storageMode" class="protected-note"></p>
+        <p id="cloudStorage" class="protected-note" role="status" hidden></p>
+        <button class="text-action" type="button" data-action="export">导出数据备份</button>
+        <button class="text-action" type="button" data-action="logout">退出登录</button>
+      </section>
+    </aside>
+    <main class="admin-main">
+      <header class="topbar">
+        <div><p class="breadcrumb">网站管理 / <strong id="breadcrumbView">管理概览</strong></p><div class="title-row"><div><h1 id="viewTitle">管理概览</h1><p id="viewSubtitle"></p></div></div></div>
+        <div class="top-actions">
+          <span id="unsavedNotice" class="unsaved-notice" hidden>本页有未保存修改</span>
+          <button class="primary-button" type="button" data-action="save-current">保存当前页</button>
+          <button class="secondary-button" type="button" data-action="reset-current">撤销本页修改</button>
+          <a id="previewLink" class="secondary-button" href="../Home/index.html" target="_blank" rel="noopener">查看前台</a>
+        </div>
+      </header>
+      <p id="editorNotice" class="editor-notice" role="status"></p>
+      <section id="viewRoot" class="view-root"></section>
+    </main>
+  </div>
+  <div id="toast" class="toast" hidden role="status" aria-live="polite"></div>
+  <div id="confirmModal" class="modal-backdrop" hidden>
+    <section class="confirm-card" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
+      <h2 id="confirmTitle">请确认操作</h2><p id="confirmMessage"></p>
+      <div class="confirm-actions"><button class="secondary-button" type="button" data-confirm-cancel>取消</button><button class="primary-button" type="button" data-confirm-ok>确认</button></div>
+    </section>
+  </div>
+  <script src="../shared/city-content.js" defer></script>
+  <script src="../shared/site-content.js" defer></script>
+    <script src="../shared/cms-pages.js" defer></script>
+  <script src="../shared/seo-meta.js" defer></script>
+  <script src="../shared/cms-data.js" defer></script>
+  <script src="../shared/home-comparison.js" defer></script>
+  <script src="../shared/project-collections.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
+</html>
